@@ -1,5 +1,0 @@
-<connectionStrings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <add name="SqlServer" connectionString="Data Source=%SqlServerAddress%;Initial Catalog=master;Integrated Security=SSPI;" providerName="system.data.sqlclient" xdt:Transform="Replace" xdt:Locator="Match(name)" />
-  <add name="OleDb" connectionString="Provider=SQLNCLI;Server=%SqlServerAddress%;Database=master;Trusted_Connection=yes;"  providerName="system.data.oledb" xdt:Transform="Replace" xdt:Locator="Match(name)" />
-  <add name="ODBC" connectionString="Driver={SQL Native Client};Server=%SqlServerAddress%;Database=master;Trusted_Connection=yes;" providerName="system.data.odbc" xdt:Transform="Replace" xdt:Locator="Match(name)" />
-</connectionStrings>
