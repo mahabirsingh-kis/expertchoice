@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" /-->
+<title>zTree</title>
+<!--meta name="robots" content="none" />
+<link rel="icon" href="../favicon.ico" type="image/ico" /-->
+<link href="../App_Themes/ec09/deco.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="../favicon.ico" type="image/ico" />
+<link href="../App_Themes/ec09/jquery-ui.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/main.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/Combobox/ComboBox.WebBlue.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/Slider/Slider.Outlook.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/Tooltip/ToolTip.Telerik.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/TreeView/TreeView.WebBlue.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/sliderbars.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/zTreeStyle.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+<script type="text/javascript" src="../Scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../Scripts/jDialog.js"></script>
+<script type="text/javascript" src="../Scripts/misc.js"></script>
+<script type="text/javascript" src="../Scripts/jquery.ztree.core.min.js"></script>
+</head>
+<body>
+<form name='theForm'>
+<script type='text/javascript'>
+
+var nodes = [[0,-1,'Goal','n0',''],[1,0,'node1','n0_1','n0'],[4,1,'n1.1','n0_1_4','n0_1'],[7,4,'n1.1.1','n0_1_4_7','n0_1_4'],[8,4,'n.1.1.2','n0_1_4_8','n0_1_4'],[5,1,'n2.1','n0_1_5','n0_1'],[6,1,'n3.1','n0_1_6','n0_1'],[2,0,'node2','n0_2','n0'],[4,1,'n1.1','n0_2_4','n0_2'],[7,4,'n1.1.1','n0_2_4_7','n0_2_4'],[8,4,'n.1.1.2','n0_2_4_8','n0_2_4'],[5,1,'n2.1','n0_2_5','n0_2'],[6,1,'n3.1','n0_2_6','n0_2'],[3,0,'node3','n0_3','n0'],[4,1,'n1.1','n0_3_4','n0_3'],[7,4,'n1.1.1','n0_3_4_7','n0_3_4'],[8,4,'n.1.1.2','n0_3_4_8','n0_3_4'],[5,1,'n2.1','n0_3_5','n0_3'],[6,1,'n3.1','n0_3_6','n0_3']];
+
+	var setting = {
+		view: {
+			dblClickExpand: false,
+			showLine: true,
+			selectedMulti: true,
+			showIcon: false
+		},
+		data: {
+			simpleData: {
+				enable:true,
+				idKey: "id",
+				pIdKey: "pId",
+				rootPId: ""
+			}
+		},
+		callback: {
+			beforeClick: function(treeId, treeNode) {
+/*				var zTree = $.fn.zTree.getZTreeObj("tree");
+				if (treeNode.isParent) {
+					zTree.expandNode(treeNode);
+					return false;
+				} else {
+					demoIframe.attr("src",treeNode.file + ".html");
+					return true;
+				}*/
+			}
+		}
+	};
+
+
+$(document).ready(function() {
+	initTree(nodes, "divHierarchy", 7);
+} );
+
+function initTree(nodes, tree_id, act_id) {
+  var lst = [];
+  for (var i=0; i<nodes.length; i++) {
+    var n = nodes[i];
+    lst.push({id:n[3], pId:n[4], name:n[2], open:true});
+  }
+  $.fn.zTree.init($("#" + tree_id), setting, lst);
+
+  var zTree = $.fn.zTree.getZTreeObj(tree_id);
+  for (var i=0; i<nodes.length; i++) {
+    if (nodes[i][0] == act_id) zTree.selectNode(zTree.getNodeByParam("id", nodes[i][3], null), true);
+  }
+}
+
+</script>
+
+<div id='divHierarchy' class="ztree" style='height:400px; width:250px; overflow:auto;'></div>
+
+</form>
+</body>
+</html>

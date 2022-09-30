@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="40" viewBox="0 0 42 40">
+  <g id="Group_1221" data-name="Group 1221" transform="translate(-1360 -184)">
+    <g id="snowman" transform="translate(-1943 -407)">
+      <rect id="Rounded_Rectangle_15" data-name="Rounded Rectangle 15" width="42" height="40" rx="5" transform="translate(3303 591)" fill="#0058a3"/>
+    </g>
+    <g id="Snow_man" data-name="Snow man" transform="translate(1379 197)">
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="2.1" cy="2.1" r="2.1" fill="#fff"/>
+      <circle id="Ellipse_3_copy" data-name="Ellipse 3 copy" cx="2.1" cy="2.1" r="2.1" transform="translate(0 5.9)" fill="#fff"/>
+      <circle id="Ellipse_3_copy_2" data-name="Ellipse 3 copy 2" cx="2.1" cy="2.1" r="2.1" transform="translate(0 11.8)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

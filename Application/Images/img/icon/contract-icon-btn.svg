@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="contract-icon-btn" transform="translate(-354 -385)">
+    <g id="Group_944" data-name="Group 944" transform="translate(-770.887 -13)">
+      <g id="Group_614" data-name="Group 614" transform="translate(1124.887 398)">
+        <rect id="Rectangle_9_copy_7" data-name="Rectangle 9 copy 7" width="34" height="34" rx="5" fill="#e7edf6" style="mix-blend-mode: multiply;isolation: isolate"/>
+      </g>
+    </g>
+    <g id="contract-icon" transform="translate(0.926 58.564)">
+      <path id="full-screen-svgrepo-com" d="M8.564,9.607l5.043,5.043L11.13,17.127h6v-6L14.65,13.607,9.607,8.564Z" transform="translate(351.511 361.563) rotate(-90)" fill="#354052"/>
+      <path id="full-screen-svgrepo-com-2" data-name="full-screen-svgrepo-com" d="M8.564,9.607l5.043,5.043L11.13,17.127h6v-6L14.65,13.607,9.607,8.564Z" transform="translate(388.201 361.563) rotate(-180)" fill="#354052"/>
+      <path id="full-screen-svgrepo-com-3" data-name="full-screen-svgrepo-com" d="M8.564,9.607l5.043,5.043L11.13,17.127h6v-6L14.65,13.607,9.607,8.564Z" transform="translate(351.511 324.873)" fill="#354052"/>
+      <path id="full-screen-svgrepo-com-4" data-name="full-screen-svgrepo-com" d="M8.564,9.607l5.043,5.043L11.13,17.127h6v-6L14.65,13.607,9.607,8.564Z" transform="translate(388.201 324.873) rotate(90)" fill="#354052"/>
+    </g>
+  </g>
+</svg>

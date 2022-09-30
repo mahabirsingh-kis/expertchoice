@@ -1,0 +1,147 @@
+/***** sidebar menus *****/
+
+.leftsidebar-menus .sidepanel  {
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	height: 100vh;
+	top: 65px;
+	left: 0;
+	background-color: var(--Light-Blue);
+	overflow-x: hidden;
+	transition: 0.5s;	
+	border-right: 1px solid;
+	border-color: var(--Spanish-Gray);
+    border-top: 1px solid; 
+    padding-bottom: 76px;
+}
+  
+.sidebar-menus-link {
+	padding: 11px 0px;
+	text-decoration: none;
+	font-size: 16px;
+	display: flex;   
+    transition: 0.3s;    
+    margin-left: 13px;
+    margin-right: 13px;
+    padding-left: 10px;
+	align-items: center;
+	white-space: nowrap;
+	position: relative;
+}
+.sidebar-menus-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background: var(--Spanish-Gray);
+    width: 100%;
+    left: 0px;
+    opacity: .3;
+    right: 0px;
+}
+.sidebar-head-title .heading-title {
+    font-size: 20px;
+    margin: 0;
+    line-height: 30px;
+    font-weight: bold;
+    padding-left: 10px;
+    white-space: nowrap;
+} 
+
+.sidebar-header-info,
+.sidebar-sub-head-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 13px;
+    margin-right: 13px;
+    padding: 20px 0px 25px;
+    border-bottom: 1px solid;
+    border-color: var(--Spanish-Gray);
+}  
+
+.home_menu:hover {
+    cursor: pointer;
+}
+.sidebar-menus-link .icons-info {
+    padding-right: 10px;
+}
+
+/** Choose Columns **/
+
+.dropdown-menu-choose-options-info, .dropdown-menu-choose-options-info-1 {
+    position: absolute;
+    top: 43px;
+    right: 0;
+    min-width: 32em;
+    padding: 1.5em;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 8%);
+    border-radius: 10px;
+    background-color: var(--White);
+    z-index: 2;
+    display: none;
+}
+.dropdown-menu-info .checkbox_label {
+    font-size: 15px;    
+}
+.dropdown-menu-info .form-group {
+    margin-bottom: .25em;
+}
+.dropdown-show-hide-all-wrapper {
+    border-top: 1px solid;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0.5em;
+    margin-top: 0.25em;
+    border-color: var(--mid-gray);
+}
+.dropdown-show-hide-all-info .form-group {
+    margin-right: 0.75em;
+}
+.dropdown-show-hide-all-wrapper > div {
+    padding: 0;
+}
+
+.main-dropdown-menu-info .form-group .checkbox_label::before{
+    border-color: var(--Primary-Blue);
+}
+.applyall-cta-info .btn {
+    /* min-width: 105px; */
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.leftsidebar-menus .sidebar-header-info {
+    position: sticky;
+    top: 0;
+    background: var(--Light-Blue);
+    z-index: 2;
+}
+
+/***** Media queries *****/
+@media screen and (min-width:1400px) and (max-width:1899px){
+    #mySidepanel {
+        max-width: 310px;
+    }
+    .sidebar-menus-link{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+@media screen and (min-width:1200px) and (max-width:1799px){
+    .leftsidebar-menus .sidebar-menus-info {
+        padding-bottom: 6em;
+    }    
+}
+@media screen and (min-width:1200px) and (max-width:1399px){
+    #mySidepanel {
+        max-width: 300px;
+    }
+    .sidebar-menus-link{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+}
+

@@ -1,0 +1,247 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CanvasWebBase
+</name>
+</assembly>
+<members>
+<member name="P:ExpertChoice.Web.DataGridModule.SelectedColumns(ExpertChoice.Data.clsProject)">
+ <summary>
+ String, containing visible attributes GUIDs delimited with ","
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ExpertChoice.Web.DataGridModule.HiddenColumns(ExpertChoice.Data.clsProject)">
+ <summary>
+ String, containing hidden attributes GUIDs delimited with ","
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Web.XSS.RemoveXssFromLdap(System.String)">
+ <summary>
+ Returns a new LDAP string after removing vulnerable characters
+ </summary>
+ <param name="vulnerableString"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Web.XSS.RemoveXssFromText(System.String)">
+ <summary>
+ Returns a new string after removing vulnerable characters
+ </summary>
+ <param name="vulnerableString"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Web.XSS.RemoveXssFromUrl(System.String,System.Boolean)">
+ <summary>
+ Returns a new URL string after removing vulnerable parameters or replacing vulnerable characters
+ </summary>
+ <param name="url"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Web.XSS.RemoveVulnerableCharacters(System.String,ExpertChoice.Web.XSS.XssType)">
+ <summary>
+ Returns a new string after replacing vulnerable characters
+ </summary>
+ <param name="vulnerableString"></param>
+ <param name="type"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Web.XSS.GetVulnerableStringsForUrl">
+ <summary>
+ Returns list of vulnerable characters and strings for URL
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ExpertChoice.Web.clsComparionCorePage.ShowTopNavigation">
+ <summary>
+ By default is false. You can override that option for force to show top line menu when ShowNavigation=False (left panel is hidden)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Web.clsComparionCorePage.Authenticate(System.Collections.Specialized.NameValueCollection,System.String@,System.String@,ExpertChoice.Data.ecAuthenticateWay)">
+ <summary>
+ Perform web user authentication
+ </summary>
+ <param name="tParamsOrig"></param>
+ <param name="sErrorMessage"></param>
+ <param name="sRedirectURL"></param>
+ <returns></returns>
+ <remarks>IsLoggedInWithMeetingID property should be set properly before this call</remarks>
+</member>
+<member name="T:ExpertChoice.Web.Options">
+ <summary>
+ Module with run-time options from web.config file and web-server parameters.
+ </summary>
+ <remarks>Could be used like as Options.*, when this unit is not imported</remarks>
+</member>
+<member name="F:ExpertChoice.Web.Options._TEMPL_APPNAME">
+ <summary>
+ Template for empty infodoc, which should be converted to HTML
+ </summary>
+ <remarks>Parse via String.Format, 0 -- Content, 1 - Title</remarks>
+</member>
+<member name="F:ExpertChoice.Web.Options._EXPIRE_COOKIES">
+ <summary>
+ Timeout in seconds for cookies expiration on client-side. By default -- near the 1 month.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:ExpertChoice.Web.WebOptions">
+ <summary>
+ Module with run-time options from web.config file and web-server parameters.
+ </summary>
+ <remarks>Could be used like as Options.*, when this unit is not imported</remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_CANVASMASTERDB">
+ <summary>
+ Web.config option name for store Master CanvasDB name
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_CANVASPROJECTSDB">
+ <summary>
+ Web.config option name for store Username for access to SQL Server
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_DEFLANG">
+ <summary>
+ Web.config option name for define pre-defined .resx-file with language
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_SHOW_LANGS">
+ <summary>
+ Option for show languages selector. By default is true
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FORCESSL">
+ <summary>
+ Web.config option name for use Application via forced SSL connection
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_SMTPSSL">
+ <summary>
+ Web.config option name for use secure connections for SMTP
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FOGBUGZ_URL">
+ <summary>
+ Web.config option name for store FogBugz URL (http://)
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FOGBUGZ_USERNAME">
+ <summary>
+ Web.config option name for store FogBugz ScoutName for post feedbacks
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FOGBUGZ_PROJECT">
+ <summary>
+ Web.config option name for store FogBugz ScoutProject for post feedbacks
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FOGBUGZ_AREA">
+ <summary>
+ Web.config option name for store FogBugz ScoutArea for post feedbacks
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FOGBUGZ_INBOX">
+ <summary>
+ Mailbox for sending bug reports to FogBugz inbox
+ </summary>
+ <remarks>By default is empty. Use address like "cases@....fogbugz.com" </remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_FOGBUGZ_AUTOSUBMIT">
+ <summary>
+ FogBugz feedback submission: 1 for auto-submit and hide "Feedback" button. By default is disabled for local instances.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_TRACE_ENABLED">
+ <summary>
+ Option for enable/disabled trace/output info. Set "1" for enable when debugging. By default is "0".
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_LOCKTIMEOUT">
+ <summary>
+ Web.config option name for store project lock timeout
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_LOADONDEMAND">
+ <summary>
+ Web.config option name for store LoadOnDemand option
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_SYNCHRONOUS_REFRESH">
+ <summary>
+ Period in second for send request on Evaluation screen during Synchronous sessions
+ </summary>
+ <remarks>By default is 5</remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_SHOW_DRAFT">
+ <summary>
+ Show unfinished screens in navigation
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Web.WebOptions._OPT_SLSHELL_BY_DEFAULT">
+ <summary>
+ Use this option for force all not-secured requests to HTTPS calls (value="1/0"). By default is "0".
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Web.WebOptions.ShowLanguages">
+ <summary>
+ Show languages selector.
+ </summary>
+ <returns>True, when select languages available</returns>
+ <remarks>True by default</remarks>
+</member>
+<member name="M:ExpertChoice.Web.WebOptions.ForceSSL(System.Web.HttpRequest)">
+ <summary>
+ Use for check ["Upgrade-Insecure-Requests"] header request from browser for switch to SSL connection
+ </summary>
+ <returns>True by default</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Web.WebOptions.SMTPSSL">
+ <summary>
+ Use SSL connection for SMTP
+ </summary>
+ <returns>False by default</returns>
+ <remarks></remarks>
+</member>
+<member name="P:ExpertChoice.Web.WebOptions.SystemEmail">
+ <summary>
+ System e-mail (was Customer Service email)
+ </summary>
+ <returns></returns>
+ <remarks>Used in warning and error messages, on start page</remarks>
+</member>
+<member name="M:ExpertChoice.WebAPI.jOnlineUser.CreateFromBaseObject(ExpertChoice.Data.clsOnlineUserSession)">
+ <summary>
+ Please note: isPM property is not filling
+ </summary>
+ <param name="tSession"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.WebAPI.jProject.FillProjectData(ExpertChoice.Data.clsComparionCore,ExpertChoice.WebAPI.jProject@,ExpertChoice.Data.clsProject)">
+ <summary>
+ Fill all project data after call jProjectShort.CreateFromBaseObject(). Please note, it doesn't call ProjectFillOwner() and not init .OnlineUsers
+ </summary>
+ <param name="tPrj"></param>
+ <param name="proj"></param>
+</member>
+</members>
+</doc>

@@ -1,0 +1,421 @@
+'L0001
+    *changed "Overview of Structure" report, to getting data from clsProjectDataProvider
+'L0002
+    *changed "Global Logs" report, to allow use different data providers
+'L0003
+    +added "Percent Priority", "Percent Contribution", "Percent Of Best" and "Percent Of Pie" buttons to Advanced Analysis Grid view
+'L0004
+    *fix bugID 1332: Remove horizontal grid lines (or find better solution) because they are misleading
+    *fix bugID 1334: Formating of alternative priorites needs fixing
+    *Removed some extra checks for old Flash Player versions in Performance analysis (PA.swf) and Dynamic Analysis (DA.swf)
+'L0005
+    +added "Create Group Filter" and "Groups Response Overview" tabs in Spyron Editor to view filtered statistic grid based on Respondent answers
+'L0006
+    *fix redirect page after creating new filter group
+    +added input field for filter group name at the last page of filter group wizard
+'L0007
+    +added icons for Advanced analysis toolbar
+'L0008
+    * fixed bug with graph bars normalization on "Groups Response Overview" tab
+    * fix bugID #1364 Difficult to see 'current step' (changed color styles for evaluation steps buttons)
+    * minor fix in Spyron Group filter wizard
+'L0009
+    * inserting flash area selector into Spyron page for Places Rated project (now works on localhost only. To available on placesrated.expertchoice.com need to change key.swf file, also need to remove Ok and Cancel buttons)
+'L0010
+    * changed procedures in \App_CODE\clsDaraProvider.vb to remove odbc provider
+'L0011
+    + added open questions to group filter analysis page
+    + added Results Overview tab to Spyron Editor
+    * fixed javascript bug on initializing places rated state selector
+'L0012
+    * fixed refresh bug in places rated area selector page
+'L0013
+    * reduce number of characters for nodes captions in advanced Analysis grid
+'L0014
+    + added judgements comments viewing to advanced analysis grid
+'L0015
+    + added Sort button to flash DSA (fix bugID #1366 Sort dynamic sensitivity by priority enhancement)
+'L0016
+
+'L0017
+    + add showmax parameter to DSA flash to show only n-top alternatives
+'L0018
+    + add qtObjectivesSelect and qtAlternativesSelect question types to Spyron
+'L0019
+    * fixed bug with saving Answers in Spyron Survey (bug appear after 'L0018 changes)
+'L0020
+    * create Stream Approach for Spyron DB read/write functions
+'L0021
+    * DA.swf update (fix bug with init bars jumping)
+'L0022
+    + Implemented Save Stream Surveys to/from binary files
+    + Added Save Respondents Answers procedure to SaveStreamSurvey function
+    * Fixed bug with Question Edit panel view in Evaluate mode of Survey control
+'L0023
+    + Add routines to save and load Filtered Groups
+    + Add Rule property to GroupFilter class
+    + Add clsRuleExpressionSolver to Calculate Rule Expressions for Group Filter using clsMacros
+'L0024
+    + Add Delete Group filter button
+    + Create routine to compile Group filter Rule as string
+    + Add Refresh Group filter button
+'L0025
+    * fix bug with incorrect downloading Stream Surveys
+    + Add "NOT", "AND", "OR" operators to Group Filters Rule expression
+    + Add Information field to show resulted rule for new Group Filter
+    + Add Property to clsGroupFilter to show Readable Rule Text
+'L0026
+    * fix Move Pages/Questions Up/Down in Survey Editor
+    * clean up clsSurvey Class
+'L0027
+    + Add ctrlSurveyQuestion.ascx control
+    + Add NewQuestion.aspx draft page to create new Question using wizard
+    * Insert ctrlSurveyQuestion.ascx control into NewQuestion.aspx wizard to preview resulted Question
+'L0028
+    * Change method of creating rule for Group Filter
+    + Create ctrlSurveyPageView.ascx control
+'L0029
+    * fix URLs for Expand button images
+    * fix URLs for Infodoc button
+    - remove temporary workaround code for known SL beta 2 bug with tab controls events
+    * add changing image from "-" to "+", depends on node expanded/collapsed at Advanced Analysis 
+'L0030
+    * fix bugID #1679: Logs sorting 
+    * fix bugID #1680: Incorrect time values in Global Logs
+'L0031 Temporary update message at the start page (on Hemanth request)
+'L0032
+    * Change Predefined reports to get Titles from Resource File
+'L0033
+    * fix bugID #1732 TeamTime -- Performance Analysis lines blinking on refresh data from the web server
+'L0034
+    + Add new SurveyEdit.aspx page (excluded old one) for editing Surveys
+    + Add ctrlSurveyPageView.ascx control for viewing Survey Pages
+    + Add NewQuestion.aspx page for wizard-based question creating
+    + Add ctrlSurveyQuestion.ascx control for viewing Survey Questions
+'L0035
+    + Add event handler to "cancel" button in New Question wizard
+    * changed view of edit buttons for question control
+    * fixed title of new survey page
+    * create routines to read strings for Spyron from resource file
+    + Add new strings to English.resx file for Spyron
+'L0036
+    * fix bugID #1760 RTE: 'Multiple controls with the same ID 'ctl00$...$cQuestion102673aa-3cf8-4d69-b2c...
+'L0037
+    + Add EditQuestion.aspx page to edit existing questions
+'L0038
+    * fix problem with add/edit/delete Respondent Groups
+'L0039
+    + add Edit column to Respondents Grid View, to make ability changing Respondent's Group
+'L0040
+    + add functions to clsSurvey to navigate between pipe steps
+    + add ReadAnswer method to ctrlSurveyQuestion control to collect Respondent Answers from Survey Question
+    + add ReadPageAnswers method to ctrlSurveyPageView control to collect Respondent Answers from Survey Page
+    * add extra checks to prevent disabling of main Goal in the Objectives select question
+    * fixed problem with updating evaluation pipe steps after saving user disabling nodes
+'L0041
+    * change way of rendering Objectives hierarchy in Survey page for Select objectives question type
+'L0042
+    + add clsRespondentAnswersDS data source for Survey Filtered Results Overview
+    * changed Survey Results Overview table to ASPxGridView control with Filter Bar
+'L0043
+    * changed ctrlSurveyPage.ascx to ctrlSurveyPageView.ascx contol in Evaluation/Test.aspx page
+    * changed CreateSurvey Sub in Evaluation/Test.aspx page
+    + add GetPrevPage function to clsSurveyPage class
+    + add GetSurveyStepsCountByGUID, IsStaticSurveyByGUID and GetSurveyStepsInformationByGUID functions to clsSurveysManager
+    + add IsStatic and StepCount functions to clsSurvey
+    * apply changes from 'L0040, 'L0041 to ctrlSurveyPageView control
+    + add SurveyInfo property to ctrlSurveyPageView to make able saves respondent answers
+    * fixed Respondent's answers viewing procedure for Variants Question Types
+'L0044
+    * fixed bug in Survey StepCount function 
+    + add Charts tab to Advanced Analysis page
+'L0045
+    * changed ComboBox control in the Advanced Analysis page    
+    * fixed incorrect text breaking and wrapping in the Advanced Analysis Data Grid
+    - excluded ComboBox.xaml (custom ComboBox control) from AdvancedAnalysis project
+    + add function to update Chart data on User changing
+    + add node name and user name to Chart datapoints tooltips
+'L0046
+    + add UI to change Required property for Survey Questions
+    + add JavaScript to ctrlSurveyQuestion.ascx control to handle Required Question scenario
+'L0047
+    * removed Goal node from Advanced Analysis Charts
+    + add UI and functions to change and store Max and Min selected Variants property for Survey Questions
+'L0048
+    + add JavaScript to ctrlSurveyQuestion.ascx control to handle Min and Max Answer items scenario
+    * fixed JavaScript for Required Question scenario
+    + add message text to ctrlSurveyQuestion.ascx control if question has Min or Max Answer items
+    + add String Properties to ctrlSurveyQuestion.ascx for Required, Min and Max answers scenario alerts
+'L0049
+    + add JavaScripts and fixed some bugs to operate with "other" answers for Radio List Questions.
+'L0050
+    + add UI for "other" answer variant editing to EditQuestion.aspx page for
+    * changed layout of UI controls at EditQuestion.aspx page
+    * changed CheckList Question form to allow edit "Other" answer variant's label
+'L0051
+    * fix bugID #1909 RTE: 'Object reference not set to an instance of an object.' [70010]
+'L0052
+    + add GetSurveyPageActionXML function in clsSurveysManager to create XML-based data for Survey Pages
+'L0053
+    + add ctrlSurveyQuestion control to SLPipe project
+    + add PageIndex attribute to Survey Page XML description
+    * temp update ctrlSurveyPage control in SLPipe project
+'L0054
+    + add OpenLine, OpenText, DropDown, CheckList, RadioList and Comment Question types (ReadOnly mode) to ctrlSurveyQuestion.xaml control
+'L0055
+    + add code to show Respondent answers in SLPipe SurveyPage control (ReadOnly mode)   
+'L0056
+    + add necessary Resource keys to English/Russian resx for SurveyPage control for Core and SLPipe application
+'L0057
+    + add code to read Resource strings for CheckList Question with min/max variants restriction in ctrlSurveyQuestion.xaml control
+'L0058
+    + add DevExpress Filter Control to Create Group Filter tab in Survey Editor
+    * fix Question List table at Create Group Filter tab to show only Pages with supported question types
+    - remove rule textbox from Create Group Filter tab
+    + add dataset object to generate resulted Group Filter Respondent List
+    + add GridView control to show resulted Group Filter Respondents List based on rule created with Filter Control
+'L0059
+    + add WriteToXML function to ctrlSurveyQuestion control
+    + add WriteToXML function to ctrlSurveyPage control
+    + add Function ReadSurveyPageActionFromXML
+'L0060
+    * minor changes in ctrlSurveyQuestion control
+    + add routines to parse Response XML from SLPipe and save Respondent answers to Insight database
+    + add Optional 'UserName' Parameter to ReadSurveyPageActionFromXML function
+'L0061
+    * change default page name to "Page 1"
+    + add text box for editing Page Title
+    - remove textbox and button from toolbar for editing Page Title
+'L0062
+    + add "Clear" button for ComboBox and RadioList Questions in ctrlSurveyQuestion.ascx and ctrlSurveyQuestion.xaml controls
+    * adjust SLPipe Survey Page controls alignment and style
+    * apply multiline mode for Open Memo Question in SLPipe
+    + add code to control min/max variants select restrictions in ctrlSurveyQuestion.xaml
+'L0063
+    * updated ctrlAdvancedUC.xaml control (add Lagrange method to draw graph, add visual input method, adjust visual style, etc.)
+'L0064
+    + add vertical Value Point marker to ctrlAdvancedUC.xaml and ctrlRegularUC.xaml
+    * initialize vertical marker position at loading ctrlAdvancedUC.xaml and ctrlRegularUC.xaml
+    * allow direct input data to textbox field in ctrlAdvancedUC.xaml and ctrlRegularUC.xaml
+    * updated ctrlRegularUC.xaml control (add Regular UC method to draw graph, add visual input method, adjust visual style, etc.)
+'L0065
+    * fixed bug with registering new Respondent at SLPipe Survey Page
+'L0066
+    * fixed bug in ReadRespondentsDataFromStream for removed questions
+    * fixed bug in CheckBox Questions at SLPipe Survey Page
+'L0067
+    * remove UI for old-style Group Filter Creator
+    * add code to save GroupFilter, based on DevExpress Filter Control
+    * add code to update Filter Group based on DevExpress Filter Control
+    - remove Objectives/Alternatives Select Question types from Result Analysis screens
+    * allow to use Open Question Types in Group Filtering
+    * moved Namespace Spyron.DataSources From AppCode/clsDataProvider to SpyronControls/clsDataProvider.vb project
+    * changed ReadableRule property in clsGroupFilter
+    + add RefreshGroupFilterRespondents Sub to clsSurvey 
+'L0068
+    + add checkbox to select/deselect all question in Group Filter Wizard
+    * fixed bug with updating create Group Filter wizard steps
+    * change Rule viewing in Group Filter wizard
+    * change Question table style in Create Group Filter wizard
+'L0069
+    + add Export toolbar to Survey Results Overview tab
+    + add Group panel to Survey Results Overview Grid
+    * hide some Draft tabs in Survey Editor
+'L0070
+    * hide Respondents and Results tabs in Survey Editor if Survey has template status
+    + add State property to clsSurveyPage
+    + add GroupFilter.aspx page to create new Group Filters and edit existed filters
+    + add Group Filters tab to SurveyEdit.aspx page to manage filters
+    - remove Create Group Filter and Groups Response Overview tabs
+'L0071
+    * changed styles of Survey Editor Tabs
+    - remove Respondents grid from Create Group Filter Wizard
+    * add some checks to prevent creating empty filters
+    + add Statistic Results GridView with export toolbar at Results Overview tab
+'L0072
+    * create Master-Detail GridView for Respondent Groups - Respondents datasources at Respondents tab
+    - remove Respondent Groups tab
+    + add Combobox to apply GroupFilters for Results Overview tab
+'L0073
+    + add State property to Write/Read function in clsDataProvider
+'L0074
+    + add Description for Objectives Report
+    + add ApplicationButtonImage
+'L0075
+    + add Overall Report template
+    + add Description for Alternatives Report template
+    + add Objective Hierarchy Report template
+    + add Alternative priority for the combined user Report template
+    + add Objective priority for the combined user Report template
+'L0076
+    + add some Icons for Ribbon toolbar
+    + add test chart Report Template
+'L0077
+    + add agGridView to ObjectivesReportView.xaml to show Objectives description
+'L0078
+    + add DescriptionForObjectives and DescriptionForAlternatives Documentation reports
+    + add Visifire chart control to ObjectivesReportView.xaml to show Objectives Priorities
+    + add AlternativesReportView.xaml control as copy of ObjectivesReportView.xaml
+'L0079
+    + add few icons
+    + add icons.ai (to store icon sources at SVN)
+    * Changed Objectives Chart Title
+'L0080
+    * Adjust AlternativesReportView.xaml control to receive correct data from service
+    + add ChartType property to AlternativesReportView.xaml and ObjectivesReportView.xaml controls
+    * Adjust DescriptionForAlternativesAllInOne Report to receive correct data from service
+'L0081
+    + add few icons
+    * fixed bug with Pie and Doughnut legend
+    * fixed bug with 3D Columns charts
+'L0082
+    + add and updated some icons
+    * adjust ModellingReportView control
+    + add few classes for modelling reports gridview sources
+'L0083
+    * fixed problem with String to Double converting
+'L0084
+    + add LoadingSpin control to WaitControl.xaml
+    + add RadGridView to ModellingReportView.xaml instead of AgDataGrid
+'L0085
+    + add Review Icons
+'L0086
+    + add View and Chart Types Icons
+'L0087
+    + adjust Chart Type Icons
+    + add Design Incons
+'L0088
+    + add ViewLogs.aspx page
+'L0089
+    + add Time column to View Global Logs Grid
+    * fixed SQL query for Global Logs
+    + add Autoupdate feature for Global Logs Grid
+'L0090
+    * fix bugID #1997 Extra text in custom field (Insight steps as part of evaluation)
+'L0091
+    - removed local priorities series from Objectives Chart
+    * make datapoints painted with same colors (blue for Objectives and green for Alternatives except pie and doughnut chart types)
+    * add fake columns to Column chart type if there are less then 8 data points (to make real columns narrower)
+'L0092
+    + add Rating Scale Modelling Report, based on ECReporting Snapshots
+'L0093
+    + add Step Function Modelling Report
+    - remove indicator panel from RadGridView Control for Modelling Reports
+    * adjust Columns formatting for Rating Scale Modelling Report
+'L0094
+    + add GridViewDataClasses.vb module to Reporting.Infrastructure
+    * move all DataSource related classes for GridView to GridViewDataClasses.vb
+    + create GridViewDataParser class and bind GridView's ItemsSource to GridViewDataParser.GridViewDataSource property
+'L0095
+    + add few classes to operate with GridView Columns options (HeaderTexts, TextAlignment, DataFormatString, etc.)
+'L0096
+    + add DSABar DataTemplate for Dynamic Sensitivity analysis
+    + add DSABarModel and DynamicModel classes to operate DSA data
+    + add DSA Init Data parser
+    + add Mouse Events Handlers for Objectives to Dynamic.xaml
+'L0097
+    * minor changes in Mouse Event Handler for Objectives
+    + add HierarchyNode and UserDescription classes
+    * changed parser function to fill new Hierarchy structures
+'L0098
+    + create and embed Silverligt test page control
+'L0099
+    + add parser routine for initializing AppModel in OverallResults application
+    + add structures for storing and operate with Hierarchy, Alternatives and Users in OverallResults application
+'L0100
+    * fixed bug with incorrect refreshing DSA data on opening tab
+    + create routine to recalculate alts global priorities on client side
+'L0101
+	+ add the “Display Objective Path” option (default: off) to all necessary Reports
+	* changed the title of the first column from “Node Path” to “Alternative” for Priority of Alternatives report
+'L0102
+    * remove white background from DSA bar template
+    * fixed problem with duplicated nodes in Page.xaml.vb parser routine
+'L0103
+    + add "Sort alternatives" option to DSA
+'L0104
+    + add CombinedHierarchy property to ApplicationModel for TreeView DataSource
+'L0105
+    + add ability to calculate DSA for selected Node
+'L0106
+    + add PSABarModel and Performance analysis classes
+	
+'L0107
+    * Add more space between the column displaying the objective tree and the column displaying Alternatives
+    * Add underlined titles “Objectives” and “Alternatives” to the columns for "Overview of structure" report
+    + Add two options: “Display Local Priorities” and “Display Global Priorities” for "Priority of Objecties" report
+    + Add three options: “Display Local Priorities”, “Display Global Priorities” and “Display Alternative Priorities” for "Objectives/Alternatives Priorities" report
+'L0108
+    + Add a third column “Alternative Priority” for "Objectives/Alternatives Priorities" report
+'L0109
+    * Add MouseLeave event handler to DSA control
+    * Add Normalization to Alts priorities calculation
+    + Add Normalize option to DSA control
+'L0110
+    + Add "Sort" button to DSA control
+    * rename "Sort alternatives" checkbox to "Keep sorted"
+    * Replace xrLabel to xrRichText to Display Infodocs instead Comments in Reports
+    + Add "Display Objective descriptions" checkbox for "Overview of objectives" report
+'L0111
+    + Add Draft for Gradient analysis control
+'L0112
+    + Gradient Analysis implemented
+'L0113
+    + Add Reset Button to DSA Control
+    * Change DSA panes caption alignments
+    * Fix bug with DSA objectives bar drag for more then 7 Objectives
+'L0114 Draft version of Performance Sensitivity Analysis
+'L0115
+    * Fixed RTE 500 View Logs page bug
+    - removed autoupdate View Logs option
+'L0116
+  + add Dynamic Lines to PSA
+  + add Normalization to PSA Chart
+  * adjust PSA Bars
+'L0117
+    + add Scale to PSA
+    + add auto-height of PSA Objectives
+'L0118
+    + auto-width to DSA Bars applied
+    * PSA Bars alignment correction
+    * Adjust DSA and PSA bars style
+'L0119
+    * Fixed BugID# 2137: Move report options to the top
+    * Fixed BugID# 2136: Objectives should not show a value in Alternative Priority column
+    * Apply font styles to DSA and PSA tabs
+    * reduced height of PSA alternatives
+    * Space the objective bars of PSA to take advantage of all space available
+    * Fixed BugID# 2139: Infodocs don't render correctly in Priority of Alternatives report
+    * Fixed BugID# 2138: Displaying InfoDocs should only be optional in reports
+'L0120
+    * Fixed BugID# 2135: RTE on Overview of Inputs in empty project
+'L0121
+    * Removed the last segment of each line (between the scale and the alternative boxes)
+'L0122
+    * Fixed BugID# 2142: Do not show empty infodocs in reports
+'L0123
+    * Fixed BugID# 2145: Typo and wording in reports
+'L0124
+    + Add Overall Results Icons
+'L0125
+    * Adjust Overall Results Icons to make them more sharper
+    * Remove Toolbar buttons text
+'L0126
+    * set Active User Priorities to Structure Tree on Active user changed
+'L0127
+    * Fixed BugID# 2155: Add mouseover to alternative names in performance analysis
+'L0128
+    * Set Min / Max Y Axis values for Gradient Analysis Chart
+'L0129
+    * Fixed BugID# 1527: RTE: 'Invalid object name 'Surveys'.' [70000]
+'L0130
+    * auto-adjust ticks intervals for gradient analysis chart
+'L0131
+    * removed Line markers from Gradient Analysis
+    * updated Visifire dll up to 2.2.6 version (Trend line going moved faster in GA)
+'L0132
+    * Fixed BugID# 2163: Immediate Development Actions (from OneNote)
+
+---------------------------------------------------------------------------------------
+To do list:
+    

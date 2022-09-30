@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g id="result-dashboard-icon" transform="translate(-0.867 -0.867)">
+    <rect id="Rectangle_985" data-name="Rectangle 985" width="4" height="1" transform="translate(6.867 11.867)" fill="#010101"/>
+    <rect id="Rectangle_986" data-name="Rectangle 986" width="1" height="1" transform="translate(4.867 11.867)" fill="#010101"/>
+    <rect id="Rectangle_987" data-name="Rectangle 987" width="4" height="1" transform="translate(6.867 8.867)" fill="#010101"/>
+    <rect id="Rectangle_988" data-name="Rectangle 988" width="1" height="1" transform="translate(4.867 8.867)" fill="#010101"/>
+    <rect id="Rectangle_989" data-name="Rectangle 989" width="4" height="1" transform="translate(6.867 5.867)" fill="#010101"/>
+    <rect id="Rectangle_990" data-name="Rectangle 990" width="1" height="1" transform="translate(4.867 5.867)" fill="#010101"/>
+    <path id="Path_330" data-name="Path 330" d="M14.8,3.471H13.333V2.98a.98.98,0,0,0-.98-.98H8.431a.98.98,0,0,0-.98.98v.49H5.98a.98.98,0,0,0-.98.98V14.745a.98.98,0,0,0,.98.98H14.8a.98.98,0,0,0,.98-.98V4.451A.98.98,0,0,0,14.8,3.471ZM8.431,2.98h3.922V4.941H8.431ZM14.8,14.745H5.98V4.451H7.451V5.922h5.882V4.451H14.8Z" transform="translate(-2.525 -0.996)" fill="#010101"/>
+    <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" width="14" height="14" transform="translate(0.867 0.867)" fill="none"/>
+  </g>
+</svg>

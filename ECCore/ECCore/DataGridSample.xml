@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--This xml will be returned by the web service when data grid is requested
+Xml has simple structure of objectives hierarchy, rating scales (if needed),
+list of covering objectives, list of alternatives and actual cells-->
+
+<DataGrid> <!--This will be the root element of the xml-->
+  <Hierarchy>
+    <!--"Node" nodes describe the structure of objectives hierarchy
+    Hierarchical relationships between nodes are represented by nested nature of nodes -->
+    <Node Name="Goal" ID="0"> <!--We only need node name and ID (we need ID to reference to it later)-->
+      <Node Name="Obj1" ID="1" /><!--Of course, there can be many nested levels depending on the hierarchy structure-->
+      <Node Name="Obj2" ID="2" />
+      <Node Name="Obj3" ID="3" />
+      <Node Name="Obj4" ID="4" />
+    </Node>
+  </Hierarchy>
+  
+  <!--Here we will describe ratings scales that are used in our model.
+  There might be a situation when none of the covering objectives is using ratings measurement type.
+  In this case this node will be empty-->
+  <RatingScales>
+  <!--There can be several RatingScale nodes, one for each rating scale-->
+    <RatingScale Name="Default Rating Scale" ID="0"><!--We need a name of rating scale and ID to reference it-->
+        <!--List of intensities-->
+        <Intensity Name="Low" ID="0" Value="0.1"/>
+        <Intensity Name="Medium" ID="1" Value="0.5"/>
+        <Intensity Name="High" ID="2" Value="0.9"/>
+    </RatingScale>
+  </RatingScales>
+  
+  <!--We will have a separate list of covering objectives.
+  We just name an ID of the node that is a covering objective, specify measurement type
+  and depending on measurement type we will might some other attributes.
+  Meaning of measurement types (MT):
+  0 - Pairwise. No additional data (attributes) needed here
+  1 - Ratings. In this case we put ScaleID which references to the rating scale defined before
+  2 - Simple Utility Curve
+  5 - Direct
+  6 - Step Function
+  7 - Advanced Utility Curve
+  For items 2,5,6,7 we specify Xmin and Xmax
+  IDs of measurement types are exactly the same as in ECCore
+  
+  IMPORTANT: If covering objective doesn't even have a MT attribute this means 
+  that we cannot measure any of the alternatives with respect to this covering objectives.
+  This can be either because of alternatives contribution, user permissions or data instances.
+  So, this way we don't need to pass any cells information for this covering objectives 
+  and just make the whole column in the Data Grid disabled for entering values and grey it out.-->
+  <CoveringObjectives>
+    <CovObj ID="1" MT="0"/>
+    <CovObj ID="2" MT="1" ScaleID="0"/>
+    <CovObj ID="3" MT="2"/>
+    <CovObj ID="3"/>
+  </CoveringObjectives>
+  
+  <!--For alternatives we need only name and ID-->
+  <Alternatives>
+    <Alt Name="Alt1" ID="0"/>
+    <Alt Name="Alt2" ID="1"/>
+    <Alt Name="Alt3" ID="2"/>
+  </Alternatives>
+  
+<!--Here we will pass the information about each allowed cells.
+We will NOT pass information on cells that are restricted for some reason (alts contribution, permissions).
+This way we will minimize the amount of data sent. All cells for which we didn't receive information 
+we consider restricted and will disabled for entering judgments and will grey out in the Data Grid-->  
+  <Cells>
+    <Cell ObjID="2" AltID="0" Value="1"/> <!--For ratings we will pass intensity ID-->
+    <Cell ObjID="2" AltID="1" Value="3"/>
+    <Cell ObjID="3" AltID="0" Value=""/> <!--Blank Value means that there's no judgment yet-->
+    <Cell ObjID="3" AltID="1" Value="0.5"/><!--For CovObjs that are not pw and not ratings, we just specify single value-->
+    <Cell ObjID="3" AltID="2" Value="0.8"/>
+  </Cells>
+</DataGrid>

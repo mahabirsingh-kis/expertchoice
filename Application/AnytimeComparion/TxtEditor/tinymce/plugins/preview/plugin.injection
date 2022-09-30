@@ -1,0 +1,12 @@
+~:58
+
+      var isMetaKeyPressed = global$2.mac ? 'e.metaKey' : 'e.ctrlKey && !e.altKey';
+
+    //******************** Customization for Expertchoice Comparion ********************
+    //For minification https://jscompress.com/
+    var content = editor.getContent();
+    if (typeof parseTemplates == "function") content = parseTemplates(content); // D4915
+
+    //********************************************************************************
+
+      var preventClicksOnLinksScript = '<script>' + 'document.addEventListener && document.addEventListener("click", function(e) {' + 'for (var elm = e.target; elm; elm = elm.parentNode) {' + 'if (elm.nodeName === "A" && !(' + isMetaKeyPressed + ')) {' + 'e.preventDefault();' + '}' + '}' + '}, false);' + '</script> ';

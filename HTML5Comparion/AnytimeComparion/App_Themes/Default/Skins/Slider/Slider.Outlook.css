@@ -1,0 +1,130 @@
+/* RadSlider for ASP.NET AJAX Outlook Skin */
+
+.RadSlider_Outlook .rslHorizontal a.rslHandle
+{
+	background-image: url('Handles.gif');
+	margin:0 -2px 0px -1px;
+}
+
+.RadSlider_Outlook .rslHorizontal a.rslDraghandle
+{
+	background-image: url('DragHandle.gif');
+}
+
+.RadSlider_Outlook .rslHorizontal .rslTrack
+{	
+	background: url('TrackBgr.gif') repeat-x;
+	height: 6px;
+}
+
+.RadSlider_Outlook .rslHorizontal .rslSelectedregion
+{
+	background: url('SelectedRegionHorizontalBgr.gif') right top no-repeat;
+	height: 6px;
+}
+
+/* vertical slider */
+.RadSlider_Outlook .rslVertical a.rslHandle
+{
+	background-image: url('HandlesVertical.gif');
+}
+
+.RadSlider_Outlook .rslVertical .rslTrack
+{
+	background: url('TrackVerticalBgr.gif') repeat-y;
+	width: 6px;
+}
+
+.RadSlider_Outlook .rslVertical .rslSelectedregion
+{
+	background: url('SelectedRegionVerticalBgr.gif') left bottom no-repeat;
+	width: 6px;
+}
+
+.RadSlider_Outlook .rslVertical a.rslDraghandle
+{
+	background: url('DragVerticalHandle.gif') no-repeat;
+	margin-left:-8px;
+}
+
+.RadSlider_Outlook .rslItem,
+.RadSlider_Outlook .rslLargeTick span
+{
+	color: #333;
+}
+
+.RadSlider_Outlook .rslItemsWrapper .rslItemSelected
+{
+    color: #000;
+}
+
+
+.RadSlider_Outlook .rslCenter div.rslTrack
+{
+	margin-left: -3px;
+}
+
+.RadSlider_Outlook .rslLeft div.rslTrack
+{
+	margin-left: 7px;
+}
+
+/* horizontal slider items */
+.RadSlider_Outlook .rslHorizontal .rslItem
+{
+	background-image: url('ItemHorizontalBgr.gif');
+}
+
+/* vertical slider items */
+.RadSlider_Outlook .rslVertical .rslItem
+{
+	background-image: url('ItemVerticalBgr.gif');
+}
+
+/* horizontal slider - TrackPosition=Top/Bottom */
+.RadSlider_Outlook .rslTop .rslSmallTick,
+.RadSlider_Outlook .rslBottom .rslSmallTick
+{
+    background-image: url('SmallChangeHorizontal.gif');
+}
+
+.RadSlider_Outlook .rslTop .rslLargeTick,
+.RadSlider_Outlook .rslBottom .rslLargeTick
+{
+    background-image: url('LargeChangeHorizontal.gif');
+}
+
+/* vertical slider - TrackPosition=Left/Right */
+.RadSlider_Outlook .rslLeft .rslSmallTick,
+.RadSlider_Outlook .rslRight .rslSmallTick
+{
+    background-image: url('SmallChangeVertical.gif');
+}
+
+.RadSlider_Outlook .rslLeft .rslLargeTick,
+.RadSlider_Outlook .rslRight .rslLargeTick 
+{
+    background-image: url('LargelChangeVertical.gif');
+}
+
+/* horizontal slider - TrackPosition=Center */
+.RadSlider_Outlook .rslMiddle .rslSmallTick
+{
+	background-image: url('SmallChangeMiddleHorizontal.gif');
+}
+
+.RadSlider_Outlook .rslMiddle .rslLargeTick  
+{
+	background-image: url('LargeChangeMiddleHorizontal.gif');
+}
+
+/* vertical slider - TrackPosition=Center */
+.RadSlider_Outlook .rslCenter .rslSmallTick
+{
+    background-image: url('SmallChangeCenterVertical.gif');
+}
+
+.RadSlider_Outlook .rslCenter .rslLargeTick 
+{
+    background-image: url('LargelChangeCenterVertical.gif');
+}

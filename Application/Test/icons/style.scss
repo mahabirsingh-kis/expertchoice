@@ -1,0 +1,209 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?udquli');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?udquli#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?udquli') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?udquli') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?udquli##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ec-hierarchy {
+  &:before {
+    content: $ec-hierarchy; 
+  }
+}
+.ec-alts {
+  &:before {
+    content: $ec-alts; 
+  }
+}
+.ec-chart-sunburst {
+  &:before {
+    content: $ec-chart-sunburst; 
+  }
+}
+.ec-chart-pie {
+  &:before {
+    content: $ec-chart-pie; 
+  }
+}
+.ec-chart-donut {
+  &:before {
+    content: $ec-chart-donut; 
+  }
+}
+.ec-chart-columns {
+  &:before {
+    content: $ec-chart-columns; 
+  }
+}
+.ec-chart-components {
+  &:before {
+    content: $ec-chart-components; 
+  }
+}
+.ec-chart-stacked {
+  &:before {
+    content: $ec-chart-stacked; 
+  }
+}
+.ec-chart-labels {
+  &:before {
+    content: $ec-chart-labels; 
+  }
+}
+.ec-chart-legend {
+  &:before {
+    content: $ec-chart-legend; 
+  }
+}
+.ec-chart-rotate-ccw {
+  &:before {
+    content: $ec-chart-rotate-ccw; 
+  }
+}
+.ec-chart-rotate-cw {
+  &:before {
+    content: $ec-chart-rotate-cw; 
+  }
+}
+.ec-font-dec {
+  &:before {
+    content: $ec-font-dec; 
+  }
+}
+.ec-font-inc {
+  &:before {
+    content: $ec-font-inc; 
+  }
+}
+.ec-sort-none {
+  &:before {
+    content: $ec-sort-none; 
+  }
+}
+.ec-sort-az {
+  &:before {
+    content: $ec-sort-az; 
+  }
+}
+.ec-sort-val {
+  &:before {
+    content: $ec-sort-val; 
+  }
+}
+.ec-sa-dsa {
+  &:before {
+    content: $ec-sa-dsa; 
+  }
+}
+.ec-sa-psa {
+  &:before {
+    content: $ec-sa-psa; 
+  }
+}
+.ec-sa-gsa {
+  &:before {
+    content: $ec-sa-gsa; 
+  }
+}
+.ec-sa-2d {
+  &:before {
+    content: $ec-sa-2d; 
+  }
+}
+.ec-sa-hth {
+  &:before {
+    content: $ec-sa-hth; 
+  }
+}
+.ec-sa-asa {
+  &:before {
+    content: $ec-sa-asa; 
+  }
+}
+.ec-sa-mixed {
+  &:before {
+    content: $ec-sa-mixed; 
+  }
+}
+.ec-grid {
+  &:before {
+    content: $ec-grid; 
+  }
+}
+.ec-datagrid {
+  &:before {
+    content: $ec-datagrid; 
+  }
+}
+.ec-contribution {
+  &:before {
+    content: $ec-contribution; 
+  }
+}
+.ec-link {
+  &:before {
+    content: $ec-link; 
+  }
+}
+.ec-eval-progress {
+  &:before {
+    content: $ec-eval-progress; 
+  }
+}
+.ec-survey {
+  &:before {
+    content: $ec-survey; 
+  }
+}
+.ec-mail {
+  &:before {
+    content: $ec-mail; 
+  }
+}
+.ec-send-mail {
+  &:before {
+    content: $ec-send-mail; 
+  }
+}
+.ec-single-row {
+  &:before {
+    content: $ec-single-row; 
+  }
+}
+.ec-multi-row {
+  &:before {
+    content: $ec-multi-row; 
+  }
+}
+.ec-group-users {
+  &:before {
+    content: $ec-group-users; 
+  }
+}
+.ec-group-nodes {
+  &:before {
+    content: $ec-group-nodes; 
+  }
+}
+

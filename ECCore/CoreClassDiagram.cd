@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="ECCore.clsCustomJudgments" Collapsed="true">
+    <Position X="3.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Judgments.vb</FileName>
+      <HashCode>AAACAAAgCAAACAAAQKAAAAAAEAAAAAAAAGFkgAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsCustomMeasureData" Collapsed="true">
+    <Position X="3.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAEAAAQAAAAAAAAAAgAAABgIAAAQAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsCustomPermissions" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsCustomUtilityCurve" Collapsed="true">
+    <Position X="9" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAAIAAAABAAAgAAAAAAAAgAAAAAAAAAAAAAAAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsHierarchy" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>clsHierarchy.vb</FileName>
+      <HashCode>EAwgBEEEABCEAAAAgAAABICGBABAAAFAQAAEA8QICAE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsHierarchyPermissions">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsJudgmentPermissions">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAIACAAAAAACAIAAAAAAAAAEAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="ECCore.clsMeasurementScale" Collapsed="true">
+    <Position X="10.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAEAAEAAAAgAAAAAAAAAQAAQBAAAAAQAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsMeasurementScalePermissions">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsMeasureScales" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>clsMeasureScales.vb</FileName>
+      <HashCode>AAIAEQIAAAAAAABAAAEAAJAAAAAAAgAAAAAAAQQAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsNode" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>clsNode.vb</FileName>
+      <HashCode>FAAQQCAsEAgACUAAAEQMAadIACBAKEEDQAsiAQCRi5E=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsNodePermissions">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>EAAAAAAACAEAAAAAAAAAAAAACQAAAAAAAIAABAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="ECCore.clsObjectPermissions" Collapsed="true">
+    <Position X="16.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsPairwiseComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAEAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ECCore.clsPairwiseJudgments" Collapsed="true">
+    <Position X="3.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Judgments.vb</FileName>
+      <HashCode>QAAgACAAACAAAQAABIAAAAAAACAAABAAAGAAAAAAACA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsPairwiseMeasureData" Collapsed="true">
+    <Position X="1.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>QAAQAAIIAAAQAgAAAEAAAAgAAAAEAAAAAAIgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsPermissions" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAIAAAAKACAAgAAAAAAAAgCAAAAAAJQAAAAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsProjectManager" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>clsProjectManager.vb</FileName>
+      <HashCode>ggYSABAAYbCBBRggCgCqAIwAAwAEIQBiVBTwWAANAgg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsRating" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAEAAEAAAAgAAACAAAAAYAAABGAAAAAAggAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsRatingDecreasingComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ECCore.clsRatingIncreasingComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ECCore.clsRatingMeasureData" Collapsed="true">
+    <Position X="3.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAEAAAAAAAYAAAQAAAAAAEAAAAAgAEAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsRatingMeasureDataComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ECCore.clsRatingScale" Collapsed="true">
+    <Position X="11.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAQAAAAAABAAAAAAQAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsRatingsJudgments" Collapsed="true">
+    <Position X="1.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Judgments.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAAAGAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsRegularUtilityCurve" Collapsed="true">
+    <Position X="9" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAAAAAAIAAQAAEAAAAAAAAgAAAAACAAAAQAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsRegularUtilityCurveJudgments" Collapsed="true">
+    <Position X="5.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Judgments.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAGAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsSpecialPermissions" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAgAABAgBCAAAAAAAQAAAAAQAACI=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsUserPermissions" Collapsed="true">
+    <Position X="18.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Permissions.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAIAAAEgAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECCore.clsUtilityCurveMeasureData" Collapsed="true">
+    <Position X="5.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>MeasureTypes.vb</FileName>
+      <HashCode>AAAEAAAAAAAYAAAQEAAAAAEAAAAAABAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Module Name="ECCore.ECTypes">
+    <Position X="16" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>ECTypes.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="ECCore.ECTypes.clsRestrictiveObject" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="ECCore.ECTypes.clsUser" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Enum Name="ECCore.ECTypes.ECMeasureMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="ECCore.ECTypes.ECHierarchyType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="ECCore.ECTypes.ECSynthesisMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="ECCore.ECTypes.ECSAData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Enum Name="ECCore.ECTypes.ECModelStorageType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="ECCore.ECTypes.ECUserStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ECTypes.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Module>
+</ClassDiagram>

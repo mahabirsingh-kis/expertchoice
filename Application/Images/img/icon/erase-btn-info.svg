@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35.807" height="34" viewBox="0 0 35.807 34">
+  <g id="erase-btn-info" transform="translate(-1461 -398)">
+    <g id="Group_884" data-name="Group 884" transform="translate(1461 398)">
+      <rect id="Rectangle_9_copy_7" data-name="Rectangle 9 copy 7" width="35.807" height="34" rx="5" fill="#e7edf6" style="mix-blend-mode: multiply;isolation: isolate"/>
+    </g>
+    <g id="Group_883" data-name="Group 883" transform="translate(195.893 -266.202)">
+      <g id="Group_22" data-name="Group 22" transform="translate(1274.115 671.202)">
+        <g id="Group_21" data-name="Group 21">
+          <path id="Path_19" data-name="Path 19" d="M44.118,6.223,39.481,1.585a1.966,1.966,0,0,0-2.782,0L26.278,12.006a1.97,1.97,0,0,0,0,2.782l2.4,2.4a1.954,1.954,0,0,0,1.391.576h4.478a1.955,1.955,0,0,0,1.391-.576l1.007-1.007h0L44.118,9A1.97,1.97,0,0,0,44.118,6.223ZM35.009,16.259a.652.652,0,0,1-.464.192H30.067a.651.651,0,0,1-.464-.192l-2.4-2.4a.657.657,0,0,1,0-.927l2.782-2.782,5.565,5.565Zm1.471-1.471L30.915,9.224,35.439,4.7,41,10.264ZM43.19,8.078,41.931,9.337,36.366,3.772l1.259-1.259a.657.657,0,0,1,.927,0L43.19,7.15A.657.657,0,0,1,43.19,8.078Z" transform="translate(-25.702 -1.009)" fill="#f0142f"/>
+        </g>
+      </g>
+      <g id="Group_24" data-name="Group 24" transform="translate(1273.107 689.891)">
+        <g id="Group_23" data-name="Group 23">
+          <path id="Path_20" data-name="Path 20" d="M19.423,477.546H.656a.656.656,0,0,0,0,1.312H19.423a.656.656,0,0,0,0-1.312Z" transform="translate(0 -477.546)" fill="#f0142f"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

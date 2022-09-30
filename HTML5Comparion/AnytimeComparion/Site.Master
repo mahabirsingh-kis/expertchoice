@@ -1,0 +1,2207 @@
+
+ <%--  --%> 
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AnytimeComparion.SiteMaster" %>
+ <%@ Register Src="~/Pages/includes/Footer.ascx" TagPrefix="includes" TagName="Footer" %> 
+ <%@ Register Src="~/Pages/includes/QHicons.ascx" TagPrefix="includes" TagName="QHicons" %>
+<%@ Import Namespace="AnytimeComparion.Pages.external_classes" %>
+ <%@ Import Namespace="ExpertChoice.Data" %>
+ <!DOCTYPE html>
+<html lang="en">
+
+<head runat="server">
+    <meta charset="UTF-8" />
+    <title> Expert Choice</title>
+    <link runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link href="/Content/stylesheets/style.css" rel="stylesheet" />
+    <%--<link href="/Content/ecStyle.css" rel="stylesheet" />--%>
+    <link href="/Content/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="/Content/stylesheets/sitemaster_styles.css" rel="stylesheet" />-->
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/bundles/LayoutCss") %>
+        <%: Styles.Render("//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css") %>
+    </asp:PlaceHolder>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">  
+    <!-- fullcalendar.io css -->
+
+    <!-- //fullcalendar.io css -->
+
+    <!-- <link href="/Content/bower_components/jquery-ui/jquery-ui.min.css" rel="stylesheet" /> -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
+<%--    <script src="/Content/bower_components/modernizr/modernizr.js"></script>--%>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Scripts.Render("~/bundles/jquery") %>
+        <%: Scripts.Render("~/bundles/angular") %>
+        <%: Scripts.Render("~/bundles/headerExtension") %>
+        <%if (Session["User"] != null)
+            { %>
+                <%: Scripts.Render("//code.jquery.com/ui/1.12.1/jquery-ui.min.js") %>
+                <%: Scripts.Render("//cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js") %>
+        <%} %>
+    </asp:PlaceHolder>
+    <!-- percentage loader -->
+    <%--<link rel="stylesheet" href="Content/bower_components/percentage-loader/jquery.percentageloader-0.1.css"></script>--%>
+    <!-- //percentage loader -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+ 
+            
+   <!-- Facebook Pixel Code -->
+<%--    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '318911301802945');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=912882792189436&ev=PageView&noscript=1"
+    /></noscript>--%>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+
+
+    <style>
+        /* For TinyMCE 4.x */
+        .reveal-modal .tt-modal-content .mce-container {
+            margin: 0px 15px 15px 0px;
+        }
+
+        /* For TinyMCE 5.x */
+        .reveal-modal .tt-modal-content .tox.tox-tinymce {
+            margin-bottom: 15px;
+        }
+
+        div#siWidget-chat {
+            height: calc(100% - 200px);
+            bottom: 150px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            div#siWidget-chat {
+                height: calc(100% - 100px);
+                bottom: 60px;
+            }
+        }
+        
+    </style>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<% =GoogleUA %>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag("js", new Date());
+        gtag("config", "<% =GoogleUA %>");
+    </script>
+</head>
+<body id="main-body" class="full-width-enabled" ng-app="comparion" ng-controller="MainController" class="ng-cloak">
+    <form runat="server">
+        <%-- Get Base Url Here for Anular JS --%>
+        <script>
+            var baseUrl = '<%= ResolveUrl("~/") %>';
+        </script>
+        <a href="<%= ResolveUrl("~/") %>" class="hide" id="base_url"></a>
+            
+        <div class="tt-content-wrap" <% if (Session[Constants.Sess_SignUp] != null) {%> ng-show="show_content" ng-cloak <%}%>>
+
+<%--           <div ng-if="!browser_recommended && !isMobile()" data-alert class="alert-box">
+              Comparion requires Google Chrome on PC.
+              <a href="#" class="close">&times;</a>
+           </div>
+           <div ng-if="!browser_recommended && isMobile()"  data-alert class="alert-box">
+                Comparion requires Google Chrome on Mobile or Safari for IOS devices.
+              <a href="#" class="close">&times;</a>
+           </div>--%>
+            <div class="tt-header">
+                <!-- loading wrap-->
+                    
+                <div class="large-5 columns large-centered text-center tt-loading-icon-wrap">
+                    <div class="label alert radius tt-loading-icon-content" >
+                        <div class="tt-loading-icon left">
+                            <span class="icon-tt-loading"></span>
+                        </div>
+                        <span id="pipe-loading-message"></span>
+                    </div>
+                </div>
+                <!-- /loading wrap-->
+                <!-- header -->
+                <div id="divHeading" class="row large-collapse mobile-header hide">
+
+                    <div class="large-2 medium-5 small-6 columns tt-logo text-center " ng-click="show_offset()">
+                        <a href="<%= ResolveUrl("~/") %>">
+                            <asp:Image ID="Image1" class="logo-img" runat="server" ImageUrl='/Images/logos/teamtime-logo-transparent-compressed.png'></asp:Image>
+                        </a>
+                    </div>
+
+                    <!-- for mobile -->
+                    <div class="medium-7 small-6 columns show-for-medium-down tt-mobile-nav">
+
+                        <ul class="tt-links mobile right">
+
+                            <% if (Session["User"] != null || Session["UserType"] != null)
+                               { %>
+                            <li class="tt-topnav-last user-menu-icon">
+                                <a class="tt-dropdown" href="#" data-dropdown="tt-a-dd_mobile" data-options="is_hover:false; hover_timeout:300">
+                                    <span class="icon-tt-user"></span>
+                                    <asp:Label class="text tt-hide-640-down" ID="UserNameLabel_mobile" runat="server" Text=""></asp:Label>
+                                    <span class="icon-tt-chevron-down drop-arrow"></span>
+                                </a>
+                                <ul id="tt-a-dd_mobile" class="tt-dropdown-content f-dropdown" data-dropdown-content>
+                                    <li class="tt-as-username">{{App.ActiveUser.UserName}}</li>
+                                    <li class="hide"><a href="#" class="tt-dd" data-reveal-id="tt-as-modal">Account Settings </a></li>
+                                    <li class="hide">
+                                        <a href="#" class="tt-dd" data-reveal-id="tt-sf-modal">Send Feedback </a>
+                                    </li>
+                                      <li class="hide"><a href="#" class="tt-dd" data-reveal-id="tt-debug-modal">Debug</a></li>
+                                    <li class="LogoutButtons" id="LogoutBtn">
+                                        <a href="#" class="tt-dd">Logout </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <%--hide for Direct screen for the meantime--%>
+                            <li class="show-for-medium-down tt-topnav-last" ng-cloak>
+                                <a href="" ng-click="showKoHelpPage()" class="c-help">
+                                    <!--<span class="icon-question"></span> -->                                  
+                                    <span class="icon-tt-book"></span>
+                                </a>
+                            </li>
+                             <!-- Hide the Message box while page is being loaded -->
+                                   <div id="slidingicondesktop">
+                                     <script type="text/javascript">
+                                          // Get the div and hide it
+                                         var div = document.getElementById('slidingicondesktop');
+                                          div.style.display = 'none';
+                                          //Shows the div as soon as the page is loaded
+                                          window.onload = function () {
+                                          div.style.display = 'block';}
+                                     </script>
+                                    <li ng-click="show_warning_message()" ng-if="is_pipescreen && !showWarningMessageIcon()" class="right">
+                                     <a class="slide-this-in" href="#"><span class="icon-exclamation-circle"></span></a>
+                                    </li> 
+                                </div>                            
+                            <% }
+                               else
+                               {  %>
+                            <li class="tt-topnav-last">
+                                <a>&nbsp</a>
+                               <%-- <a href="#" class="" data-reveal-id="loginToMeeting"><span class="icon-tt-user"></span></a>--%>
+                            </li>
+                            <% } %>
+
+                            <%-- removed for now 
+                                <li class="tt-lang-wrap">
+                                <a href="#" data-dropdown="languagesWrap" class="" data-link="#languagesWrap">
+                                    <span class="">EN</span>
+                                </a>
+                                <ul id="languagesWrap" class="tiny content f-dropdown" data-dropdown-content>
+                                    <li><a href="#">CN</a></li>
+
+                                </ul>
+                            </li> --%>
+                        </ul>
+                        <% if (Session["User"] != null || Session["UserType"] != null)
+                           { %>
+                        <a href="#" class="tt-toggler tt-toggler-tt-fix tt-mnav-menu right" data-toggler="tg-mobileNav">
+                            <span class="icon-tt-menu"></span>
+                        </a>    
+                        <div id="dropHelpWindow" class="reveal-modal small tt-modal-wrap" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                          <h2 id="modalTitle" class="tt-modal-header blue-header">Help Window</h2>
+                          <div class="large-12 columns">Add help content for this specific page</div>
+                          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                        </div>
+                            
+                        <!--<a ng-if="is_anytime" href="#" class="tt-toggler tt-mnav-menu right" data-toggler="tg-mobileNav">
+                            <span class="icon-tt-menu"></span>
+                        </a>
+
+                        <div id="dropHelpWindow" class="reveal-modal small tt-modal-wrap" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                          <h2 id="modalTitle" class="tt-modal-header blue-header">Help Window</h2>
+                          <div class="large-12 columns">Add help content for this specific page</div>
+                          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                        </div>-->
+
+                        <% } %>
+                    </div>
+                    <!-- //for mobile -->
+
+                    <div class="large-10 columns hide-for-medium-down">
+                        <!-- top nav -->
+                        <div class="columns tt-topnav">
+                            <ul class="tt-links">
+
+                                <% if (Session["User"] != null || Session["UserType"] != null)
+                                   {
+
+                                       if ((string)Session["UserType"] == "pm" || (string)Session["UserType"] == "evaluator" || _roles <= 1 && HttpContext.Current.Request.Url.AbsolutePath != "/pages/RedirectToComparion.aspx")
+                                       { %>
+                                <% if (Session["User"] != null)
+                                   {%>
+                                     <% if (HttpContext.Current.Session["LoggedInViaHash"] != null && (bool)HttpContext.Current.Session["LoggedInViaHash"])
+                                     { %>
+                                            <li ng-if="!is_anytime" ng-cloak><a runat="server" href="~/pages/Anytime/Anytime.aspx" data-tooltip class="has-tooltip" title="Collect my input" data-options="disable_for_touch:true"><span class="icon-tt-folder-open-solid" style="font-size:15px"></span><span style="font-size:15px"> Collect my input</span></a></li>
+                                        <%}
+                                    else
+                                    { %>
+                                         <li><a runat="server" href="~/my-projects" data-tooltip class="has-tooltip" title="My Projects" data-options="disable_for_touch:true"><span class="icon-tt-th-list"></span></a></li>
+                                    <%} %>
+                                <%}
+                                   else
+                                   { %>
+                                <li><a runat="server" href="~/pages/teamtimetest/start.aspx" data-tooltip class="has-tooltip" title="My Projects" data-options="disable_for_touch:true"><span class="icon-tt-th-list"></span></a></li>
+                                <% }
+                                     } %>
+
+
+                                <% if ((string)Session["UserType"] == "pm" || _roles == 1)
+                                   { %>
+                                <li class="hide"><a runat="server" href="~/participants" data-tooltip class="has-tooltip" title="Participants" data-options="disable_for_touch:true"><span class="icon-tt-users"></span></a></li>
+                                <li class="hide"><a href="#" class="toggleComments has-tip" data-tooltip title="Comments" data-options="disable_for_touch:true"><span class="icon-tt-comments"></span></a></li>
+                                <% } %>
+
+                                <% if ((string)Session["UserType"] == "pm" || (string)Session["UserType"] == "evaluator" || (string)Session["UserType"] == "participant" || _roles <= 1)
+                                   {  %>
+<!--                                <li><a runat="server" href="~/Resources" data-tooltip title="Resources" class="has-tip" data-options="disable_for_touch:true"><span class="icon-tt-book"></span></a></li>-->
+                                <% } %>
+
+<%--                                <% if ((string)Session["UserType"] == "pm" || (string)Session["UserType"] == "evaluator" || _roles <= 1 )
+                                   { %>--%>
+                                     <li ng-if="current_project.has_project" class="hide" ng-cloak>
+                                         <a href="#" class="tt-toggler" data-toggler="tg-s" data-tooltip title="More Options" data-options="disable_for_touch:true"><span class="icon-tt-info-circle"></span></a>
+                                     </li> 
+<%--                                <% } %>--%>
+
+
+                                <% } %>
+
+                                <% if (Session["User"] != null || Session["UserType"] != null)
+                                   { %>
+                                <li class="tt-topnav-last">
+                                    <a class="tt-dropdown" href="#" data-dropdown="tt-a-dd" data-options="is_hover:false; hover_timeout:300" ng-cloak>
+                                        <span class="icon-tt-user"></span>
+                                        <span class="text tt-hide-640-down" >{{App.ActiveUser.UserName}}</span>
+                                        <%--<asp:Label class="text tt-hide-640-down" ID="UserNameLabel" runat="server" Text=""></asp:Label>--%>
+
+                                        <span class="icon-tt-chevron-down drop-arrow"></span>
+                                    </a>
+                                    <ul id="tt-a-dd" class="tt-dropdown-content f-dropdown" data-dropdown-content>
+                                        <li class="hide"><a href="#" data-reveal-id="tt-as-modal">Account Settings </a></li>
+                                        <li class="hide">
+                                            <a href="#" data-reveal-id="tt-sf-modal">Send Feedback </a>
+                                        </li>
+                                        <li class="LogoutButtons" id="LogoutBtnDefault">
+                                            <a href="#">Logout </a>
+                                        </li>
+                                    </ul>
+                                </li>         
+                                <%--hide for Direct screen for the meantime--%>                       
+                                <li class="hide-for-medium-down tt-topnav-last" ng-cloak>
+                                    <a href=""ng-click="showKoHelpPage()" class="c-help">
+                                        <span class="icon-tt-book"></span>                                       
+                                    </a>
+                                </li>                                
+                                <!-- Hide the Message box while page is being loaded -->
+                                   <div id="slidingicon">
+                                     <script type="text/javascript">
+                                          // Get the div and hide it
+                                         var div = document.getElementById('slidingicon');
+                                          div.style.display = 'none';
+                                          //Shows the div as soon as the page is loaded
+                                          window.onload = function () {
+                                          div.style.display = 'block';}
+                                     </script>
+                                    <li ng-click="show_warning_message()" ng-if="is_pipescreen && showWarningMessageIcon()" class="right">
+                                     <a class="slide-this-in" href="#"><span class="icon-exclamation-circle"></span></a>
+                                    </li> 
+                                </div>  
+                                <% }
+                                   else
+                                   {  %>
+                                <li id="liLogin" runat="server" class="tt-topnav-last">
+                                     <a>&nbsp</a>
+                                    <%--<a id="linkLogin" runat="server" ng-if="browser_recommended" href="#" class="" data-reveal-id="loginToMeeting">LOGIN</a>
+                                     <a ng-if="!browser_recommended" href="#" class="">&nbsp;</a>--%>
+                                </li>
+                                <% } %>
+                            </ul>
+
+                            <%if (Session["User"] != null)
+                                { %>
+                            <!-- MODALS -->
+                             <div id="GoToStep" class="reveal-modal small tt-modal-wrap " data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" >
+                                <div class="row collapse">
+                                    <div class="small-8 small-centered columns" style="margin-top: 5em;">
+                                    
+                                    <div class="medium-4 columns large-text-left small-text-center text">Jump to step: {{output.current_step}}/{{is_anytime ? output.total_pipe_steps:output.totalPipe}}</div>
+                                    <div class="medium-3 columns large-text-left small-text-center">
+                                        <input type="number" ng-model="move_to_pipe" class="txttofocus2" ng-keypress="MoveToPipe(getCorrectStep(move_to_pipe), $event)" min="0" max="{{STEPS_total_steps}}">
+                                    </div>
+                                    <div class="medium-2 columns small-6 large-text-right small-text-center">
+                                        <input type="button" class="button tiny tt-button-primary success " value="OK" ng-click="MoveToPipe(getCorrectStep(move_to_pipe))">
+                                    </div>
+                                    <div class="medium-3 columns small-6 large-text-right small-text-center">
+                                        <input type="button" class="button tiny tt-button-primary cancel close-reveal-modal cn-btn-modal" value="Cancel" >
+                                    </div>
+                                        </div>
+                                </div>
+                            </div>
+
+                            <%-- Error Modal --%>
+                             <div id="ErrorMessage" class="reveal-modal small error-modal" style="top:100px" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" >
+                                <div class="small-12 large-12 columns text-center">
+                                     We are sorry but you can't access AnyTime evaluation while TeamTime meeting is ongoing.
+                                </div>
+                                <div class="small-12 large-12 columns ">
+                                    <div class="small-5 large-3 columns small-centered text-center">
+                                        <input type="button" class="button tiny tt-button-primary success" ng-click="closeModal(modal.errorMessage)" style="width:100%" value="OK" >
+                                    </div>
+                                </div>
+                            </div>
+                            <%-- //Error Modal --%>
+
+                            <div id="tt-as-modal" class="reveal-modal small tt-modal-wrap fixed-modal account" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                <h2 id="modalTitle" class="tt-modal-header blue-header">Account Settings</h2>
+                                <div class="tt-modal-content account large-12 columns">
+                                    <ul class="tabs button-group even-3 columns" data-tab>
+                                        <li class="tab-title active text-center"><a href="#info">Account Info</a></li>
+                                        <li class="tab-title text-center"><a href="#pass"><span class="hide-for-small">Change</span> Password</a></li>
+                                        <li class="tab-title text-center"><a href="#pref">My Preference</a></li>
+                                    </ul>
+                                    <div class="tabs-content account">
+                                        <div class="content active" id="info" ng-if="App.ActiveUser.UserEMail != null">
+                                            <%--<form id="tt-ai-form" data-abide="ajax">--%>
+                                            <div class="large-12 columns" >
+                                                <label>
+                                                    Email <small></small>
+                                                    <input type="email" ng-model="ASIemail" ng-init="ASIemail = App.ActiveUser.UserEMail">
+                                                </label>
+                                                <%--<small class="error">An email address is .</small>--%>
+                                            </div>
+                                            <div class="large-12 columns">
+                                                <label>
+                                                    Full Name <small></small>
+                                                    <input type="text" ng-model="ASIname" ng-init="ASIname = App.ActiveUser.UserName">
+                                                </label>
+                                                <%--<small class="error">Name is  and must be a string.</small>--%>
+                                            </div>
+                                            <div class="large-12 columns">
+                                                <label>
+                                                    Current Password <small>You need to type your password.</small>
+                                                    <input type="password" ng-model="ASIpassword" >
+                                                    <%--<small class="error">Your current passsword is .</small>--%>
+                                                </label>
+                                            </div>
+                                            <div class="large-12 columns">
+                                                <hr>
+                                                <!-- status -->
+                                                <div class="tt-ai-form-status"></div>
+                                                <!-- //status -->
+                                                <%--<button class="button tiny tt-button-primary right" ng-click="updateUser(ASIemail, ASIname, ASIpassword )">Save Info</button>--%>
+                                            </div>
+                                            <%-- </form>--%>
+                                        </div>
+                                        <div class="content" id="pass" ng-if="App.ActiveUser != null">
+                                            <div class="">
+                                                <%-- <form id="tt-cp-form" data-abide="ajax">--%>
+                                                <div class="large-12 columns">
+                                                    <label>
+                                                        Current Password <small></small>
+                                                        <input type="password" ng-model="ASPpass">
+                                                        <%--<small class="error">Your current passsword is .</small>--%>
+                                                    </label>
+                                                </div>
+                                                <div class="large-12 columns password-field">
+                                                    <label>
+                                                        New Password <small></small>
+                                                        <input type="password" id="password" ng-model="ASPnewpass">
+                                                    </label>
+                                                    <%--<small class="error">Your password must match the requirements</small>--%>
+                                                </div>
+                                                <div class="large-12 columns password-confirmation-field">
+                                                    <label>
+                                                        Confirm Password <small></small>
+                                                        <input type="password" data-equalto="password" ng-model="ASPnewpassconfirm">
+                                                    </label>
+                                                    <%--<small class="error">The password did not match</small>--%>
+                                                </div>
+                                                <div class="large-12 columns">
+                                                    <hr>
+                                                    <!-- status -->
+                                                    <div class="tt-cp-form-status"></div>
+                                                    <!-- //status -->
+                                                    <%--<button class="button tiny tt-button-primary right" ng-click="updateUser('', '', ASPpass, ASPnewpass,ASPnewpassconfirm )">Update Password</button>--%>
+                                                </div>
+                                                <%-- </form>--%>
+                                            </div>
+                                        </div>
+                                        <div class="content" id="pref">
+                                            <div class="">
+                                                <%--<form id="tt-mp-form" data-abide="ajax">--%>
+                                                <div class="large-12 columns">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        Enable autologon on first start
+                                                    </label>
+                                                </div>
+                                                <div class="large-12 columns">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        Restore last visited page after log in
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="large-12 columns">
+                                                    <label id="gradient-checker-label">
+
+                                                        <input ng-init="get_gradient_checker()" ng-click="gradient_checker()" 
+                                                            ng-model="main_gradient_checkbox" type="checkbox" 
+                                                            class="gradient-checker" />
+                                                        Enable gradient color in pipe (lite theme)
+                                                    </label>
+                                                </div>
+                                                <%--<div class="large-12 columns">
+                                                    <div class="row collapse">
+                                                        <div class="large-6 medium-7 columns">
+                                                            <span class="prefix hide-for-small">Show Pipe Navigation In:</span>
+                                                            <span class="show-for-small">Show Pipe Navigation In:</span>
+                                                        </div>
+                                                        <div class="large-6 medium-5 columns">
+                                                            <select name="">
+                                                                <option value="top">Top Only</option>
+                                                                <option value="bottom">Bottom Only</option>
+                                                                <option value="topBottom">Top & Bottom</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>--%>
+                                                <% if ((string)Session["UserType"] == "pm" || _roles == 1)
+                                                   { %>
+                                                <div class="large-12 columns">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        Validate partcipant e-mails before uploading project
+                                                    </label>
+                                                </div>
+                                                <div class="large-12 columns tt-ai-inline-input">
+                                                    <hr>
+                                                    <span class="ai-left">Keep project, marked as deleted :   </span>
+                                                    <input type="number" class="inline">
+                                                    <span class="ai-right">days.</span>
+                                                </div>
+                                                <% } %>
+                                                <div class="large-12 columns">
+                                                    <hr>
+                                                    <!-- status -->
+                                                    <div class="tt-mp-form-status"></div>
+                                                    <!-- //status -->
+                                                    <a class="save-acct-settings-btn  button tiny tt-button-primary right">Save Preference</a>
+                                                </div>
+                                                <%-- </form>--%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="ASInfo"></div>
+                                </div>
+                            </div>
+
+                            <div id="tt-sf-modal" class="reveal-modal small tt-modal-wrap fixed-modal " data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                <h2 id="modalTitle" class="tt-modal-header blue-header">Send Feedback</h2>
+                                <div class="tt-modal-content large-12 columns">
+                                    <div class="large-12 columns">
+                                        Send your feedback to our Customer Support, or email us at <a href="mailto:ases@expertchoice.fogbugz.com">cases@expertchoice.fogbugz.com</a>
+                                        <hr>
+                                    </div>
+                                    <%-- <form id="tt-sf-form" data-abide="ajax">--%>
+                                    <div class="large-6 medium-12 columns">
+                                        <div class="row">Contact Name </div>
+                                        <div class="row collapse">
+                                            <div class="large-12 columns">
+                                                <label>
+                                                    <input type="text" placeholder="First Name">
+                                                </label>
+                                                <small class="error">First Name is required</small>
+                                            </div>
+                                            <div class="large-12 columns">
+                                                <label>
+                                                    <input type="text" placeholder="Last Name">
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="large-6 medium-12 columns">
+                                        <label>
+                                            Email <small></small>
+                                            <input type="email">
+                                        </label>
+                                        <small class="error">An email address is .</small>
+                                    </div>
+                                    <div class="large-6 medium-12 columns">
+                                        <label>
+                                            Phone
+                                    <input type="tel">
+                                        </label>
+                                    </div>
+                                    <div class="large-6 medium-12 columns">
+                                        <label>
+                                            Subject <small></small>
+                                            <select>
+                                                <option value="1">How this thing work?</option>
+                                                <option value="2">I have a great idea!</option>
+                                                <option value="3">Lorem</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="large-12 columns">
+                                        <label>
+                                            Message <small></small>
+                                            <textarea placeholder="Your sweet message here"></textarea>
+                                            <small class="error">Your message is .</small>
+                                        </label>
+                                    </div>
+                                    <!-- status -->
+                                    <div class="tt-sf-form-status"></div>
+                                    <!-- //status -->
+                                    <div class="large-12 columns">
+                                        <button type="submit" class="button tiny tt-button-primary right">Submit</button>
+                                    </div>
+                                    <%-- </form>--%>
+                                </div>
+                            </div>
+
+                             <div id="tt-debug-modal" class="reveal-modal small tt-modal-wrap fixed-modal " data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                <h2 id="modalTitle" class="tt-modal-header blue-header">Debug</h2>
+                                <div class="tt-modal-content large-12 columns">
+                                   {{output.non_pw_type}}<br />
+                                    {{output}}
+                                </div>
+                            </div>
+                            <% } %>
+                        <%--    <div id="loginToMeeting" data-reveal class="reveal-modal small tt-modal-wrap fixed-modal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                <h2 id="modalTitle" class="tt-modal-header blue-header">Login to Expert Choice Comparion</h2>
+
+                                <div class="tt-modal-content large-12 columns">
+
+                                    <section class="large-12 columns">
+                                        <div class="large-12 columns">
+                                            <input type="email" placeholder="Email" class="tt-input-form" id="LoginEmail" />
+                                            <small id="EmailError" class="error">Invalid email.</small>
+                                            <small id="EmailExistError" class="error">Email does not exist.</small>
+                                        </div>
+                                        <div class="large-12 columns">
+                                            <input type="password" runat="server" placeholder="Password" class="tt-input-form" id="LoginPassword" />
+                                            <small id="PasswordError" class="error">Password is required.
+                                            </small>
+                                            <small id="IncorrectPasswordError" class="error">Password is incorrect.
+                                            </small>
+
+                                        </div>
+                                        <div class="large-12 columns">
+                                            <div class="row collapse">
+                                                <div class="small-10 columns">
+                                                    <input id="AccessCodeTxt" type="text" placeholder="Access Code" class="tt-input-form">
+                                                    <small class="error">Missing Access Code</small>
+                                                </div>
+                                                <div class="small-2 columns text-right">
+                                                    <span class="right inline span-inline"><small>* Optional</small></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tt-remember-forgot-wrap columns">
+                                            <div class="large-7 medium-12 columns">
+                                                <div class="row collapse">
+                                                    <!--<div class="small-1 columns">
+                                                        <input type="checkbox" id="SrembMeLogin" name="SrembMeLogin">
+                                                    </div>-->
+                                                    <div class="row collapse">
+                                                        <div class="small-12 columns tt-remember">
+    <!--                                                        <span class="suffix">-->
+                                                                <label class=""><input type="checkbox" id="SrembMeLogin" > <span>Remember Me</span></label>
+    <!--                                                        </span>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="large-5 medium-12 columns text-right tt-forgot-password">
+                                                <a href="#">Forgot Password?</a>
+                                            </div>
+                                        </div>
+                                        <div class="large-12 columns">
+                                            <hr>
+                                            <a id="LoginBtn" href="#" class="button tiny right clogin success">Login</a>
+                                        </div>
+                                        <br />
+                                        <div runat="server" id="LoginStatus" class="tt-login-form-status"></div>
+                                    </section>
+                                </div>
+                            </div>--%>
+
+                            <div id="SignUpModal" data-reveal class="reveal-modal large tt-modal-wrap fixed-modal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;">
+                                <%--<a class="close-reveal-modal" aria-label="Close">&#215;</a>--%>
+                                <h2 id="modalTitle" class="tt-modal-header blue-header">
+                                    {{general_link_title}}
+                                </h2>
+
+                                <div class="tt-modal-content">
+                                    <h4 class="large-text-center medium-text-center small-text-center" runat="server" id="customTitle" style="margin: 1em 3em; font-size:14pt; color: #005292; padding: 0px 0px 0.75px 0px; margin: 0px;"></h4>
+                                    <div runat="server" id="customContent" style="margin: 10px 25px; background-color: #ffffff !important;"></div>
+                                    <%--<div class="columns tt-logo text-center ">
+                                        <a runat="server" href="#">
+                                            <asp:Image style="height:50px;" ID="Image2" class="logo-img" runat="server" ImageUrl='/Images/logos/teamtime-logo-transparent-compressed.png'></asp:Image>
+                                        </a>
+                                    </div>--%>
+
+                                    <div class="large-12 columns large-centered text-center" ng-if="'<%=Session[Constants.Sess_ShowMessage] %>' == 'True'">
+                                        <h3 class="normal-blue"><%=Session[Constants.Sess_InviteMessage] %></h3>
+                                    </div>
+                                    <div class="home-forms">
+                                        <div class="active columns small-12 medium-10 medium-offset-1 large-8 large-offset-2" id="sign-up-tab" style="padding:0 2rem">
+                                            <section class="row">
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12 columns">
+                                                        <h1 class="tt-header text-center normal-bold no-bottom-margin no-more-padding" style="color: black !important;">
+                                                            <span style="color: #0058a3 !important; font-size: 1.5em !important">Sign-up!</span> or <span style="color: #0058a3 !important;">Sign in with an existing login</span>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12 columns" ng-show="signUpLinkFields[0]">
+                                                        <span class="irequired">{{req_signup_mode.indexOf('e') > -1 ? 'Required' : ''}}</span>
+                                                        <input type="text" runat="server" placeholder="Email" class="tt-input-form signup-form" id="SEmail" ng-model="signUpUser.SEmail" ng-keydown="checkEnteredKeyForEmail($event)" ng-keyup="checkExistingUser()"/>
+                                                        <i id="SEmailChecking" class="tt-input-form blue fas fa-circle-notch fa-spin hide"></i>
+                                                        <small id="SEmailError" class="error">Invalid email.</small>
+                                                        <small id="SEmailreq" class="error">Email is required</small>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12 columns" ng-show="signUpLinkFields[1] && signUpUser.IsNewUser">
+                                                        <span class="irequired">{{req_signup_mode.indexOf('n') > -1 ? 'Required' : ''}}</span>
+                                                        <input type="text" runat="server" placeholder="Name" class="tt-input-form signup-form" id="SName" ng-model="signUpUser.SName" ng-keydown="loginFormInputChanged('name')"/>
+                                                        <small id="SNameError" class="error">Name is required.</small>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12 columns" ng-show="signUpLinkFields[3] && signUpUser.IsNewUser">
+                                                        <span class="irequired">{{req_signup_mode.indexOf('t') > -1 ? 'Required' : ''}}</span>
+                                                        <input type="text" runat="server" placeholder="Phone Number" class="tt-input-form signup-form" ng-model="signUpUser.SPhone"/>
+                                                        <small id="SPhoneError" class="error">Invalid phone number.</small>
+                                                        <small id="SPhonereq" class="error">Phone Number is required</small>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12 columns" ng-show="(signUpLinkFields[2]) || !signUpUser.IsNewUser" >
+                                                        <span class="irequired">{{req_signup_mode.indexOf('p') > -1 ? 'Required' : ''}}</span>
+                                                        <input type="password" runat="server" placeholder="Password"  class="tt-input-form signup-form" id="SPass" ng-model="signUpUser.SPass" ng-keydown="loginFormInputChanged('pass')"/>
+                                                        <a href="#" ng-show="!signUpUser.IsNewUser" style="font-size: 11px;" ng-click="showPasswordResetModal('hashLogin')">Password Help?</a>
+                                                        <small id="SPasswordreq" class="error">Password is required.</small>
+                                                        <small id="SPasswordError" class="error">Invalid password.</small>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12 columns" ng-show="signUpLinkFields[2] && signUpUser.IsNewUser" >
+                                                        <span class="irequired">{{req_signup_mode.indexOf('p') > -1 ? 'Required' : ''}}</span>
+                                                        <input type="password" runat="server" placeholder="Re-type Password" class="tt-input-form signup-form" ng-model="signUpUser.SPass2" ng-keydown="loginFormInputChanged('repass')"/>
+                                                        <small id="SPasswordError2" class="error">Password do not match!</small>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="large-12 medium-12 small-12">
+                                                        <div class="small-12 medium-4 medium-offset-8 large-3 large-offset-9 columns">
+                                                            <br/>
+                                                            <a id="SignUpBtn" href="#" ng-click="processLogin(signUpUser.SEmail, signUpUser.SName, signUpUser.SPass, signUpUser.SPass2, signUpUser.SPhone)" class="button tiny success" style="width: 100%;">{{signUpUser.IsNewUser ? 'Sign In' : 'Sign In'}}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tt-login-form-status"></div>
+                                                <div id="loginFormIp" class="hide"></div>
+                                            </section>
+                                        </div>
+                                        <div class="columns content tt-home-not-logged small-12 medium-6 large-6" style="padding:0 2rem" id="login-tab">
+                                    
+                                    <%--<div class="tt-login-form-status"></div>--%>
+                                </div>
+                            </div>
+                                    </div>
+                            <!-- //MODALS -->
+                        </div>
+                        
+                        <div id="PasswordResetModal" data-reveal class="reveal-modal small tt-modal-wrap fixed-modal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog" data-options="close_on_background_click:false;close_on_esc:false;" style="min-height: 200px;">
+                                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                <h2 id="modalTitle" class="tt-modal-header blue-header">
+                                    <% =TeamTimeClass.ResString("lblPasswordRestore")%>
+                                </h2>
+
+                                <div class="tt-modal-content" style="min-height: 180px;">
+                                    <div ng-if="!isPasswordResetEmailSent" class="columns text-center">
+                                        <% =TeamTimeClass.ResString("msgPasswordRestore")%>
+                                    </div>
+                                    <div class="home-forms">
+                                        <div class="active columns small-12" style="padding:0 2rem">
+                                            <section class="row">
+                                                <div id="ResetEmailDiv" class="large-12 columns">
+                                                    <span class="irequired">Required</span>
+                                                    <input type="text" runat="server" placeholder="Email" class="tt-input-form" id="ResetEmail" ng-model="ResetEmail" />
+                                                    <small id="ResetEmailError" class="error"></small>
+                                                    <small id="ResetEmailInfo" class="error" style="background-color: #0058a3;"></small>
+                                                </div>
+                                                
+                                                <div id="ResetSendSuccess" class="hide" style="min-height: 150px; padding-top: 50px;"></div>
+
+                                                <div class="small-12 medium-4 medium-offset-8 large-4 large-offset-8 columns">
+                                                    <br/>
+                                                    <a id="ResetPasswordBtn" href="#" ng-click="resetPassword(ResetEmail)" class="button tiny success" style="width: 100%;">{{isPasswordResetEmailSent ? 'OK' : 'Send'}}</a>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <div class="columns content tt-home-not-logged small-12 medium-6 large-6" style="padding:0 2rem" id="login-tab">
+                                            <%--<div class="tt-login-form-status"></div>--%>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- //MODALS -->
+                        </div>
+
+                            </div>
+                        <!-- //top nav -->
+                    </div>
+
+
+
+                    <% if (Session["User"] != null || Session["UserType"] != null)
+                        { %>
+                    <div class="large-12 columns right" ng-if="current_project.has_project">
+
+                        <!-- controll-settings -->
+                        <div class="columns tt-controll-settings tg-s">
+                            <ul>
+<!--                                <li><a runat="server" href="~/my-projects"><span class="icon-tt-folder-open-solid iconNav"></span><span class="  text">My Projects</span></a></li>-->
+                                <li class="hide"><a runat="server" href="~/structure-project"><span class="icon-tt-site-map iconNav"></span><span class="  text">Structure Projects</span></a></li>
+                                <li>
+                                    <a runat="server" href="~/collect-input">
+                                        <span class="icon-tt-chart iconNav"></span>
+                                        <span class="text ">Collect Input </span>
+                                    </a>
+                                </li>
+                                <li class="synthesize-wrap">
+                                    <a class="columns" runat="server" href="~/synthesize-result">
+                                        <span class="icon-tt-synthesize-result iconNav"></span>
+                                        <span class="text hide-for-medium-down">Synthesize Result</span>
+                                    </a>
+
+                                </li>
+                                <li class="hide">
+                                    <a runat="server" href="~/allocate"><span class="icon-tt-pie-chart iconNav"></span><span class=" text">Allocate</span></a>
+                                </li>
+                                <li class="hide">
+                                    <a runat="server" href="~/reports"><span class="icon-tt-copy iconNav"></span><span class="  text">Reports</span></a>
+                                </li>
+                                <li class="">
+                                    <a href="#" data-reveal-id="tt-as-modal"><span class="icon-tt-cog iconNav"></span><span class=" text">Settings</span></a>
+<!--                                    <a runat="server" href="~/settings"><span class="icon-tt-cog iconNav"></span><span class=" text">Settings</span></a>-->
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- //controll-settings -->
+
+                    </div>
+
+                    <!-- for mobile -->
+                    <div class="row collapse show-for-medium-down tt-mobile-nav">
+                        <!--<div class="large-12 columns tt-mobile-nav-main">
+                        <a href="#" class="tt-toggler tt-mobile-nav-dropdown" data-toggler="tg-mobileNav">
+                          <span class="icon-tt-menu"></span>
+                          <span class="text ">TeamTime Meeting</span>
+                        </a>
+                      </div>-->
+                        <div class="large-12 columns tt-mobile-nav-sub home tg-mobileNav hide">
+                            <a runat="server" href="~/" class="columns">
+                                <span class="icon-tt-home"></span>
+                                <span class="text ">Home</span>
+                            </a>
+                            <span class="tt-language-btn">
+                                <a href="#">
+                                    <span class="">EN</span>
+                                </a>
+                                
+
+                            </span>
+                        </div>
+                        <div class="large-12 columns tt-mobile-nav-sub tg-mobileNav hide">
+                            <ul class="">
+                                <%-- _roles == 2 so this will be hidden to everyone for now but it should be shown to PM only --%>
+                                <% if (_roles == 2)
+    { %>
+                                <li class="columns">
+                                    <a href="#" class="tt-withNextBtn tt-toggler" data-toggler="tg-mNav-sub">
+                                        <span class="icon-tt-tasks"></span>
+                                        <span class="text ">Manage Models</span>
+                                        <span class="icon-tt-chevron-down rightArrow right"></span>
+                                    </a>
+
+                                    <ul class="tg-mNav-sub hide">
+
+                                        
+                                        <% if ((string)Session["UserType"] == "pm" || (string)Session["UserType"] == "evaluator" || _roles <= 1)
+    { %>
+                                        <li><a runat="server" href="~/structure-project"><span class="icon-tt-site-map iconNav"></span><span class="  text">Structure Project</span></a></li>
+                                        <li>
+                                            <a runat="server" href="~/collect-input">
+                                                <span class="icon-tt-chart iconNav"></span>
+                                                <span class="text ">Collect Input </span>
+                                            </a>
+
+                                        </li>
+                                        <% } %>
+                                        <% if ((string)Session["UserType"] == "pm" || _roles == 1)
+    { %>
+                                        <li class="">
+                                            <a runat="server" href="~/synthesize-result">
+                                                <span class="icon-tt-synthesize-result iconNav"></span>
+                                                <span class="text">Synthesize Result</span>
+                                            </a>
+
+                                        </li>
+                                        <li class="">
+                                            <a runat="server" href="~/allocate"><span class="icon-tt-pie-chart iconNav"></span><span class=" text">Allocate</span></a>
+                                        </li>
+                                        <li class="">
+                                            <a runat="server" href="~/reports"><span class="icon-tt-copy iconNav"></span><span class="  text">Reports</span></a>
+                                        </li>
+                                        <% } %>
+                                        <% if ((string)Session["UserType"] == "pm" || (string)Session["UserType"] == "evaluator" || _roles <= 1)
+    { %>
+                                        <li class="">
+                                            <a href="#" data-reveal-id="tt-as-modal"><span class="icon-tt-cog iconNav"></span><span class=" text">Settings</span></a>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+
+                                </li>
+                                <li class="columns">
+                                    <a href="#" class=" tt-withNextBtn">
+                                        <span class="icon-tt-clipboard"></span>
+                                        <span class="text ">Insight Questionnaires</span>
+                                    </a>
+                                </li>
+                                <li class="columns">
+                                    <a href="#" class=" tt-withNextBtn">
+                                        <span class="icon-tt-back-fort"></span>
+                                        <span class="text ">Judgments</span>
+                                    </a>
+                                </li>
+                                <li class="columns">
+                                    <a href="#" class=" tt-withNextBtn">
+                                        <span class="icon-tt-users"></span>
+                                        <span class="text ">Participants</span>
+                                    </a>
+                                </li>
+                                <% } %>
+                                <li class="columns">
+                                 <% if (HttpContext.Current.Session["LoggedInViaHash"] != null && (bool)HttpContext.Current.Session["LoggedInViaHash"] && HttpContext.Current.Request.Url.AbsolutePath != "/pages/RedirectToComparion.aspx")
+                                     { %>
+                                     <a runat="server" href="~/pages/Anytime/Anytime.aspx" ng-if="!is_anytime" ng-cloak><span class="icon-tt-folder-open-solid"></span><span class="text"> Collect my input </span></a>
+                                        <%}
+                                    else
+                                    { %>
+                                    <%if (HttpContext.Current.Request.Url.AbsolutePath != "/pages/RedirectToComparion.aspx")
+                                        { %>
+                                <a runat="server" href="~/my-projects"><span class="icon-tt-th-list iconNav"></span><span class="  text"> My Projects</span></a>
+                                        <% }
+                                                                                                                                                            } %>
+                                <!--<li>
+                                    <a href="#" class=" tt-withNextBtn">
+                                        <span class="icon-tt-book"></span>
+                                        <span class="text ">Resource Center</span>
+                                    </a>
+                                </li>-->
+                                    </li>
+
+                                <li class="columns tt-breadcrumb show-for-medium-down" ng-show="current_project.has_project && browser_recommended" >
+                                    <ul ng-if="is_anytime" class="small-12 columns">
+                                        <li class="small-6 columns" style="margin-left:.9em;">Workgroup:  <span class="action workgroup-name" ng-bind-html="current_project.workgroup_name"></span></li>
+                                        <li class="small-6 columns" style="margin-left:.9em;">Project:  <span class="action project-name" ng-bind-html="current_project.project_name"></span></li>
+                                        <li class="the-evaluator small-12 columns" style="margin-left:.9em;">
+                                            <div class="row mobile">
+                                                <div class="small-12 medium-12 columns">
+                                                     <div class="the-text left" ng-if="!current_project.is_teamtime && output.isPM" style="margin-left: 0px !important;">View as Evaluator: </div>
+                                                    <div class="the-evaluator-switch left" ng-if="!current_project.is_teamtime && output.isPM" style="width: 100%; max-width: 100px;margin-left:5px;">
+                                                       <div class="onoffswitch">
+                                                            <input type="checkbox" ng-model="pm_switch" name="is_AT_owner_toggle1" class="onoffswitch-checkbox" id="is_AT_owner_toggle1"  ng-change="switch_pm(pm_switch)">
+                                                            <label class="onoffswitch-label" for="is_AT_owner_toggle">
+                                                                <span class="onoffswitch-inner"></span>
+                                                                <span class="onoffswitch-switch"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                                <div class="large-4 small-4 columns">
+                                                        <!-- <div ng-if="output.page_type=='atShowLocalResults' || output.page_type=='atShowGlobalResults' || output.page_type=='atInformationPage'" class="columns" id="QHIcons">
+                                                         <includes:QHicons runat="server" ID="Info_QHicons" />
+                                                     </div> -->
+
+                                                     <div ng-if="$parent.projectLockedInfoteamTimeUrl.length = 0 && output.page_type == 'atTeamTime'" class="columns small-12 small-centered text-center">
+                                                         <span class="text">Teamtime Session is running. Please click the button below to join</span>
+                                                         <label>
+                                                             <button ng-click="redirectToComparionTeamtime()" class=" button tiny tt-button-primary">Join Meeting</button>
+                                                         </label>
+                                                     </div> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul ng-if="is_teamtime">
+                                        
+                                        <li>Project:  <span class="action" id="Project_Name" runat="server"></span></li>
+                                        <li class="tt-related-elements">Meeting ID: <span class="action">{{current_project.meetingID}}</span> </li>
+                                        <li class="left tt-related-elements">
+                                            TeamTime&trade; <span class="action">Meeting in Progress.</span> 
+                                        </li>
+                                        <li ng-if="isPM">
+                                            <div class="small-12 columns tt-controllers tt-related-elements">
+                                                <a ng-click="setTTEvent(TTpause)" href="#" title="Play / Pause" id="TTpause" class="tt-toggler" data-toggler="tg-pause-play"><span class="icon icon-tt-pause event-buttons" data-toggler="tg-icon tg-i-TTpause" data-event="pause"></span></a>
+                                                <a ng-click="setTTEvent('stop')" href="#"   title="Stop" id="TTstop" class=" "><span class="icon-tt-stop event-buttons" data-event="stop"></span></a>
+                                                <a ng-click="setTTEvent('refresh')" href="#"  title="Refresh data" class="  " ng-click="remove_user_list()"><span class="icon-tt-refresh" data-event="refresh"></span></a>
+                                                <a href="#"  data-dropdown="settingDropDown" aria-controls="settingDropDown" aria-expanded="false"  class="dropdown"><span class="icon-tt-cog"></span></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+<%--                                <li class="columns small-12 sorter-view show-for-medium-down normalization-wrap" ng-if="current_project.has_project && is_result_screen">
+                                    <div class="sorter-view left small-6 columns">
+                                        <span class="sv-label left" style="font-size:12px">Normalization Option: </span>
+                                        <select class="priorities-view-result sv-sorter small-10 columns" ng-init="normalization = normalization_list[0]" ng-change="normalization_change(normalization)"
+                                                ng-model="normalization"  ng-options="obj.text for obj in normalization_list track by obj.value">
+                                        </select>
+                                    </div>
+                                    <div class="sorter-view small-6 columns">
+                                        <span class="sv-label left " style="font-size:12px">Sort By: 
+                                        <a class="sv-arrow-sorter">
+                                            <span style="font-size:12px" ng-class="resultsreverse == null ? 'icon-tt-sort-toggle' : !resultsreverse ? 'icon-tt-sort-up' :  'icon-tt-sort-down'" 
+                                                ng-click="set_reverse()"></span>
+                                        </a>
+                                        </span>
+
+                                        <select class="priorities-view-result sv-sorter small-10 columns" ng-model="columnsort" ng-init="columnsort = anytimecolumns[output.PipeParameters.defaultsort]" ng-change="sort_Results(columnsort[0])" ng-options="column[1] for column in anytimecolumns track by column[0]">
+                                            <option value="" selected hidden />
+                                        </select>
+                                    </div>
+                                </li>--%>
+                               <!-- <li class="columns small-12 sorter-view show-for-medium-down normalization-wrap" ng-if="current_project.has_project && output.page_type == 'atSensitivityAnalysis'">
+                                    <label ng-if="SASensitivity.sensitivities.SAType == 1" >
+                                        <span class="sv-label left">Normalization: </span>
+                                        <select class="priorities-view-result sv-sorter large-12 columns" ng-model="normalization_SA" ng-options="obj.text for obj in normalization_SA_list track by obj.value" ng-change="setSANotmalization(normalization_SA)">
+                                        </select>
+                                    </label>  
+                                    <div ng-bind-html="getHtml(SASensitivity.GetOptions)" class="sensitivity-label-mobile"></div>
+
+                                    <label>
+                                        <button type="button" class="large-2 large-left text-center button tiny left tt-button-primary tt-h-btn hide-for-medium-down" id="btnRefresh" onclick="onReset(); return false;">
+                                            <%--<span class="text">{{Sense.lblRefreshCaption}}</span>--%>
+                                            <span>reset</span>
+                                        </button>
+                                    </label>
+                                </li>-->
+
+                                <%-- Same here it should be _roles == 0 --%>
+                                <% if (_roles == 2)
+    { %>
+                                <li>
+                                    <a href="#" class=" tt-withNextBtn">
+                                        <span class="icon-tt-info-circle"></span>
+                                        <span class="text ">TeamTime Meeting Info</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class=" tt-withNextBtn">
+                                        <span class="icon-tt-envelope"></span>
+                                        <span class="text ">Send Feedback</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class=" tt-withNextBtn" data-reveal-id="tt-sf-modal">
+                                        <span class="icon-tt-cog"></span>
+                                        <span class="text ">Settings</span>
+                                    </a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- //for mobile -->
+
+                  
+
+
+                        <%@Register TagPrefix="includes" TagName="breadcrumbs" Src="~/Pages/includes/breadcrumbs.ascx" %>
+                        <includes:breadcrumbs ID="breadcrumbs" runat="server"  />
+
+                  <%  } %>
+                </div>
+                <div id="divViewOnlyMessage" ng-if="output.isPipeViewOnly" class="row large-collapse mobile-header hide" style="height: 50px; text-align: center;">
+                    <div style="background-color: #fffae0; border: 1px solid #efe8e0; width: fit-content; display: inline-block;">
+                        <div style="padding: 5px 10px 5px 10px; width: fit-content; color: #ff2727; font-size: 12.99px;">
+                            <span>View Only Mode. Your judgments will not be saved.</span>
+                            <span style="font-weight:normal;white-space:nowrap;">
+                                (&lt;
+                                <a href="mailto:{{App.ActiveUser.UserEMail}}">{{App.ActiveUser.UserEMail}}</a>
+                                &gt;, {{App.ActiveUser.UserName}})
+                            </span>
+                            <%--<span style="margin-left: 1em;">
+                                <a href="#" onclick="window.close(); return false;" class="actions dashed">Close this tab/window</a>
+                                when finished viewing.
+                            </span>--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%if (Session["User"] != null)
+                {%>
+            <div id="DebugModal"  ng-if="<%=Session["debug"] %>" ng-init="enableDebug()" class="reveal-modal tt-modal-wrap  tt-edit-content fixed-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                <h2 id="modalTitle" class="tt-modal-header blue-header">
+                    Debug Mode
+                </h2>
+                <div class="large-12 columns">
+                    <span>Resource By name:</span>
+                    <input type="text" ng-model="debugtest.rname" style="width:20%"   />
+                    <input type="button" ng-click="testfunction(debugtest.rname)" value="Check"/>
+                 </div>
+                 <div class="large-12 columns">
+                     <span>Resource By Step:</span>
+                    <input type="text" ng-model="debugtest.rstep"  style="width:20%" />
+                    <input type="button" ng-click="getResource(debugtest.rstep)"  value="Check"/>
+                 </div>
+                 <div class="large-12 columns">
+                     <span>Check Object:</span>
+                    <input type="text" ng-model="debugtest.robject"  style="width:20%" />
+                    <input type="button" ng-click="checkObject(debugtest.robject)"  value="Check"/>
+                 </div>
+
+
+            </div>
+
+            <%-- GLobal Modal for Info Docs --%>
+             <div id="GlobalInfoDocModal" class="reveal-modal tt-modal-wrap medium fixed-modal tt-edit-content" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                        <h2 class="tt-modal-header blue-header node-headers parent-node-header hide" style="display:none;"></h2>
+                        <h2 class="tt-modal-header blue-header node-headers left-node-header hide" style="display:none;"></h2>
+                        <h2 class="tt-modal-header blue-header node-headers right-node-header hide" style="display:none;"></h2>
+                        <h2 class="tt-modal-header blue-header node-headers scale-node-header hide" style="display:none;"></h2>
+                        <h2 class="tt-modal-header blue-header question-node-header hide">Edit Question</h2>
+                        <div class="tt-modal-content large-12 columns">
+                            <div class="row ">
+                                <textarea id="GlobalInfoDocValue" rows="10"></textarea>
+                            </div>
+                                <div class="row button-content">
+                                    <div class="small-6 columns text-left">
+                                        <a href="#" class="button tiny tt-button-icond-left close-reveal-modal  cn-btn-modal button tiny tt-button-primary alert ie-cancel-btn-fix">
+                                            <span class="icon-tt-close icon"></span>
+                                            <span class="text">Cancel</span>
+                                        </a>
+            <!--                            <a href="#" class="close-reveal-modal  cn-btn-modal button tiny tt-button-primary alert ie-cancel-btn-fix">Cancel</a>-->
+                                    </div>
+                                    <div class="small-6 columns text-right ">
+                                        <a href="#" class="save-info-doc-btn button tiny tt-button-icond-left button tiny tt-button-primary success">
+                                            <span class="icon-tt-save icon"></span>
+                                            <span class="text">Save</span>
+                                        </a>
+            <!--                            <a href="#" class="button tiny tt-button-primary save-info-doc-btn ">Save</a>-->
+                                    </div>
+                                </div>
+                    
+                            <div class="row message-content">
+                                <div class="large-12 columns">
+                                    <div data-alert class="alert-box success radius" style="display:none;">
+                                        Updated successfully!
+                                        <a href="#" class="close">&times;</a>
+                                    </div>
+                                    <div data-alert class="alert-box alert radius hide" style="display:none;">
+                                        Error on saving. Please try again.
+                                        <a href="#" class="close">&times;</a>
+                                    </div>                        
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            <%-- //end of modal --%>
+
+            <%-- GLobal Modal for Info Docs --%>
+             <div id="GlobalInfoDocCaptionModal" class="reveal-modal small tt-modal-wrap  tt-edit-content" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                        <h2 class="tt-modal-header blue-header Caption">Edit Caption</h2>
+                        <div class="tt-modal-content large-12 columns">
+                            <div class="row ">
+                                <textarea id="GlobalInfoDocCaptionValue" rows="10"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="small-6 columns text-left">
+                                    <a href="#" class="button tiny tt-button-icond-left close-reveal-modal  cn-btn-modal button tiny tt-button-primary alert ie-cancel-btn-fix">
+                                        <span class="icon-tt-close icon"></span>
+                                        <span class="text">Cancel</span>
+                                    </a>
+        <!--                            <a href="#" class="close-reveal-modal  cn-btn-modal button tiny tt-button-primary alert ie-cancel-btn-fix">Cancel</a>-->
+                                </div>
+                                <div class="small-6 columns text-right ">
+                                    <a href="#" class="save-info-doc-btn button tiny tt-button-icond-left button tiny tt-button-primary success">
+                                        <span class="icon-tt-save icon"></span>
+                                        <span class="text">Save</span>
+                                    </a>
+        <!--                            <a href="#" class="button tiny tt-button-primary save-info-doc-btn ">Save</a>-->
+                                </div>
+                            </div>
+                    
+                            <div class="row collapse">
+                                <div data-alert class="alert-box success radius" style="display:none;">
+                                    Updated successfully!
+                                    <a href="#" class="close">&times;</a>
+                                </div>
+                                <div data-alert class="alert-box alert radius hide" style="display:none;">
+                                    Error on saving. Please try again.
+                                    <a href="#" class="close">&times;</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            <%-- //end of modal --%>
+
+            <%-- //start of StartMeeting Modal --%>
+            <div id="startMeeting" data-reveal class="reveal-modal medium tt-modal-wrap fixed-modal" aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                <h2 id="modalTitle" class="tt-modal-header blue-header">Start Meeting</h2>
+
+                <div class="tt-modal-content large-12 columns tt-center-height-wrap tt-meeting-modal">
+
+                    <section class="row text-center tt-center-content-wrap start-tt-as-pm hide">
+                        <div class="large-8 large-centered columns">
+                            <span class="icon-tt-users tt-icon-60"></span>
+                            <br />
+                            <p>Let's start the meeting.</p>
+                        </div>
+                        <div class="columns tt-modal-highlight">
+                            <div class="large-12 columns">
+                                <div class="workgroup columns">Workgroup: <br>Ernest</div>
+                                <div class="project columns">Project: <br>Area Validation Exercise</div>
+                            </div>
+                        </div>
+                            
+                        <div class="large-9 large-centered columns">
+                                <div class="medium-6 columns  medium-text-left small-text-center">
+                                <label class="tt-btn-group-radio">
+                                    <input class="hide-pie-checkbox restart" value=""   type="radio" name="pipe-start">
+                                    <span class="text">Start from the beginning</span>
+                                </label>
+                            </div>
+                                <div class="medium-6 columns medium-text-right small-text-center">
+                                <label class="tt-btn-group-radio">
+                                    <input class="hide-pie-checkbox continue" value=""   type="radio" checked name="pipe-start">
+                                    <span class="text">Continue where you left off</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="columns tt-btn-footer">
+                            <button class="button medium expand startMeetingBtn">Start Now</button>
+                        </div>
+                    </section>
+                    <section class="large-8 columns large-centered text-center tt-center-content-wrap start-tt-as-participant hide">
+                        <div class="large-12 columns">
+                            <span class="icon-tt-users tt-icon-60"></span>
+                            <br />
+                            <p>TeamTime is currently running on a different Project Manager. Would you like to join instead?</p>
+                        </div>
+                        <div class="large-8 columns large-centered">
+                            <button class="button medium expand startMeetingBtn">Join Now</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <%-- //end of StartMeeting Modal --%>
+
+            <%-- //start of StartMeeting Modal --%>
+            <div id="InviteParticipant" data-reveal class="reveal-modal medium tt-modal-wrap fixed-modal small-12 column" aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                <h2 id="H1" class="tt-modal-header blue-header">Invite Participant</h2>
+
+                <div ng-if="ProjectStatus" ng-cloak class="large-12 columns small-12 columns small-centered large-centered text-center">
+                    <div>
+                        <h4>Project is offline. Would you like to make it online?</h4>
+                        <div class="large-6 columns large-centered">
+                            <a href="" class="button alert-box success radius" ng-click="showProjectStatus(false, true)">Yes</a>
+                            <a href="" class="button alert-box alert radius" ng-click="showProjectStatus(false)">No</a>
+                        </div>
+                    </div>
+                </div>
+                <div ng-init="current_project = get_current_project()" class="tt-modal-content large-12 columns tt-center-height-wrap tt-meeting-modal large-centered" ng-if="!ProjectStatus" ng-cloak>
+                    
+                    <div class="large-12 small-12 columns large-centered small-centered text-center" >
+                        <h2 style="color:#6f6f6f">{{isProjectTeamtime ? 'Teamtime' : 'Anytime'}} Links</h2>
+                    </div>
+                    <div id="scrollable-links" style="overflow:auto; max-height:400px;">
+                        <%-- Mobile Invite Links --%>
+                        <div class="columns small-12 hidden-for-large-up" style="padding-left:0.3rem;padding-right:0.3rem" ng-if="is_general_link && !current_project.is_teamtime">
+                            <div class="small-12 small-12 columns" style="padding-left:0.3rem;padding-right:0.3rem">
+                                <div class="small-12 small-12 columns">
+                                    <label>
+                                        <input class="generate_anonymous_checkbox" type="radio" ng-checked="general_link_switch.mradio == '1'" ng-model="general_link_switch.mradio" name="general_link_m" value="1" ng-change="generateGeneralLink(general_link_switch.mradio)"/>&nbsp; Link for Anonymous Evaluation
+                                    </label>
+                                </div>
+                                <div class="small-12 columns">
+                                    <label >
+                                        <input type="radio" ng-checked="general_link_switch.mradio == '2'" ng-model="general_link_switch.mradio"  name="general_link_m" value="2" ng-change="generateGeneralLink(general_link_switch.mradio)"/>&nbsp; Link for Signing In and Evaluation
+                                    </label>
+                                </div>
+                                    <label class="large-1 columns small-2">
+                                        &nbsp;
+                                    </label>
+                                    <label class="large-5 columns small-5">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2" ng-model="signup.email" ng-init="signup.email = true" ng-checked="true" ng-change="generateGeneralLink(general_link_switch.mradio)" />E-mail
+                                    </label>
+                                    <label class="large-6 columns small-5">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2 || !signup.email" ng-model="req_signup.email" ng-change="generateGeneralLink(general_link_switch.mradio)"/>Required
+                                    </label>
+
+                                    <label class="large-1 columns small-2">
+                                        &nbsp;
+                                    </label>
+                                    <label class="large-5 columns small-5">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2" ng-model="signup.name" ng-init="signup.name = true" ng-checked="true" ng-change="generateGeneralLink(general_link_switch.mradio)" />Name
+                                    </label>
+                                    <label class="large-6 columns small-5">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2 || !signup.name" ng-model="req_signup.name" ng-change="generateGeneralLink(general_link_switch.mradio)"/>Required
+                                    </label>
+
+                                    <label class="large-1 columns small-2">
+                                        &nbsp;
+                                    </label>
+                                    <label class="large-5 columns small-5">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2" ng-model="signup.password" ng-init="signup.password = true" ng-checked="true" ng-change="generateGeneralLink(general_link_switch.mradio)" />Password
+                                    </label>
+                                    <label class="large-6 columns small-5">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2 || !signup.password" ng-model="req_signup.password" ng-change="generateGeneralLink(general_link_switch.mradio)"/>Required
+                                    </label>
+                                    <label class="large-1 columns small-2">
+                                        &nbsp;
+                                    </label>
+                                    <label class="large-11 columns small-5 hide">
+                                        <input type="checkbox" ng-disabled="general_link_switch.mradio != 2" ng-model="signup.message" ng-change="set_message(signup.message); generateGeneralLink(general_link_switch.mradio)"/>Show Invite Message
+                                    </label>
+                                    <label class="large-1 columns small-1" ng-show="signup.message">
+                                        &nbsp;
+                                    </label>
+                                    <label class="large-11 columns small-11" ng-show="signup.message">
+                                        <textarea ng-model="invite_message"  ng-disabled="general_link_switch.mradio != 2 || !signup.message" ng-blur="save_invite_message(invite_message); generateGeneralLink(general_link_switch.mradio)"></textarea>
+                                    </label>
+                                <div class="small-12 columns">
+                                    <label >
+                                        <input type="radio" ng-checked="general_link_switch.mradio == '3'" ng-model="general_link_switch.mradio" name="general_link_m" value="3" ng-change="generateGeneralLink(general_link_switch.mradio)" />&nbsp; Link for going to normal Comparion<sup>&#174;</sup> login screen
+                                    </label>
+                                </div>
+                                <div class="small-12 columns hide">
+                                    <div class="small-12 columns">New users who access the project with this link will be assigned the permission of a(n):</div>
+                                    <div class="small-12 columns">
+                                        <select id="SelectMobilePermissionLevel" ng-disabled="general_link_switch.mradio == 0" ng-model="permission_level" ng-change="generateGeneralLink(general_link_switch.mradio)">
+                                            <option value="1">Evaluator</option>
+                                            <option value="2">Viewer</option>
+                                            <option value="3">Evaluator/Viewer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="small-12 columns" style="word-wrap: break-word; word-break: break-all;">
+                                <div class="small-12 columns small-centered text-center">                    
+                                    General link:
+                                </div>
+                                <textarea>{{general_link}}</textarea>
+                                <div class="small-6 columns small-centered text-center">                    
+                                    <a href="" id="mgeneral_link_copy_btn" class="cc-btns button tiny tt-button-icond-left tt-button-primary no-bottom-margin tt-button-lite-blue btn-general-smallscreen" ngclipboard-success="copied_clipboard(e, '#mgeneral_link_copy_btn');" ngclipboard data-clipboard-text="{{general_link}}">
+                                        Copy to Clipboard
+                                    </a>
+                                </div>
+                            
+                            </div>
+                    </div>
+
+                        <%-- Desktop Invite Links --%>
+                        <div class="large-10 columns small-12 large-centered hide-for-medium-down " ng-if="is_general_link && !current_project.is_teamtime" ng-init="general_link_switch.radio='2'">
+                            <div class="large-12 small-12 columns">
+                            <div class="large-12 small-12 columns">
+                                <label class="large-6 small-10 columns">
+                                    <input class="generate_anonymous_checkbox" ng-checked="general_link_switch.radio == '1'" type="radio" ng-model="general_link_switch.radio" name="general_link" value="1" ng-change="generateGeneralLink(general_link_switch.radio)"/>&nbsp; Link for Anonymous Evaluation
+                                </label>
+                            </div>
+                            <div class="large-12 columns">
+                                <label class="large-6 columns small-10">
+                                    <input type="radio" ng-model="general_link_switch.radio" ng-checked="general_link_switch.radio == '2'" name="general_link" value="2"  ng-change="generateGeneralLink(general_link_switch.radio)" />&nbsp; Link for Signing In and Evaluation
+                                </label>
+                                <label class="large-6 columns small-10">
+                                    Required
+                                </label>
+                            </div>
+                                <label class="large-1 columns small-1">
+                                    &nbsp;
+                                </label>
+                                <label class="large-5 columns small-9">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2" ng-model="signup.email" ng-init="signup.email = true" ng-checked="true" ng-change="generateGeneralLink(general_link_switch.radio)" />E-mail
+                                </label>
+                                <label class="large-6 columns small-2">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2 || !signup.email" ng-model="req_signup.email" ng-change="generateGeneralLink(general_link_switch.radio)"/>
+                                </label>
+                                <label class="large-1 columns small-1">
+                                    &nbsp;
+                                </label>
+                                <label class="large-5 columns small-9">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2" ng-model="signup.name" ng-init="signup.name = true" ng-checked="true" ng-change="generateGeneralLink(general_link_switch.radio)" />Name
+                                </label>
+                                <label class="large-6 columns small-2">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2 || !signup.name" ng-model="req_signup.name" ng-change="generateGeneralLink(general_link_switch.radio)"/>
+                                </label>
+                                <label class="large-1 columns small-1">
+                                    &nbsp;
+                                </label>
+                                <label class="large-5 columns small-9">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2" ng-model="signup.password" ng-init="signup.password = true" ng-checked="true" ng-change="generateGeneralLink(general_link_switch.radio)" />Password
+                                </label>
+                                <label class="large-6 columns small-2">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2 || !signup.password" ng-model="req_signup.password" ng-change="generateGeneralLink(general_link_switch.radio)"/>
+                                </label>
+                                <label class="large-1 columns small-1">
+                                    &nbsp;
+                                </label>
+                                <label class="large-11 columns small-11 hide">
+                                    <input type="checkbox" ng-disabled="general_link_switch.radio != 2" ng-model="signup.message" ng-change="set_message(signup.message); generateGeneralLink(general_link_switch.radio)"/>Show Invite Message
+                                </label>
+                                <label class="large-1 columns small-1" ng-show="signup.message">
+                                    &nbsp;
+                                </label>
+                                <label class="large-11 columns small-11" ng-show="signup.message">
+                                    <textarea ng-model="invite_message"  ng-disabled="general_link_switch.radio != 2 || !signup.message" ng-blur="save_invite_message(invite_message); generateGeneralLink(general_link_switch.radio)"></textarea>
+                                </label>
+
+                            
+                            <div class="large-12 columns">
+                                <label class="large-12 columns small-12">
+                                    <input type="radio" ng-model="general_link_switch.radio" ng-checked="general_link_switch.radio == '3'" name="general_link" value="3" ng-change="generateGeneralLink(general_link_switch.radio)" />&nbsp; Link for going to normal Comparion<sup>&#174;</sup>  login screen
+                                </label>
+                            </div>
+                            <div class="large-12 columns hide">
+                                <div class="large-8 columns">New users who access the project with this link will be assigned the permission of a(n):</div>
+                                <div class="large-4 columns">
+                                    <select id="SelectPermissionLevel" ng-disabled="general_link_switch.radio == 0" ng-model="permission_level" ng-change="generateGeneralLink(general_link_switch.radio)">
+                                        <option value="1">Evaluator</option>
+                                        <option value="2">Viewer</option>
+                                        <option value="3">Evaluator/Viewer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                            <table class="large-centered large-12  columns"  >
+                                <tbody >
+                                    <tr>
+                                        <td>General Link:</td>
+                                        <td>
+                                                {{general_link}} 
+                                        </td>
+                                        <td>
+                                            <a href="" id="general_link_copy_btn" class="cc-btns button tiny tt-button-icond-left tt-button-primary no-bottom-margin tt-button-lite-blue btn-general" ngclipboard-success="copied_clipboard(e, '#general_link_copy_btn');" ngclipboard data-clipboard-text="{{general_link}}">
+                                               Copy to Clipboard
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <table class="large-centered large-10 small-12 small-centered columns hide-for-medium-down" style="overflow-wrap:break-word; overflow-x:auto" ng-if="!is_general_link">
+                            <thead>
+                                <tr>
+                                    <th class="small-4 columns">Email</th>
+                                    <th class="small-6 columns">Hash Link</th>
+                                    <th class="small-2 columns"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-init="element_id='participant_link_' + $index" ng-repeat="hash in hash_links">
+                                    <td class="small-4 columns">{{hash[0]}}</td>
+                                    <td class="small-6 columns">
+                                            {{hash[1]}}
+                                    </td>
+                                    <td class="small-2 columns">
+                                        <a href="" id="{{element_id}}" class="cc-btns button tiny tt-button-icond-left tt-button-primary no-bottom-margin tt-button-lite-blue btn-largescreen" ngclipboard-success='copied_clipboard(e, "#" + element_id);' ngclipboard data-clipboard-text="{{hash[1]}}">
+                                            Copy to Clipboard
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="hidden-for-large-up small-12 columns" style="overflow-wrap:break-word; word-break: break-all;  word-wrap: break-word; overflow:auto" ng-repeat="hash in hash_links" ng-if="!is_general_link">
+                            <span class="small-12 columns">{{hash[0]}}</span>
+                            <span class="small-12 columns">{{hash[1]}}</span>
+                            <span ng-init="element_id='participant_link_' + $index" class="small-12 columns">
+                                <a href="" id="m{{element_id}}" class="cc-btns button tiny tt-button-icond-left tt-button-primary no-bottom-margin tt-button-lite-blue btn-smallscreen" ngclipboard-success='copied_clipboard(e, "#m" + element_id);' ngclipboard data-clipboard-text="{{hash[1]}}">
+                                    Copy to Clipboard
+                                </a>
+                            </span>
+
+                        </div>
+
+
+                    </div>
+                    <div class="clearfix"><br /></div>
+                    <div class="large-centered large-8 small-8 small-centered columns text-center">
+                        <a href="" ng-if="!is_general_link && !current_project.is_teamtime" class="button success" ng-click="toggle_general_link()">
+                            <span >Go to General Links</span>
+                        </a>
+                        <a href="" ng-if="is_general_link" class="button success" ng-click="toggle_general_link()">
+                            <span >Go to Participant Specific Links</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <%-- //end of StartMeeting Modal --%>
+
+            <%} %>
+
+            <!-- content -->
+            <%  var current_page = HttpContext.Current.Request.Url.AbsoluteUri.ToString().Split('/').Last();  %>
+            <section class="tt-full-height tt-main-body-wrap content-wrapper  clear-fix" ng-class="{'main-content':!is_anytime}" data-url="<%Response.Write(current_page); %>">
+                <div id="offline_message" class="large-10 large-centered hide columns">          
+                    <div data-alert="" class="alert-box alert radius tt-alert msg-stat">
+                        <span>Sorry, but project '<span class="project_name"></span>' is off-line and not available. Contact the decision project organizer and request that it be put on-line.<a href="#" class="close">×</a></span>       
+                    </div>      
+                </div>
+                <span class="comparion-content">
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                </span>
+
+                <div ng-if="!browser_recommended" ng-cloak class="row tt-full-height">
+                    <div class="large-6 columns large-centered text-center tt-full-height" style="display: table-cell; vertical-align: middle;">
+                        <div class="columns panel browser-notice">
+                            <div class="large-1 small-12  columns">
+                                <span class="icon-tt-info-circle notice-icon"></span>
+                            </div>     
+                            <div class="large-11 small-12 columns ">
+                                <span ng-if="isMobile()" >
+                                    For mobile android, we require users to use Google Chrome or the Android default browser.
+                                    <br />
+                                    For mobile IOS, we require Safari or Google Chrome.
+                                </span>
+                                <span ng-if="!isMobile()">
+                                    For desktop, we require users to use Google Chrome.  
+                                </span>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+                
+            </section>
+            <!-- //content -->
+            
+ <div class="push"></div>
+        </div>
+
+        <!-- footer -->
+        <% if (Session["mobile"] == null || (bool)Session["mobile"] == false)
+           { %>
+            
+                <footer class="tt-footer-wrap" <% if (Session[Constants.Sess_SignUp] != null) {%> ng-show="show_content" ng-cloak <%}%>>
+            
+                    <%-- footer boomike the file is in includes/Footer.ascx --%>
+                    <%if (Session["User"] != null)
+                      { %>
+                    <div class="footer-pagination-wrap row collapse" ng-class="!is_anytime ? 'no-paginate' : 'home'" ng-style="{visibility: projectLockedInfo.status ? 'hidden' : ''}"> 
+                        <includes:Footer runat="server" ID="Footer" />
+                    </div>    
+                    <%} %>
+                    <%-- end of footer --%>
+
+                   <div class="footer-content columns" ng-class="!is_pipescreen ? 'no-paginate' : 'pipe-screen' ">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <div class="small-6 columns text-left tt-languages hide-for-medium-down">                        
+                                    <a style="display:none;" href="#" data-options="align:top" data-dropdown="languagesWrap" class="button tiny smoothScrollLink" data-link="#languagesWrap">
+                                        <span class="text">English</span>
+                                        <span class="icon-tt-keyboard-o keyboard"></span>
+                                    </a>
+                                    <ul class="hide" id="languagesWrap" class="tiny content f-dropdown" data-dropdown-content>
+                                        <li><a href="#">Arabic <span class="icon-tt-flag"></span></a></li>
+                                        <li><a href="#">Chinese <span class="icon-tt-flag"></span></a></li>
+                                        <li><a href="#">Filipino <span class="icon-tt-flag"></span></a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="small-6 columns text-right tt-copyright">
+                                    <small>Version 5.12.2</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </footer>
+
+
+        <% } %>
+
+		<!------------------------------------------------>
+		<!--------- Start Main Green Load Screen --------->
+		<!------------------------------------------------>		 
+        <div class="fullwidth-loading-wrap hide">            
+            <div class="tt-fullwidth-loading tt-center-height-wrap" style="background-color: #6aa84f; color:#fff !important;">
+                    <div class="tt-center-content-wrap">
+                        <p style="margin-bottom:0px; font-size:30px; line-height:normal">Comparion<sup>&#174;</sup></p>
+                         <p style="font-size:14px; margin-bottom:50px;">Collaborative Decision Making Solution</p>
+<%--                        <div id="topLoader"></div>--%>
+
+                         <div class="windows8" style="height:25px">
+                            <div class="wBall" id="wBall_1">
+                                <div class="wInnerBall" style="background-color:#fff !important;"></div>
+                            </div>
+                            <div class="wBall" id="wBall_2">
+                                <div class="wInnerBall" style="background-color:#fff !important;"></div>
+                            </div>
+                            <div class="wBall" id="wBall_3">
+                                <div class="wInnerBall" style="background-color:#fff !important;"></div>
+                            </div>
+                            <div class="wBall" id="wBall_4">
+                                <div class="wInnerBall" style="background-color:#fff !important;"></div>
+                            </div>
+                            <div class="wBall" id="wBall_5">
+                                <div class="wInnerBall" style="background-color:#fff !important;"></div>
+                            </div>
+                        </div> 
+                        <label>
+                            <span class="text LoadingModalPercentage" style="padding-top: -10px; color: #fff;" ng-cloak id="LoadingModalPercentage"></span>
+                        </label>
+                        <div style="
+                            /* position: absolute; */
+                            /* display: block; */
+                            margin-top: 60px; color:#fff !important;
+                        " id="LoadingModalMessage" class="LoadingModalMessage"></div>
+                    </div>
+            </div>
+        </div>        
+		<!---------------------------------------------->
+		<!--------- End Main Green Load Screen --------->
+		<!---------------------------------------------->
+		<!------------------------------------------------------>
+		<!--------- Start Small Green Load Screen -------------->
+		<!------------------------------------------------------> 
+        <div class="small-fullwidth-loading-wrap hide">            
+            <div class="tt-fullwidth-loading tt-center-height-wrap" <%--style="background-color: rgba(250, 250, 250, 0.8); color:#fff !important;"--%>>
+                    <div style="/*background-color:#6aa84f;*/ height:175px; width: 250px; padding: 30px 0px 0px 0px; border-radius:5px; position:absolute; top:50%; margin-top:-88px; left:50%; margin-left:-125px;">                        
+<%--                        <div id="topLoader"></div>--%>
+
+                         <div class="windows8" style="height:25px">
+                            <div class="wBall" id="wBall_1">
+                                <div class="wInnerBall" <%--style="background-color:#fff !important;"--%>></div>
+                            </div>
+                            <div class="wBall" id="wBall_2">
+                                <div class="wInnerBall" <%--style="background-color:#fff !important;"--%>></div>
+                            </div>
+                            <div class="wBall" id="wBall_3">
+                                <div class="wInnerBall" <%--style="background-color:#fff !important;"--%>></div>
+                            </div>
+                            <div class="wBall" id="wBall_4">
+                                <div class="wInnerBall" <%--style="background-color:#fff !important;"--%>></div>
+                            </div>
+                            <div class="wBall" id="wBall_5">
+                                <div class="wInnerBall" <%--style="background-color:#fff !important;"--%>></div>
+                            </div>
+                        </div> 
+                        <label>
+                            <span class="text LoadingModalPercentage" style="padding-top: -10px; /*color: #fff;*/" ng-cloak id="LoadingModalPercentage"></span>
+                        </label>
+                        <div style="
+                            /* position: absolute; */
+                            /* display: block; */
+                            margin-top: 50px; color:#000 !important;" id="LoadingModalMessage" class="LoadingModalMessage"></div>
+                    </div>
+            </div>
+        </div>
+		<!---------------------------------------------------->
+		<!--------- End Small Green Load Screen -------------->
+		<!----------------------------------------------------> 
+
+        <!-- //footer -->
+        <%--<asp:Label runat="server" ID="LabelBrowser"></asp:Label>--%>
+    </form>
+    
+    <script src="/Scripts/loading-screen.js"></script>
+        <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/foundation") %>
+        <%: Scripts.Render("~/bundles/jsExtension") %>
+        <%: Scripts.Render("~/bundles/mainController") %>
+        </asp:PlaceHolder>
+
+        <%-- load this blank canvas if not logged in--%>    
+        <% if (Session["User"] == null || Session["UserType"] == null) {  %>
+<%--            <canvas id="uCurve" width="0" height="0" class="hidden-curve"></canvas> 
+            <canvas id="sFunctionCanvas" class="hidden-curve" width="0" height="0"></canvas>--%>
+        <%  } %>
+        
+        <!-- percentage loader -->
+      <%--  <script src="/Content/bower_components/percentage-loader/jquery.percentageloader-0.1.js"></script>--%>
+        <!-- //percentage loader -->   
+
+<%--        <script src="/Scripts/app.js"></script>--%>
+        
+            
+        <% 
+            string passcode = Convert.ToString(Request.QueryString["passcode"]);
+            if (passcode != null && (Session["User"] == null))
+            {%>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#loginToMeeting').foundation('reveal', 'open'); $("#AccessCodeTxt").val('<%=passcode%>');
+            });
+        </script>
+        <%} %>
+        <script type="text/javascript">
+            //var app = angular.module("comparion", []);
+
+
+            //HIT ENTER SUBMIT
+            $(document).on('keypress', '.ec-login-form .tt-input-form', function (e) {
+                if (e.which == 13) {
+                    $('#LoginBtn').click();
+                    //console.log('enter clicked');
+                    return false;
+                }
+            });
+            $(document).foundation('reveal', {
+                //  multiple_opened: true,
+                root_element: 'form'
+            });
+
+
+                //setTimeout(function () {
+                //    $('#InviteParticipant').css('top', '10px;');
+                //}, 1000);
+            
+     
+
+            $(document).ready(function () {
+
+                //codes for default.aspx, login, logout, join meeting
+                $(".error").hide();
+
+            //logout
+                $(".LogoutButtons").click(function () {
+                    var timeOut = 0;
+                    var anytimeScope = angular.element($("#anytime-page")).scope();
+                    if (angular.isDefined(anytimeScope)) {
+                        timeOut = 300;
+                        anytimeScope.isLogOutClicked = true;
+
+                        var scope = angular.element($("#main-body")).scope();
+                        anytimeScope.showLoadingMessage = false; //for hiding loading/saving message
+                        anytimeScope.isAutoSaving = true;
+                        scope.MoveStepat(null, anytimeScope.current_step, false, null, false);
+                    }
+
+                    setTimeout(function() {
+                        var beforeUnload = window.onbeforeunload;
+                        window.onbeforeunload = null;
+
+                        if (confirm('Are you sure you want to logout?')) {
+                            setTimeout(function() {
+                                show_loading_modal();
+                                $.ajax({
+                                    type: "POST",
+                                    url: baseUrl + "Default.aspx/logout",
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function(data) {
+                                        if (data) {
+                                            window.location.href = baseUrl;
+                                        }
+                                        hide_loading_modal();
+                                    },
+                                    error: function(response) {
+                                        window.location.href = baseUrl;
+                                        hide_loading_modal();
+                                    }
+                                });
+                            }, timeOut);
+                        } else {
+                            window.onbeforeunload = beforeUnload;
+                            return false;
+                        }
+                    }, timeOut);
+                    
+                });
+            
+            //login
+                $(document).on("click", ".clogin", function () {
+                //validation
+                if (this.id == "joinmeetingbtn") {
+                    var MeetingID;
+                    if ($("#MeetingID").val() != null) {
+                        MeetingID = $("#MeetingID").val()
+                    }
+                    if ($("#LoggedMeetingID").val() != null) {
+                        MeetingID = $("#LoggedMeetingID").val()
+                    }
+
+                    var valid = true;
+
+                    if (!$("#meeting_name").val()) {
+                        $("#MeetingNameError").show();
+                        valid = false;
+                    } else {
+                        $("#MeetingNameError").hide();
+                    }
+
+                    if (!$("#meeting_email").val()) {
+                        $("#MeetingEmailError").show();
+                        valid = false;
+                    } else {
+                        $("#MeetingEmailError").hide();
+                    }
+                    
+                    if (valid) {
+                        show_loading_modal();
+                        $.ajax({
+                            type: "POST",
+                            url: baseUrl + "Default.aspx/login",
+                            data: JSON.stringify({
+                                email: "",
+                                password: "",
+                                passcode: "",
+                                rememberme: "",
+                                MeetingID: MeetingID,
+                                meeting_name: $("#meeting_name").val(),
+                                meeting_email: $("#meeting_email").val()
+                            }),
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                $(".error-msg").hide();
+                                var output = JSON.parse(data.d);
+                                if (!output.success) {
+                                    hide_loading_modal();
+                                    $("#join_meeting_auth_error").html('<div class="large-12 columns"><div data-alert class="alert-box alert radius tt-alert msg-stat"> <h3>' + output.message + '</h3></div></div>');
+                                    $("#join_meeting_auth_error").show();
+                                }
+                                else {
+                                    if (output.url != "") {
+                                        window.location.href = baseUrl + output.url;
+                                    }
+                                    else {
+                                        window.location.href = baseUrl + "?LoginviaMeetingID=true";
+                                    }
+
+
+                                }
+                            },
+                            error: function (response) {
+                                $(".error-msg").hide();
+                                console.log(response);
+                                $("#server_error_msg").show();
+                                hide_loading_modal();
+                            }
+                        });
+                    }
+                   
+                }
+                else {
+                    var valid = true;
+                    if (!$("#LoginEmail").val()) {
+                        $("#EmailError").show();
+                        valid = false;
+                    }
+                    else {
+                        var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+                        if (!testEmail.test($("#LoginEmail").val()) && $("#LoginEmail").val() != 'admin') {
+                            $('#EmailError').show()
+                            valid = false;
+                        }
+                        else {
+                            $("#EmailError").hide();
+                        }
+                    }
+
+                    if (!$("#LoginPassword").val()) {
+                        //$("#PasswordError").show();
+                        //valid = false;
+                    } else {
+                        $("#PasswordError").hide();
+                    }
+                    
+                    if (valid) {
+                        //login ajax
+                        $.ajax({
+                            type: "POST",
+                            url: baseUrl + "Default.aspx/login",
+                            data: JSON.stringify({
+                                email: $("#LoginEmail").val(),
+                                password: $("#LoginPassword").val(),
+                                passcode: $("#AccessCodeTxt").val(),
+                                rememberme: $('#SrembMeLogin').is(":checked"),
+                                MeetingID: "",
+                                meeting_name: "",
+                                meeting_email: ""
+                            }),
+                            beforeSend: function () {
+                                $(".error").hide();
+                                $('.tt-login-form-status').html('<div class="large-12 columns">          <div data-alert class="alert-box radius tt-alert msg-stat alert-check">           <h3>Checking...          <a href="#" class="close">&times;</a>          </h3>        </div>      </div>');
+                            },
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                               // console.log(data.d);
+                                var output = JSON.parse(data.d);
+                               // console.log(output);
+                                if (output.success) {
+                                    $('.tt-login-form-status').html('<div class="large-12 columns">          <div data-alert class="alert-box success radius tt-alert msg-stat alert-proceed">           <h3>Proceeding...          <a href="#" class="close">&times;</a>          </h3>        </div>      </div>');
+
+                                    //if (output.mobile) {
+                                    //    window.location.href = baseUrl + "m.judgement.aspx";
+                                    //}
+
+                                    if (output.teamtime) {
+                                        window.location.href = baseUrl + "pages/teamtimetest/teamtime.aspx";
+                                    }
+                                    else if (output.anytime) {
+                                        window.location.href = baseUrl + "pages/Anytime/Anytime.aspx";
+                                    }
+                                    else {
+                                        if (output.mobile) {
+                                            window.location.reload();
+                                        }
+                                        else {
+                                                window.location.href = baseUrl + "pages/my-projects.aspx";
+                                        }
+                                    }
+                                } else {
+                                    $('.tt-login-form-status').html('');
+
+                                    $('.tt-login-form-status').html('<div class="large-12 columns">          <div data-alert class="alert-box alert radius tt-alert msg-stat">           <span>' + output.message + '</span>        </div>      </div>');
+
+                                }
+                                $(document).foundation('reflow');
+                            },
+                            error: function (response) {
+                                //console.log(response);
+                                $('.tt-login-form-status').html('<div class="large-12 columns">          <div data-alert class="alert-box alert radius tt-alert msg-stat">           <h3>Something went wrong. Kindly try again.         <a href="#" class="close">&times;</a>          </h3>        </div>      </div>');
+                                $(document).foundation('reflow');
+                            }
+                        });
+                    }
+                }// closing for the if else after .clogin click
+                return false;
+            });
+
+        });
+
+        //HIT ENTER SUBMIT
+        $(document).on('keypress', '#loginToMeeting .tt-input-form', function (e) {
+            if (e.which == 13) {
+                $('#LoginBtn').click();
+                //console.log('enter clicked');
+                return false;
+            }
+        });
+        $(document).on('keypress', '.signup-form', function (e) {
+            if (e.which == 13) {
+                $('#SignUpBtn').click();
+                //console.log('enter clicked');
+                return false;
+            }
+        });
+        $(document).on('keypress', '.login-form', function (e) {
+            if (e.which == 13) {
+                $('#Log-inBtn').click();
+                //console.log('enter clicked');
+                return false;
+            }
+        });
+
+        $(document).on('click', '.save-acct-settings-btn', function (e) {
+            $("#tt-as-modal").foundation('reveal', 'close');
+        });
+        
+        //test comment
+        setTimeout(function () {
+            <%--adding chat script on head tag--%>
+            <% if (Session["User"] != null || Session["UserType"] != null) { %>
+                var headElement = document.getElementsByTagName("head")[0];
+                var chatScript = document.createElement("script");
+                chatScript.type = "text/javascript";
+                chatScript.src = "//www.socialintents.com/api/socialintents.1.3.js#2c9fa7465c3c6e61015c3dd5e6d700f5";
+                chatScript.async = "async";
+                headElement.appendChild(chatScript);
+            <% } %>
+        }, 0);
+     </script>
+    
+    <form id="GlobalImageForm" action="" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
+        <input id="GlobalImage" name="image" type="file" accept="image/*" onchange="$('#GlobalImageForm').submit();">
+    </form>
+
+    <script>
+        //This code is for uploading image in info docs
+        $(document).ready(function () {
+
+            //var $topLoader = $("#topLoader").percentageLoader({
+            //    width: 256, height: 256, controllable: true, progress: 0.8, onProgressUpdate: function (val) {
+            //        $topLoader.setValue(Math.round(val * 100.0));
+            //    }
+            //});
+
+
+            $("#GlobalImageForm").on('submit', function (e) {
+                e.preventDefault();
+               
+                var file = $("#GlobalImage").get(0).files[0];
+
+                var file_size = file.size / 1024 / 1024;
+                var ext = file.name.split(".");
+                ext = ext[ext.length - 1].toLowerCase();
+
+                var validFileExtensions = ["jpg", "jpeg", "gif", "png"];
+                var validFileSize = 4194304 / 1024 / 1024; //4MB
+
+                if (validFileExtensions.lastIndexOf(ext) == -1) {
+                    alert("Please upload a valid image.");
+                    $("#GlobalImage").val("");
+                    return false;
+                }
+                // alert(file_size);
+                //alert(validFileSize);
+                if (file_size > validFileSize) {
+                    alert("The file size exceeds the 4mb limit. Please try again.");
+                    $("#GlobalImage").val("");
+                    return false;
+                }
+
+
+                var r = new FileReader();
+                r.onload = function () {
+                    var binimage = r.result;
+                    var params = {
+                        Based64BinaryString: binimage,
+                        node_type: node_type,
+                        node_location: node_location,
+                        current_step: current_step,
+                        node_id: node_id
+                    };
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        url: baseUrl + "Default.aspx/UploadImage",
+                        data: JSON.stringify(params),
+                        dataType: "json",
+                        success: function (data) {
+                            console.log(data);
+                            $("#mceu_103-inp").val(data.d);
+                            tinymce.execCommand('mceInsertContent', false, '<img src="' + data.d + '"/>');
+                        },
+                        error: function (result) {
+                            //alert("Something went wrong. Please try again!");
+                            //console.log(result);
+                        }
+                    });
+
+
+                };
+                r.readAsDataURL(file);
+            });
+
+            loadKoScript();
+        });
+
+
+        
+        var meeting_signal = false;
+        <%if ((Session["hash"] != null && Session["User"] != null) || Convert.ToBoolean(Session["LoginviaMeetingID"]) == true)
+        {%>
+
+        meeting_signal = true;
+        <%}%>
+
+        $('.startMeetingBtn').click(function () {
+            show_loading_modal();
+            var restart_pipe = $('.start-tt-as-pm .restart').prop('checked');
+            var baseUrl = '<%= ResolveUrl("~/") %>';
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "Default.aspx/StartMeeting",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({
+                    IfRestartPipe: restart_pipe
+                }),
+                dataType: "json",
+                success: function (data) {
+                    if (data.d) {
+                        window.location = baseUrl + 'pages/teamtimetest/teamtime.aspx';
+
+                    }
+                },
+                error: function (response) {
+                    $(".fullwidth-loading-wrap").addClass("hide");
+                    console.log(response);
+                    hide_loading_modal();
+                }
+            });
+            return false;
+        });
+        <% if (Session[Constants.Sess_SignUp] != null) {%>
+            <% if (Session[Constants.Sess_SignUpMode].ToString() != "") {%>
+                $(document).ready(function () {
+                    setTimeout(function () {
+                        $('#SignUpModal').foundation('reveal', 'open');
+                        $('.reveal-modal-bg').css("background", "#ecf0f1");
+                    }, 500);
+                });
+                setTimeout(function () {
+                    var $scope = angular.element($("#main-body")).scope();
+                    $scope.$apply(function () {
+                        //$scope.CheckGeneralLink();
+
+                        $scope.signup_mode = '<%=Session[Constants.Sess_SignUpMode]%>';
+                        $scope.req_signup_mode = '<%=Session[Constants.Sess_Requirements]%>';
+                        $scope.show_signup_fields();
+                        $scope.show_content_now();
+                    });
+                    hide_loading_modal();
+                
+                }, 1000);
+        <%}else {%>
+            show_loading_modal();
+            setTimeout(function () {
+                var $scope = angular.element($("#main-body")).scope();
+                $scope.GeneralLinkSignUp($scope.signUpUser.SEmail, $scope.signUpUser.SName, $scope.signUpUser.SPass, $scope.signUpUser.SPass2, $scope.signUpUser.SPhone, null, true);
+             }, 1500);
+            <%}%>
+        <% Session[Constants.Sess_SignUp] = null;%>
+        <%}else if (Session["UserSpecificHashErrorMessage"] != null) {%>
+            $(document).ready(function () {
+                var $scope = angular.element($("#main-body")).scope();
+                var message = "<%=Session["UserSpecificHashErrorMessage"].ToString().Replace("\"", "\\\"")%>";
+                $scope.mesage_layout("alert", message);
+            });
+        <%}%>
+
+        //$(document).on('keypress', '#SignUpModal input', function (e) {
+        //    if (e.which == 13) {
+        //        show_loading_modal();
+        //        $('#SignUpBtn').click();
+        //        hide_loading_modal();
+        //        //console.log('enter clicked');
+        //        return false;
+        //    }
+        //});
+
+        
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        var is_offline = getUrlParameter('is_offline');
+
+        if (is_offline == "true") {
+            $(".project_name").html(getUrlParameter('project'));
+            $("#offline_message").show();
+        }
+        
+        <% 
+        if (Session["App"] != null)
+        { %>
+            setTimeout(function () {
+                var $scope = angular.element($("#main-body")).scope();
+                $scope.$apply(function () {
+                    //console.log("Calling onload...");
+                    $scope.onLoad();
+                });
+            }, 500);
+         <% } %>
+        $("#LoginEmail").focusout(function () {
+            $("#EmailError").hide();
+        });
+
+        function onSIApiReady() {
+            //console.log("Chat script loaded");
+            var $scope = angular.element($("#main-body")).scope();
+
+            SI_API.setChatInfo($scope.App.ActiveUser.UserName, $scope.App.ActiveUser.UserEMail, '', '');
+
+            SI_API.onChatOpened = function () {
+                //console.log("Opening chat window");
+                var $scope = angular.element($("#main-body")).scope();
+                var params = [];
+
+                //var hasProject = $scope.current_project.has_project;
+                var projectName = $scope.current_project.has_project
+                    ? $scope.current_project.project_name + " (#" + $scope.current_project.project_id + ", access code: " + $scope.current_project.access_code + ")"
+                    : "- none -";
+                var workgroupName = $scope.current_project.workgroup_name.trim().length > 0 ? $scope.current_project.workgroup_name : "- none -";
+
+                //console.log("Adding project: " + projectName + ", workgroup: " + workgroupName + ", session: " + $scope.App.Options.SessionID);
+                params.push({ name: 'Project', value: projectName });
+                params.push({ name: 'Workgroup', value: workgroupName });
+                params.push({ name: 'SessionID', value: $scope.App.Options.SessionID });
+                SI_API.addParams(params);
+            }
+        }
+
+        var _ko16_p = _ko16_p || [];
+        function loadKoScript() {
+            <% if (Session["User"] != null) { %>
+                <% var app = (clsComparionCore) Session["App"];
+                   var errorString = string.Empty;
+                %>
+
+                _ko16_p.push(['_setProject', '<% =Constants.KoProjectId %>']);
+                _ko16_p.push(['_setCustomVar', 'cust_email', '<% =app.ActiveUser.UserEMail %>']);
+                _ko16_p.push(['_setCustomVar', 'cust_name', '<% =app.ActiveUser.UserName.Replace("\\'", "'").Replace("\'", "'").Replace("'", "\\'") %>']);
+                _ko16_p.push(['_setCustomVar', 'reader_groups', '<% =string.Format("{0},{1}", "comparion", (app.CanUserCreateNewProject(ref errorString) ? "pm" : "eval")) %>']);
+
+                <% if(Consts._OPT_SHOW_HELP_AUTHORIZED) { %>
+                    _ko16_p.push(['_setToken', '<% = AnytimeClass.GetKnowledgeOwlToken(app) %>']);
+                <% } %>
+
+                var ko = document.createElement('script');
+                ko.type = 'text/javascript';
+                ko.async = true;
+                ko.src = "//comparion.knowledgeowl.com/javascript/ko-index?__pc=<% =Constants.KoProjectId %>";
+                document.head.appendChild(ko);
+            <% } %>
+        }
+    </script>
+
+</body>
+
+</html>

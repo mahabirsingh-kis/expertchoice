@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="_24by7-icon" data-name="24by7-icon" transform="translate(11636 10574)">
+    <g id="Ellipse_142" data-name="Ellipse 142" transform="translate(-11636 -10574)" fill="none" stroke="#010101" stroke-width="1">
+      <circle cx="10" cy="10" r="10" stroke="none"/>
+      <circle cx="10" cy="10" r="9.5" fill="none"/>
+    </g>
+    <text id="_24" data-name="24" transform="translate(-11630 -10565)" fill="#010101" font-size="7" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">24</tspan></text>
+    <line id="Line_1053" data-name="Line 1053" x2="13" transform="translate(-11632.5 -10563.5)" fill="none" stroke="#000" stroke-width="1"/>
+    <text id="_7" data-name="7" transform="translate(-11628 -10557)" fill="#010101" font-size="7" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">7</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Text to Speech Test</title>
+</head>
+<script language="javascript" type="text/javascript">
+        function textToSpeech(txt) {
+            var msg = new SpeechSynthesisUtterance();
+            var voices = window.speechSynthesis.getVoices();
+            // msg.voice = voices[10];
+            // msg.voiceURI = "native";
+            // msg.volume = 1;
+            // msg.rate = 1;
+            msg.pitch = 0.8;
+            msg.text = txt;
+            msg.lang = 'en-US';
+            window.speechSynthesis.speak(msg);
+            //var msg = new SpeechSynthesisUtterance(txt);
+            //window.speechSynthesis.speak(msg);
+        }
+
+        function say() {
+            textToSpeech(document.getElementById('inputText').value);
+        }
+</script>
+
+<body>
+    <div>Input text: </div>
+    <textarea id="inputText" rows="5" cols="60">
+Since 1983, Expert Choice has been a leader in collaborative decision making software.
+    </textarea> <br/>
+    <input type="button" value="Speech" onclick="say()" />
+</body>

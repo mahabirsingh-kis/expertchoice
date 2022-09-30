@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG.js</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script> -->
+  <script src="../Scripts/jquery.min.js"></script>
+  <script src="../Scripts/jquery-ui.min.js"></script>
+  <script src="../NewScript/ec.charts2.js"></script>
+  <script src="../NewScript/svg.js/svg.min.js"></script>
+  <!-- <script src="../Scripts/svg.js"></script> -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* font-size: 20px; */
+        }
+        div.scroll {
+                overflow-x: auto;
+                overflow-y: auto;
+                text-align:justify;
+        }
+    </style>
+</head>
+<script>
+    var dataSource = {"objs":{"1":{"ID":1,"NodeGUID":"19544a6d-9258-43cc-9703-b39529df9b00","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Goal: Optimize IT Portfolio To Improve Performance","HasInfodoc":true,"isAlternative":false,"isTerminal":false,"Level":0,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#99CCFF","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "9":{"ID":9,"NodeGUID":"f051ba4e-7bbc-4a71-a8fc-f9f9a79126bf","ParentNodeID":1,"ParentNodeGUID":["19544a6d-9258-43cc-9703-b39529df9b00"],"Name":"Leverage Knowledge","HasInfodoc":true,"isAlternative":false,"isTerminal":false,"Level":1,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#669966","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "11":{"ID":11,"NodeGUID":"29801de0-29dd-4302-9541-8daec767f75e","ParentNodeID":1,"ParentNodeGUID":["19544a6d-9258-43cc-9703-b39529df9b00"],"Name":"Improve Organizational Efficiency","HasInfodoc":true,"isAlternative":false,"isTerminal":false,"Level":1,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#6699CC","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "12":{"ID":12,"NodeGUID":"2b411bc6-fbb6-4b03-b8a1-e07281f697d4","ParentNodeID":11,"ParentNodeGUID":["29801de0-29dd-4302-9541-8daec767f75e"],"Name":"Improve Service Efficiencies","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#663366","measureType":1,"measureScaleID":7,"localPriority":0,"globalPriority":0},
+                              "16":{"ID":16,"NodeGUID":"eee4ecb8-6461-4189-a477-1a2adad6314d","ParentNodeID":1,"ParentNodeGUID":["19544a6d-9258-43cc-9703-b39529df9b00"],"Name":"Maintain Serviceability","HasInfodoc":true,"isAlternative":false,"isTerminal":false,"Level":1,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#CCCC66","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "21":{"ID":21,"NodeGUID":"9a3aef09-3c3d-4f1e-9168-e7d58f48928f","ParentNodeID":1,"ParentNodeGUID":["19544a6d-9258-43cc-9703-b39529df9b00"],"Name":"Minimize Risks","HasInfodoc":true,"isAlternative":false,"isTerminal":false,"Level":1,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#99CC99","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "23":{"ID":23,"NodeGUID":"ad051673-72aa-4921-9fe7-586cd6f9eb48","ParentNodeID":65,"ParentNodeGUID":["8a9878fb-53bb-4dd7-8181-cfe74ceb5152"],"Name":"Business","HasInfodoc":true,"isAlternative":false,"isTerminal":true,"Level":3,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#009999","measureType":1,"measureScaleID":16,"localPriority":0,"globalPriority":0},
+                              "24":{"ID":24,"NodeGUID":"2fcf51b5-dfb0-460f-9b55-83191c014be5","ParentNodeID":65,"ParentNodeGUID":["8a9878fb-53bb-4dd7-8181-cfe74ceb5152"],"Name":"Vendor","HasInfodoc":true,"isAlternative":false,"isTerminal":true,"Level":3,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#99CC33","measureType":1,"measureScaleID":15,"localPriority":0,"globalPriority":0},
+                              "29":{"ID":29,"NodeGUID":"570c4cd2-8820-4bc1-8d57-b84231f75fb5","ParentNodeID":11,"ParentNodeGUID":["29801de0-29dd-4302-9541-8daec767f75e"],"Name":"Leverage Purchasing Power","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#CCCC33","measureType":1,"measureScaleID":8,"localPriority":0,"globalPriority":0},
+                              "30":{"ID":30,"NodeGUID":"683bbdb9-80b8-4c50-a9bd-679d5d1f3a49","ParentNodeID":11,"ParentNodeGUID":["29801de0-29dd-4302-9541-8daec767f75e"],"Name":"Improve Time to Market","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#336699","measureType":1,"measureScaleID":9,"localPriority":0,"globalPriority":0},
+                              "33":{"ID":33,"NodeGUID":"17bf4aca-f457-45f8-b753-30372e49ba84","ParentNodeID":21,"ParentNodeGUID":["9a3aef09-3c3d-4f1e-9168-e7d58f48928f"],"Name":"Leverage Proven Technology","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#666699","measureType":1,"measureScaleID":14,"localPriority":0,"globalPriority":0},
+                              "37":{"ID":37,"NodeGUID":"158c5b5e-136f-4a87-ac0a-f87185503edd","ParentNodeID":9,"ParentNodeGUID":["f051ba4e-7bbc-4a71-a8fc-f9f9a79126bf"],"Name":"Vendor/Partner Access","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#993300","measureType":1,"measureScaleID":4,"localPriority":0,"globalPriority":0},
+                              "38":{"ID":38,"NodeGUID":"380145b8-6aed-49de-90bc-4f341d5d9006","ParentNodeID":9,"ParentNodeGUID":["f051ba4e-7bbc-4a71-a8fc-f9f9a79126bf"],"Name":"Customer Access/Service","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#CCCC99","measureType":1,"measureScaleID":5,"localPriority":0,"globalPriority":0},
+                              "39":{"ID":39,"NodeGUID":"c48333f6-c7a2-4cca-9248-051c7fd8389b","ParentNodeID":9,"ParentNodeGUID":["f051ba4e-7bbc-4a71-a8fc-f9f9a79126bf"],"Name":"Internal Access","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#669966","measureType":1,"measureScaleID":6,"localPriority":0,"globalPriority":0},
+                              "40":{"ID":40,"NodeGUID":"59dffff5-71e8-4e2e-b88e-b0603d2e2153","ParentNodeID":11,"ParentNodeGUID":["29801de0-29dd-4302-9541-8daec767f75e"],"Name":"Manage Resources","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#FFCC66","measureType":1,"measureScaleID":10,"localPriority":0,"globalPriority":0},
+                              "52":{"ID":52,"NodeGUID":"83dc7544-1d3a-463e-b13a-fbd75075f5d6","ParentNodeID":16,"ParentNodeGUID":["eee4ecb8-6461-4189-a477-1a2adad6314d"],"Name":"Scaleability","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#FFCC00","measureType":1,"measureScaleID":11,"localPriority":0,"globalPriority":0},
+                              "53":{"ID":53,"NodeGUID":"7bbae02c-853d-41ce-8634-2b6d3848c1e1","ParentNodeID":16,"ParentNodeGUID":["eee4ecb8-6461-4189-a477-1a2adad6314d"],"Name":"Responsiveness","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#009999","measureType":1,"measureScaleID":12,"localPriority":0,"globalPriority":0},
+                              "54":{"ID":54,"NodeGUID":"a41795b5-65bd-43aa-8a27-e71f637a215b","ParentNodeID":16,"ParentNodeGUID":["eee4ecb8-6461-4189-a477-1a2adad6314d"],"Name":"Resources","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#99CC33","measureType":1,"measureScaleID":13,"localPriority":0,"globalPriority":0},
+                              "62":{"ID":62,"NodeGUID":"fce2f4ab-d427-4257-b320-68ae371dd066","ParentNodeID":1,"ParentNodeGUID":["19544a6d-9258-43cc-9703-b39529df9b00"],"Name":"Financials","HasInfodoc":true,"isAlternative":false,"isTerminal":false,"Level":1,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#999933","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "63":{"ID":63,"NodeGUID":"e4078811-3729-410e-b3e4-f9f2ad736f2d","ParentNodeID":62,"ParentNodeGUID":["fce2f4ab-d427-4257-b320-68ae371dd066"],"Name":"Maximize NPV","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#666699","measureType":2,"measureScaleID":1,"localPriority":0,"globalPriority":0},
+                              "64":{"ID":64,"NodeGUID":"928a27f6-96e1-4070-9753-e9e726f1fb40","ParentNodeID":62,"ParentNodeGUID":["fce2f4ab-d427-4257-b320-68ae371dd066"],"Name":"Maximize ROI","HasInfodoc":false,"isAlternative":false,"isTerminal":true,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#CC9933","measureType":2,"measureScaleID":2,"localPriority":0,"globalPriority":0},
+                              "65":{"ID":65,"NodeGUID":"8a9878fb-53bb-4dd7-8181-cfe74ceb5152","ParentNodeID":21,"ParentNodeGUID":["9a3aef09-3c3d-4f1e-9168-e7d58f48928f"],"Name":"Ensure Readiness","HasInfodoc":false,"isAlternative":false,"isTerminal":false,"Level":2,"Tag":null,"pros":null,"cons":null,"Data":null,"Color":"#006666","measureType":0,"measureScaleID":-1,"localPriority":0,"globalPriority":0}},
+                      "alts":{"1":{"ID":1,"NodeGUID":"3d340a48-a6c9-4546-ada4-ce003ff492cc","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Plumtree Corporate Portal","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"1345","pros":null,"cons":null,"Data":null,"Color":"#339966","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "2":{"ID":2,"NodeGUID":"3a104871-ea26-44ad-9f93-f4a31e23487f","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Cisco Routers","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"500","pros":null,"cons":null,"Data":null,"Color":"#66CCCC","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "3":{"ID":3,"NodeGUID":"005683c7-efd3-4c4a-86a6-15919f0e606c","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"EMC Symmetrix","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"4220","pros":null,"cons":null,"Data":null,"Color":"#999966","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "4":{"ID":4,"NodeGUID":"cb3694f8-1ec2-41d3-b888-8a7acc4683ba","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Iron Mountain Backup Service","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"430","pros":null,"cons":null,"Data":null,"Color":"#FF9900","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "5":{"ID":5,"NodeGUID":"d3e0c0b9-bb73-4032-aff9-4f5cc622d50d","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"SRDF Site/Service","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"3440","pros":null,"cons":null,"Data":null,"Color":"#99CC33","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "6":{"ID":6,"NodeGUID":"4551750d-174e-455a-a385-8fcd256e0391","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"PeopleSoft Upgrade","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"1670","pros":null,"cons":null,"Data":null,"Color":"#009999","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "7":{"ID":7,"NodeGUID":"75c3cf74-9e26-4279-8d79-cae1244e9011","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"AS/400 Replacements","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"990","pros":null,"cons":null,"Data":null,"Color":"#FFCC00","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "8":{"ID":8,"NodeGUID":"b70107ae-bd93-4a7c-8c11-5f720b9c14f7","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Oracle 9i Upgrade","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"1890","pros":null,"cons":null,"Data":null,"Color":"#99CC99","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "9":{"ID":9,"NodeGUID":"c7bde0f0-f4a3-451b-af3a-d78208c49f1d","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Thin Client Implementation","HasInfodoc":true,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"2100","pros":null,"cons":null,"Data":null,"Color":"#99CCCC","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "10":{"ID":10,"NodeGUID":"799c96c4-cbf9-4667-ac4f-5c89e6f9c9d8","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Laptop Replacements","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"1340","pros":null,"cons":null,"Data":null,"Color":"#0066CC","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "11":{"ID":11,"NodeGUID":"3b497374-facf-4512-a7c6-e564b6d25699","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Firewall and Antivirus Licenses","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"120","pros":null,"cons":null,"Data":null,"Color":"#9999FF","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "12":{"ID":12,"NodeGUID":"fa696992-d087-4c1a-8139-89a0d3fd63a9","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Desktop Replacements","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"800","pros":null,"cons":null,"Data":null,"Color":"#CC6600","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "13":{"ID":13,"NodeGUID":"bb685f16-d768-44e5-bcfa-d01ccefd6619","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Sales Force Laptops","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"150","pros":null,"cons":null,"Data":null,"Color":"#CCCC66","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "14":{"ID":14,"NodeGUID":"8c5aa3fe-8ad9-402d-a263-d0c16675d1de","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Mobile Workforce Pocket PCs","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"230","pros":null,"cons":null,"Data":null,"Color":"#669999","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "15":{"ID":15,"NodeGUID":"972372ef-ff77-4956-9ab1-631e3c51acc9","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"ProServe System Upgrade","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"2300","pros":null,"cons":null,"Data":null,"Color":"#CC99CC","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0},
+                              "16":{"ID":16,"NodeGUID":"3d7d219f-ef40-482c-b562-3406e7a1cc8a","ParentNodeID":-1,"ParentNodeGUID":[],"Name":"Customer Service Call Center","HasInfodoc":false,"isAlternative":true,"isTerminal":true,"Level":0,"Tag":"980","pros":null,"cons":null,"Data":null,"Color":"#9999CC","measureType":1,"measureScaleID":-1,"localPriority":0,"globalPriority":0}},
+    "users":{"-1":{"id":-1,"email":"","name":"All Participants","isGroup":true,"hasData":true,"data":null}},
+    "objPriorities":{"-1":{"9":{"nodeid":9,"prty":0.2498594969511032,"uprty":0.2498594969511032,"lprty":0.2498594969511032,"gprty":0.2498594969511032,"comps":null},
+                          "11":{"nodeid":11,"prty":0.2574847638607025,"uprty":0.2574847638607025,"lprty":0.2574847638607025,"gprty":0.2574847638607025,"comps":null},
+                          "12":{"nodeid":12,"prty":0.05042833834886551,"uprty":0.05042833834886551,"lprty":0.19584979116916656,"gprty":0.05042833834886551,"comps":null},
+                          "16":{"nodeid":16,"prty":0.10267181694507599,"uprty":0.10267181694507599,"lprty":0.10267181694507599,"gprty":0.10267181694507599,"comps":null},
+                          "21":{"nodeid":21,"prty":0.19913946092128754,"uprty":0.19913946092128754,"lprty":0.19913946092128754,"gprty":0.19913946092128754,"comps":null},
+                          "23":{"nodeid":23,"prty":0.06450781226158142,"uprty":0.06450781226158142,"lprty":0.5230774283409119,"gprty":0.06450781226158142,"comps":null},
+                          "24":{"nodeid":24,"prty":0.05881582945585251,"uprty":0.05881582945585251,"lprty":0.47692257165908813,"gprty":0.05881582945585251,"comps":null},
+                          "29":{"nodeid":29,"prty":0.03843577951192856,"uprty":0.03843577951192856,"lprty":0.14927399158477783,"gprty":0.03843577951192856,"comps":null},
+                          "30":{"nodeid":30,"prty":0.08546152710914612,"uprty":0.08546152710914612,"lprty":0.33190906047821045,"gprty":0.08546152710914612,"comps":null},
+                          "33":{"nodeid":33,"prty":0.07581581920385361,"uprty":0.07581581920385361,"lprty":0.3807172179222107,"gprty":0.07581581920385361,"comps":null},
+                          "37":{"nodeid":37,"prty":0.07657226920127868,"uprty":0.07657226920127868,"lprty":0.30646130442619323,"gprty":0.07657226920127868,"comps":null},
+                          "38":{"nodeid":38,"prty":0.0693303570151329,"uprty":0.0693303570151329,"lprty":0.2774773836135864,"gprty":0.0693303570151329,"comps":null},
+                          "39":{"nodeid":39,"prty":0.10395687073469162,"uprty":0.10395687073469162,"lprty":0.41606131196022033,"gprty":0.10395687073469162,"comps":null},
+                          "40":{"nodeid":40,"prty":0.08315912634134292,"uprty":0.08315912634134292,"lprty":0.32296717166900634,"gprty":0.08315912634134292,"comps":null},
+                          "52":{"nodeid":52,"prty":0.04083261638879776,"uprty":0.04083261638879776,"lprty":0.39770033955574035,"gprty":0.04083261638879776,"comps":null},
+                          "53":{"nodeid":53,"prty":0.03573636710643768,"uprty":0.03573636710643768,"lprty":0.34806403517723083,"gprty":0.03573636710643768,"comps":null},
+                          "54":{"nodeid":54,"prty":0.026102833449840545,"uprty":0.026102833449840545,"lprty":0.2542356252670288,"gprty":0.026102833449840545,"comps":null},
+                          "62":{"nodeid":62,"prty":0.19084446132183075,"uprty":0.19084446132183075,"lprty":0.19084446132183075,"gprty":0.19084446132183075,"comps":null},
+                          "63":{"nodeid":63,"prty":0.07412558048963547,"uprty":0.07412558048963547,"lprty":0.3884083330631256,"gprty":0.07412558048963547,"comps":null},
+                          "64":{"nodeid":64,"prty":0.11671888828277588,"uprty":0.11671888828277588,"lprty":0.6115916967391968,"gprty":0.11671888828277588,"comps":null},
+                          "65":{"nodeid":65,"prty":0.12332364171743393,"uprty":0.12332364171743393,"lprty":0.6192827820777893,"gprty":0.12332364171743393,"comps":null}}},
+    "altPriorities":{"-1":{"1":{"nodeid":1,"prty":0.08456967771053314,"uprty":0.7157638669013977,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.23045634487737523},{"nodeid":11,"val":0.1742330437547832},{"nodeid":16,"val":0.0878186129450157},{"nodeid":21,"val":0.11024326317674954},{"nodeid":62,"val":0.11301256901177307}]},
+                           "2":{"nodeid":2,"prty":0.07107196003198623,"uprty":0.6015245914459228,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.1019761559161822},{"nodeid":11,"val":0.13710186795726698},{"nodeid":16,"val":0.08570287864782552},{"nodeid":21,"val":0.18215964144712005},{"nodeid":62,"val":0.09458405546238625}]},
+                           "3":{"nodeid":3,"prty":0.06366212666034698,"uprty":0.5388107299804687,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.06564659383031783},{"nodeid":11,"val":0.15200199430912473},{"nodeid":16,"val":0.08570287864782552},{"nodeid":21,"val":0.1444361016070844},{"nodeid":62,"val":0.09102313209635321}]},
+                           "4":{"nodeid":4,"prty":0.06821142882108688,"uprty":0.5773141980171204,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.02578903799785759},{"nodeid":11,"val":0.12584310924890496},{"nodeid":16,"val":0.08491749145378957},{"nodeid":21,"val":0.18259210352614097},{"nodeid":62,"val":0.15817240497364493}]},
+                           "5":{"nodeid":5,"prty":0.05280498042702675,"uprty":0.4469201862812042,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.06125621682681707},{"nodeid":11,"val":0.12549989043069265},{"nodeid":16,"val":0.08469186655759729},{"nodeid":21,"val":0.07080728645694448},{"nodeid":62,"val":0.10466487204335653}]},
+                           "6":{"nodeid":6,"prty":0.05107520520687103,"uprty":0.4322800636291504,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.06390173229822241},{"nodeid":11,"val":0.12994636529796635},{"nodeid":16,"val":0.05453937224195014},{"nodeid":21,"val":0.09522763121484617},{"nodeid":62,"val":0.0886649451183894}]},
+                           "7":{"nodeid":7,"prty":0.06859828531742096,"uprty":0.5805884003639221,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.07019494653760444},{"nodeid":11,"val":0.15718465823180772},{"nodeid":16,"val":0.08614211836849581},{"nodeid":21,"val":0.16699052866354447},{"nodeid":62,"val":0.10007609925766293}]},
+                           "8":{"nodeid":8,"prty":0.06883756071329117,"uprty":0.5826135277748108,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.12449590768559315},{"nodeid":11,"val":0.1485302590147444},{"nodeid":16,"val":0.06576433373362265},{"nodeid":21,"val":0.12086634328537812},{"nodeid":62,"val":0.12295669653939003}]},
+                           "9":{"nodeid":9,"prty":0.07969561219215393,"uprty":0.674511730670929,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.1760678037375121},{"nodeid":11,"val":0.16166831424763933},{"nodeid":16,"val":0.07423804096504827},{"nodeid":21,"val":0.11929449537433076},{"nodeid":62,"val":0.14324314119392523}]},
+                           "10":{"nodeid":10,"prty":0.04198947176337242,"uprty":0.3553820550441742,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.04980013471712737},{"nodeid":11,"val":0.06696693531045819},{"nodeid":16,"val":0.01800214076658031},{"nodeid":21,"val":0.13706507659904488},{"nodeid":62,"val":0.08354775473025556}]},
+                           "11":{"nodeid":11,"prty":0.05910478159785271,"uprty":0.5002391934394836,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.04399113490766958},{"nodeid":11,"val":0.08892096405384833},{"nodeid":16,"val":0.043114818916422874},{"nodeid":21,"val":0.1780958913647381},{"nodeid":62,"val":0.14611636647519732}]},
+                           "12":{"nodeid":12,"prty":0.054055001586675644,"uprty":0.4574998617172241,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.08188985866044124},{"nodeid":11,"val":0.08136652280236992},{"nodeid":16,"val":0.04351864813758776},{"nodeid":21,"val":0.15657378214756318},{"nodeid":62,"val":0.0941510701043217}]},
+                           "13":{"nodeid":13,"prty":0.060785602778196335,"uprty":0.5144649744033813,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.1274093116609653},{"nodeid":11,"val":0.08355298207136988},{"nodeid":16,"val":0.03177745106382847},{"nodeid":21,"val":0.16043291586268582},{"nodeid":62,"val":0.11129230550365124}]},
+                           "14":{"nodeid":14,"prty":0.04319196566939354,"uprty":0.36555948853492737,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.08954589908597217},{"nodeid":11,"val":0.05470464871747495},{"nodeid":16,"val":0.042188465958328286},{"nodeid":21,"val":0.059808802073470446},{"nodeid":62,"val":0.11931167294554548}]},
+                           "15":{"nodeid":15,"prty":0.0637202188372612,"uprty":0.539302408695221,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.12618522190938303},{"nodeid":11,"val":0.12091907004388787},{"nodeid":16,"val":0.05856036542481463},{"nodeid":21,"val":0.10955072004900154},{"nodeid":62,"val":0.12408702663703384}]},
+                           "16":{"nodeid":16,"prty":0.06862611323595047,"uprty":0.5808238983154297,"lprty":0,"gprty":0,"comps":[{"nodeid":9,"val":0.1308637751845916},{"nodeid":11,"val":0.08879938801047654},{"nodeid":16,"val":0.0812291772964487},{"nodeid":21,"val":0.16969682108668224},{"nodeid":62,"val":0.11023472712730572}]}}}};
+    
+    SVG.on(document, 'DOMContentLoaded', function() {
+        $("#chart").ecCharts2({
+            debugMode: false,
+            dataSource: dataSource,
+        });
+    })
+
+    $(document).ready(function () {
+        $(window).resize(function () {
+            rtime = new Date();
+            if (timeout === false) {
+                timeout = true;
+                setTimeout(resizeend, delta);
+            };
+            //resize();
+        });
+        window.onorientationchange = function () {
+            resize();
+        };
+    });
+    var rtime;
+
+var timeout = false;
+var delta = 50;
+
+function resizeend() {
+    if (new Date() - rtime < delta) {
+        setTimeout(resizeend, delta);
+    } else {
+        timeout = false;
+        resize();
+    }               
+}
+    function resize() {
+        var div = $("#divTable");
+        var w = div.width();
+        var h = div.height();
+        var chart = $("#chart");
+        chart.ecCharts2("resize", w, h);
+    }
+</script>
+<body>
+    <div id="divTable" style="position: fixed; top: 5px; left: 5px; width: calc(100% - 10px); height: calc(100% - 10px);">
+        <div id="chart"></div>
+    </div>
+    
+</body>
+</html>

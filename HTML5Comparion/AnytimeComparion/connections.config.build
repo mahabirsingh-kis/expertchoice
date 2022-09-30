@@ -1,0 +1,5 @@
+<connectionStrings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+    <add name="SqlServerIntegratedSecurity" providerName="system.data.sqlclient" connectionString="Data Source=%SqlServerAddress%;Initial Catalog=master;Integrated Security=SSPI;" xdt:Transform="Replace" xdt:Locator="Match(name)" />
+    <add name="SqlServerPassword" providerName="system.data.sqlclient" connectionString="Data Source=%SqlServerAddress%;Initial Catalog=master;User Id=%SqlServerUser%;Password=%SqlServerPassword%;Max Pool Size=200;" xdt:Transform="Replace" xdt:Locator="Match(name)" />
+    <add name="SqlServer" providerName="system.data.sqlclient" connectionString="Data Source=%SqlServerAddress%;Initial Catalog=master;User Id=%SqlServerUser%;Password=%SqlServerPassword%;Max Pool Size=200;" xdt:Transform="Replace" xdt:Locator="Match(name)" />
+</connectionStrings>

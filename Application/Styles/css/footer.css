@@ -1,0 +1,419 @@
+.footer {
+    padding: 10px 0;
+    position: fixed;
+    right: 0;
+    color: #74788d;
+    left: 0;
+    height: auto;
+    background-color: #EFEFEF;
+    bottom: 0;
+}
+/**************************** footer btn  ************************************/
+.foot_btn {
+    background: #dc6201;
+    border: none;
+    color:  var(--White);
+    padding: 2px 8px;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 4px;
+}
+/**************************** footer btn  ************************************/
+/**************************** footer progress  ************************************/
+
+.footer_progress {
+    width: fit-content;
+}
+.footer_progress .progress {
+   height: 8px;
+   border-radius: 50px;
+}
+.footer_progress .progress {
+    height: 10px;
+    border-radius: 50px;
+    border: 1px solid #bbb;
+    background:  var(--White);
+    margin-bottom: 2px;
+    color: #0058A3;
+}
+.progress .progress-bar{
+    background: #0058A3;
+}
+/**************************** footer progress  ************************************/
+
+/**************************** pagination  ************************************/
+.pagination-data {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pagination-data li {
+    list-style: none;
+  }
+  
+  .table-filter-info {
+    padding: 15px;
+  }
+  
+  .thead-primary tr th {
+    background-color: #5a8dee;
+    border-color: #5a8dee;
+    color:  var(--White);
+  }
+  
+  .rc-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .rc-pagination-item,
+  .rc-pagination-prev,
+  .rc-pagination-jump-prev,
+  .rc-pagination-jump-next,
+  .rc-pagination-next {
+    margin-right: 4px;
+  }
+  
+  .rc-pagination-total-text {
+    margin-right: 12px;
+    cursor: initial;
+  }
+  
+  .rc-pagination-jump-next,
+  .rc-pagination-jump-prev,
+  .rc-pagination-next,
+  .rc-pagination-prev {
+    display: inline-block;
+    min-width: 28px;
+    height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+    font-family: Arial;
+    line-height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .rc-pagination-jump-next button,
+  .rc-pagination-jump-prev button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .rc-pagination-jump-next button:after,
+  .rc-pagination-jump-prev button:after {
+    display: block;
+    content: "•••";
+  }
+  
+  .rc-pagination-item,
+  .rc-pagination-prev,
+  .rc-pagination-next,
+  .rc-pagination-total-text {
+    min-width: initial;
+    height: auto;
+    line-height: initial;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .rc-pagination-item a, .rc-pagination-item button, .rc-pagination-prev a, .rc-pagination-prev button, .rc-pagination-next a, .rc-pagination-next button, .rc-pagination-total-text a, .rc-pagination-total-text button {
+    padding: 6px 8px;
+    height: auto;
+    min-width: 27px;
+    min-height: 27px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color:  var(--Black)!important;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+ .rc-pagination-item button, .rc-pagination-prev a, .rc-pagination-prev button, .rc-pagination-next a, .rc-pagination-next button, .rc-pagination-total-text button {
+    border: 1px solid #E5E5E5;
+    background-color: #E5E5E5;
+}
+  .rc-pagination-item.rc-pagination-item-active a,
+  .rc-pagination-item.rc-pagination-item-active a:hover,
+  .rc-pagination-prev.rc-pagination-item-active a,
+  .rc-pagination-prev.rc-pagination-item-active a:hover,
+  .rc-pagination-next.rc-pagination-item-active a,
+  .rc-pagination-next.rc-pagination-item-active a:hover,
+  .rc-pagination-total-text.rc-pagination-item-active a,
+  .rc-pagination-total-text.rc-pagination-item-active a:hover {
+    background-color: #dc6201;
+    border-color: #dc6201;
+    color:  var(--White) !important;
+  }
+  
+  .rc-pagination-item a:hover,
+  .rc-pagination-item button:hover,
+  .rc-pagination-prev a:hover,
+  .rc-pagination-prev button:hover,
+  .rc-pagination-next a:hover,
+  .rc-pagination-next button:hover,
+  .rc-pagination-total-text a:hover,
+  .rc-pagination-total-text button:hover {
+    background-color: #eceff5;
+    border-color: #eceff5;
+  }
+  .rc-pagination-unassessed button {
+    border: 2px solid #0058a3;
+    border-radius: 4px;
+    color: #0058a3;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.footer_progress_mob {
+    display: none;
+}
+.steps_list ul {
+    list-style: none;
+    padding: 0;
+}
+.steps_list ul li a {
+    padding: 8px 0;
+    display: block;
+    border-bottom: 1px solid var(--Light-Gray);
+}
+
+.steps_body {
+    display: flex;
+    flex-wrap: wrap;
+}
+.steps_list {
+    width: calc(75% - 20px);
+    margin-right: 20px;
+}
+.step_legent {
+    width: 25%;
+}
+.step_legent h3 {
+    text-transform: uppercase;
+    color: var(--Primary-Blue);
+}
+.step_legent ul {
+    list-style: none;
+    padding: 0;
+}
+.step_legent ul li {
+    margin-bottom: 10px;
+    padding-left: 30px;
+    position: relative;
+}
+.step_legent ul li:before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    left: 0;
+}
+.current_step {
+    color: var(--Rust-Orange);
+}
+.current_step::before {
+    background: var(--Rust-Orange);
+}
+.current_step_no{
+    background: var(--Rust-Orange) !important;
+    color: var(--White);
+}
+.notjudge {
+    color: var(--Highlighter);
+}
+.notjudge::before {
+    background: var(--Highlighter);
+}
+.notjudge_no{
+    background: var(--Highlighter) !important;
+    color: var(--White);
+}
+.result_step {
+    color: var(--Link-Blue);
+}
+.result_step::before {
+    background: var(--Link-Blue);
+}
+.result_step_no{
+    background: var(--Link-Blue) !important;
+    color: var(--White);
+}
+.judge_step {
+    color: var(--Black);
+}
+.judge_step::before {
+    background: var(--Black);
+}
+.judge_step_no{
+    background: var(--Black) !important;
+    color: var(--White);
+}
+.abstained_step {
+    color: var(--Black);
+}
+.abstained_step::before {
+    background: var(--Lavender);
+}
+li.rc-pagination-next ul.dropdown-menu li a {
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+li.rc-pagination-next ul.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+@media (max-width: 992px) {
+    li.rc-pagination-unassessed {
+        display: none;
+    }
+    li.rc-pagination-next button, li.rc-pagination-prev button {
+        font-size: 0;
+    }
+    .footer_progress_mob {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-right: 1px solid #888;
+        display: block;
+    }
+    .footer_progress_mob .progress {
+        height: auto;
+        border: none;
+        background: transparent;
+        margin-bottom: 2px;
+        color: #0058A3;
+    }
+    
+footer .progress {
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    font-size: 10px;
+    color: var(--Black);
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 10px;
+  }
+  
+    footer .progress::after {
+        content: "%";
+        right: 7px;
+        position: absolute;
+        z-index: 9;
+        font-size: 8px;
+        color: var(--Black);
+    }
+  
+    footer .progress .title {
+        position: relative;
+        z-index: 100;
+        width: 90%;
+        color: var(--Black);
+    }
+  
+    footer .progress .overlay {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: transparent
+    }
+  
+    footer .progress .left, footer .progress .right {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 3px solid #222235;
+        border-radius: 100px 0px 0px 100px;
+        border-right: 0;
+        transform-origin: right;
+    }
+  
+    footer .progress .left {
+        animation: load1 1s linear forwards;
+    }
+  
+    footer .progress:nth-of-type(2) .right, footer .progress:nth-of-type(3) .right {
+        animation: load2 .5s linear forwards 1s;
+    }
+  
+    footer .progress:last-of-type .right, footer .progress:first-of-type .right {
+        animation: load3 .8s linear forwards 1s;
+    }
+  
+  @keyframes load1 {
+    0% {
+        transform: rotate(0deg);
+    }
+  
+    100% {
+        transform: rotate(180deg);
+    }
+  }
+  
+  @keyframes load2 {
+    0% {
+        z-index: 100;
+        transform: rotate(180deg);
+    }
+  
+    100% {
+        z-index: 100;
+        transform: rotate(270deg);
+    }
+  }
+  
+  @keyframes load3 {
+    0% {
+        z-index: 100;
+        transform: rotate(180deg);
+    }
+  
+    100% {
+        z-index: 100;
+        transform: rotate(315deg);
+    }
+  }
+  .rc-pagination-item, .rc-pagination-prev, .rc-pagination-jump-prev, .rc-pagination-jump-next, .rc-pagination-next {
+    margin-right: 3px;
+}  
+.rc-pagination-item a, .rc-pagination-item button, .rc-pagination-prev a, .rc-pagination-prev button, .rc-pagination-next a, .rc-pagination-next button, .rc-pagination-total-text a, .rc-pagination-total-text button {
+    padding: 4px 4px;
+    min-width: 25px;
+    min-height: 25px;
+}
+.steps_list {
+    width: 100%;
+    margin-right: 0;
+    order: 2;
+}
+.step_legent {
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+}
+/**************************** pagination  ************************************/

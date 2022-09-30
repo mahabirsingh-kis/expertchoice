@@ -1,0 +1,1387 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits=".SiteMaster" %>
+
+<%@ Import Namespace="AnytimeComparion.Pages.external_classes" %>
+<%@ Import Namespace="ExpertChoice.Data" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <!-- App favicon -->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./img/fav.png">
+
+    <!--bootstrap min css-->
+    <link rel="stylesheet" href="CustomCSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CustomCSS/bootstrap.min.css.map">
+    <link rel="stylesheet" href="CustomCSS/style.css">
+    <link rel="stylesheet" href="CustomCSS/fonts.css">
+    <link rel="stylesheet" href="CustomCSS/nav.css">
+    <link rel="stylesheet" href="CustomCSS/footer.css">
+    <link rel="stylesheet" href="CustomCSS/color.css">
+    <link href="/assets/css/app.css" id="appstyle" rel="stylesheet" type="text/css" />
+    <link href="../Styles/assets/css/loaderStyle.css" rel="stylesheet" type="text/css" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+    <!-- apexcharts -->
+    <script src="../../assets/js/app.js"></script>
+    <style type="text/css">
+        .linkcls {
+            cursor: pointer !important;
+        }
+
+        .hide {
+            display: none
+        }
+        /*.switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+            margin: 0;
+        }*/
+
+
+        /*.slider.round:before {
+            border-radius: 50%;
+        }*/
+
+        /*.slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }*/
+
+        /*.slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }*/
+
+        /*.slider.round {
+            border-radius: 34px;
+        }*/
+
+        /*input:checked + .slider {
+            background-color: var(--Primary-Green);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px var(--Primary-Green);
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }*/
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        [type="checkbox"] {
+            margin: 0px 3px 0px 0px;
+            vertical-align: text-top;
+        }
+
+        .right-bar-enabled .right-bar {
+            right: 0;
+        }
+
+        .right-bar {
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 24px 0 rgb(0 0 0 / 6%), 0 1px 0 0 rgb(0 0 0 / 2%);
+            box-shadow: 0 0 24px 0 rgb(0 0 0 / 6%), 0 1px 0 0 rgb(0 0 0 / 2%);
+            display: block;
+            position: fixed;
+            -webkit-transition: all 200ms ease-out;
+            transition: all 200ms ease-out;
+            width: 350px;
+            z-index: 9999;
+            float: right !important;
+            right: -680px;
+            top: 0;
+            bottom: 0;
+        }
+
+            .right-bar h5 {
+                color: var(--Primary-Green);
+                font-size: 20px;
+                font-weight: 500;
+                padding-bottom: 0px;
+            }
+
+            .right-bar .right-bar-toggle {
+                width: 25px;
+                height: 25px;
+                background-color: var(--dark-gray);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                color: var(--White);
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .right-bar .app-search {
+                margin-bottom: 2em !important;
+            }
+
+                .right-bar .app-search .form-control {
+                    background-color: var(--Lavender);
+                    border-radius: 25px;
+                }
+
+            .right-bar h4 {
+                color: var(--Black);
+                text-align: left;
+            }
+
+            .right-bar .p-4 .linkcls {
+                padding-bottom: 10px;
+                display: block;
+                color: var(--Primary-Blue);
+            }
+    </style>
+    <%--<asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>--%>
+</head>
+<body data-layout="horizontal" id="multi_overflow">
+    <%--<form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>--%>
+    <nav class="navbar navbar-expand-lg navbar-dark navigation_menu p-0" id="stickyHeader">
+        <div class="container">
+            <!--  Show this only on mobile to medium screens  -->
+            <div class="mob_header d-lg-none">
+                <div class="mob_logo_workgroup">
+                    <a class="navbar-brand d-lg-none " href="index.html">
+                        <img src="../../img/fav.png"></a>
+                    <div class="work_group">
+                        <p>Model:</p>
+                        <h5><%:Session("ProjectName")%></h5>
+                    </div>
+                </div>
+                <div class="navbar-nav right_nav">
+
+                    <div class="nav-items">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../../img/icon/User.svg">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry" id="mCurrentUser" runat="server"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item LogoutButtons" href="javascript:void(0);">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarToggle"
+            aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button> -->
+
+            <!--  Use flexbox utility classes to change how the child elements are justified  -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+                <!--   Show this only lg screens and up   -->
+                <div class="header_elements">
+                    <%--    <a class="navbar-brand d-none d-lg-block " href="index.html">--%>
+                    <a class="navbar-brand d-none d-lg-block " href="#">
+                        <img src="../../img/logo.png"></a>
+                    <%--<div class="pm_ev_toggler nav-items">--%>
+                    <%--<button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false"
+                            autocomplete="off">
+                            <div class="handle"></div>
+                        </button>--%>
+                    <a class="nav-link evaluator_toggle nav-items " href="javascript:void(0);">
+                        <label class="btn btn-toggle switch" id="lblEval">
+                            <%--<span class="slider round"></span>--%>
+                        </label>
+                        <input type="hidden" id="hdnView" value="0" />
+                    </a>
+
+
+                    <div class="nav-items">
+                        <div class="workgroup">
+                            <ul>
+                                <li><span>Workgroup:</span> <%:Session("WorkgroupName")%></li>
+                                <li><span>Model:</span> <span class="model_name" title="<%:Session("ProjectName") %>"><%:Session("ProjectName")%></span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-nav right_nav">
+                <div class="nav-items">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1"
+                            data-bs-toggle="dropdown" aria-expanded="false">Help
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                            <li class="border-bottom"><a class="dropdown-item right-bar-toggle waves-effect" href="javascript:void(0);">Help Library</a></li>
+                            <%-- <li class="border-bottom"><a class="dropdown-item" href="#">Resource Center</a></li>
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>--%>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav-items">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../../img/icon/User.svg">
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry" id="CurrentUser" runat="server"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item LogoutButtons" href="javascript:void(0);">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <%--<div id="layout-wrapper" class="master_wrapper">
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="javascript:void(0);" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="/AnytimeComparion/assets/images/logo.png" alt="" height="32">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="/AnytimeComparion/assets/images/logo.png" alt="" height="60">
+                            </span>
+                        </a>
+                    </div>
+                    <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                </div>
+                <div class="d-flex">
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                            <i class="bx bx-fullscreen"></i>
+                        </button>
+                    </div>
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                            <i class="bx bxs-book"></i>
+                        </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user font-size-18" aria-hidden="true"></i>
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry" id="CurrentUser" runat="server"></span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <%--<a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-user font-size-16 align-middle me-1"></i><span key="t-profile">Profile</span></a>
+                            <div class="dropdown-divider"></div>--%>
+    <%--<a class="dropdown-item text-danger LogoutButtons" href="javascript:void(0);"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i><span key="t-logout">Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <%-- %><% If Session("topHeader") IsNot Nothing And CType(Session("topHeader"), Boolean) = True Then %>
+        <div class="topnav" id="topHeader" runat="server">
+            <div class="container-fluid">
+                <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+                    <div class="collapse navbar-collapse justify-content-between" id="topnav-menu-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);">Workgroup: <strong><%:Session("WorkgroupName")%></strong>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);">Project: <strong><%:Session("ProjectName")%></strong>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item d-flex">
+                                <a class="nav-link evaluator_toggle" href="javascript:void(0);">View as Evaluator:
+                                    <label class="switch" id="lblEval">--%>
+    <%--<input type="checkbox" id="chkViewAsEvaulator" />
+                                        <span class="slider round"></span>
+                                    </label>--%>
+    <%--<asp:HiddenField ID="hdnView" runat="server" Value="" />--%>
+    <%--<input type="hidden" id="hdnView" runat="server" value="<%# Session("ViewAsEvaulator").ToString() %>" />--%>
+    <%--</a>
+                                <a class="nav-link" id="quickHelp" href="javascript:void(0);">
+                                    <i class="bx bxs-help-circle font-size-18"></i>
+                                </a>
+                                <a href="javascript:void(0);" id="editQuickHelp" class="nav-link ps-0">
+                                    <i class="bx bxs-edit-alt chkEvaluator d-none"></i>
+                                </a>
+                            </li>--%>
+    <%-- <li class="nav-item">
+                               
+                            </li>
+                            <li class="nav-item">
+                              
+                            </li>--%>
+    <%--</ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div id="divViewOnlyMessage" class="hide" style="height: 50px; text-align: center;">
+            <div style="background-color: #fffae0; border: 1px solid #efe8e0; width: fit-content; display: inline-block;">
+                <div style="padding: 5px 10px 5px 10px; width: fit-content; color: #ff2727; font-size: 12.99px;">
+                    <span>View Only Mode. Your judgments will not be saved.</span>
+                    <span style="font-weight: normal; white-space: nowrap;" id="spnReadonly">(&lt;
+                                <%--<a href="mailto:{{App.ActiveUser.UserEMail}}">{{App.ActiveUser.UserEMail}}</a>--%>
+    <%--&gt;,<%-- {{App.ActiveUser.UserName}}
+                                )
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 d-lg-none mob_icon_top">
+            <div class="justify-content-end px-3 d-flex">
+                <a class="nav-link noti-icon" id="quickHelp" href="javascript:void(0);">
+                    <i class="bx bxs-help-circle font-size-18"></i>
+                </a>
+                <a href="javascript:void(0);" id="editQuickHelp" class="nav-link pe-0 noti-icon">
+                    <i class="bx bxs-edit-alt chkEvaluator d-none font-size-18"></i>
+                </a>
+            </div>
+        </div>
+        <% End If %>--%>
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main_wrapper1">
+        <div class="fixed_info">
+            <div class="question_fix">
+                <%--<a href="#" data-bs-toggle="modal" data-bs-target="#questinModal">
+                    <img src="../../img/icon/question-mark-white.svg">
+                </a>--%>
+                <a id="quickHelp" href="javascript:void(0);">
+                    <img src="../../img/icon/question-mark-white.svg">
+                </a>
+                <hr class="chkEvaluatorone" />
+                <a href="javascript:void(0);" id="editQuickHelp" class="edit_icon chkEvaluatorone">
+                    <img src="../../img/icon/edit-white.svg">
+                </a>
+            </div>
+        </div>
+
+        <%--<div class="page-content">--%>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <%--</div>--%>
+    </div>
+    <%--</div>--%>
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+        <div data-simplebar class="h-100">
+            <div class="rightbar-title d-flex align-items-center px-3 py-4">
+
+                <h5 class="m-0 me-2 hl-color">Who can we help you?</h5>
+
+                <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                    <%--<i class="mdi mdi-close noti-icon"></i>--%>
+                    X
+                </a>
+            </div>
+            <!-- Settings -->
+            <hr class="mt-0" />
+
+            <div class="p-4">
+                <form class="app-search mb-2 pt-0">
+                    <div class="position-relative">
+                        <input type="text" class="form-control" placeholder="Search..." />
+                        <span class="bx bx-search-alt"></span>
+                    </div>
+                </form>
+                <h4 class=" mb-3 prm-color">SUGGESTED FOR YOU</h4>
+                <a href="https://comparion.knowledgeowl.com/help/collect-input----insight-survey" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Collect Input -- Insight Survey</p>
+                </a>
+                <hr />
+                <h4 class=" mb-3 prm-color">OTHER RESOURCES</h4>
+                <a href="https://comparion.knowledgeowl.com/help/getting-started" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Getting Started</p>
+                </a>
+                <a href="https://comparion.knowledgeowl.com/help" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Full Knowledge Based</p>
+                </a>
+                <a href="https://comparion.knowledgeowl.com/help/release-notes" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Release Note & Webinar</p>
+                </a>
+                <a href="https://comparion.knowledgeowl.com/help/resource-center" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Sample Models & Templates</p>
+                </a>
+                <a href="https://professorforman.com/" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Professor Forman Blogn</p>
+                </a>
+            </div>
+
+        </div>
+        <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <%--<div class="rightbar-overlay"></div>
+    <input type="checkbox" id="check" />--%>
+
+    <!-- JAVASCRIPT -->
+    <%--<script type="text/javascript" src="../../assets/libs/jquery/jquery.min.js"></script>--%>
+    <script type="text/javascript" src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../assets/libs/metismenu/metisMenu.min.js"></script>
+    <%--<script type="text/javascript" src="../Scripts/jquery.jqplot.min.js"></script>--%>
+    <!-- apexcharts -->
+    <%--<script type="text/javascript" src="assets/js/app.js"></script>--%>
+    <script type="text/javascript" src="../../assets/js/app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        //$(document).ready(function () {
+        var IsHideImg1Load = false;
+        var IsBlankTxt = false;
+        var IsVisibleImgNo = 0;
+        var cookieValue = $.cookie('evaluatorView');
+        if (cookieValue != undefined && cookieValue != null && cookieValue.trim() == 'true') {     
+            $('#lblEval').html('')
+            $('#lblEval').html('<input type="checkbox" checked id="chkViewAsEvaulator" /><span class="handle slider round"></span>');
+            $('#lblEval').removeClass('ev_view').addClass('ev_view');
+            $('#aHelp').css('display', 'none');
+            $('.chkEvaluatorone').hide();
+            $('img.chkEvaluatorone').removeClass('d-none');
+            $('img.chkEvaluatorone').addClass('d-none');
+            //$('.multiinfodata').hide();
+            //$('.nodata_level').hide();
+            if (output.page_type == 'atNonPWOneAtATime') {
+                $('.vwEval').hide();
+            }
+            if ($("#img1").is(":visible")) {
+                $("#img1").hide();
+                $("#Header_InfoDocs").hide();
+                IsBlankTxt = true;
+                IsVisibleImgNo = 1;
+            }
+            if (output.page_type == 'atPairwise') {
+                //second node
+                $('#checkout-shipping-address-SecondNode').removeClass('checkout-shipping-address5');
+                $('#checkout-shipping-address-SecondNode').addClass('checkout-shipping-address6');
+                $('#checkBoxIconSecondNode').removeClass('checkBoxIcon5');
+                $('#checkBoxIconSecondNode').addClass('checkBoxIcon6');
+
+                //second WRT node
+                $('#checkout-shipping-address-SecondNodeWRT').removeClass('checkout-shipping-address1');
+                $('#checkout-shipping-address-SecondNodeWRT').addClass('checkout-shipping-address2');
+                $('#checkBoxIconSecondNodeWRT').removeClass('checkBoxIcon1');
+                $('#checkBoxIconSecondNodeWRT').addClass('checkBoxIcon2');
+            }
+        }
+        else {
+            if ($("#img1").is(":visible")) {
+                IsBlankTxt = true;
+            }
+            $('#lblEval').html('')
+            $('#lblEval').html('<input type="checkbox" id="chkViewAsEvaulator" /><span class="handle slider round"></span>');
+            $('#aHelp').css('display', 'block');
+            //$('.chkEvaluator').show();
+            $('img.chkEvaluatorone').removeClass('d-none');
+        }
+
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+        window.addEventListener("beforeunload", function (e) {
+            /* setPagination();*/
+            $("#overlay").css('display', 'flex');
+        });
+
+        window.onunload = function (event) {
+            setPagination();
+        };
+
+        var baseUrl = '<%= ResolveUrl("~/") %>';
+        $(".LogoutButtons").click(function () {
+
+            var timeOut = 0;
+
+            setTimeout(function () {
+                var beforeUnload = window.onbeforeunload;
+                window.onbeforeunload = null;
+
+                if (confirm('Are you sure you want to logout?')) {
+                    setTimeout(function () {
+                        //show_loading_modal();
+                        $.ajax({
+                            type: "POST",
+                            url: baseUrl + "Login.aspx/logout",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            async: true,
+                            success: function (data) {
+                                if (data) {
+                                    window.location.href = window.location.origin + '/login.aspx';
+                                }
+                                hide_loading_modal();
+                            },
+                            error: function (response) {
+                                window.location.href = baseUrl;
+                                hide_loading_modal();
+                            }
+                        });
+                    }, timeOut);
+                } else {
+                    window.onbeforeunload = beforeUnload;
+                    return false;
+                }
+            }, timeOut);
+
+        });
+
+        $('#chkViewAsEvaulator').change(function () {
+            if ($('#chkViewAsEvaulator').is(':checked')) {
+                $('#lblEval').addClass(' ev_view');
+            }
+            else {
+                $('#lblEval').removeClass(' ev_view');
+            }
+            svViewAsEvaulator($(this).is(':checked'));
+            $.cookie('evaluatorView', $(this).is(':checked'));
+            cookieValue = $.cookie('evaluatorView');
+        });
+
+
+        var svViewAsEvaulator = function (val) {
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "AnytimeComparion/pages/Anytime/Anytime.aspx/SaveViewAsEvaulator",
+                data: JSON.stringify({
+                    ViewAsEvaulator: val
+                }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data) {
+                    var qh_text = output.qh_info.trim();
+                    if (val) {
+                        HideInfoDocsWhentxtEmpty(true);
+                        $('#aHelp').css('display', 'none');
+                        $('.edit_icon, .chkEvaluatorone').hide();
+                        $('img.chkEvaluatorone').removeClass('d-none');
+                        $('img.chkEvaluatorone').addClass('d-none');
+                        //$('.multiinfodata').hide();
+                        //$('.nodata_level').hide();                     
+                        if (qh_text == '')
+                        {
+                            $(".fixed_info").hide();
+                        }
+                        if (IsBlankTxt) {
+                            if (IsVisibleImgNo <= 1) {
+                                $("#img1").hide();
+                                $("#Header_InfoDocs").hide();
+                            }
+                            else {
+                                $("#img2").hide();
+                                $("#Header_InfoDocs").hide();
+                            }
+
+                        }
+                        if (hdnpage_type == 'atNonPWOneAtATime') {
+                            $('.vwEval').hide();
+                        }
+                        if (hdnpage_type == 'atPairwise') {
+                            //second node
+                            $('#checkout-shipping-address-SecondNode').removeClass('checkout-shipping-address5');
+                            $('#checkout-shipping-address-SecondNode').addClass('checkout-shipping-address6');
+                            $('#checkBoxIconSecondNode').removeClass('checkBoxIcon5');
+                            $('#checkBoxIconSecondNode').addClass('checkBoxIcon6');
+
+                            //second WRT node
+                            $('#checkout-shipping-address-SecondNodeWRT').removeClass('checkout-shipping-address1');
+                            $('#checkout-shipping-address-SecondNodeWRT').addClass('checkout-shipping-address2');
+                            $('#checkBoxIconSecondNodeWRT').removeClass('checkBoxIcon1');
+                            $('#checkBoxIconSecondNodeWRT').addClass('checkBoxIcon2');
+                        }
+                    }
+                    else {
+                        HideInfoDocsWhentxtEmpty(false);
+                        $(".fixed_info").show();
+                        if (IsBlankTxt) {
+                            if (IsVisibleImgNo <= 1) {
+                                $("#img1").show();
+                                $("#Header_InfoDocs").hide();
+                            }
+                            else {
+                                $("#img2").show();
+                                $("#Header_InfoDocs").show();
+                            }
+                        }
+                        $('#aHelp').css('display', 'block');
+                        $('.edit_icon, .chkEvaluatorone').show();
+                        $('img.chkEvaluatorone').show();
+                        $('img.chkEvaluatorone').removeClass('d-none');
+                        //$('.multiinfodata').show();
+                        //$('.nodata_level').show();
+                        if (hdnpage_type == 'atNonPWOneAtATime') {
+                            $('.vwEval').show();
+                        }
+
+                        if (hdnpage_type == 'atPairwise') {
+                            //parent node
+                            $("#divparentbox").removeClass('d-none');
+
+                            //second node
+                            $('#checkout-shipping-address-SecondNode').removeClass('checkout-shipping-address6');
+                            $('#checkout-shipping-address-SecondNode').addClass('checkout-shipping-address5');
+                            $('#checkBoxIconSecondNode').removeClass('checkBoxIcon6');
+                            $('#checkBoxIconSecondNode').addClass('checkBoxIcon5');
+                            $("#dvfirstnodelbl").removeClass('d-none');
+                            $("#dvsecondnodelbl").removeClass('d-none');
+                            $("#checkout-shipping-address-FirstNode").removeClass('d-none');
+                            $("#checkout-shipping-address-SecondNode").removeClass('d-none')
+
+                            //second WRT node
+                            $('#checkout-shipping-address-SecondNodeWRT').removeClass('checkout-shipping-address2');
+                            $('#checkout-shipping-address-SecondNodeWRT').addClass('checkout-shipping-address1');
+                            $('#checkBoxIconSecondNodeWRT').removeClass('checkBoxIcon2');
+                            $('#checkBoxIconSecondNodeWRT').addClass('checkBoxIcon1');
+                            $("#idwrapper_c_1").removeClass('d-none');
+                            $("#idwrapper_c_2").removeClass('d-none');
+                            $("#checkout-shipping-address-FirstNodeWRT").removeClass('d-none');
+                            $("#checkout-shipping-address-SecondNodeWRT").removeClass('d-none');
+
+                            if ($('#checkBoxIconFirstNode').hasClass('fa-minus-square') || $('#checkBoxIconSecondNode').hasClass('fa-minus-square')) {
+                                $('#checkBoxIconFirstNode,#checkBoxIconSecondNode').removeClass('fa-plus-square');
+                                $('#checkBoxIconFirstNode,#checkBoxIconSecondNode').addClass('fa-minus-square');
+                                $('.checkout-shipping-address5').show();
+                            }
+                            else {
+                                $('#checkBoxIconFirstNode,#checkBoxIconSecondNode').removeClass('fa-minus-square');
+                                $('#checkBoxIconFirstNode,#checkBoxIconSecondNode').addClass('fa-plus-square');
+                                $('.checkout-shipping-address5').hide();
+                            }
+                        }
+                    }
+                },
+                error: function (response) {
+                }
+            });
+        }
+
+        var getViewAsEvaulator = function () {
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "AnytimeComparion/pages/Anytime/Anytime.aspx/GetViewAsEvaulator",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data) {
+                    if (data.d) {
+                        //$('#chkViewAsEvaulator').prop('checked', true);
+                        $('#aHelp').css('display', 'none');
+                        $('.chkEvaluatorone').hide();
+                        $('img.chkEvaluatorone').removeClass('d-none');
+                        $('img.chkEvaluatorone').addClass('d-none');
+                        //$('.switch').removeClass('d-none');
+                    }
+                    else {
+                        // $('#chkViewAsEvaulator').prop('checked', false);
+                        $('#aHelp').css('display', 'block');
+                        $('.chkEvaluatorone').show();
+                        $('img.chkEvaluatorone').removeClass('d-none');
+                        // $('.switch').removeClass('d-none');
+                    }
+                },
+                error: function (response) {
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            if (output.lockedInfo.status) {
+                $('#stickyHeader').css('display', 'none');
+                $('.fixed_info').css('display', 'none');
+                $('#MainContent_quickHelpmodal').css('display', 'none');
+            }
+
+            setTimeout(function () {
+                var headElement = document.getElementsByTagName("head")[0];
+                var chatScript = document.createElement("script");
+                chatScript.type = "text/javascript";
+                chatScript.src = "//www.socialintents.com/api/socialintents.1.3.js#2c9fa7465c3c6e61015c3dd5e6d700f5";
+                chatScript.async = "async";
+                headElement.appendChild(chatScript);
+
+            }, 0);
+
+            if (output.qh_info != undefined && output.qh_info != null && output.qh_info.trim() != '') {
+                $('#quickHelp').removeClass('text_blue');
+                $('#quickHelp').addClass('text_blue');
+            }
+        });
+
+        $('#quickHelp').click(function () {
+
+            var regexToken = /(?:.+?)?(?:\/v\/|watch\/|\?v=|\&v=|youtu\.be\/|\/v=|^youtu\.be\/)([a-zA-Z0-9_-])+/g;
+            $('#MainContent_quickHelpmodal').modal('show');
+            //var qh_text = $('#MainContent_hdnqh_text').val();
+            var qh_text = output.qh_info.trim();
+            var reqh_text = "";
+            var reg = /<a[^>]*>([^<]+)<\/a>/g;
+
+            for (var i = 0; i < qh_text.split('\n').length; i++) {
+                if (reg.test(qh_text.split('\n')[i])) {
+                    var url = reg.test(qh_text)[1];
+                    var token1
+                    if (regexToken.test(url)) {
+                        if (reg.test(qh_text)[1] !== undefined && reg.test(qh_text)[1] !== null)
+                            reqh_text += '<p><iframe class="yt_player_iframe" width="100%" height="315" src="' + url.replace('watch?v=', 'embed/') + '?autoplay=1&mute=1&enablejsapi=1"></iframe></p>';
+                        //else
+                        //reqh_text += 
+
+                        //$('a').contents().unwrap();
+                    } else {
+                        if ((qh_text.split('\n')[i]).indexOf('youtube') > 0) {
+                            reqh_text += '<p><iframe class="yt_player_iframe" width="100%" height="315" src="' + regexToken.exec(qh_text.split('\n')[i])[0].split('>')[1].split('href="')[1].replace('watch?v=', 'embed/') + '?autoplay=1&mute=1&enablejsapi=1"></iframe></p>';
+                        }
+                        else
+                            reqh_text += qh_text.split('\n')[i];
+                    }
+                }
+                else if (regexToken.test(qh_text.split('\n')[i])) {
+                    var token = qh_text;
+                    //if (regexToken.test(qh_text.split('\n')[i])) {
+                    //    //if (token !== matchArray[0]) {
+                    //    //    token = matchArray[0];
+                    //    //    token = token.replace('<p>', '');
+                    //    //    token = token.replace('</p>', '');
+                    //    //}
+
+                    //}
+
+                    token = qh_text.split('\n')[i].replace('<p>', '');
+                    token = token.replace('</p>', '');
+                    if (token.includes('<a')) {
+                        token = token.split('href="')[1];
+                        token = token.split('</a>')[0];
+                        if (token.includes('>')) {
+                            token = token.split('>')[0];
+                        }
+                        var youtubeUrl = token.replace('watch?v=', 'embed/') + '?autoplay=1&mute=1&enablejsapi=1';
+                        reqh_text += "<p><iframe class='yt_player_iframe' width='100%' height='315' src='" + youtubeUrl + "'></iframe></p>";
+                    }
+                    else if (token.indexOf('http') > 0) {
+                        var urlRE = new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?([^ ])+");
+
+                        var urlREMatch = token.match(urlRE)[0];
+                        if (urlREMatch.indexOf('<') > -1) {
+                            urlREMatch = urlREMatch.split('<')[0];
+                        }
+                        var text = token.replace(token.match(urlRE)[0], '');
+                        if (text.indexOf('<') > -1) {
+                            text = text.split('<')[0];
+                        }
+
+                        reqh_text += "<p>" + text + "<iframe class='yt_player_iframe' width='100%' height='315' src='" + urlREMatch.replace('watch?v=', 'embed/') + '?autoplay=1&mute=1&enablejsapi=1' + "'></iframe></p>";
+                    }
+                    else {
+                        var youtubeUrl = token.replace('watch?v=', 'embed/') + '?autoplay=1&mute=1&enablejsapi=1';
+
+                        reqh_text += "<p><iframe class='yt_player_iframe' width='100%' height='315' src='" + youtubeUrl + "'></iframe></p>";
+                        //reqh_text += token;
+                    }
+                }
+                else if (qh_text.split('\n')[i].includes('youtube')) {
+                    var token = qh_text.split('\n')[i];
+                    //token = token.find("p").contents().unwrap();
+                    //token = token.replace('</p>', '');
+                    reqh_text += '<p><iframe class="yt_player_iframe" width="100%" height="315" src="' + $(token)[0].innerHTML.replace('watch?v=', 'embed/') + '?autoplay=1&mute=1&enablejsapi=1"></iframe></p>';
+                }
+                else {
+                    reqh_text += qh_text.split('\n')[i];
+                }
+            }
+            if (qh_text != undefined && qh_text != null && qh_text.trim() != '') {
+                $('#quick-help-content').show();
+                $('#quick-help-content').html(reqh_text);
+                $('#no-quick-help-content').hide();
+            }
+            else {
+                $('#quick-help-content').hide();
+                $('#no-quick-help-content').show();
+            }
+            if (output.show_qh_automatically && qh_text != undefined && qh_text != null && qh_text.trim() != '') {
+                $('#lbl_dont_show_qh').show();
+                $('#dont_show_qh').show();
+                $('#dont_show_qh').prop('checked', output.dont_show_qh);
+            }
+            else {
+                $('#lbl_dont_show_qh').hide();
+                $('#dont_show_qh').hide();
+            }
+        });
+
+        $('#editQuickHelp').click(function () {
+
+            $('iframe').removeAttr('src', $('iframe').removeAttr('src'));
+            $('#MainContent_EditquickHelpmodal').modal('show');
+            $('#show_qh_automatically').prop('checked', output.show_qh_automatically);
+            var qh_text = output.qh_info.trim();
+            //var show_apply_qh_cluster = $('#MainContent_hdnshow_apply_qh_cluster').val();
+            var show_apply_qh_cluster = !is_html_empty(output.defaultQhInfo);;
+            /*var show_qh_automatically = $('#MainContent_hdnshow_qh_automatically').val();*/
+            var show_qh_automatically = output.show_qh_automatically;
+
+            $('#qhSample').hide();
+            if (show_apply_qh_cluster) {
+                $('#qhSample').show();
+            }
+            //if (output.has_cluster) {
+            //    $('#btneditSavecluster').show();
+            //}
+            //else {
+            //    $('#btneditSavecluster').hide();
+            //}
+
+            // CKEDITOR.instances.qh_info_value.setData('');
+            tinymce.get("qh_info_value").setContent('');
+            setTimeout(function () {
+                //CKEDITOR.instances[** fieldname **].setData(** your data **)
+                // CKEDITOR.instances['qh_info_value'].setData(qh_text);
+                tinymce.get("qh_info_value").setContent(qh_text);
+
+                var myFrame = $("#qh_info_value_ifr").contents().find('body');
+                myFrame.html(qh_text);
+            }, 1000);
+
+        });
+
+        var show_qh_automatically = function (status) {
+            status = $('#dont_show_qh').is(':checked');
+            output.dont_show_qh = status;
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "AnytimeComparion/pages/Anytime/Anytime.aspx/setQHSettingCookies",
+                data: JSON.stringify({
+                    status: status
+                }),
+                dataType: "json",
+                async: true,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    //window.location.reload();
+                },
+                error: function (response) {
+                    //$('#MainContent_EditquickHelpmodal').modal('hide');
+                    //CKEDITOR.instances.qh_info_value.setData('');
+                }
+            });
+        }
+
+        var set_qe_content = function () {
+            // var content = CKEDITOR.instances['qh_info_value'].getData();
+            //var content = tinymce.get('qh_info_value').getContent({ format: "text" });
+            var content = tinymce.get('qh_info_value').getContent();
+            if (content.length > 0) {
+                var confirmMessage = "Your current content will be replaced with default Quick Help example.\nDo you want to continue?";
+
+                if (confirm(confirmMessage)) {
+                    try {
+                        /*tinymce.activeEditor.setContent($scope.output.defaultQhInfo);*/
+                        //CKEDITOR.instances.qh_info_value.setData('');
+                        tinymce.get("qh_info_value").setContent('');
+                        setTimeout(function () {
+                            // CKEDITOR.instances['qh_info_value'].setData(output.defaultQhInfo);
+                            tinymce.get("qh_info_value").setContent(output.defaultQhInfo);
+                        }, 1000);
+                    } catch (e) {
+
+                    }
+                }
+            } else {
+                try {
+                    //tinymce.activeEditor.setContent($scope.output.defaultQhInfo);
+                    // CKEDITOR.instances.qh_info_value.setData('');
+                    tinymce.get("qh_info_value").setContent('');
+                    setTimeout(function () {
+                        // CKEDITOR.instances['qh_info_value'].setData(output.defaultQhInfo);
+                        tinymce.get("qh_info_value").setContent(output.defaultQhInfo);
+                    }, 1000);
+                } catch (e) {
+
+                }
+            }
+        }
+
+        var save_quick_help = function () {
+            //var myContent = tinymce.get('qh_info_value').getContent({ format: "text" });
+            //var temp = tinymce.get('qh_info_value').getContent();
+            try {
+                // var draft = CKEDITOR.instances['qh_info_value'].getData();
+                // var draft = tinymce.get('qh_info_value').getContent({ format: "text" });
+                var draft = tinymce.get('qh_info_value').getContent();
+            }
+            catch (e) {
+                var draft = "";
+            }
+
+
+            test = "";
+            if (draft != "") {
+                try {
+                    $(draft).find("title").remove();
+                }
+                catch (e) {
+
+                } //sRes = output.cluster_phrase.trim();
+
+                if (draft.indexOf("img") >= 0) {
+                    //if has image
+                    test = draft;
+                }
+                else {
+                    test = $(draft).text();
+                }
+            }
+
+
+            //if (test.trim() == "") {
+            //    draft = "";
+            //}
+
+            var qh_tnode_id = output.qh_tnode_id;
+            var qh_help_id = output.qh_help_id;
+            var show_qh_automatically1 = $('#show_qh_automatically').is(':checked');
+            output.show_qh_automatically = show_qh_automatically1;
+
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "AnytimeComparion/pages/Anytime/Anytime.aspx/setQuickHelpInfo",
+                data: JSON.stringify({
+                    tNodeID: qh_tnode_id,
+                    tEvalStep: qh_help_id,
+                    step: hdnCurrentStep,
+                    actual_step: hdnCurrentStep,
+                    message: draft.trim(),
+                    show_qh_automatically: show_qh_automatically1
+                }),
+                dataType: "json",
+                async:  true,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    window.location.reload();
+                },
+                error: function (response) {
+                    $('#MainContent_EditquickHelpmodal').modal('hide');
+                    // CKEDITOR.instances.qh_info_value.setData('');
+                    tinymce.get("qh_info_value").setContent('');
+                }
+            });
+            block_unload_prompt = true;
+        }
+
+        $('#btneditSavecluster').click(function () {
+            $('#MainContent_EditSaveclustermodal').modal('show');
+            var nodes = output.cluster_nodes;
+            var html = '';
+            html += "<div class='modal-body'>";
+            for (var i = 0; i < nodes.length; i++) {
+                var chkd = '';
+                if (nodes[i][2] != '' && output.parentnodeID != '' && parseInt(nodes[i][2]) == parseInt(output.parentnodeID)) {
+                    chkd = ' checked disabled';
+                }
+                if (nodes[i][2] != '' && output.parentnodeID != '' && parseInt(nodes[i][2]) != parseInt(output.parentnodeID) && nodes[i][4] == 'True') {
+                    chkd = ' checked';
+                }
+
+                /*html += "<label><input type='checkbox' class='collabse_arrow chkcluster' id='chkcluster" + i + "' " + chkd + "> " + nodes[i][0] + "</label><br/>";*/
+                html += "<label><input type='checkbox' class='collabse_arrow chkcluster' id='" + nodes[i][6] + "' " + chkd + "> " + nodes[i][0] + "</label><br/>";
+            }
+            html += "</div>";
+            $('#divchkboxcluster').html('');
+            $('#divchkboxcluster').html(html);
+        });
+
+        $('#btnapplySavecluster').click(function () {
+            $('#MainContent_ApplyEditSaveclustermodal').modal('show');
+            var nodes = output.cluster_nodes;
+            var html = '';
+            html += "<div class='modal-body'>";
+            for (var i = 0; i < nodes.length; i++) {
+                var chkd = '';
+                var nodeval = nodes[i][2];
+                var parentval = output.parentnodeID;
+                if (nodes[i][2].toString() != '' && output.parentnodeID.toString() != '' && parseInt(nodes[i][2]) == parseInt(output.parentnodeID)) {
+                    chkd = ' checked disabled';
+                }
+                if (nodes[i][2].toString() != '' && output.parentnodeID.toString() != '' && parseInt(nodes[i][2]) != parseInt(output.parentnodeID) && nodes[i][4].toString() == 'True') {
+                    chkd = ' checked';
+                }
+
+                html += "<label><input type='checkbox' class='collabse_arrow chkcluster' id='chkcluster" + i + "' " + chkd + "> " + nodes[i][0] + "</label><br/>";
+            }
+            html += "</div>";
+            $('#divapplychkboxclusterapply').html('');
+            $('#divapplychkboxclusterapply').html(html);
+        });
+
+        function GetHtmlData() {
+            var nodes = output.cluster_nodes;
+            var html = '';
+            //for (var i = 0; i < nodes.length; i++) {
+            //    var chkd = '';
+            //    if (nodes[i][2].toString() != '' && output.parentnodeID.toString() != '' && parseInt(nodes[i][2]) == parseInt(output.parentnodeID)) {
+            //        chkd = ' checked disabled';
+            //    }
+            //    if (nodes[i][2].toString() != '' && output.parentnodeID.toString() != '' && parseInt(nodes[i][2]) != parseInt(output.parentnodeID) && nodes[i][4] == 'True') {
+            //        chkd = ' checked';
+            //    }
+
+            //    html += "<label><input type='checkbox' class='collabse_arrow chkcluster' id='chk" + i + "' " + chkd + "> " + nodes[i][0] + "</label><br/>";
+            //}
+
+            //if (hdnpage_type == 'atShowLocalResults' || hdnpage_type == 'atShowGlobalResults') {
+            if (node_location == 0 && output.header_nodes != undefined && output.header_nodes != null) {
+                html = output.header_nodes;
+            }
+            else if (node_location == -1 && output.title_nodes != undefined && output.title_nodes != null) {
+                html = output.title_nodes;
+            }
+            //}
+            return html;
+        }
+
+        var temp_node_ids = [], cluster_nodes = [];
+        var add_to_cluster_nodes = function (is_checked, node) {
+            if (is_checked) {
+                cluster_nodes.push(node);
+            }
+
+        }
+
+        var save_by_cluster = function (nodes) {
+            $("#overlay").css('display', 'flex');
+            // //console.log($scope.cluster_nodes);
+            var nodes = output.cluster_nodes;
+            for (var i = 0; i < nodes.length; i++) {
+                if ($('#chkcluster' + i).is(':checked')) {
+                    cluster_nodes.push(nodes[i]);
+                }
+                else {
+                    nodes[i][4] = "False";
+                    cluster_nodes.push(nodes[i]);
+                }
+            }
+
+            var node_ids = [];
+            $.each(cluster_nodes, function (i, node) {
+                node_ids.push(node[2]);
+            });
+
+            try {
+                // var draft = CKEDITOR.instances['qh_info_value'].getData();
+                //var draft = tinymce.get('qh_info_value').getContent({ format: "text" });
+                var draft = tinymce.get('qh_info_value').getContent();
+            }
+            catch (e) {
+                var draft = "";
+            }
+
+
+            test = "";
+            if (draft != "") {
+                try {
+                    $(draft).find("title").remove();
+                }
+                catch (e) {
+
+                } //sRes = output.cluster_phrase.trim();
+
+                if (draft.indexOf("img") >= 0) {
+                    //if has image
+                    test = draft;
+                }
+                else {
+                    test = $(draft).text();
+                }
+            }
+
+
+            if (test.trim() == "") {
+                draft = "";
+            }
+
+            //node_ids.push(output.parentnodeID);
+            //console.log($scope.output);
+            var is_multi = false;
+            var is_evaluation = true;
+
+            if (output.page_type == "atNonPWAllChildren" || output.page_type == "atNonPWAllCovObjs" || output.page_type == "atAllPairwise" || output.page_type == "atAllPairwiseOutcomes" || output.page_type == "atShowLocalResults") {
+                is_multi = true;
+            }
+
+            if (output.page_type == "atShowLocalResults" || output.page_type == "atShowGlobalResults") {
+                is_evaluation = false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "AnytimeComparion/Pages/Anytime/Anytime.aspx/setQuickHelpInfoByCluster",
+                contentType: "application/json; charset=utf-8",
+                async: true,
+                data: JSON.stringify({
+                    nodes: cluster_nodes,
+                    qh_info: draft.trim(),
+                    show_qh_automatically: output.show_qh_automatically
+                }),
+                //beforeSend: function () {
+
+                //},
+                success: function (data) {
+                    //window.location.reload();
+                    save_quick_help();
+                },
+                error: function (response) {
+                    $('#MainContent_EditSaveclustermodal').modal('hide');
+                    $('#MainContent_EditquickHelpmodal').modal('hide');
+                    alert('Something went wrong');
+                    $("#overlay").css('display', 'none');
+                }
+            });
+            block_unload_prompt = true;
+        }
+
+        function save_by_culst() {
+            $("#overlay").css('display', 'flex');
+            // //console.log($scope.cluster_nodes);      
+            var nodes = output.cluster_nodes;
+            for (var i = 0; i < nodes.length; i++) {
+                if ($('#chk' + i).is(':checked')) {
+                    cluster_nodes.push(nodes[i]);
+                }
+                else {
+                    nodes[i][4] = "False";
+                    cluster_nodes.push(nodes[i]);
+                }
+            }
+
+            var node_ids = [];
+            $.each(cluster_nodes, function (i, node) {
+                node_ids.push(node[2]);
+            });
+
+            try {
+                // var draft = CKEDITOR.instances['qh_info_value'].getData();
+                //var draft = tinymce.get('qh_info_value').getContent({ format: "text" });
+                var draft = tinymce.get('GlobalInfoDocValue1').getContent();
+            }
+            catch (e) {
+                var draft = "";
+            }
+
+
+            test = "";
+            if (draft != "") {
+                try {
+                    $(draft).find("title").remove();
+                }
+                catch (e) {
+
+                } //sRes = output.cluster_phrase.trim();
+
+                if (draft.indexOf("img") >= 0) {
+                    //if has image
+                    test = draft;
+                }
+                else {
+                    test = $(draft).text();
+                }
+            }
+
+
+            if (test.trim() == "") {
+                draft = "";
+            }
+
+            //node_ids.push(output.parentnodeID);
+            //console.log($scope.output);
+            var is_multi = false;
+            var is_evaluation = true;
+
+            if (output.page_type == "atNonPWAllChildren" || output.page_type == "atNonPWAllCovObjs" || output.page_type == "atAllPairwise" || output.page_type == "atAllPairwiseOutcomes" || output.page_type == "atShowLocalResults") {
+                is_multi = true;
+            }
+
+            if (output.page_type == "atShowLocalResults" || output.page_type == "atShowGlobalResults") {
+                is_evaluation = false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: baseUrl + "AnytimeComparion/Pages/Anytime/Anytime.aspx/setQuickHelpInfoByCluster",
+                contentType: "application/json; charset=utf-8",
+                async: true,
+                data: JSON.stringify({
+                    nodes: cluster_nodes,
+                    qh_info: draft.trim(),
+                    show_qh_automatically: output.show_qh_automatically
+                }),
+                //beforeSend: function () {
+
+                //},
+                success: function (data) {
+                    //window.location.reload();
+                    save_quick_help();
+                },
+                error: function (response) {
+                    $('#MainContent_EditSaveclustermodal').modal('hide');
+                    $('#MainContent_EditquickHelpmodal').modal('hide');
+                    alert('Something went wrong');
+                    $("#overlay").css('display', 'none');
+                }
+            });
+            block_unload_prompt = true;
+            tinymce.activeEditor.windowManager.close();
+        }
+
+        function saveHeaderContentBy_Cluster() {
+            var HeaderCluster_nodes = [];
+            $("#overlay").css('display', 'flex');
+
+            var nodes = output.cluster_nodes;
+            for (var i = 0; i < nodes.length; i++) {
+                if ($('#chkcluster' + i).is(':checked')) {
+                    HeaderCluster_nodes.push(nodes[i]);
+                }
+                else {
+                    nodes[i][4] = "False";
+                    cluster_nodes.push(nodes[i]);
+                }
+            }
+
+            var editors_content = tinymce.get('GlobalInfoDocValue1').getContent();
+            //$.each(HeaderCluster_nodes, function (i, node) 
+            $.each(HeaderCluster_nodes, function (i, node) {
+                var HdrNode_id = node[2] == null ? "0" : node[2];
+                var HdrNode_guid = node[3] == null ? "" : node[3];
+
+                $.ajax({
+                    type: "POST",
+                    url: baseUrl + "AnytimeComparion/pages/Anytime/Anytime.aspx/SaveInfoDocs",
+                    data: JSON.stringify({
+                        nodetxt: editors_content,
+                        obj: "0",
+                        node: "0",
+                        current_step: hdnCurrentStep,
+                        node_id: HdrNode_id,
+                        node_guid: HdrNode_guid
+                    }),
+                    dataType: "json",
+                    async: true,
+                    contentType: "application/json; charset=utf-8",
+                    beforeSend: function () {
+                        $('.tt-GlobalInfoDoc-status').html('<div data-alert="" class="alert alert-success alert-dismissible fade show">           Saving...              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                    },
+                    success: function (data) {
+                        node_name = "question-node";
+                    },
+                    complete: function () {
+                        $('.tt-GlobalInfoDoc-status').html('<div data-alert="" class="alert alert-primary alert-dismissible fade show">           Save              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                    },
+                    error: function (response) {
+                    }
+                });
+
+            });
+
+            $('#MainContent_ApplyEditSaveclustermodal').modal('hide');
+            $('#MainContent_GlobalInfoDocModal1').modal('hide');
+
+            if (hdnpage_type == 'atNonPWAllChildren') {
+                save_multi_ratings_on_next();
+            }
+
+            setTimeout(function () {
+                $('#MainContent_hdnPageNo').trigger('click');
+            }, 10);
+
+            $("#overlay").css('display', 'none');
+            block_unload_prompt = true;
+        }
+        setTimeout(function () {          
+            var cookieValue = $.cookie('evaluatorView');
+            var details = navigator.userAgent;
+            var regexp = /android|iphone|kindle|ipad/i;
+            var isMobile = regexp.test(details);
+            var txtqhelp = output.qh_info.trim();          
+            if (isMobile) {              
+                if (txtqhelp == '')
+                {
+                    $('.fixed_info').hide();
+                }
+                $('.chkEvaluatorone').hide();
+            }
+            if (cookieValue != undefined && cookieValue != null && cookieValue.trim() == 'true') {
+                HideInfoDocsWhentxtEmpty(true);
+                if (txtqhelp == '') {
+                    $('.fixed_info').hide();
+                }
+            }
+            else
+            {
+                if (!output.isPM) {
+                    if (txtqhelp == '') {
+                        $('.fixed_info').hide();
+                    }
+                }
+            }
+        }, 100);
+    </script>
+</body>
+</html>

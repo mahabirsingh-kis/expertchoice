@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web>
+    <compilation debug="false" xdt:Transform="SetAttributes(debug)" />
+    <httpRuntime executionTimeout="600" xdt:Transform="SetAttributes(executionTimeout)" />
+    <sessionState mode="InProc" timeout="30" xdt:Transform="Replace" />
+  </system.web>
+
+  <system.net>
+    <mailSettings>
+      <smtp from="&quot;%SMTP_Name%&quot; &lt;%SMTP_FullEmail%&gt;" xdt:Transform="SetAttributes(from)" >
+        <network host="%SMTP_Server%"
+                 port="%SMTP_Port%"
+                 userName="%SMTP_User%"
+                 password="%SMTP_Password%"
+          xdt:Transform="SetAttributes(host,port,userName,password)" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+
+  <appSettings>
+    <add key="SQLMasterDB" value="%DB_COMPARION%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="ForceSSL" value="%OPTIONS_ForceSSL%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="SMTP_UseSSL" value="%SMTP_UseSSL%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="DisableAutoCompleteForLogin" value="%OPTIONS_DisableAutoCompleteForLogin%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="LockTimeout" value="%OPTIONS_LOCKTIMEOUT%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="CWSwURL" value="http://%DNS_FQDN%/CWSw/CWSwService.svc/" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="CoreServiceURL" value="http://%DNS_FQDN%/CWSw/CoreWS.svc" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="StructuringServiceURL" value="http://%DNS_FQDN%/cwsw/StructuringClient.svc" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="StructuringAdminServiceURL" value="http://%DNS_FQDN%/cwsw/StructuringAdmin.svc" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_Feedback" value="%FOGBUGZ_Feedback%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_URL" value="%FOGBUGZ_Submit%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_UserName" value="%FOGBUGZ_User%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_Project" value="%FOGBUGZ_Project%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_Area" value="%FOGBUGZ_Area%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_Inbox" value="%FOGBUGZ_Email%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="FogBugz_AutoSubmit" value="%FogBugz_AutoSubmit%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="SupportEmail" value="%FOGBUGZ_Email%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="changeset" value="%INFO_Changeset%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="HideMasterHeader" value="%OPTIONS_HideMasterHeader%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="LicensePswHash" value="7ed29eef654266656f42902885a4146e" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="EvalSite" value="http://%DNS_EVALSITE%/" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="OptionsOverride" value="1" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+    <add key="AllowBlankPassword" value="0" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  </appSettings>
+
+  <system.serviceModel>
+    <client>
+      <endpoint address="http://%DNS_FQDN%/TeamTime/Keypad.svc/Client"
+                binding="wsHttpBinding"
+                bindingConfiguration="WSHttpBinding_IKeypad"
+                contract="TTAHttp.IKeypad" name="WSHttpBinding_IKeypad"
+                xdt:Locator="Match(bindingConfiguration)" xdt:Transform="SetAttributes(address)" />
+      <endpoint address="http://%DNS_FQDN%/TeamTime/Keypad.svc/Admin"
+                binding="wsHttpBinding"
+                bindingConfiguration="WSHttpBinding_IKeypadPrivilleged"
+                contract="TTAHttp.IKeypadPrivilleged"
+                name="WSHttpBinding_IKeypadPrivilleged"
+                xdt:Locator="Match(bindingConfiguration)" xdt:Transform="SetAttributes(address)" >
+        <identity>
+          <certificate encodedValue="%WCERT_encodedvalue%" xdt:Transform="Replace" />
+        </identity>
+      </endpoint>
+
+    </client>
+  </system.serviceModel>
+
+</configuration>

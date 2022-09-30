@@ -1,0 +1,224 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SpyronControls
+</name>
+</assembly>
+<members>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.File_GetContent(System.String)">
+ <summary>
+ Try to open and read all content for specified file
+ </summary>
+ <param name="sFName">Filename for reading</param>
+ <returns>String with file content or just a error message.</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.OpenSurvey(System.String)">
+ <summary>
+ Trying to open and read Survey structures from specified Storage Type.
+ Read data putted to the Survey property.
+ </summary>
+ <returns>True - if reading was successful</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.SaveSurvey(System.Boolean)">
+ <summary>
+ Saves Survey structures to specified Storage Type.
+ </summary>
+ <returns>True - if saving was successful</returns>
+ <remarks>Data saves using Streams only. Old regular Database storage not supported.</remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.OpenStreamProjectFromDatabase_Old(System.String)">
+ <summary>
+ Trying to open and read Survey structures from Streamed Database.
+ </summary>
+ <returns>True - if reading was successful</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.OpenStreamProjectFromDatabase(System.String)">
+ <summary>
+ Trying to open and read Survey structures from Streamed ECC Database.
+ </summary>
+ <returns>True - if reading was successful</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.OpenStreamProjectFromFile_Old">
+ <summary>
+ Trying to open and read Survey structures from Streamed binary File.
+ </summary>
+ <returns>True - if reading was successful</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.OpenStreamProjectFromFile">
+ <summary>
+ Trying to open and read Survey structures from Streamed binary File.
+ </summary>
+ <returns>True - if reading was successful</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.SaveStreamRespondentAnswers(SpyronControls.Spyron.Core.clsRespondent@)">
+ <summary>
+ Saves Respondent Answers
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.ReadChunkIDFromStream(System.Int32)">
+ <summary>
+ Trying to read specified ChunkID from Stream.
+ </summary>
+ <param name="ChunkID"></param>
+ <returns>Returns true if ChunkID can be read from Stream, else return false and move Stream position back.</returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.DateToLong(System.DateTime)">
+ <summary>
+ Supporting function. Helps to Convert DateTime to Long integer for stream.
+ </summary>
+ <param name="ADate"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.LongToDate(System.Int64)">
+ <summary>
+ Supporting function. Helps to Convert Long integer to DateTime.
+ </summary>
+ <param name="ALong"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.SaveStreamToDatabase(SpyronControls.Spyron.Data.clsSurveyDataProvider.StreamDataType,System.Data.Common.DbCommand@,System.Int32,System.Int32)">
+ <summary>
+ Saves Stream to Database, using specified Stream Data Type and DbCommand
+ </summary>
+ <param name="AStreamType"></param>
+ <param name="oCommand"></param>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.LoadStreamFromDatabase(SpyronControls.Spyron.Data.clsSurveyDataProvider.StreamDataType,System.Data.Common.DbCommand@,System.String,System.Int32,System.Int32)">
+ <summary>
+ Loads Stream from Database, using specified Stream Data Type and DbCommand
+ </summary>
+ <param name="AStreamType"></param>
+ <param name="oCommand"></param>
+ <param name="ObjectGUID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.SaveStreamProjectToDatabase(System.Boolean)">
+ <summary>
+ Saves Project to Streamed Database
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Data.clsSurveyDataProvider.SaveStreamProjectToFile">
+ <summary>
+ Saves Project to Streamed File
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsSurveyPage">
+ <summary>
+ Represent Survey Page
+ </summary>
+ <remarks>Contains Questions and Branching Rules</remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsVariant">
+ <summary>
+ Represent Answer Variant. that Respondent can chose in Survey
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsQuestion">
+ <summary>
+ Represent Survey Question
+ </summary>
+ <remarks>Contains Variants and other property of Question</remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsRespondent">
+ <summary>
+ Represent Respondent Object
+ </summary>
+ <remarks>Contains his property and all his answers</remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsAnswer">
+ <summary>
+ Represent Respondent Answer
+ </summary>
+ <remarks>Contains all selected/entered AnswerVariants</remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsSurvey">
+ <summary>
+ Represent Survey Object
+ </summary>
+ <remarks>Contains Pages, RespondentGroups, OnGroupingRules</remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Core.clsSurvey.MovePageUp(SpyronControls.Spyron.Core.clsSurveyPage@)">
+ <summary>
+ Move specified APage up in the array of clsSurveyPage's
+ </summary>
+ <param name="APage"></param>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Core.clsSurvey.MovePageDown(SpyronControls.Spyron.Core.clsSurveyPage@)">
+ <summary>
+ Move specified APage down in the array of clsSurveyPage's
+ </summary>
+ <param name="APage"></param>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Core.clsSurvey.StepCount">
+ <summary>
+ Calculate Steps count for Evaluation Pipe
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:SpyronControls.Spyron.Core.clsSurveyInfo">
+ <summary>
+ Represent Survey information and main methods to operate with Survey object
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:SpyronControls.Spyron.Core.clsSurveysManager.LoadSurveyList(System.Int32)">
+ <summary>
+ Load available, depends on ActiveWorkgroupID, array of clsSurveyInfo's
+ </summary>
+ <param name="fActiveWorkgroupID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SpyronControls.Spyron.Core.clsSurveysManager.GetSurveyInfo(System.Collections.ArrayList,System.Int32)">
+ <summary>
+ Get SurveyInfo from provided SurveysList, based on Survey Info ID
+ </summary>
+ <param name="SurveysList"></param>
+ <param name="ID"></param>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SpyronControls.Spyron.Core.clsSurveysManager.GetSurveyInfo(System.Collections.ArrayList,System.Guid)">
+ <summary>
+ Get SurveyInfo from provided SurveysList, based on Survey GUID
+ </summary>
+ <param name="SurveysList"></param>
+ <param name="tGUID"></param>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:SpyronControls.Spyron.Core.clsSurveysManager.GetSurveyInfo(System.Collections.ArrayList,System.String)">
+ <summary>
+ Get SurveyInfo from provided SurveysList, based on Survey GUID string
+ </summary>
+ <param name="SurveysList"></param>
+ <param name="sGUID"></param>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

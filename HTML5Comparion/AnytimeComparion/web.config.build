@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<configuration  xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web>
+    <compilation debug="false" xdt:Transform="SetAttributes(debug)" />
+    <httpRuntime executionTimeout="600" xdt:Transform="SetAttributes(executionTimeout)" />
+    <sessionState mode="InProc" timeout="30" xdt:Transform="Replace" />
+  </system.web>
+  <system.webServer>
+    <defaultDocument>
+      <files>
+        <clear />
+        <add value="default.aspx" />
+        <add value="default.htm" />
+        <add value="default.html" />
+        <add value="index.htm" />
+        <add value="index.html" />
+      </files>
+    </defaultDocument>
+    <directoryBrowse enabled="false" />
+    <httpProtocol>
+      <customHeaders>
+        <remove name="X-Powered-By"/>
+        <remove name="X-AspNet-Version"/>
+        <remove name="Server"/>
+        <add name="X-Frame-Options" value="SAMEORIGIN"/>
+        <add name="X-Content-Type-Options" value="nosniff"/>
+        <add name="X-XSS-Protection" value="1; mode=block"/>
+        <add name="Referrer-Policy" value="no-referrer"/>
+      </customHeaders>
+    </httpProtocol>
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="314572800" />
+      </requestFiltering>
+    </security>
+  </system.webServer>
+  <system.net>
+    <mailSettings>
+      <smtp from="&quot;%SMTP_Name%&quot; &lt;%SMTP_FullEmail%&gt;" xdt:Transform="SetAttributes(from)" >
+        <network host="%SMTP_Server%"
+                 port="%SMTP_Port%"
+                 userName="%SMTP_User%"
+                 password="%SMTP_Password%"
+          xdt:Transform="SetAttributes(host,port,userName,password)" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+
+  <appSettings>
+    <add key="SQLMasterDB" value="%DB_COMPARION%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  </appSettings>
+
+  <system.serviceModel>
+    <client>
+      <endpoint address="http://%DNS_FQDN%/TeamTime/Keypad.svc/Client"
+                binding="wsHttpBinding"
+                bindingConfiguration="WSHttpBinding_IKeypad"
+                contract="TTAHttp.IKeypad" name="WSHttpBinding_IKeypad"
+                xdt:Locator="Match(bindingConfiguration)" xdt:Transform="SetAttributes(address)" />
+      <endpoint address="http://%DNS_FQDN%/TeamTime/Keypad.svc/Admin"
+                binding="wsHttpBinding"
+                bindingConfiguration="WSHttpBinding_IKeypadPrivilleged"
+                contract="TTAHttp.IKeypadPrivilleged"
+                name="WSHttpBinding_IKeypadPrivilleged"
+                xdt:Locator="Match(bindingConfiguration)" xdt:Transform="SetAttributes(address)" >
+        <identity>
+          <certificate encodedValue="%WCERT_encodedvalue%" xdt:Transform="Replace" />
+        </identity>
+      </endpoint>
+    </client>
+  </system.serviceModel>
+</configuration>

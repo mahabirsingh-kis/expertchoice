@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="116" viewBox="0 0 231 116">
+  <g id="Judgment-help" transform="translate(-1249.5 -343.5)">
+    <g id="Judgment-cell-info" transform="translate(50 -4)">
+      <rect id="Rounded_Rectangle_14" data-name="Rounded Rectangle 14" width="230" height="115" rx="10" transform="translate(1200 348)" fill="#fff" stroke="#92c745" stroke-width="1"/>
+      <text id="_1" data-name="1" transform="translate(1312 410)" fill="#5e980a" font-size="14" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+      <text id="_1-2" data-name="1" transform="translate(1252.008 399)" fill="#010101" font-size="18" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">1</tspan></text>
+      <text id="_2" data-name="2" transform="translate(1311 383)" fill="#0058a3" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">2</tspan></text>
+      <g id="Rectangle_1006" data-name="Rectangle 1006" transform="translate(1222 374)" fill="none" stroke="#cecece" stroke-width="1">
+        <rect width="73" height="36" stroke="none"/>
+        <rect x="0.5" y="0.5" width="72" height="35" fill="none"/>
+      </g>
+      <path id="long-arrow-alt-left-solid-svgrepo-com" d="M8.813,9.281,4.094,14l4.719,4.719.988-1.01L6.793,14.7h14.09V13.3H6.793L9.8,10.291Z" transform="translate(1330.465 363.719)"/>
+      <path id="long-arrow-alt-left-solid-svgrepo-com-2" data-name="long-arrow-alt-left-solid-svgrepo-com" d="M8.813,9.281,4.094,14l4.719,4.719.988-1.01L6.793,14.7h14.09V13.3H6.793L9.8,10.291Z" transform="translate(1329.465 392.719)"/>
+      <path id="long-arrow-alt-left-solid-svgrepo-com-3" data-name="long-arrow-alt-left-solid-svgrepo-com" d="M8.813,9.281,4.094,14l4.719,4.719.988-1.01L6.793,14.7h14.09V13.3H6.793L9.8,10.291Z" transform="translate(1272.719 414.906) rotate(90)"/>
+      <text id="Rank" transform="translate(1361 383)" fill="#0058a3" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">Rank</tspan></text>
+      <text id="Best_Fit" data-name="Best Fit" transform="translate(1361 410)" fill="#5e980a" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">Best Fit</tspan></text>
+      <text id="Judgment_Cells" data-name="Judgment Cells" transform="translate(1311 439)" fill="#010101" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">Judgment Cells</tspan></text>
+      <rect id="Rectangle_1089" data-name="Rectangle 1089" width="37" height="1.5" transform="translate(1258 435)" fill="#010101"/>
+    </g>
+  </g>
+</svg>

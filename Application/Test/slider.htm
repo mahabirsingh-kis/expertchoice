@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>Twin slider control</title>
+    <link href="../App_Themes/EC09/sliderbars.css" rel="stylesheet" />
+    <script type="text/javascript" language="javascript" src='../Scripts/sliderbars.js'></script>
+    <script type="text/javascript" language="javascript" src='../Scripts/twinslider.js'></script>
+    <script type="text/javascript" language="javascript">
+
+        var img_path = "../App_Themes/EC09/images/";
+
+        _img_slider_images_path = img_path;
+        _img_slider_position.src = _img_slider_images_path + "slider_position.gif";
+        _img_slider_handler.src = _img_slider_images_path + "slider_handler.gif";
+        _img_slider_handler2.src = _img_slider_images_path + "slider_handler2.gif";
+        _img_slider_blank.src = _img_slider_images_path + "blank.gif";
+
+        var img_decrease = new Image; img_decrease.src = img_path + 'decrease.gif';
+        var img_decrease_ = new Image; img_decrease_.src = img_path + 'decrease_.gif';
+        var img_increase = new Image; img_increase.src = img_path + 'increase.gif';
+        var img_increase_ = new Image; img_increase_.src = img_path + 'increase_.gif';
+        var img_delete = new Image; img_delete.src = img_path + 'delete_tiny.gif';
+        var img_delete_ = new Image; img_delete_.src = img_path + 'nodelete_tiny.gif';
+
+        var value_undef = -20000000;
+
+        var sliders = new Array();
+
+        function Init(id, val, adv) {
+            var d = Slider;
+            if ((d)) d.innerHTML = TwinSliderInit(id, val, adv, 0, 0, 0);
+        }
+
+    </script>
+</head>
+<body onload="Init(1, 2.34, 1);">
+<form name='theForm' action=''>
+    <div id="Slider">Loading...</div>
+</form>
+</body>
+</html>

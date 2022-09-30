@@ -1,0 +1,9 @@
+<!-- External configuration session for tune up Session State processing -->
+
+<!-- By default, when these lines is comments, InProc will be used. We prefer to use SQLServer Session State.
+     You need to set up SQL Session State DB at first. See instruction in the file /HowToUseSQLSessionState.txt
+     Please provide SQLServer connection string in the "sqlConnectionString" parameter below, but without "Initial Catalog=".
+     Try to use trusted connection, when this is available. -->
+
+<sessionState mode="InProc" timeout="20" />
+<!-- sessionState mode="SQLServer" timeout="60" sqlConnectionString="Data Source=localhost;Integrated Security=SSPI;" sqlCommandTimeout="30" cookieless="false" useHostingIdentity="False" regenerateExpiredSessionId="True" /-->

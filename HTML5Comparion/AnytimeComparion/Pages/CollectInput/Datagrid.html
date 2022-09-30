@@ -1,0 +1,123 @@
+<div class="tt-data-grid-wrap">
+    <div class="large-12 columns tt-header-nav ">
+        <ul class="tt-main-nav-wrap-search">
+            <li class="full-nav-small">
+                <label>Select Participants:</label>
+            </li>
+            <li class="full-nav-small">
+
+                <select >
+                    <option label="gecko" value="2" selected="selected">Participants</option>
+                    <option label="New Riskion" value="6">New Riskion</option>
+                    <option label="Riskion" value="5">Riskion</option><option label="System Workgroup" value="1">System Workgroup</option>
+                    <option label="voltaire" value="3">voltaire</option>
+                </select>
+
+            </li>
+            <li class="full-nav-small">
+                <label> or Group:</label>
+            </li>
+            <li class="full-nav-small">
+
+                <select >
+                    <option label="gecko" value="2" selected="selected">Group</option>
+                    <option label="New Riskion" value="6">New Riskion</option>
+                    <option label="Riskion" value="5">Riskion</option><option label="System Workgroup" value="1">System Workgroup</option>
+                    <option label="voltaire" value="3">voltaire</option>
+                </select>
+
+            </li>
+
+            <li class="full-nav-small">
+
+                <label><input type="checkbox"> Advanced Filter</label>
+
+            </li>
+
+            <li class="row collapse">                                      
+                <div class="medium-6 small-12 columns user-pagination">
+
+                    <span class="small-12 columns pagination-wrap text-center ng-binding">
+                        Page: 
+                        <a class="arrow button tt-button-secondary" data-arrow="left" ng-click="set_Page(true)"> « </a>
+                         1/1 
+                        <a class="arrow button tt-button-secondary" data-arrow="left" ng-click="set_Page(false)"> » </a>
+                        <select class="show-smart users-verbal ng-pristine ng-untouched ng-valid ng-not-empty" ng-model="pageSize" ng-change="change_pageSize(pageSize)" ng-options="obj for obj in pageOptions"><option label="5" value="number:5">5</option><option label="10" value="number:10">10</option><option label="15" value="number:15">15</option><option label="20" value="number:20">20</option><option label="30" value="number:30">30</option><option label="ALL" value="string:ALL" selected="selected">ALL</option></select>
+                    </span>
+                    <span class="pagination-wrap show-for-small small-12 columns text-center">
+                      Sort By:
+                        <select class="show-smart users-verbal tt-filters ng-pristine ng-untouched ng-valid ng-not-empty" ng-init="changecolumns()" ng-model="mobile_sort_selected" ng-change="sort_Project(mobile_sort_selected[0])" ng-options="column[1] for column in columns track by column[0]"><option value="" selected="selected" hidden="" class="">
+                        </option><option label="Project Name" value="name">Project Name</option><option label="Status" value="status">Status</option><option label="Last Modified" value="modify">Last Modified</option><option label="Date Created" value="create">Date Created</option></select>
+                        <a>
+                            <span ng-class="reverse == null ? 'icon-tt-sort-toggle' : !reverse ? 'icon-tt-sort-up' :  'icon-tt-sort-down'" ng-click="sort_Project(mobile_sort_selected[0])" class="icon-tt-sort-down"></span>
+                        </a>
+                    </span>
+                </div>
+                <div class="medium-6 small-12 columns user-pagination">
+                    <input type="text" name="" placeholder="Filter results below" class="search-input ng-pristine ng-untouched ng-valid ng-empty" ng-model="project_name_searching" ng-keyup="search_ProjectName(project_name_searching)">
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+    <div class="large-12 columns">
+    <table class="tt-table-wrap hide-for-medium-down">
+            <thead>
+                <tr>
+                    <th class=""><span class=""></span>#</th>
+                    <th class="tt-alternative">Alternative<a><span class="icon-tt-sort-toggle"></span></a></th>
+                    <th class="tt-total">Total<a><span class="icon-tt-sort-down"></span></a></th>
+                    <th class="tt-ltp">Logical Thought Process<a><span class="icon-tt-sort-up"></span></a></th>
+                    <th class="tt-speaking">Speaking<a><span class="icon-tt-sort-toggle"></span></a></th>
+                    <th class="tt-listening">Listening<a><span class="icon-tt-sort-toggle"></span></a></th>
+                    <th class="tt-gl">Good Leader<a><span class="icon-tt-sort-toggle"></span></a></th>
+                    <th class="tt-sis">Strong Interpersonal Skills<a><span class="icon-tt-sort-toggle"></span></a></th>
+                    <th class="tt-is">Able to overcome obstacles<a><span class="icon-tt-sort-toggle"></span></a></th>
+                    <th class="tt-fd">Able to use facts and data<a><span class="icon-tt-sort-toggle"></span></a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class=""><span class=""></span>1</td>
+                    <td class="tt-alternative">Candidate 1</td>
+                    <td class="tt-total">0.0012</td>
+                    <td class="tt-ltp">2.32</td>
+                    <td class="tt-speaking">0.0012</td>
+                    <td class="tt-listening">0.65</td>
+                    <td class="tt-gl">0.03212</td>
+                    <td class="tt-sis">0.23</td>
+                    <td class="tt-is">0.5</td>
+                    <td class="tt-fd">5.64</td>
+
+                </tr>
+                <tr>
+                    <td class=""><span class=""></span>2</td>
+                    <td class="tt-alternative">Candidate 2</td>
+                    <td class="tt-total">0.0012</td>
+                    <td class="tt-ltp">2.32</td>
+                    <td class="tt-speaking">0.0012</td>
+                    <td class="tt-listening">0.65</td>
+                    <td class="tt-gl">0.03212</td>
+                    <td class="tt-sis">0.23</td>
+                    <td class="tt-is">0.5</td>
+                    <td class="tt-fd">5.64</td>
+
+                </tr>
+                <tr>
+                    <td class=""><span class=""></span>3</td>
+                    <td class="tt-alternative">Candidate 3</td>
+                    <td class="tt-total">0.0012</td>
+                    <td class="tt-ltp">2.32</td>
+                    <td class="tt-speaking">0.0012</td>
+                    <td class="tt-listening">0.65</td>
+                    <td class="tt-gl">0.03212</td>
+                    <td class="tt-sis">0.23</td>
+                    <td class="tt-is">0.5</td>
+                    <td class="tt-fd">5.64</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+﻿//Image Path
+$imagePath : "images";
+$imagePathSkins : "../EC09/Skins";
+
+//Color Variables
+$ec-blue-lite               :#539ddd;
+$ec-blue-normal             :#0051a8; //#0058a3;
+$ec-blue-selected           :#DDEBF8;
+$ec-blue-hover              :#004988;
+$ec-blue-dark               :#073763;
+$ec-green-lite              :#a5d490;
+$ec-green-normal            :#6aa84f;
+$ec-green-hover             :#4b8930;
+$ec-green-dark              :#38761d;
+$ec-orange-lite             :#f4ab5e;
+$ec-orange-normal           :#DC6200;
+$ec-orange-hover            :#b45f06;
+$ec-orange-dark             :#915514;
+$ec-red-lite                :#ff4f4f;
+$ec-red-normal              :#ff2727;
+$ec-red-hover               :#c41919;
+$ec-red-dark                :#951515;
+$blue-green                 :#003333;
+
+$mustard-yellow             :#ffa500;
+$yellow                     :#ffd700;
+
+$white                     :#ffffff;
+$ghost                     :#FAFAFA;
+$gallery                   :#F0F0F0;
+$snow                      :#F9F9F9;
+$vapor                     :#F6F6F6;
+$white-smoke               :#F5F5F5;
+$mercury                   :#e5e5e5;
+$silver                    :#EFEFEF;
+$smoke                     :#EEEEEE;
+$gainsboro                 :#DDDDDD;
+$iron                      :#CCCCCC;
+$base                      :#AAAAAA;
+$aluminum                  :#999999;
+$jumbo                     :#888888;
+$monsoon                   :#777777;
+$steel                     :#666666;
+$charcoal                  :#555555;
+$tuatara                   :#444444;
+$oil                       :#333333;
+$jet                       :#222222;
+$black                     :#000000;
+
+$mountain_mist             :rgba(150,150,150,0.2);
+$danube                    :rgba(102,153,204,.5);
+
+//blue shade
+$mariner                   :#3366cc;
+$cornflower_blue           :#7799fc;
+$aqua                      :#009999;
+$light-blue                :#abccff;
+$sea-mist                  :#cde0c2;
+$surf-crest                :#ceeac9;
+$harp                      :#e6f2e6;
+$alabster                  :#f9fafc;
+
+//green shade
+$saltpan                   :#f0f8f0;
+$zanah                     :#d7ead7;
+$limed-ash                 :#6d8161;
+
+//yellow shade
+$laser-lemon                :#ffff66;
+$gorse                      :#ffff50;
+$pale-canary                :#ffff96;
+
+//riskion colors
+$ec-default-bar-color       :#b0c4de;
+$ec-likelihood-color        :#ebeb00;
+$ec-impact-color            :#abccff;
+$ec-risk-color              :#ffa792;
+$ec-opportunity-color       :#9acd32;
+
+// Primary Colors
+$ec-primary                 :$ec-blue-lite;
+$ec-secondary               :$ec-blue-normal;
+$ec-tertiary                :$ec-green-normal;
+$ec-success                 :$ec-green-normal;
+$ec-info                    :$ec-blue-normal;
+$ec-normal                  :$ec-blue-lite;
+$ec-warning                 :$ec-orange-normal;
+$ec-danger                  :$ec-red-normal;
+$ec-extra-icon              :#ede6a1;
+$ec-funded                  :#d1e6b5;
+$ec-funded-hover            :#bad991;
+
+// applied colors:
+$body-text                  :$oil;
+$link-color                 :$ec-blue-normal;
+$link-hover-color           :$ec-blue-dark;
+$disabled-input-text        :$aluminum;
+$disabled-button-text       :$iron;
+$disabled-label             :$base;
+
+$border-color               :$gainsboro;
+$border-input               :$gainsboro;
+$border-success             :$ec-green-dark;
+
+// Pros and Cons colors:
+$ec-pro                     :#00ad00;
+$ec-con                     :#ad0000;
+
+// background
+$background-light-blue     :#e8f0f5;
+// Highlights
+
+
+// Font Stacks
+$font-family-sans-serif: Arial, Helvetica, sans-serif;
+$font-weight-normal: normal;
+$font-weight-bold: 700;
+
+// Font sizes
+$font-size-base:          14px;
+$font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
+$font-size-toolbar:       16px;
+
+// Spacing sizes
+$padding-base-vertical:     6px;
+$padding-base-horizontal:   15px;
+
+$page_min_width:            320px;
+
+$sidebar_margin:            16px;
+$sidebar-border-bottom:     $smoke;
+$sidebar-bg-common:         rgba(250, 252, 252, 0.85);  //rgba(255, 255, 255, 0.8);
+
+$workflow-border-top:       1px solid $ec-blue-normal;
+$workflow-border-bottom:    1px solid $ec-blue-normal;
+$workflow-border-right:     1px solid $ec-blue-normal;
+$workflow-bg-selected:      $ec-blue-normal;
+$workflow-bg-hover:         $gainsboro;
+$workflow-bg-odd:           transparent;
+$workflow-bg-even:          transparent;
+$workflow-bg-empty:         transparent;    //url(#{$imagePath}/workflow_gray_bg.gif);
+$workflow-color-selected:   $white;
+$workflow-color-hover:      $ec-blue-lite;
+$workflow-color-default:    $ec-blue-normal;
+
+$footer-bg:                 transparent;
+$footer-color:              $oil;
+$footer-color-link:         $ec-blue-normal;
+$footer-color-hover:        $ec-blue-dark;
+$footer-border-top:         1px solid $ec-blue-normal;
+$footer-border-bottom:      0px;

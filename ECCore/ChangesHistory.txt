@@ -1,0 +1,2616 @@
+'C0001 (2007/04/23)
+	Added clsStepInterval
+	Added clsStepFunction
+	Added clsStepMeasureData
+	Added clsStepIntervalIncreasingComparer
+	Added clsStepIntervalDecreasingComparer
+	Added several functions for Step Functions in clsMeasureScales
+	Added clsStepFunctionJudgments
+	Fixed "Weights" property in clsRegularUtilityCurveJudgments (handles correctly contributed alternatives)
+'C0002 (2007/04/30)
+	Fixed bug with calculating alternatives global priority (AltGlobalPriority property of clsNode)
+	(this is not critical in Canvas, but might be critical in other apps (found this when creating sample Win-app))
+	Made a check in inconsistency calculations, so at least it will work more or less ok when no missing judgments
+'C0003 (2007/05/01)
+	Fixed inconsistency calculations
+	Added new properties in clsShowLocalResultsAction
+....
+lost History for changes 4-5
+....
+'C0006 (2007/05/29)
+	Fixed calibration for all cases in SA (made an old-way to be sure: calculating SAGlobalPriorities of alts for each SA child node = 1)
+	Added new parameters (and support for it in core) in clsPipeParameters: CalculateSAWRTGoal, CalculateSAForCombined, AllowSwitchNodesInSA
+....
+'C0007 (2007/07/03)
+....
+'C0008 (2007/08/30)
+	When downloading to ahp, if infodoc is blank then put project purpose as the infodoc for the goal.
+	Need to tell AD to fill GoalDefaultInfoDoc property	before saving to ahp
+'C0009 (2007/08/30)
+	Implemented function GetGradientAltValuesForChild for Gradient SA
+'C0010 (2007/08/30)
+	Fixed several bugs with gradient calculations
+'C0011 (2007/08/30)
+	Added clsJudgmentsAnalyzer
+	Moved clsShowGlobalResultsAction to new approach with using clsJudgmentsAnalyzer
+'C0012 (2007/08/30)
+	Fixed bug 571: converter doesn't handle ratings data correctly (intensities IDs matching problem)
+'C0013 (2007/08/31)
+	Implemented safe way of adding new users to the project (no user ID and email collision in the database)
+	(Resolved case 575 in FogBugz)
+	Fixed small bug with LoadOnDemand
+'C0014
+	Fixed case 596: when creating new node, the name of the node will be either "New Objective N" or "New Alternative N" appropriately	
+'C0015
+	Added StartDate and EndDate properties in pipe params. By default StartDate = time when project is created, EndDate = January 1st, 2100
+'C0016
+	Fixed case 587 - when changing rating scale for covering objective, Canvas doesn't reset judgments for this node. 
+	Made the same fix for step functions and utility curves.
+'C0017
+	Fixed case 604 - incorrect combining judgments for non-pairwise covering objectives.
+'C0018
+	Fixed case 605 - Performance Analysis values are out of range
+'C0019
+	Fixed case 598 - Project location (connection string) remained pointing to ahp file after trying to download as ahp
+'C0020
+	Fixed case 569 - putting project purpose as goal's infodoc if it is empty (additional fix)
+'C0021
+	Implemented case 612 - Optimize loading model from AHP for upload to Canvas needs
+'C0022
+	Fixed small bug in optimization (unnecessary check when loading model from ahpx)
+	Implemented storage readers
+'C0023
+	Created classes (with implementation): clsStorage, clsStorageReader, clsStorageWriter, 
+	clsStorageReader_v_1_1_0, clsStorageWriter_v_1_1_0, ECCanvasDatabaseVersion
+'C0024
+	Added report crtPivotPriorities in clsDataProvider
+'C0025
+	Implementation of clsStorageManager. Some minor changes.
+'C0026
+	Changes for advanced utility curve support
+'C0027
+	Fix for pivot report dataset
+'C0028
+	Moved all code from clsStorageManager to clsStorageManager (for new approach with project database management)
+'00029
+	Fixed case 625: GA values out of range
+'C0030
+	Added IsEqualCanvasDBVersions function to compare ECCanvasDBVersions
+	(Separated Core into 2 projects: ECCore and CanvasModule)
+	Added functions to get current ECCore and CanvasModule versions
+'C0031
+	Fixed bug with parsing nodes w/o structure
+'C0032
+	Fixed adding advanced utility curve
+'C0033
+	Implemented function to delete judgments with specific measurement type
+'C0034
+	Changes to reading canvas db versions, etc.
+'C0035
+	Added check: if evaluation mode is All Covering Objectives vs. 1 Alternative 
+	and there are different measurement types for covering objectives, we are replacing it with one-at-a-time evaluations
+'C0036
+	Added function to get CanvasDBVersion in string
+'C0037
+	Added interpolation method property to clsAdvancedUtilityCurve
+'C0038
+    Made new user active (extra check)
+    Suppress RTEs on check DB version
+'C0039
+	Implemented new versions of storage readers/writers to move to CanvasDBVersion 1.1.1
+	Minor changes
+'C0040
+	Fixed loading points for advanced utility curves
+'C0041
+	Fixed saving advanced utility curve judgment in pipe
+'C0042
+	Disabled AllAltsForOneCoveringObjective evaluations when different measurement types (because we didn't figure out how to handle UCs there yet)
+'C0043
+	Implemented function GetFirstEvalPipeStepForNode. 
+	Returns first evaluation step for specified node. 
+	If CurrentStep parameter is specified then in case function didn't find anything, this current step will be returned.
+	This parameter is optional (but it's better to use it), default value is 0.
+'C0044
+	Fixed Case 646: RTE when calculating with advanced utility curve
+'C0045
+	Optimization in the core in load/save
+'C0046
+	Fixed out-of-bound (0; 1) problem in advanced UC
+	Optimization for pairwise sorter
+'C0047
+	Implemented functions for getting a list of users' emails from different storage types
+'C0048
+	Returning list of clsUser instead of list of emails in functions from 'C0047
+'C0049
+	Fixed case 658: RTE when downloading as AHP empty model
+'C0050
+	Fixed case 693: Downloaded AHP with a duplicate key for A0
+'C0051
+	Fixed clsPipeMessages in many places
+	Created code for case 662, but commented it out. See comments in FogBugz.
+'C0052
+	Updated projectDB.ahp with 2 tables: Properties and PipeMessages
+	Saving/Loading pipe properties and pipe messages to/from ahp-file
+'C0053
+	Very small optimization
+'C0054
+	Fixed small bugs
+	Fixed normalization in distributive mode
+'C0055
+	Fixed case 726: incorrect initialization of Gradient SA current value
+	Fixed normalization of alternatives (this also fixes case 726 - NaN part and Performance SA bugs)
+'C0056
+	Closed open connections when saving to ahp in some places
+	Removed transactions for now
+'C0057
+	Changed loading alternatives from ahp-file
+'C0058
+	Closed open connection in TableExists function
+'C0059
+	Closed even more open connections :)
+'C0060
+	Fixed case 741: error in combining UC judgments
+'C0061
+	Fixed case 726: incorrect initialization of Performance Analysis values
+'C0062
+	Initial (small) compiling version of clsProjectAnalyzer
+'C0063
+	Fixed cases 743 and 765: incorrect calculation of total and undefined judgments
+	Replaced all functions with calls to new class clsProjectAnalyzer
+'C0064
+	Fixed case 629: but setting full alternative contribution
+'C0065
+	Storing MID data mapping in ahp file
+'C0066
+	Saving/loading advanced utility curves to/from AHP database
+	Fixed saving alternatives to ahp database
+	Several small fixes
+'C0067
+	Several fixes to saving/loading advanced utility curves to/from AHP database
+'C0068
+	Added saving regular utility curves to ahp database
+	Other regular utility curve support in the code
+	Several fixes to saving advanced utility curves to ahp database
+'C0069
+	Changed alternatives loading from ahp database
+	Now the algorithm is the following:
+	1. Check ahp db version (MProperties table, 'Version' record)
+	2. If db version is = 3.03 then SELECT * FROM AltsGlobal WHERE Selected=True
+	3. Otherwise SELECT * FROM AltsGlobal. If there are records in AltsActive, make intersection with them, otherwise just use this list
+'C0070
+	Fixed saving/loading to ahp/ahpx regular utility curves in terms of Increasing/Decreasing flag
+'C0071
+	Minor fixes to previous build
+'C0072
+	Fixed deleting judgments when changing node's measurement type or measurement scale id
+'C0073	
+	Several fixed to previous post - checked all places where it might not work right and created approach that uses optional parameter
+'C0074
+	Set default option for deleting node judgments for measurement type or measurement scale change to False
+'C0075
+	Normal fix for deleting node's judgments for measurement type or measurement scale change
+'C0076
+	Fix to adding new user to database
+'C0077
+	Fixed loosing pairwise judgments
+'C0078
+	Added performance and gradient sensitivity analysis to pipe params and the pipe itself
+'C0079
+	Fixed deleting judgments when changing measurement type and measurement scale
+	Added code to delete related judgments when deleting measurement scale (not used now but will coordinate with AD about this)
+'C0080
+	Fixed case 805: loosing alternatives contribution after Save As
+'C0081
+	Load on demand
+'C0082
+	Do not do anything when changing User in clsProjectManager and clsProjectManager to the same user
+	Removed loading user's judgments and permissions on project load when LoadOnDemand = True
+	Force one alternative at a time evaluation when option is set to evaluate all alts vs 1 covering objective and this objective is not ratings
+'C0083
+	Fix to LoadOnDemand
+'C0084
+	Fixed couple things in LoadOnDemand	
+'C0085
+	Implemented saving structure only				
+	This also fixes Case 868 (RTE when saving structure with LoadOnDemand=True)
+'C0086
+	Added new types, properties and methods to existing classed to synchronous support in the core
+	Modified clsShowGlobalResultsAction to support global calculation with respect to a node
+	Modified clsJudgmentsAnalyzer to support getting the information about calculation with respect to a node
+	Modified some other classes to support synchronous (added/modified members)
+	Created special public functions that will be used in synchronous (optimization)
+'C0087
+	Fix to functions GetUsersRatingsMeasureData and GetUsersPairwiseMeasureData
+'C0088
+	Added some stuff to support special data instances
+	Added public functions to get combined value from list of judgments
+'C0089
+	Fixed CombinePairwiseJudgments function
+	Fixed Case 881: correct filling GE and LE fields in llCritFormulas during download as ahp
+'C0090
+	Fixed case 883: incorrect SA max alt value
+'C0091
+	Fixed case 869: NaN in local results when some UC judgments are skipped
+'C0092
+	Fixed availability of group results (CanShowGroupResults function in clsJudgmentsAnalyzer) when LoadOnDemand=True
+	Changed alternatives list in local and global results based on individual permissions
+	Minor changes and bug fixing
+'C0093
+	Showing only allowed alternatives in all sensitivity analysis
+'C0094
+	Fixed corrupting the pipe due to latest 'small' change (Case: 887)
+	Fixed not showing local individual and combined results for non-covering objectives due to latest 'small' change (Case: 887)
+	Implemented calculation of combined instance for custom list of users
+	(by default this list of users is Active users in the model (IncludedInCombined field))
+'C0095
+	Fixed case 883: incorrect SA max alt value (different circumstances than in 'C0090)
+	Fixed case 888: duplicate alternatives in overall results
+'C0096
+	Added support for new alternative evaluation mode in the core - One at a Time WRT Alt
+'C0097
+	Fixed case 897. The problem was that when you enter very long comment in Comparion Core and trying to download as AHP, 
+	the routine that inserts judgments in ahp file crashes on those very long comments, so the judgments are not being written to ahp file.
+	That's why some judgments might be missing during download as ahp.
+'C0098
+	Applied the same fix as C0097, but for saving pairwise judgments as well
+'C0099
+	FB Case 912: Added new pipe option ShowInfoDocMode (Can be frame or popup, default is Frame)
+'C0100
+	Saving/loading combined results to canvas database (implementation of functions and modification in pipe builder and pipe action classes)
+'C0101
+	Added new typed and several functions to clsProjectAnalyzer and clsProjectManager to get info about the project for synchronous
+'C0102
+	Saving/loading sa current values to canvas database + appropriate changes in related classes for synchronous
+'C0103
+	Added GetNodesList and GetAlternativesList functions to simplify usage of pre calculated combined results
+'C0104
+	Case 922: added properties for synchronous
+'C0105
+	Officially increased current database version from 1.1.1 to 1.1.2 and made all appropriate changes in the code
+'C0106
+	Optimized sensitivity analysis calibration in synchronous
+'C0107
+	Fixed opening up model with project version 1.1.2. FogBugz case 938.
+'C0108
+	Added support for permissions for alternatives pairwise (in memory, reading/writing from/to ahp,ahpx)
+	This also fixes case 931
+'C0109
+	Redid the approach for pw alternatives support (this fixes many bugs and work much more stable)
+'C0110
+	Added TerminalRedirectURL pipe parameter
+'C0111
+	Fixed BugID: 944 - error when creating new model
+'C0112
+	Fixed BugID: 949
+'C0113
+	NOT finished - some safe data instances support (this code is not executing anywhere yet)
+'C0114
+	Fix to FB case 592 - error when uploading ahp model
+'C0115
+	Added parameters to clsPipeParameters: RedirectAtTheEnd, LogOffAtTheEnd
+'C0117
+	Data Instances support - continued
+	2 fixes in ctrlShowResults.ascx.vb
+'C0118
+	Added/fixed couple things for data instances	
+'C0119
+	Added property WriteCalculatedValueInAHPDB to clsStorageWriter
+'C0120
+	Optimization
+'C0121
+	Changes to user permissions support
+'C0122
+	Fixes to pipe creation
+'C0123
+	Implemented GetContributedAlternatives (ECMiscFuncs) function for multi-select covering objectives on permissions page
+'C0124
+	Implemented SetWritePermissionsForContributedAlternatives (ECMiscFuncs) function for multi-select covering objectives on permissions page
+'C0125
+	Implemented GetAllowedAlternatives (ECMiscFuncs) function for multi-select covering objectives on permissions page
+	Fixed SetWritePermissionsForContributedAlternatives to support not clear permissions for alts
+'C0126					
+	Added optimization for storing allowed/restricted alternatives (for now it stored default - disabled, as before)
+'C0127
+	Added report data for showing alts roles (CanvasReportType.crtUserPermissions, function AddUserPermissions in clsProjectDataProvider)
+'C0128
+	Changes for new permissions approach:
+		- pipe builder
+		- pipe actions (local and global results)
+		- calculations
+	Changes in calculations core
+'C0129
+	Always recreate reports
+'C0130
+	Loading user permissions when going to permissions report
+	Several bug fixes in setting permissions functions
+	Fixes to loading user permissions from CanvasDatabase
+	Minor changes
+'C0131	
+	Fixed small bug in calculations due to latest permissions changes (there was an RTE on global results page)
+	Fixed local results in the left-hand tree view on global results page
+'C0132
+	Fixed saving structure to canvas database
+'C0133
+	Added support for creation of data instances from user
+'C0134
+	Fixed pipe builder when adding alts pw steps
+	Fixed total and undefined judgments counters for alts pw
+'C0135
+	Fixed BugID: 973 - Collection was modified; enumeration operation may not execute
+'C0136
+	Saving allowed/restricted alternative permissions based on the option in Properties table
+'C0137
+	Optimization for loading/saving alts permissions
+	Optimization (removed unnecessary code) in clsPipeBuilder
+'C0138
+	Added extra-check when writing the permissions flag into Properties table
+'C0139
+	Added support for Spyron surveys in the pipe
+	Note: one project db change is needed! Some code is commented out until db changes are done
+'C0140
+	Increased db version to 1.1.4 due to future changes of project db for Spyron surveys support in the pipe
+	Note: this code is commented out for now, will uncomment once db changes are done
+	IMPORTANT: v.1.1.4 differs from v.1.1.3 only in PipeMessages table structure: there's one field Added - MessageKind, to support Spyron surveys in pipe
+    This is why there's no need to implement new StorageReader and StorageWriter classes versions _v_1_1_4,
+    because this stuff is loaded from CanvasModule/clsPipeMessages and project db version checks are performed there
+'C0141
+	Some optimization in combining judgments
+	Added support for combining judgments for custom set of users (see UsersInCombined property in clsCalculationsManager)
+'C0142
+	Fixed some bugs with undefined/total judgments counters
+'C0143
+	Fixed bug with undefined judgments counter
+'C0144
+	Redid approach with user permissions
+	Fixed several small bugs
+'C0145
+	Fixed BugID: 997 - rating scales are not sorted by priority
+'C0146
+	Fixed BugID: 1006 - RTE when saving model as
+	Fixed BugID: 1007 - RTE when updating decision
+'C0147
+	Fixed BugID: 1015 - RTE when loading old models with pipe messages in it
+'C0148
+	Evaluation groups support
+'C0149
+	Changed CalcForCombined in clsDynamicSensitivity to True
+'C0150
+	Fixed BugID: 1017 - error uploading old models
+'C0151
+	Added overloaded read/write functions to clsParamsFile with MemoryStream as an input parameter.
+	NOTE: this is your responsibility to open/close streams before and after using this functions.
+'C0152
+	Full combined groups support in the core (read/write/calculations, etc.)
+'C0153
+	Fixed BugID: 925 - "Users that have not made all individual judgments do not see group judgments" from my side
+	Some modifications are needed from AD in order to make it working correctly (see the same case for details)
+'C0154
+	Fixed BugID: 957 - "May be bug in Data Instances"
+	(Total and undefined judgments counters was not correct when there are data instances for some nodes)
+'C0155
+	Added MaxActiveModelsTotal parameter in license file
+'C0156
+	Changes for step functions in the core
+	Support for step functions from/to ahp files
+	Support for direct data from/to ahp files
+	Minor fixes
+	Note: Now there's a full support for all measurement types in the core (calculations, read/write from/to ahpx/ahp databases)
+'C0157
+	Fixed not showing results when AllowAltPW=True
+'C0158
+	Changed step functions approach - added negative and positive infinities
+'C0159
+	Restructured code
+	Implemented optimization
+	Moved to project db version 1.1.5
+	Fixed some small bugs
+'C0160
+	Fixed some bugs from latest changes
+'C0161
+	Fixed BugID: 1042 - not saving data instance checks. 
+	This also fixes RTE when trying to evaluate data instance
+'C0162
+	Fixed BugID: 1057 - RTE: 'Conversion from type 'DBNull' to type 'Date' is not valid.'
+	Fixed BugID: 1056 - RTE: 'Name' when loading model v.1.1.4+ with step functions
+'C0163
+	Fixed many bugs that occur due to latest optimization changes
+'C0164
+	Fixed/added some stuff for optimization of combined calculations
+'C0165
+	Fixed several RTEs when showing local/global results
+'C0166
+	Fixed bug with creating data instance from user
+'C0167
+	Added flag PipeCreated in clsPipeBuilder. 
+	AD will use that to make sure we're not recreating the pipe many times
+'C0168
+	Made sure that if you go from Evaluate Now to Evaluate Data Instance (and other possible situations) will not cause any problems with pipe optimization
+'C0169
+	Optimization of GetUndefinedJudgmentsCount function in clsProjectAnalyzer
+	(this function was very slow and was causing big delays when was called on page changes in the pipe)
+'C0170
+	Fixed RTE when going to reports page or overall results
+'C0171
+	Fixed optimization algorithm
+	Fixed several other RTEs
+	Made optimization optional (constant in ECTypes OPTIMIZATION_ENABLED)
+'C0172
+	Implemented several function to erase calculated weights, combined pairwise and non-pairwise judgments
+'C0173
+	Fixed data instances working with new optimization code
+	Fixed bug with creating the pipe related to user permissions
+	Fixed some other bugs related to data instances and new optimization code
+'C0174
+	Preserving Costs from AHP files
+'C0175
+	Added some functions for clearing calculated stored values when changing something in structure (NOT used yet)
+	Fixed case 1037 - RTE with combining step functions
+'C0176
+	Using functions to react on different structure changes
+	WARNING 1: This does NOT include reacting on changing:
+	  - alternative contribution
+	  - user permissions
+	  - pipe parameters
+    WARNING 2: This build can be unstable, though nothing very critical.
+'C0177
+	Changed approach for working with Weights.
+	Lot of changes.
+'C0178
+	Fixed DeleteCalculatedWeights function.
+'C0179
+	Fixed BugID: 1088 - RTE when saving non-pairwise data to ahp-file.
+	The reason was that I added UsersNumber field to this table in Canvas, but didn't add the same in ahp-file. So, the fix is just adding this field in ahp-file.
+	We need this table in ahp file for preserving advanced utility curves and it's data.
+	
+	Fixed BugID: 1076 - RTE: 'No data exists for the row/column.'
+'C0180
+	Fixed a lot of functions related to storing calculated weights and optimization logic
+'C0181
+	Changed clearing calculated weights
+	Fixed couple things with optimization
+	Fixed RTE when creating Data Instance
+'C0182
+	Fixed BugID: 1096. "Uploading a .ahp project results in request for .ahpx table"
+	(returned checks for table existence)
+'C0183
+	Fixed problem with Sensitivity Analysis zero values
+'C0184
+	Fixed BugID: 1094 - Individual and Combined Results are different for single user in model
+	(Fixed combining step function judgments (this was the reason of not matching up individual and combined results))
+'C0185
+	Fixed problem with converting weird single values in ahp-file when loading Cost values
+	Fixed difference in individual/combined calculations under different circumstances
+'C0186
+	Added code to ClearCalculatedValues function in Misc.vb (AD's code) to clear calculated weights and combined values
+'C0187
+	Fixed bug with not saving attached surveys' GUIDs
+'C0188
+	Added table to reports to show non pairwise data other than ratings
+'C0189
+	Fixed RTE
+	Fixed LoadUsersJudgments function for v1.1.5
+'C0190
+	Some optimization on loading alternatives permissions
+'C0191
+	Fixed LoadUserJudgments function for v1.1.5 (again)
+'C0192
+	Some optimization of optimization :) 
+	(Fixes BugID: 1094 - Individual and Combined results are not matching up...)
+'C0193
+	Disabled cache for user evaluation progress
+	Commented out CreatePipe for user in evaluation progress calculation in AD's code
+'C0194
+	Fixed RTE when going to reports screen under certain circumstances (if there's no UserID=0)
+	Made sure that on reports you can see all users' judgments
+'C0195
+	Fixed RTE - BugID: 1144.
+'C0196
+	Added "RecalculationNeeded" parameter in MProperties table in ahp-file
+'C0197
+	Fixed BugID: 1166 - Can't delete data instance
+'C0198
+	Fixed BugID: 1089 - data instances operations are very slow (create/delete/check/uncheck)
+	Some optimization was made there
+'C0199
+	Ability to go through rows and columns in pairwise matrix in the pipe (instead of diagonals)
+	Implemented PairwiseEvaluationOrder.peoRows and PairwiseEvaluationOrder.peoColumns select case branches in pipe builder
+'C0200
+	Fixed BugID: 1167 - Improve DSA speed (was slow after optimization)
+'C0201
+	Global rename of "IsSynchronousSession" to "IsSynchronousSessionUser"
+	Added "IsSynchronousSession" property for other purposes in clsPipeBuilder
+	Fixed RTE when creating new data instance
+'C0202
+	Fixed BugID: 1120 -	TeamTime shows multi-ratings (for alts) per page if selected in options
+'C0203
+	Added setting of IsSynchronousSession and IsSynchronousSessionEvaluator properties in AD's code
+'C0204
+	Fixed BugID: 1166 - not reloading the pipe for data instances are changing DI mappings or deleting/creating DIs
+'C0205
+	Implemented randomization of objectives pairwise
+'C0206
+	Fixed bug with transferring the roles for alternatives from ahp-files
+'C0207
+	Implemented "Enabled" property in clsNode
+'C0208
+	Sending xml-string with report to Silverlight
+'C0209
+	Changed type of "Value" property for pairwise from Single to Double to avoid arithmetic overflows in optimized combined calculations
+'C0210
+	Added report crtSilverlightReport that is sent to Sergey's SL report
+'C0211
+	Implemented clsStorageReader_v_1_1_6 and clsStorageWriter_v_1_1_6 that support Enabled property for nodes
+	Added support for enabling/disabling nodes individually per person
+'C0212
+	Fixed BugID: 1225 - StartIndex cannot be less than zero (in function SetEnabledNodesForPlacesRated)
+'C0213
+	Fixed bug with creating readers and writers for version 1.1.6
+'C0214
+	Fixed showing disabled alternatives in global results and SAs
+'C0215
+	Changed current project db version back to 1.1.5
+'C0216
+	Fixed BugID: 1136 - Team time does not show local combined results for evaluator if PO didn't make all his judgments for that node
+	Fixed BugID: 1202 - Team time does not show local individual results for evaluator if PO made judgments for that participant
+'C0217
+	Fixed some bugs with optimization (but not fully, to be continued in 'C0219)
+'C0218
+	Fixed bug with disabling alternatives (not loading them after returning to the model)
+	NOTE: there's no need to set disabled nodes again, just open up the model and you will see them
+'C0219
+	Fixed BugID: 1219 - RTE: 'Column 'NodeName' does not belong to table AltsPairwiseJudgments
+'C0220
+	Fixed many things in optimization logic. This improves speed in several cases and fixes many bugs where you had to hit recalculate button
+	NOTE: there are still some changes to follow tomorrow, because there are still couple issues left here (too late right now to continue)
+'C0221
+	Continued fixing things in optimization logic (fixes to read/write optimized combined results). Still some more fixes to follow.
+'C0222
+	Fixed BugID: 1230 - Incorrect Total/Evaluated steps calculated in pipe if model has Shared inputs
+'C0223
+	Created xml-dataset for Silverlight report
+'C0224
+	Ability to generate Silverlight report per user
+'C0225
+	Fixed several bugs with latest Silverlight report dataset
+'C0226
+	Fixed BugID #1242 - RTE in EC11.5 when opening downloaded Comparion Core model
+'C0227
+	Fixed BugID #1229 - There is some values missed in Reports for models which using Shared inputs (only Objective priorities instead of Objectives and Alternatives )
+'C0228
+	Some optimization in saving to AHP database
+'C0229
+	Separated report data set for silverlight into 2 datasets: one for initialization with model structure, users, etc., the other one for judgments/priorities per user
+'C0230
+	Fixed BugID #1244 - "Alternatives View" parameter doesn't work correctly
+'C0231
+	Fix to previous fix :) (Fixed BugID #1244 - "Alternatives View" parameter doesn't work correctly)
+'C0232
+	Another fix to 1244 :) Sorry
+'C0233
+	Fixed BugID #1255 - RTE: 'Unable to cast object of type 'ECCore.clsStepMeasureData' to type 'ECCore.clsUtilityCurveMeasureData'
+	NOTE: AD, this was your bug, I fixed it (Project/Evaluate/Default.aspx.vb: 1676) and marked as 'C0233. Please make sure that this fix it correct (but I'm 99,9% it is so and I tested it)
+'C0234
+	Fixed BugID #1037 - RTE: 'Object reference not set to an instance of an object' when loading combined users judgments
+'C0235
+	Moved to DatabaseProvider-independent approach in storage readers/writers
+'C0236
+	Moved CanvasModule many other places in ECCore to DatabaseProvider-independent approach
+'C0237
+	Added Name property for dbParameter in function GetDBParameter (for now Name and Value parameters of this functions are not optional. Later we'll make them optional).
+	Moved all ECCore and CanvasModule code to set Name property for dbParameter
+'C0238
+	Added functions DBExecuteNonQuery, DBExecuteScalar, DBExecuteReader that are used to support SQLClient provider type (it parses CommandText property of dbCommand object and fixes it)
+	In ECCore and CanvasModule:
+	Replaced all calls of oCommand.ExecuteNonQuery to DBExecuteNonQuery(ProviderType, oCommand)
+	Replaced all calls of oCommand.ExecuteScalar to DBExecuteScalar(ProviderType, oCommand)
+	Replaced all calls of oCommand.ExecuteReader to DBExecuteReader(ProviderType, oCommand)
+	(these replace changes are not marked, because was using global replace)
+'C0239
+	Some optimization for setting disabled user nodes for Places Rated type of things
+'C0240
+	Fixed BugID #1166 - when removing data instance judgments for that DI was not deleted and reappeared again when trying to create new data instance after deleting
+'C0241
+	Fixed problems with losing db provider type when setting project db version in storage manager
+'C0242
+	Implementation of clsStorageWriter_v_1_1_7 with decomposed functions and optimization for saving the whole model
+'C0243
+	Some more optimization for clsStorageWriter_v_1_1_7 related to checking database connection (added CheckDBConnection function that is used now instead of general CheckDBConnection)
+'C0244
+	Added transaction to SaveUserDisabledNodes_CanvasDatabase
+'C0245
+	Fixed small bug with not saving ModifyDate property for non-pairwise judgments in AddMeasureData function
+'C0246
+	Fix (but very good, but working fine now) to SA problem: BugID #1315 - Bars on alternatives not present.
+'C0247
+	Added GenericDBAccess project to solution and modified all references and code to use it correctly
+'C0248
+	Added ProgressTracker project to solution; partial (small part that builds for now) implementation of clsProgressTracker class
+'C0249	
+	Added ParentNodeID to HierarchyStructure table in reports in clsProjectDataProvider
+	Fixed small bug with that report (was showing alternative path instead of alternative name)
+'C0250
+	Added new report - CanvasReportType.crtHierarchyObjectivesAndAlternatives2 in clsProjectDataProvider
+	Implementation of clsProgressTracker continued
+'C0251
+	Implementation of clsProgressTracker continued
+'C0252
+	Use of clsProgressTracker in ECCore: 
+	1. General infrastructure
+	2. Particular implementation: 
+	   2.1 SaveProject to canvas database (for project db version 1.1.7 only for now)
+	   2.2 LoadProject from canvas database(for project db version 1.1.6 only for now)
+'C0253
+	Added GetDBDataAdapter function in GenericDBAccess
+'C0254
+	Partial fix to BugID #978 - Handle Ideal alternative in SA. 
+	Handles "Include Ideal alternative" option, but doesn't handle "Show Ideal alternative"
+'C0255
+	Fixed several bugs with calculations when Ideal alternative is included (also fixed bugs with Ideal alternative value when ShowIdealAlternative=True)
+'C0256
+	Fixed bug with incorrect Performance Analysis lines
+'C0257
+	Fixed saving IncludeIdealAlternative, HideIdealAlterantive, SynIdeal parameters in MProperties table in AHP file in EC11.5 format
+'C0258
+	Per Anatoly's request writing ShowIdealAlternative property as False to AHP file if IncludeIdealAlternative=False
+'C0259
+	Initial implementation of streams approach			
+'C0260
+	Optimization of storing users judgments and combined calculations
+	Other changes to streams approach
+	(not all changes are marked, especially in classes related to streams)
+'C0261
+	Implementation of GUIDs approach
+'C0262
+	Implementation of approach for writing the size of the chunks to the stream in stream writer
+'C0263
+	Reading the size of the chunks in stream reader
+'C0264
+	Skipping of judgments that are not valid (if something was changed in the structure, but the references are still in the stream)
+'C0265
+	Small optimization in stream writer
+'C0266
+	Support for using ModelID property in clsStorage, clsStorageReader_v_1_1_7 and clsStorageWriter_v_1_1_7 classes
+'C0267
+	Implementation of writing pipe parameters to streams and everything related to it
+'C0268
+	Implementation of reading pipe parameters from streams and everything related to it
+'C0269
+	Changes to clsProjectManager to work with streams approach
+	Optimization of working with judgments, including loading from ahpx and database (now instead of 2,5 minutes the whole model loads around 45 seconds from ahpx mdb file)
+'C0270
+	Changes to SetUser function of clsProjectManager for streams approach
+	(Need to fix LoadMissingUsers as well!)
+'C0271
+	Moved code from CanvasCore and Application to streams approach
+	A lot of things added/fixed due to normal work of streams approach
+	
+	NOTE: Right now it seems that you can create a new model, upload ahpx/ahp models. Download is NOT implemented yet.
+	All data for all users (judgments and permissions) is loaded on model load (LoadOnDemand=False).
+	All calculations (combined as well) are performed on the fly, no calculated data (or combined judgments) is stored in the db
+	
+	I mentioned that on large models when switching users in the combo-box on global results screen it takes several seconds to switch.
+	This is NOT due to some operations in the code, but due to tree view control rendering 
+	(for large model that I was testing it took about 15 seconds to switch the user while it took only 3 seconds to calculate everything and generate data for viewing)
+	
+	No support yet for:
+		- Team Time Not 
+		- Infodocs 
+		- UserDisabledNodes (for PlacesRated kind of stuff)
+		- Download of models
+	
+	This is just the very first version of Comparion Core with streams approach, so there might be some other issues.
+'C0272
+	Fixed problems with RTE on saving judgments
+'C0273
+	Made DeleteUserFromProject function dependent on StorageType. Fixed places where it is used
+	Added several functions to readers and writers
+'C0274
+	Made DataExistsInProject function dependent on StorageType. Fixed all places where it this function is used
+'C0275
+	Fixed some bugs with project generator (saving judgments to memory), saving generated project as decision, etc.
+	Fixed adding new user to a project - fixed saving users info for streams storage type
+	Extra checks in ReadUserJudgments function
+	Extra checks in LoadModelStructure_CanvasStreamDatabase function
+	Fixed serious bug with saving judgments to stream (this caused RTE pretty often)
+	Fixed serious bug with reading judgments from stream (this caused not sticking judgments after model reload pretty often)
+	Fixed adding user to a project on creating new project
+'C0276
+	Full support for InfoDocs in streams approach
+'C0277
+	Fixed many issues with data instances
+'C0278
+	Fixed everything related to Save As functionality (does NOT include Save As Template for now)
+'C0279
+	Fixed critical bug with saving users judgments and permissions in streams approach
+'C0280
+	Suppressed preserving AHP tables on ahp-files upload for now (until implement normal preserving approach)
+'C0281
+	Fixed bug with attaching wrong users on model upload
+'C0282
+	Commented out unnecessary code in deleting users judgments from memory
+'C0283
+	Added functionality to make sure we don't have problems with stored judgments after changing measurement type or changing measurement scale:
+	Changed writing and reading judgments from stream, storing measurement scales
+	Fixed bug with populating duplicate judgments when walking through the pipe and returning back to the model
+'C0300
+	Piecewise linear for step function:
+	  - internal support (everything except interpolation itself - need to clarify this)
+	  - read from ahp
+	  - save to ahp
+	  - read from ahpx
+	  - save to ahpx
+	Available in project db version v.1.1.7
+'C0301
+	Made updates of combined judgments on saving judgments dependent on OPTIMIZATION_ENABLED flag
+'C0302
+	Fixed bug with saving step function combined judgments to the database
+	This fixes BugID #1255 - zeros for combined when there's a step function node
+	Note: this bug does NOT appear (cannot appear by design) if OPTIMIZATION_ENABLED = False (this fix is for case of True)
+'C0303
+	Support for direct values for ratings measurement type:
+	  - read from AHP
+	  - write to AHP
+	  - read from AHPX
+	  - write to AHPX
+	  - skip the pipe step with direct entry instead of rating (one-at-a-time, all alts, all covering objectives)		
+'C0304
+	Support for storing AHP extra data:
+	  - read from AHP
+	  - write to AHPX
+	  - read from AHPX
+	  - write to AHP
+	  - for now supported only extra info for objectives, alternatives and users
+	This approach also deletes ahp extra info for objectives, alternatives and users if they were deleted from the project
+	Available in project db version v.1.1.7 
+'C0305
+	Added few more tables to upload from ahp in _AHP_EXTRATABLES_LIST
+'C0306
+	Fixed bug with reading IsPiecewiseLinear flag from the database
+	Stabilized approach for storing AHP extra info
+	Moved to ProjectDB v.1.1.7
+'C0307
+	Fixed problems with transactions in SaveUserDisabledNodes_CanvasDatabase function
+'C0310
+	Fixed BugID #1455 - RTE: When on clicking "Evaluate Now"
+'C0311
+	Fixed BugID #1345 - RTE: Shared input source
+'C0312
+	Fixed setting CalculateForCombined parameter for Dynamic Sensitivity and GetUserID function in ECTypes.vb (was not analyzing DefaultDataInstance)
+'C0313
+	Optimized storing of judgments in memory
+'C0315
+	Fixed BugID #1459, BugID #1457 - incorrect pipe sequence
+'C0316
+	Implementation of piecewise linear step functions calculations
+'C0317
+	Fixed RTE when uploading AHP model with advanced utility curve saved
+'C0318
+	Fixed BugID #1476 - shows one-at-a-time in the pipe even if set to All Alts for One Covering Objectives
+'C0319
+	Fixed step function calculations when piecewise linear (also fixes RTE - BugID #1485)
+'C0320
+	Probably fixed BugID #1480 - UC becomes linear after downloading to AHP
+'C0321
+	Fixed BugID #1479 - Negative value of intermediate priority (when uploading ahp model that has direct entries for ratings)
+'C0322
+	Fixed function CanShowGroupResults (this fixes BugID #1355)
+'C0323
+	Probably fixed (again :)) BugID #1480 - UC becomes linear after downloading to AHP
+'C0325
+	Calculate for combined in SA controlled by pipe parameter (default is True)
+'C0326
+	Fixed bug with sorting pairwise judgments		
+'C0327
+	Revised and fixed use of optimized AddMeasureData function
+'C0328
+	First working version of LoadOnDemand=True and stuff related to it
+'C0329
+	Added IsPiecewiseLinear flag to streams structure (stream reader/writer)
+'C0330
+	Full support for reading/writing user disabled nodes in streams approach
+	Made loading user's data centralized (judgments, permissions, disabled nodes)
+'C0331
+	Some optimization/fixes for DSA
+'C0332
+	Fixed several problems with data instances
+'C0333
+	A lot of optimization of calculations
+'C0334
+	Fixed RTE (stack overflow) when reading ahpx model (LoadGroupPermissions function)
+'C0335
+	Optimization of calculations
+'C0336
+	Fixed problem with not reading pipe options
+'C0337
+	Small optimization of calculations
+'C0338
+	Optimization in different part of calculations
+	Important big optimization of calculations (storing pre calculated priorities for different calculation options)
+'C0339
+	Fixes/enhancements to calculations when there are disabled nodes for users
+'C0340
+	Fixed saving as ahpx from streams approach
+'C0341
+	Optimization of saving the project to ahpx database and couple fixes in this area
+'C0342
+	Fixes/optimization related to handing judgments for nodes that have default data instance associated with it
+'C0342 (accidentally marked as in previous changes)	
+	Implementation of preserving AHP tables in streams approach
+'C0343
+	Implementation of preserving AHP extra data from tables that are used by ECCore	(for streams approach)
+'C0344
+	Fixed RTE when uploading AHPX model
+'C0345
+	Version control support in ECCore
+'C0346
+	Some changes for version control in AD's code
+'C0347
+	Fixed "Save As"	RTE in streams approach
+'C0348
+	Started implementation of TeamTime functions for streams approach
+'C0349
+	Fixed problem with saving pipe options
+'C0350
+	Created empty classes for storage and stream readers and writers
+'C0351
+	Fixed creating readers and writers for v.1.1.8
+'C0352
+	Implementation of functions needed for TeamTime with streams approach
+	Moved all TeamTime related functions to separate file and namespace, changes in CanvasModule's and AD's code to use new namespace
+'C0353
+	Fixed clsProject.PipeParameters property
+'C0354
+	Fixed loading pipe parameters
+'C0355
+	Moved pipe messages to streams approach (this fixes problem of persisting guids of linked surveys)
+'C0356
+	Fixed GetUsersList function (fixed problem with uploading only first user from the model)
+'C0357
+	Moved TeamTime to streams approach (ahpx approach is also available)
+'C0358
+	Fixed usage of DataExistsInProject function (this fixes problem with RTE on TeamTime session start)
+'C0359
+	Fixed/changed several issues with streams TeamTime
+'C0360
+	Changes for streams TeamTime
+'C0361
+	Fixed BugID #1537
+'C0362
+	Changes to TeamTime in streams approach
+'C0363 
+	accidentally skipped
+'C0364
+	Ability for meeting owner to make judgments for other TeamTime users
+'C0365
+	SA working in streams Team Time
+'C0366
+	Fixed bug with RTE when calculating combined in Project Generator
+'C0367
+	Fixed problem with SA user changes in streams approach
+'C0368
+	Fixed RTE when saving model that has infodocs as ahp file
+'C0369
+	Fixed several bugs with ModifyTime property for judgments (this fixes RTE when downloading model as ahp after making judgments)
+'C0370
+	Fixed bug with saving project version in streams approach
+'C0371
+	Implementation of:
+	  - saving the whole model (all structure elements and all users data) to one stream
+	  - restoring the whole model from one stream to CanvasStreamDatabase
+	NOTES:
+	1. During save to a single stream and restore from a single stream to CanvasStreamDatabase NOTHING is loaded into ECCore memory objects
+	2. Save/restore functions are very flexible in terms of adding new structure types and new user data types. Almost nothing depends on that
+'C0372
+	Changes to CanvasWebService (CWS) to support streams approach in TeamTime
+'C0373
+	Changes to CanvasWebService (CWS) to support direct entries with keypads in TeamTime (in both ahpx and streams approached)
+	All comments are provided in the code
+	NOTES:
+		When entering direct data user has to press zero followed by integer numbers that go after decimal point, all of this should be enclosed in "*" signs
+        So, for instance, if you want to enter value 0.405 you will have to press "*0405*"
+        If you want to enter just 1 then you'll have to enter "*1*"
+'C0374
+	Implementation of IsAHPSStream function (in ECMiscFuncs) to determine if this is an AHPS stream (will be used on AHPS upload)
+'C0375
+	Changed MemoryStream to Stream for parameters in functions LoadFullProjectStream_CanvasStreamDatabase and SaveFullProjectStream_CanvasStreamDatabase
+'C0376
+	Fixed problem with reading corrupted models (where StreamSize was -1 for ModelVersion)
+'C0377
+	Fixed problem with open dbreader when creating full model stream
+'C0378
+	GetUsersList function for new storage type - stAHPSStream
+'C0379
+	Fixed saving ModeVersion on uploading AHPS file
+'C0380
+	Added ability to optionally encrypt/decrypt AHPS streams with either specified or default password
+'C0381
+	Fixes to Team Time in streams approach (in localhost, CanvasModule and CWS)
+'C0382
+	Ability to read MaxOut ahp projects
+'C0383
+	Fixes to support non-pairwise measurement types for non-terminal nodes
+	Fixes to MaxOut projects support
+'C0384 and 'C0385 
+	Refactored most of the code to use generic List(Of T) instead of ArrayList where applicable
+	Some other minor refactoring
+	Removed old commented out code
+'C0386
+	Added 4 pipe options for Team Time. BugID #1552
+'C0387
+	Fixed bug with adding new objective / alternative
+'C0388
+	Fixed several bugs related to latest move to List(Of T) approach
+'C0389
+	Added MaxOut report
+'C0390
+	Fixed all possible problems (related to ModelID) with reading/writing pipe parameters
+'C0391
+	Show UserEmail instead of UserID in MaxOut report
+'C0392
+	Fixed type casting RTE in Project Generator (fixes BugID #1594)
+'C0393
+	Added extra-checks when loading users judgments from AHP files (fixes second part of BugID #1605)
+'C0394
+	New (correct one) implementation of CanShowIndividualResults function (recursive, handles permissions, optimized)
+	(fixes first part of BugID #1605)
+'C0395
+	Added new pipe parameters: TeamTimeShowKeypadNumbers, TeamTimeShowKeypadLegends
+	Fixed saving previous team time parameters to ahpx database
+'C0396
+	Support for direct values for ratings in streams
+'C0397
+	Fix to writing judgments for version 1.1.8
+'C0398
+	Temporary disabled restoring extra ahp tables that don't exist in default ahp file 
+'C0399
+	Critical fix for model version control
+'C0400
+	Another critical fix for model version control :)
+'C0401
+	Made default version 1.1.8 if there's nothing in the database
+	(this means that models created and abandoned in mid-September won't work correctly. But I don't think there are such models)
+'C0402
+	Fix to showing combined local results when walking through the pipe
+'C0403
+	Rewrote the part (more correct (and faster) approach) where project owner making judgments for other people in TeamTime
+	(these changes are in Project/Evaluate/Default.aspx.vb)
+'C0404
+	Fixed the following problems in TeamTime (restructured the code of TT in some areas, some optimization was also applied):
+	- property update users judgments when going from one evaluation step to another
+	- show correctly user judgments when entering the pipe on evaluation step
+	(changes are in Project/Evaluate/Default.aspx.vb)
+'C0405
+	Fixed GetUsersList function for ahps file v.1.1.8 (fixes BugID #1641)
+'C0406
+	Constructing the same pipe for every user in TeamTime session based on the pipe of session owner, individual permissions are processed
+	(need to work with AD to process this correctly in the UI)
+'C0407
+	Fixed restricting alternative for covering objectives
+'C0408
+	Ability to determine if the judgment for user is not available (when user doesn't have permission to evaluate it)
+	(changes are in Project/Evaluate/Default.aspx.vb)
+'C0409
+	Fixed RTE when trying to evaluate empty model
+'C0410
+	Fixed RTEs when trying to calculate or save project as decision in Project Generator when Fill Judgments is not checked 
+	(there was wrong logic in generation under such circumstances)
+	Removed unnecessary call to CalculateIndividual when saving project as decision
+'C0411
+	Fixed BugID #1528 - RTE when downloading empty model as ahpx
+'C0412
+	Changed the way we persist judgments in streams database: if there's no judgments at all for a user, we do not write the stream to the database
+	This fixes BugID #1675 for new models
+'C0413
+	Fixed BugID #1665 - the page is still enabled in TeamTime even if user cannot make a judgments for alternative
+'C0414
+	Implemented functions to support retrieving information about default total judgments count (for node, for hierarchy) based on pipe parameters
+'C0415	
+	Added couple extra-checks in ProcessString function in CWS for code that analyses ratings input
+'C0416	
+	Fixes to RTEs in CWS
+'C0417
+	Added user name for Admin user in ProjectGenerator
+'C0418
+	Fixed problem with progress indicator
+'C0419
+	Fixed problem with saving direct entry ratings back to ahp file on download
+'C0420
+	Fixed problem with reading/writing pipe messages (was doing this for default ProjectID=-1)
+
+'C0423
+	Fixed RTE in CWS when user makes pairwise judgment when his judgment was undefined (when he is making it for the first time)
+'C0424
+	Changed some team time related pipe parameters to True (BugID #1720)
+'C0425
+	Implemented preserving costs values from AHP files (will work ONLY for versions 1.1.9. Current version remained 1.1.8 for now)
+'C0426
+	Changes to preserving AHP tables
+'C0427
+	Fixes to preservation of RAconstraints AHP table
+'C0428
+	The problem was the following:
+	RAconstraints table in AHP contains column called "value". This is reserved SQL word, so when the code is trying to create insert command using command builder for DataAdapter it crashes.
+	
+	The fix is the following:
+	Before upload (when the file is on the server, just right before clsProjectManager will read the model from it) we rename field "value" to "value1". Then perform preservation.
+	On download, after we filled all needed tables and restored all preserved AHP tables, right before giving the file to the client we rename field "value1" to "value"
+'C0428
+	Some fixes for functions in ECMiscFuncs module to support project version 1.1.9
+'C0429
+	Dirty (but normally working) implementation of preserving Period and BasePeriodAID fields from ahp AltsGlobal table
+	Temporarily changed current project version to 1.1.9
+'C0430
+	Implementation of clsXMLDataProvider
+'C0431
+	Extra-checks on read users judgments from stream
+'C0432
+	Added TeamTimeHideProjectOwner parameter to clsPipeParameters. Default value is False
+	(Implementation for BugID #1663
+'C0450
+	Code restructuring
+	New GetNodesBelow approach
+	Fixes to many function
+	Optimization in many functions
+	These changes should make UserDisabled nodes work correctly, but testing needed
+'C0451
+	Added ID of intensity in DataGrid xml
+'C0452
+	Fixed several things for user disabled nodes
+'C0454
+	Several fixes for showing correct set of objectives/alternatives when there are disabled nodes
+'C0455
+	Added ScaleID to DataGrid xml
+'C0456
+	Added ability to insert spyron survey steps into the pipe for static surveys
+'C0457
+	Added flag IsStatic to clsSpyronSurveyAction to determine whether survey is static or not
+'C0458
+	Calling only one functions to retrieve survey information instead of 2 functions
+'C0459
+	Fixed ByVal to ByRef in GetSurveyInfoFunction delegate
+	Linked SL's function to function of clsPipeBuilder (in Evaluate/default.aspx.vb: SetUser)
+'C0460
+	Moving new code from AC_2008_12_24 branch to the main trunk
+'C0461
+	Support for any number of pipe parameters sets (new clsPipeParameters class. Old class renamed to clsPipeParameters2)
+	Version control for pipe parameters streams (added several new classes to support this, changed the whole approach for loading/saving pipe params in streams approach)
+'C0462
+	Changes in AD's code for version control of pipe parameters
+'C0463
+	Implementation of several checking functions for TeamTime warnings in clsProjectAnalyzer
+	Made ProjectAnalyzer available through clsProjectManager class
+'C0464
+	Intermediate commit - implemented very general approach for serializing each pipe step (pipe action) into xml
+	Code restructuring
+'C0465
+	Implementation of xml serialization of one-at-a-time evaluation action for ratings
+'C0466
+	Fixed writing undefined rating judgment to xml in one-at-a-time evaluation action
+'C0467
+	Implementation of function to return DataGrid XML for user via CWS using credentials
+'C0468
+	Fixed problems with loading several sets of pipe parameters for project version 1.1.10
+	Implemented function to copy one parameter set to another
+'C0469
+	Implemented functions to restore default parameter set and TeamTime parameter set
+	Moved to project version 1.1.10
+'C0470
+	Implemented function in clsXMLDataProvider to return list of users for CWS (for Excel add-on)
+'C0471
+	Implementation of parsing DataGrid from Excel add-on (functions in clsXMLDataProvider and CWS)
+	Added data instance users to GetUsersList function in CWS for Excel add-on
+'C0472
+	Fixed BugID #1748 - judgment's comment doesn't show up in TeamTime session
+'C0473
+	Fixed BugID #1810 - "Show dynamic sensitivity analysis" checkbox is unchecked (for TeamTime)
+'C0474
+	Fixed BugID #1809 (this was not actually a bug - see my comments for this case) - "Allow only email addresses added to session to login" option is unchecked
+'C0475
+	Fixed several checker functions for TeamTime is clsProjectAnalyzer
+	This fixes BugID #1822, BugID #1823, BugID #1824
+'C0476
+	Fixed parsing DataGrid updates from CWS
+'C0477
+	Fixed BugID #1819 - problem with uploading ahps models with project version 1.1.10
+'C0478
+	Implemented functions to add newly attached users during TeamTime session
+'C0479
+	Fixed BugID #1839 - When a project has no Alternatives the Warning message comes up
+	Fixed BugID #1841 - When a project has no Objectives the Warning message comes up
+'C0480
+	Several fixes to parsing xml output from Excel add-on
+	(saving erased values, saving initial new values, some other changes in the code)
+'C0481
+	Fixed Data Instances support for Excel add-on
+'C0482
+	Extra-checks in GetTeamTimeUsersJudgmentsFromCanvasStreamDatabase to avoid crashing with type cast errors in TeamTime
+'C0483
+	Implemented function UpdateUsersList for current TT approach to fix several bugs
+'C0484
+	Fixed BugID #1847 - showing incorrect set of alternatives in DSA
+'C0485
+	Fixed bug with creating wrong pipe for regular evaluators in TT session (this fixes RTE - BugID #1875)
+	Fixed RTE when viewing global results in TT session for non-goal node (not sure if there's a case for it)
+'C0486
+	Fixed some problems with judgments counter for regular evaluators in TT session that have permissions different from owner's
+	Fixed problems with unavailable steps (for objectives) for regular evaluators in TT session that have permissions different from owner's
+'C0487
+	Extra-check to avoid one strange RTE in TT
+'C0488
+	Another extra-check to avoid one strange RTE in TT: see FB case 1034, 1876
+'C0489
+	Fixed problems with parsing judgments from Excel add-on
+'C0490
+	Added extra-checks to TeamTime functions for combining judgments
+'C0493
+	Added new pipe parameters
+
+'C0550
+	Removed attach, changes detach alternatives
+'C0551
+	Calculation targets
+'C0555
+	Changes to new calculations approach
+'C0556
+	Fixed BugID #2027 - RTEs on predefined reports
+'C0557
+	Fixed BugID #2026 - SAs don't show any data
+'C0558
+	Reordering user ids in ahp file on download
+'C0559
+	Fixed BugID #646 - RTE on combined alternatives screen in TeamTime
+'C0560
+	Fixed RTE in SA in pipe
+'C0561
+	Fixed BugID #2041 - user still able to make pairwise judgments for alternatives in TT even if he doesn't have roles
+'C0562
+	Fixed BugID #646 - RTE after deleting all active user's judgments and going to evaluation pipe after that
+'C0563
+	Uncommented fix in AD's code to BugID #2061 due to incorrect changes (the reason is something else)
+'C0564
+	Fixed BugID #2019 - RTE when downloading as ahpx
+	Fixed one other bug related to ahpx files download
+'C0565
+	Fixes for BugID #2048 and other similar possible bugs
+'C0566
+	Fixed BugID #2048. Now should work correctly for individual and combined
+'C0567
+	Refactored code of sensitivity analysis, fixed many existing and possible bugs there
+'C0568
+	Fixed list of users in default combined group (this fixes several existing and potential bugs, including the one with SAs)
+'C0569
+	Fixed BugID #1254 - RTE sometimes when calculating individual results in Project Generator
+'C0570
+	Fixed several problems with user permissions in pipe builder in TT session
+	This fixes BugID #2041
+'C0571
+	Fixed BugID #1761
+'C0572
+	Fixed BugID #2078 - incorrect evaluation progress for evaluator in TeamTime
+'C0573
+	Fixed saving pipe options to ahp file
+'C0574
+	Fixed saving welcome / thank you texts to ahp files - BugID #2002
+'C0575
+	Fixed BugID #2093 - incorrect pipe for Shared Input Source
+'C0576
+	Fixed BugID #1055 - RTE when calculating local/global results for SIS
+	
+	TODO: 
+	Added include restricted judgments
+	in GetNodesBelow make UserID optional (Integer.MinValue)
+	Check ECMiscFuncs.vb: GetAllowedAlternatives
+	Check Node.UserPermissions and GroupPermissions (especially VerifyPermissions)
+	(Check) TEST Node.DeleteJudgmentsWithChild
+	Check functions called from Node.MeasureType
+	
+	Check load judgments from ahp/ahpx - too many calls to GetNodesBelow, need to optimize
+	Check GetNodesWithParents
+	
+	If objective is disabled (totally or for user) then this obj doesn't count in local calculations for its parent 
+	and for calculations below this obj (this means that the whole sub-tree becomes disabled)
+'C0570
+	Fixed several problems with user permissions in pipe builder in TT session
+	This fixes BugID #2041
+'C0571
+	Fixed BugID #2100 - RTE on Gradient Analysis
+'C0572
+	Fixed bug with NextPersonID for save as ahp
+'C0573
+	Added report crtLocalPrioritiesForSilverlight (for overall results and DSA)
+	(by UserID; for now if UserID=-1, will return Combined) 
+	Tables:
+	1. AlternativesList
+	   - AltID
+	   - AltName
+	2. ObjectivesWithPriorities
+	   - NodeID
+	   - NodeName
+	   - ParentNodeID
+	   - LocalPriority
+	   - UserID
+    3. AlternativesLocalPriorities
+       - UserID
+       - CovObjID
+       - AltID
+       - AltLocalPriority
+'C0574
+	Fixed problem with NextNodeID and NextAltID in MProperties table in AHP converter
+'C0575
+	Fixed dataset for silverlight report (problem with UserID)
+	Forced to calculate in distributive mode
+'C0576
+	Added option JudgementPromtID
+'C0577
+	Replaced Comment with InfoDoc in reports
+'C0578
+	Added parameter to show full objective path - resolved BugID #1067
+'C0579
+	Restored line commented by Mike. This fixes BugID #2133.
+'C0580
+	Moved use of Comment field to enumeration approach for different types of reports (rtf-mht problem)
+'C0581
+	Fixed BugID #2132
+'C0582
+	Passing ObjectID in clsResultsItem for DA's purposes in SL overall results
+'C0583
+	Added field CanShowGlobalWRTResults for CanvasReportType.crtLocalPrioritiesForSilverlight SL report
+'C0584
+    Fixed problem with Ideal Alternative in Silverlight SAs
+'C0585
+	Per request disabled checking AltsActive table on ahp file upload
+'C0586
+	Fixed problem with adding new alternative (didn't show up in pipe due to recent changes - regression)
+'C0589
+	Added support for combined groups for SL overall results
+'C0587
+	Fix to combine group support
+'C0588
+	Temporary changes to debug combined group with DA
+'C0589
+	Fixes to combined groups
+
+'C0600
+	Classes for Antigua support
+'C0601
+	Fixes to Antigua support
+'C0602
+	Filling Goal node if it doesn't exist
+	Getting rid of PreviousLocationField (will search on the service side)	
+'C0603
+	Initializing project manager in Antigua web service and reading project from hard-coded db
+'C0604
+	Filled UpdateNodes
+	Fixes to returning HierarchyTree
+'C0605
+	Implemented DeleteNode, DeleteNodes functions
+	Minor fixes/changes
+'C0606
+	Implementation of read/write functions for Antigua
+	Other changes/fixes
+'C0607
+	Changed types of BackgroundColor and ForegroundColor to Integer, Font to String
+	Fixes to DA's changes
+'C0608
+	Fixed moving from TreeView to Dashboard
+'C0609
+	Removed GUID generation
+'C0610
+	Implemented Saving on Demand in Antigua
+'C0611
+	Implemented LastModifyDate for model structure for new correct universal locking mechanism
+'C0612
+	Fixed problem with infinite loop and service stop with RTE under certain circumstances (when recycle bin or dashboard is empty)
+'C0613
+	Fixed dragging node from hierarchy to board
+'C0614
+	Fixed putting correct X and Y position when dragging from hierarchy to board
+'C0615
+	Fixes to BugID #2270
+'C0616
+	Added extra-check to avoid sporadic RTE in Antigua
+'C0617
+	Commented unnecessary call in AD's function in download as ahp function
+'C0618
+	Fixed BugID #2333 - not processing objective in pipe under restricted objective
+'C0619
+	Added JudgementAltsPromtID parameter per AD's request
+'C0620
+	Commented the code that disables Ideal Alt for Silverlight Results/SAs
+'C0621
+	Functions for new approach to move nodes around in the hierarchy (will be used in Antigua and ComparionCore UI as well)
+	Name of the function in WCF service - MoveNodeInHierarchy
+'C0622
+	Fixed BugID #2209 - not showing combined results in intermediate priorities right away
+'C0623
+	Fixed BugID #2102 - For a specific scenario/model, overall priorities in Evaluation screen show incorrect values
+'C0624
+	Added saving to db in MoveNodeInHierarchy
+'C0625
+	Saving SynchEvalMode for version 1.1.11 (updated stream readers/writers, stream readers / stream writers)
+'C0626
+	Saving costs values and other stuff from AltsData table as string in version 1.1.11
+	Moved current project version to 1.1.11
+'C0627
+	Fixed BugID #2386 - RTE with TT session start after moving to new project version
+'C0628
+	Fixed BugID #2386 again
+'C0629
+	Fixed problem with RTE in GetUsersList function in TT
+'C0630
+	Minor fix in GetStreamModelReader function
+'C0631
+	Added report for consensus view and functions to calculate variance and standard deviation
+'C0632
+	Fixed mistake in Standard Deviation calculation
+'C0633
+	Added Standard Deviation Mode in calculations
+'C0634
+	Implemented function clsProjectManager.GetTeamTimeStepForConsensusView to jump from consensus view cell to specific TeamTime step
+'C0635
+	Using new ECCore function for StdDeviation/Variance calculations in ECCoreTest application
+	Added 2 parameters in the UI to view StdDeviation/Variance in Unbiased/Biased mode
+	Calculating Variance in Biased mode by default in clsProjectDataProvider when sending data to Silverlight client
+'C0636
+	Added TTStepID field in ConsensusView table. For now just a placeholder for Sergey so that he can start using it
+'C0637
+	Fixed pipe parameters stream readers and writers to support version 1.1.11
+'C0638
+	A lot of changes in Structuring service
+'C0639
+	Removed welcome/thank you surveys, performance and gradient analysis steps from TeamTime pipes since we don't fully support them right now
+	This fixes BugID #2323
+'C0640
+	Getting rid of GetAlternatives function in WCF Antigua service (moved to GetNodes function)
+	Handling new ParentNodeGuidID property of clsVisualNode
+'C0641
+	Extra-check for MoveAction in reordering alternatives function
+'C0642
+	New way of storing objectives (recursive, to save the order of children)
+'C0643
+	Sending list of clsVisualNodes in GetNodes in a recursive way to make sure the order is the same as in CC
+'C0644
+	Parsing infodocs for nodes and alternatives in clsHierarchyStringsParser using vbTab as delimiter (not finished yet, AD has to make one change)
+'C0645
+	Fixed RTE when moving node from Dashboard to TreeView
+'C0646
+	New approach for common input source
+	New project version - 1.1.12 to store some additional information for new common input sources approach
+'C0647
+	Normalization options. AD needs to make a small change in his code as well to get it working in the UI
+'C0648
+	Fixes to new common input sources approach
+'C0649
+	Fixed BugID #2437 - RTE when parsing objectives/alternatives from clipboard
+'C0650
+	Fixed BugID #2438 - can't upload projects v.1.1.12
+'C0651
+	Fixed BugID #2435 - incorrect pipe due to latest common input source changes
+'C0652
+	Fixed BugID #2442 - Pressing remove doesn't remove Common Input Source settings
+'C0653
+	Fixed BugID #2440 - Evaluator does not see the common input steps assigned to him
+'C0654
+	Fixed many bugs with CWS for TeamTimeAssitant
+'C0655
+	Fixed BugID #2495
+'C0656
+	Attempt to fix BugID #2503. Testing required.
+'C0657
+	Fixed BugID #2489 - RTE: 'Arithmetic operation resulted in an overflow' in crtOverallAlternativesPriorities report
+'C0658
+	Changes in ConsensusView (Sergey's request)
+'C0659
+	Fixed RTE with InfoDocs. BugID #2386.
+'C0660
+	Fixed RTE with judgments. BugID #2386.
+'C0661
+    Added transactions to SaveModelStructure_CanvasStreamDatabase (attempt to fix BugID #2527)
+'C0661
+	New approach for saving streams (attempt to fix TeamTime deadlocks bug)
+'C0662
+	Trying to catch deadlock problem and rerun the transaction in that case
+'C0663
+	Fixes to combined groups
+'C0664
+	Changes to clsProjectDataProvider for combined groups
+'C0665
+	Fixes to combined groups
+'C0666
+	Fixes to combined groups
+'C0667
+'C0668
+	Correct fix to BugID #505
+'C0669
+	Fixed BugID# 2541	
+'C0670
+	Fixed BugID #2321 - wrong can show results function result when no alternatives are included in synthesis
+'C0671
+	Fixed BugID #2571 (RTE on predefined reports) - fixes for combined groups
+'C0672
+	A lot of changes for combined groups. Default combined group and all users combined groups.Minor changes / restructuring.
+'C0673
+	Fixed problem with TT pipe
+'C0674
+	Data/operation contracts changes
+'C0675
+	Data/operation contracts changes
+'C0677
+	Fixes to ECCore functions and operation contracts
+'C0678
+	Operation contracts for AD
+'C0679
+	Operation / data contracts for overall results / consensus view, permissions (partially) etc.
+'C0700
+
+'C0705
+	Fixed SL's and DA's calls of SaveProject in CWSw
+'C0706
+	Added default utility curves and step functions
+'C0709
+	Operation contracts for pipe options
+'C0710
+	Fixed problems with roles/contribution. Better fix will be provided shortly.
+'C0712
+	Added RA to License Generator
+'C0713
+	Fixed problems with roles/contributions, turned optimization back on
+'C0714
+	Fixed BugID #2727
+'A0715
+	Partial fix to bug 2653 Structure_Objectives: in the Add popup widows, after user pressed Enter and new row added, the first cell in the new row should be automatically editable without user having to left-click
+	
+'C0720
+	Implemented BugID #2745 (hide confidential information)
+'C0721
+	Made default combined group a group with all users in the model
+'C0722
+	Operation contract for contribution problem
+'C0723
+	Fixed problem with deleting all nodes in objectives hierarchy in SL
+'C0724
+	Added local priorities in Ideal mode in SL report
+'C0725
+'C0726
+	Made default measurement type = Pairwise per EF's request
+'A0727
+	FB2920 Adding Participants Screen in Silverlight should work like it does when adding objectives or alternatives
+'A0728
+	FB2915 Change wording on this message
+'C0729
+	BugID 2863 - Make "Allow joining TeamTime..." to ON for TeamTime options (it was already True TeamTime, made it True in general options as well since we are not using TT options in SL right now)
+'C0730
+	BugID 28600 - made CalcSAForCombined = False
+'C0731
+	BugID 2935 - (Synthesize Results hangs with this model)
+	Preventing load of corrupted models (most probably by Antigua)
+'C0732
+	BugID 2918 - RTE on create decision via Project Generator
+	(Bug appeared after moving to pairwise default measurement type for covering objectives)
+'C0733
+	Fixed clsLocalResultsAction for situations when viewing other user's pipe
+'C0734
+	BugID #2725 - Measure_TeamTime: Comments do not get registered for the Rating scale step if the data is not entered
+'C0735
+	Fixes to BugID #2725 
+'C0736
+	BugID #2914 - Check-boxes are not saved on Structure Decision - Map Alternatives to Objectives
+'C0737
+	BugID #2457 - Keypad assignment lost after downloading Comparion model to ahp file
+'C0738
+	Added code to load and restore corrupted models. This fixes several bugs in FB.
+'C0739
+	Fixed RTE when creating new model
+'C0740
+	Forced to use default parameter set (ignore TeamTime)
+'C0741
+	Made ShowComments = True by default
+'C0742
+	Implemented function for project download as ahps (w/o having to load the model) for AD
+'C0743
+	Implemented functions to read/write directly from streams (for AD)
+'C0744
+	Added TeamTimeStartInAnonymousMode parameter (set to False by default)
+'C0745
+	User weights support
+'C0746
+	Additional functions to read/write pipe params directly from streams (with pipe messages)
+'C0747
+	Operation contract for SL to check if users' judgments are up-to-date
+'C0748
+	Fixed BugID #2746 - contributions are not saved in Silverlight when using default full contribution
+'C0749
+	Ad ded ForceDefaultParametersSet flag in clsPipeParameters - needed for correct TT work (AD needs to make his changes)
+'C0750
+	Fixed showing AnonynousMode in aspx page
+'C0751
+	Fixed serious issue with saving TeamTimeStartInAnonymousMode (was not saving options that go after this option)
+'C0752
+	Returned ratings back as a default measurement method
+'C0753
+	Added DefaultCovObjMeasurementType parameter to options
+
+'C0755
+	Fixed several bugs with strange priorities behavior (showing zeros on second update, etc.)
+'C0756
+	Optimization for large models (like University of Michigan)
+'C0757
+	Fixed BugID #3126 - incorrect evaluated count
+'C0758
+	Fixed BugID #3126 - incorrect evaluated count (for web service)
+'C0759
+	Added new report - crtUsersObjectivesPriorities (returns local and global priorities of objectives for each user)
+	Report Name: crtUsersObjectivesPriorities
+	TableName: UsersObjectivesPriorities
+	Columns:
+		UserEmail - String
+        UserName - String
+		NodeName - String
+		NodePath - String
+		LocalPriority - Single
+		GlobalPriority - Single
+'C0760
+	Optimized progress functions
+'C0761
+	Optimized UsersObjectivesPriorities report (performance and memory usage)
+'C0762
+	Removed UserName and NodePath columns from UsersObjectivesPriorities report 
+'C0763
+	Added increment field for filtering in UsersObjectivesPriorities report 
+'C0764
+'C0765
+	Optimization for UsersObjectivesPriorities report
+	Returning number of judgments actually read in LoadUserJudgments_CanvasStreamDatabase function
+'C0767
+
+'C0770
+	Support AHPS files
+'C0771
+	Added events to clsProjectDataProvider - obsolete
+'C0772
+	Major update.
+	Added support for working with AHPS files, added / fixed / extended existing functions is storage readers and writers
+	Added support for progress tracking via background worker in read/write operations and reports
+'C0773
+	Fixes to pivot report
+'C0774
+	Changes to reporting progress
+'C0775
+'C0776
+	Fixed BugID #2835
+'C0777
+	Fixed saving non-pairwise judgments to ahp file
+'C0778
+	Fixed BugID #2861 - The measurement methods for objectives do not change when reordering objectives during Antigua meeting
+'C0779
+	Fixed BugID #3156
+'C0780
+	Fixed BugID #2835 (added check for objective permissions)
+'C0781
+	Fixed problems with evaluation progress (BugID #3126)
+	Fixed evaluation progress report
+	Optimization of evaluation progress functions
+'C0782
+	Implemented Operation and Data contracts for Copy User Permissions functionality (FB BugID #3215)
+	Function: CopyUserPermissions(ByVal SourceUserEmail As String, ByVal DestinationUserEMails As List(Of String), ByVal CopyOptions As CopyPermissionsOptions) As List(Of String) Implements ICoreService.CopyUserPermissions	Returns: list of users for whom permissions has been copied
+	Uses enumeration CopyPermissionsOptions (objs, alts, both)
+'C0783
+	Implemented BugID #3065 - saving Antigua information on download/upload
+	Saves/loads to/from ahps/ahp/ahpx files
+	Supports project updates, save as
+	Created new project version - 1.1.13 to support saving Antigua information (plus storing some additional new data)
+'C0784
+	Preserving direct input judgments in ahp file (not lost after download/upload) - BugID #2903
+	IMPORTANT NOTE: see comments to case 2903.
+	
+	IMPORTANT NOTE:
+	Judgments are preserved, but since EC11.5 does not support direct input for non-covering objectives, you won't be able to see it in EC11.5
+	And I cannot put normalized values in NodeInfo table as Anatoly described, because when we open model in EC11.5 after download, we recalculate and this erases everything that is put in NodeInfo table
+	In any case this would be not so good approach to fill NodeInfo table from Comparion
+	It would be much better to implement support for direct input for non-covering objectives in EC11.5.
+	Or at least to have the ability to read normalized direct values from some place - I can create a separate table for it, so EC11.5 can look it up.
+	
+	Something like this:
+	
+	Table "DirectValues":
+	PID as Integer (for instance, 2)
+	ParentNodeID as String (for instance, "N1")
+	NodeID as String (for instance, "N2")
+	Value as Double (for instance, 0.4)
+	
+	This way EC11.5 can use these values as calculated local priorities for direct input non-covering objectives and show results, etc.
+'C0785
+	Additional saving direct input judgments for non-covering objectives in ahp file as ratios on main diagonal
+	NOTE: original judgments are still stored in NonPairwiseData table, because it is not clear what will be if some judgments will be missing (so there's no ratios)
+'C0785
+	Combined input source for restricted nodes for individuals. Optional, by default set to False (use old calculations approach). BugID #2839.
+'C0786
+	Fixed many things for combined input source (calculations, judgments analyzer, project data provider, operation contracts)
+'C0787
+	Operation contracts for CIS switch
+	New data and operation contracts for local priorities
+	New format of Function GetLocalPriorities(ByVal UserID As Integer) As UserLocalPrioritiesDataContract
+	New Function GetUsersLocalPriorities(ByVal UsersEmails As List(Of String)) As List(Of UserLocalPrioritiesDataContract)
+'C0788
+	Happy New Year 2011!!!
+'C0789
+
+'C0790
+	Fixed loading pipe parameters on project update in AD's code
+'C0791
+	Fixed loading pipe parameters from streams (bug introduced after forcing default pipe parameter (removing parameter sets (like TeamTime)))
+	Fixed bug with saving pipe parameters on project update
+'C0792
+	Fixed problem with loading preserved direct input judgments from ahp file
+
+'C0800
+	Normal fix to case 88 (case 3322, case 1387) - error when downloading Antigua information to ahp/ahpx files
+'C0801
+	Fix to case 42 - not saving contributions when deselecting everything
+'C0802
+	Fixed case 3307 - Values in the participants datagrid do not update (HasData column)
+'C0804
+	Fixed case 3252 - Consensus View: can't get pipe step for some cases
+'C0805
+	Implemented Project Guid related features for case 3164 - seamless upload of models
+'C0806
+	Removed references to Progress Tracker in ECCore
+'C0807
+	Turned UseCISForCombined on by default. Case 55.
+'C0808
+	Fixed case 148 - losing roles after changing the model. Optimization of working with user permissions.
+	Optimization of project update.
+'C0809
+	Calculations optimization
+'C0810
+	Operation contract for local priorities pipe step for DA
+'C0811
+	Function GetGroupsLocalPriorities in CWSw for DA
+'C0811
+	GetResultsPipeStepData changes
+'C0812
+	Optimization of saving as ahp
+'C0813
+	Case 91 - fixed AllJudgments report (support of non-pairwise measurement types for non-covering objectives)
+'C0814
+	Case 182 - possible fix to very strange and spurious case (added transaction)
+'C0815
+	Added field to report per SL's request
+'C0816
+	Case 81 - added new report for SL
+'C0818
+	Case 37
+'C0819
+	Reloading pipe params in operation contract per SL's request
+'C0820
+	Case 214 - added options LocalResultsSortMode and GlobalResultsSortMode
+'C0821
+	Case 139 - consensus view for pairwise. Added records for pairwise in appropriate dataset, modified function GetTeamTimeStepForConsensusView to return first pairwise comparison in the cluster
+'C0822
+	Case 81 - added new report for SL (crtPivotAlternativesPriorities)
+'C0823
+	Case 55 - fixed showing combined overall results in pipe
+'C0824
+	Case 237 - new pipe option "UseCISForIndividuals"
+'C0825
+	Case 197 - new general approach for saving and preserving properties from MProperties ahp table. No need to move to new project version.
+	Added function UpdateMPropertiesWithRAFlag for AD to call it when downloading from RA page.
+'C0826
+
+'C0830
+	Case 321 - fixed saving as ahp
+'C0827
+	Changes for moving plexes in hierarchy		
+'C0828
+	Case 136 - new functions for optimized reading/writing infodocs, changes in data contracts for Collaborative Structuring
+'C0828
+	Case 136: Added functions to read/write infodocs straight from/to database
+'C0829
+	Case 136: Added new classes and functions to support infodocs in Antigua, changes in operation contracts.
+'C0830
+	Case 136: Added SetInfoDoc function in StructuringService.vb
+	
+'C0850
+	Case 15 - user weights changes
+'C0851
+	Case 221 - synchronize user weights ECC/ECD
+
+'C0900
+	Roles optimization changes
+'C0903
+	Case 220 - Fixes to roles optimization
+
+
+
+'C0910
+	Testing new weights branch
+
+
+'C0920
+	New InfoDocs approach
+	
+'C0921
+	Case 424 - OLEDB problems
+'C0925
+	Case 491 - fixed combined calculations with User Priorities turned ON
+'C0926
+	Case 481 - not saving direct judgments for non-covering objectives to ahp
+'C0927
+	Case 461 - don't show local results screen for alts when there's only 1 node in the hierarchy
+'C0928
+	Case 489 - CIS doesn't work properly in some cases
+
+'C0929
+	Case 458 - Wrong number of steps shown in Status/Evaluation Progress page
+
+'C0930
+	Case 606 - Different spelling of model property in ECC and ECD causes RTE in ECD
+'C0931
+	Case 646 - RTE when downloading as ahp (long intensity name issue)
+'C0932
+	Ed's issue - cannot see results in the pipe with CIS turned on
+'C0933
+	Case 566 - calculations issues with CIS when IdealAlt is turned ON. Minor fixes, debug info.
+'C0934
+	Case 721, 722
+
+'C0940
+	Case 590 - ECD prompts to use participant weights when there are none
+	
+'C0945
+	Case 117 - AIP implementation
+	
+'C0947
+	Case 824 - wrong evaluation steps number for First Diagonal only
+'C0949
+	Case 844 - cannot read beyond the stream
+'C0950
+	Case 829 - Apply user priorities is checked when it shouldn't be
+'C0951
+	Case 822 - WRT InfoDocs support in AHP and AHPX files
+'C0952
+	Case 895 - Disabled old-style CIS when loading models from ahps/ahpx formats (ahp is not supported for old-style CIS)
+'C0953
+	Case 903 - RTE when uploading ahp/ahpx files
+'C0954
+	Case 894 - InfoDocs problems in Silverlight
+'C0955
+	Case 834 - fixed.
+	Also fixed many other things related to calculations
+'C0956
+	Case 831, Case 832 - fixes
+'C0957
+	Case 967 - NaN in results when switching to AIP
+'C0958
+	Case 865 - spanning set implementation
+	
+'C0960
+	Case 962 - calculation issues
+'C0962
+	Case 858, Case 1056 - support for old Antigua streams (RTE 'Unable to read beyond the end of the stream')
+'C0963
+	Case 773 - added inconsistency value to crtUsersObjectivesPriorities report (field is called "Inconsistency")
+'C0964
+	Case 778 - changes in reports per SL's request
+'C0965
+	Case 523 - default covering objective measurement type issue in SL
+	Fixed similar potential bug with default alternatives contribution
+'C0966
+	Case 147 - Replace NodeID with name of node in this report
+'C0967
+	Calculation issues - now combining data instead of values for utility curves and step functions
+'C0968
+	Case 1071 - forcing measurement types for non-covering objectives from ahp files to be pw if they are not pw and not direct (upon upload)
+'C0969
+	Case 1109 - Judgments lost on uploading model to ECC
+'C0970
+	Changed consensus view report - support for non-covering objectives
+
+'C0959
+	Case 863 - Multiple pairwise in pipe
+'C0961
+	Case 863 - regular pw step when only one comparison for multi-pw, fixed GetFirstEvalPipeStepForNode function to support multi-pw
+	
+
+
+'C0962
+	Case 858, Case 1056 - support for old Antigua streams (RTE 'Unable to read beyond the end of the stream') 
+'C0963
+	Case 773 - added inconsistency value to crtUsersObjectivesPriorities report (field is called "Inconsistency")
+'C0964
+	Case 778 - changes in reports per SL's request
+'C0965
+	Case 1173 - Evaluation screen not shows list of objectives for direct inputs
+'C0966
+	Case 1126 - pw judgments not included in pipe
+'C0970
+	Case 1232 - bug with reports on a certain model
+'C0971
+	Case 1208 - can't show results for some nodes
+'C0972
+'C0977
+	Case 1087 - multi-pairwise on one page. Added new pipe params, changes in pipe builder
+	Case 1228 - RTE on report on a certain model
+'C0973
+	Case 1238 - Blank Intermediate Results Screens Are Included Even When Participant has no role for rating alternatives
+'C0974
+	Case 1300 - Consensus View std dev computation should not include 0 priorities when there were no judgments
+'C0975
+	Case 1126
+'C0976
+	Case 1137 - individual and combined inconsistency
+'C0977
+	Case 1087 - Added new pipe params, changes in pipe builder (partially moved code to Beta - only pipe params)
+'C0978
+	Case 1312 - RTE on report
+'C0979
+	Case 1239 - saving and synchronize AIP and CIS status (this should fix report problem)
+'C0980
+	Changes in GetLocalPriorities function for SL's needs
+'C0981
+	Case 1300 - zeros in consensus view problem
+'C0982
+	Case 1356 - fixed RTE on local results step
+'C0983
+	Case 1363 - fixes to Alternatives Priorities pivot report
+'C0984
+	Case 1239 - CIS in reports issues
+'C0989
+	Case 1428 - AIP check-box issue
+'C0985
+	Case 1087 - changes for new pipe params
+'C0987
+	Case 1087 - more changes for new pipe params
+'C0988
+	Case 1087 - fix to mapping helper
+'C1000
+	Case 1510 - don't show intermediate results if only one judgment
+'C1001
+	Case 1528 - 'atNonPWAllChildren' is not yet supported issue
+'C1002
+	TeamTime fixes - inconsistency array, local results, global results, group results for ratings, pairwise
+'C1002
+	Consensus in TeamTime
+	
+
+'C1005
+	Pipe construction roles issues
+
+'C1004
+	Case 774 - Added Inconsistencies report
+
+'C1009
+	Case 1426 - Geometric variance in TT
+
+'C1012
+	Case 577 - components implementation in CWSw
+	
+'C1008
+	Custom attributes implementation
+
+'C1010
+	Case 22 - advanced diagonals evaluation
+'C1011
+	Case 22 - advanced diagonals evaluation (per node)
+
+'C1020
+	Case 1662 - Wrong step from hierarchy tree in New TeamTime
+'C1021
+	Case 1648 - judgments are not erased under certain circumstances
+	
+
+'C1030
+	Case 1728 - negative inconsistency values in reports
+		
+'C1021
+	Case 1648 - judgments are not erased under certain circumstances
+
+'C1013
+	Case 1571 - combined groups problem
+'C1014
+	Case 1571 - combined groups problems (more fixes)
+'C1022
+	Case 1727 - total judgments counter issues
+
+'AS/076 - FB 5995 "Be able to process 'old' ECD models in Comparion" -- incorporated boolean function FieldExists and a check for field "Weight"
+'AS/081 - FB 6270 "Can't upload old model in ECC beta" - Error happened in the Function ReadAttributesValues_AHPDatabase where dbReader("aObjectID_String") value was Null and could not be converted to string
+'AS/2004 - FB 6782 "Handle long alternatives name with more then 100 characters"
+'AS/2060 - FB 6859 "Be able to apply multi-select categorical attribute in ECD"
+	'#1 - table ECCore_CategoryMapping was not popupated on downloading
+	'#2 - latest ECD database version  was set to 3.10 when should to 3.18 - this invoked the translation sub where the categories were erased due to the wrong version number
+'AS/6-5-15 - FB 589 Cannot upload model where values in brackets in DG represent negative values
+'AS/6-22-15 - FB 7434 RA Portfolio Scenarios (ECC / ECD Syncing) -- issue #1 Scenarios created in racomparion are not available in ECD
+'AS/6-16-15 - FB 7554 racomparion: wrong cost reading from AHPZ file -- use Globalization.CultureInfo.CurrentCulture rather then just replace comma with period.  Source: http://www.vbforums.com/showthread.php?556333-RESOLVED-2008-Converting-a-comma-to-a-period
+'AS/6-22-15 - FB 7434 RA Portfolio Scenarios (ECC / ECD Syncing) -- issue #1 Scenarios created in racomparion are not available in ECD
+'AS/6-25-15 - FB 5042 Input String Not in Correct Format when new project from ahpz file
+'AS/6-26-15 - FB 7569 RTE: 'ERROR [HY001] [Microsoft][ODBC Microsoft Access Driver] Cannot open any more tables
+'AS/6-26-15 - FB 7569 RTE: 'ERROR [HY001] [Microsoft][ODBC Microsoft Access Driver] Cannot open any more tables
+'AS/7-30-15 - FB 7774 RTE in Comparion when trying to upload old model
+'AS/8-11-15 - FB 7831 Custom Constrains are lost in downloaded model
+'AS/8-18-15 - FB 7881 Must nots ECC/ECD syncing
+'AS/8-18-15b- FB 7879 Musts ECC / ECD syncing
+'AS/8-21-15 - FB 7893 Constraint without data yet is not reflected in ECD
+'AS/9-2-15  - FB 7893 Constraint without data yet is not reflected in ECD, issue #2: Constraint without data created in ECD is not shown in ECC
+'AS/9-17-15 - FB 8031 Costs are not reflected in ECCs RA
+'AS/9-18-15 - more to FB 8031 Costs are not reflected in ECCs RA -- if table RAbenefits exists but empty, pick up the costs from AltsData
+'AS/9-30-15 - FB 8071 Server Error when trying to upload old large model to ECC in clsTranslateDBversion (Baltimore IPF 2014_Jan_250M_combined_ed_1.ahpz)
+'AS/10-8-15  - FB 8108 RTE: 'ERROR [42S02] [Microsoft][ODBC Microsoft Access Driver] The Microsoft Jet database engine cannot find the input table ... -- the oldest model ECC is able to handle is version 3.03 while the Msfund model is as old as 2.04. Prompt user and exit.
+'AS/10-13-15 - FB 8106 Unable to upload this comparion file to beta
+'AS/10-23-15 - FB 8237 ECC: Raconstraints table not populated correctly for download -- replaced "-1" with dummyCCID
+'AS/10-26-15 - FB 8204, issue 2 -- after upload to ECC,  Mustnot is set to True where there is a partial value
+'AS/10-27-15 - FB 8255 Custom constraints are duplicating when uploaded to ECC
+'AS/11-4-15 - LATER REMOVED, SEE 'AS/11-6-15 ---- FB 7889 implementing using CCID's instead if names, issue: upload model with duplicate CC names to Beta, only one of them showing. 
+'AS/11-10-15 - more to 'AS/10-8-15 (FB 8108) -- changed the wording to be more meaningful
+'AS/11-6-15 - CREATED BRANCH ECC_CustomConstraints AND REMOVED changes 'AS/11-4-15 and 'AS/12323e FROM BETA
+'AS/11-17-15 - revisited 'AS/10-8-15 (FB 8108) since it caused the issue -- see case 8353 Beta: Losing alternative attributes and custom constraints when uploading an ahpz file which was never opened with ECD
+'AS/11-23-15 - FB 8414 added a special check for N/A
+'AS/11-11-15 - more to 'AS/10-8-15 (FB 8108) -- changed the wording to be more meaningful
+
+'AS/11-16-15 - FB 8353 Beta: Losing alternative attributes and custom constraints when uploading an ahpz file -- implemented the changes, assigned to AC to continue
+'AS/11-23-15 - FB 8414 added a special check for N/A
+'AS/11-18-15a- 8325 set the ECD CCID to the ECC constraint ID
+'AS/11-19-15 - when reading/parsing guid, should check if the value is not empty, otherwise getting rte "wrong guid format" for constraints created not from UDC
+'AS/11-20-15 - more to 8353: since the ahp db version was changed to 3.21, should set it to this value in SorageWriters as well, otherwise it goes to the translation piece and causes losing attributes 
+'AS/11-20-15a - IN PROGRESS more to 8353: errors when uploading older models like ITP 3.06
+'AS/11-20-15b - fix to: only one constraint Network was shown after upload
+'AS/11-24-15 - fixes to uploading of old models
+'AS/11-24-15a - for old model uploaded from ahpz, which already were previously translated to 3.18, only one constraint was shown after upload 
+'AS/11-24-15b - constraints were duplicating in ECC
+'AS/12-09-15a - merged with beta 18971
+'AS/12-09-15b - FB 8325, item C6 Losing Alternative Attributes (TMA_Education for Poor Advocacy Group) after uploading the model never opened/saved with ECD
+'AS/12-18-15 - fixed server error which occurred with old model (COLLEGE CHOICE) where constraints were never defined
+'AS/1-26-16 - 8862 Synchronize Sorting Order of Alternatives in RA in ECD and ECC
+'AS/1-28-16 - 8927: Losing Judgments in the Downloaded ECD file
+'AS/2-9-16a - RTE in translating sub -- it could not drop the table due the opened dbReader
+'AS/2-9-16b - 8365 Custom Constraints are not sorted the same way in ECD and ECC
+'AS/2-10-16 - more to 8365 Custom Constraints are not sorted the same way in ECD and ECC -- sorting was different when the model was created in ECC and downloaded to ECD
+'AS/3-18-16 - 2288 RTE - Step Function scale inaccessible. Unable to upload file to Comparion -- my changes 'AS/6-16-15 appeared to be commented out
+'AS/3-30-16 - 9358 RA -- RTE in the main screen because of incorrect Benefits -- added a check if the value is numeric
+'AS/4-6-16 - 9010  Costs for non-default scenarios are lost in ECC -- If there are no costs for the scenarios, then read the costs from the default scenario 
+'AS/4-8-16 - 9214 How can I sort the alternatives in ECC like it is in ECD?
+'AS/4-25-16 - 9585 ECC Beta: Allocate Shows Negative Benefits for New Alternative
+'AS/4-29-16 - 9577 ECC: put in a switch to ignore any info about time periods when uploading the ahp model to ECC
+'AS/5-2-16 - 9672 RTE: 'Operator '<>' is not defined for type 'DBNull' and string "".
+'AS/5-5-16 - RTE on uploading to ECC: with ECD, invert the judgments in the Car model, change CIS setting and try to upload
+'AS/6-14-16 - when downloaded to ECD, prompt user that ECD doesn't support incomplete hierarchies downloaded from ECC
+'AS/6-10-16 - 9872 Cost for the uploaded ECD model is lost in Comparion
+'AS/6-15-16 - 9944 RTE when opening the model -- when downloading, assign the db version 3.03 to make sure that in ECD all of the translating fixes are applied
+'AS/6-29-16 - 10056 Losing Must in the uploaded ahpz file and RTE in ECD
+'AS/6-28-16 - 9909 CR_XA: Associated CVID error in ABU sample model
+'8563 - IN PROGRESS FB 8563 Selecting Only Specific Alternative for RA Scenarios
+'AS/12-14-16 - 11053 RTE when AIP is ON
+'AS/11332 - 11332 Implement in ECC: Erase Node's Judgments for Certain Node
+	'AS/11332a - created the function, assigned to DA to do UI
+	'AS/11332b - implemented erasing of judgments for ALL nodes below.
+'AS/11594 - 11594 Option to copy judgments from one participant to the other
+'AS/11593 - 11593 Option to copy judgments for cluster and paste into another cluster for current participant
+	'AS/11593d - 11593 completed; attached code to the UI created by DA
+	'AS/11593e - modified the check for objectives measure type and # of children; ask DA to insert the prompts. 
+	'AS/11593f - made the checks and prompts more detailed and meaningful
+'AS/11339 (former AS/2-22-17) IN PROGRESS - 11349 Implement in ECC: Export Totals by Instances to Excel Pivot Table: fill out the table in the spreadsheet. TBD - pivot table.
+'AS/11642 - IN PROGRESS 11642 Option to copy all judgments/data for one alternative to another
+	'AS/11642a - works with hardcoded alts ID's and user. TBD - make it general.
+	'AS/11642b - attached the code to UI; added checks for nodes' identity
+	'AS/11642c - made the prompt more meaningful
+'AS/11725 - fixed issue #3 "Copy judgments from user B to user A only if user A doesn't have this judgment"
+'AS/11725a - option 3 still overrides the existing judgment when the rating intensity is 0% -- replaced .SingleValue = 0 with .IsUndefined
+'AS/12323 - IN PROGRESS 12323 Implement Data Mapping in ECC
+	'AS/12323a - import alts and their default attributes (costs and risks)
+	'AS/12323b -  make UniqueID to continue the numbering rather then put duplicates
+	'AS/12323c - import custom alternatives attributes
+	'AS/12323d - import alts data (non-PW); also restructured the code, moved some pieces to the subs
+	'AS/12323e - import alternatives infodoc. Also incorporated enums - import options
+	'AS/12323f - implmented a check if the alt is a duplicate or not and added Else part to handle duplicates
+	'AS/12323g - fixed issues with duplicates
+	'AS/12323h - more issues with duplicates
+	'AS/12323i - more issues with duplicates, rte's, cleanups.
+	'AS/12323j - see 'AS/4488e - commented out temporary code which prevented execuiting Data Mapping
+
+'AS/11593 - more to 'AS/1-30-17 -- 11593 Option to copy judgments for cluster and paste into another cluster for current participant
+'AS/4488 - 4488 Copy sub-hierarchy from one model to another
+	'AS/4488a - incorporated function doImportSubHierarchy and call to it; enum for importing options. 
+	'AS/4488b - successfully copies a node with children (one level). TBD - import multiple levels
+	'AS/4488c - successfully copies subhierarchy
+	'AS/4488d - Removed the option to copy judgments since it doesn't make sense; Incorporated option whether to include infodocs or not. 
+	'AS/4488e - commented out temporary code which prevented execuiting Data Mapping
+	'AS/4488f - drew button "Import Sub-hiererchy" on the Data Mapping tab, added code to execute function doImportSubHierarchy
+'AS/13258 - ON HOLD Copy judgments in matrix from model to model
+	'incorporated function doImportJudgmentsMatrix (mimiced doImportSubHierarchy)
+	'disabled implemented pieces
+
+ 'AS/12323k - (see changes 'AS/12323a-j above) - UI and connection to SQL Server
+	' D4305 - AD changes (establish connection to SQL Server, get list of databases, select DB and and list tables )
+	'AS/12323l - populate the Columns combo with columns' names for the selected table
+	'AS/12323m - get records from the selected column
+	'AS/12323n - import columns records as new alternatives
+	'AS/12323o - enabled UI which does mapping to ECC project, made some changes to the layout and wording
+	'AS/12323p,q - import col data as atributes. NOTE: new attribute is created but values do not imported
+	'AS/12323r - moved code from onAjax to specially created doImportFromSQL
+	'AS/12323s - UI to select db type to map to and destination ECC areas (where to import to)
+	'AS/12323(no labels) - added combo with the list of non-PW covering objectives; set DB areas visibility; rearranged the options in the UI
+	'AS/12323t - fill out attributes combo 
+	'AS/12323v - more to frames visibility; added parameters to sql import (options - radio buttons, etc...). Also fixed issue with connection string which happened due to the buttons duplicate name in SQL and Access pieces
+	'AS/12323w - fixes (not all of them have labels) to read the import options properly
+	'AS/12323y - Created sub doImportAltsFromSQL and moved there code from onAjax. (no labels) renamed doImportAlts and related subs to see where we do the import from/to. 
+	'AS/12323za - Fixed issue with empty table/column name when importing. Some resructuring changes.
+	'AS/12323zb - added options whether to create or not new alternatives, write data to only existing alt/attr, overwrite value if already exists
+	'AS/12323zc - get index (list of primary keys) for the mapped table - in ECD it is "Key Field", used when doing export from ECD to the mapped db; here will use it when checking for already existing values (already imported).
+	'AS/12323zd - (in progress) Check for already existing alternative or attribute (by map key)
+	'AS/12323ze - added clsDataMapping as a property of clsNode; added special fields to clsDataMapping; working on importing mapped values to costs.
+	'AS/12323zf - (mostly no labels) optimized doImportFromSQL; redid importAlternativesFromExternalDB and importAtributesFromExternalDB to use clsDataMapping rather than just list of mapped values; removed obsolete pieces.
+	'AS/12323zg - incorporated a check for already imported new alternatives; started -- matching datatypes of the mapped and destination objects
+	'AS/12323zh - added clsDataMapping as a property of clsAttribute; did a check for already imported new attributes to avoid duplicates
+	'AS/12323zi - more to UI for custom attributes (no labels) -- setting up combo and chk; show/hide the pieces depending on selected options; also made attribute ATTRIBUTE_RA_DEPENDENCIES_VIEW_NAME default as it should be
+	'AS/12323zj - added clsDataMapping as a property to clsAttributeValue, clsInfoDoc, and clsNonPairwiseJudgments
+	'AS/12323zk - import infodocs
+	'AS/12323zl - resolved the issue with importing alternatives' attributes. 
+	'AS/12323zm - import new and/or edit existing objects depending on the selected options; fixed import to default attributes - costs and risks
+	'AS/12323zn - incorporated new default attribute MapKey, set it when importing alts equal to externalValuePKeys (primary key(s) in the mapped table), made it shown on Structure-Alterantives tab
+	'AS/12323zo - in UI, added combo for map keys; code to read the selection and save to clsDataMapping
+	'AS/12323zp - ability to select the attribute to which the external data is to be imported
+	'AS/12323zq - special debugging pieces; some to UI; also (no labels) renamed properties in clsDataMapping to be more meaningful: added prefix "ex" for values in the external database and prefix "ecc" for values in ECC
+	'AS/12323zr - import costs, risks, and infodocs (the latter is in progress); TEMP hardcoded the connection string
+	'AS/12323zs - option to select participant(s) for import; changes to UI; fixes to errors when setting up map keys.
+	'AS/12323zt - changes to 'replace' and 'write to user' functionality
+	'AS/12323zu - options to select participant(s) and covering objective to import the non-pw judgments to; also fixed issue with empty ID for imported alternative when repeating import
+	'AS/12323zv - (continuing 'AS/12323zu) import non-pw judgments to selected cov objectives/participants
+	'AS/12323zw - (in progress) data mapping info is gone after reopening the project
+	'AS/12323zx - import non-pw judgments to selected cov objectives/participants -- implemented for newly imported alts with no judgments
+	'AS/12323zy - import nonPW into Rating, SF, Direct, and UC; also case when there is no judgment and the value to be imported is in the existing rating scale
+	'AS/12323xa - (in progress) handling already imported alternatives and column values depending on the selected options
+	'AS/12323xa - renamed clsDataMapping fields to be more meaningful
+	'AS/12323xb - Resolved the issue with losing mapping data (mapkey, alt guid, some more) when saving
+	'AS/12323xc - fixes to saving data mapping info for attributes
+	'AS/12323xd - MAJOR DM CHANGES: made clsDataMapping a member of the clsProjectManager (no calles to it yet) and removed clsDataMaping from clsNode, clsAttribute, clsAttributeValue, clsInfoDoc, and clsNonPairwiseJudgments as well as the corresponding references to it
+	(no labels) - minor -- just for convenience, added ReadOnly Property ProjManager to DataMappingPage which returns CurrentProject.ProjectManager
+	'AS/12323xe - (in progress) restructuring data mapping  code; revisiting the sub doImportFromSQL accordingly
+	'AS/12323xf - import alternatives and map keys
+	'AS/12323xg - import attributes (attribute ID is temporary hardcoded)
+	'AS/12323xh - import to the Costs and Risks column
+	'AS/12323xi - when mapping an attribute, its DataMappingGUID was not set
+	'AS/12323xj - implemented the replace options when importing attribute values
+	'AS/12323xk - duplicate records were imported if option Add New Alternatives was on
+	'AS/12323xl - fixes to set up DataMappingGUID 
+	'AS/12323xm - in doImportFromSQL, use import options saved in the session; added parameters to clsDataMapping.New
+	'AS/12323xn - fixed issue with wrong values imported to the attribute column
+	'AS/12323xo - filling out the mapping dialog on 'chain'_click 
+	'AS/12323xp - saving/reading data mapping info to/from the project
+	'AS/12323xq - filling out DM dialog; also fixed error in the AC code when reading data mapping -- the stream read it, but it was never added to ProjectManager; 
+	'AS/12323xr - (no labels) for the time being, got back to a single "Import" function; commented out the "splitting" pieces. 
+	'AS/12323xs - changes to optimize the code (extra calls; calls from loops); create snapshot before and after importing
+	'AS/12323xt - got connected to Access db (mdb file); in progress - UI for mapping to Access
+	'AS/12323xu - filling out the Access mapping dialog
+	'AS/12323xv - fixed errors which occured when importing data to alternatives and attributes columns
+	'AS/12323xw - mapping to Oracle. Added a reference to Oracle.ManagedDataAccess.dll (C:\app\Anatoly_Orcl\_Orcl\product\12.2.0\dbhome_1\ODP.NET\managed\common)
+	'NO LABELS - removed login boxes from Oracle mapping dialog; use connection string instead; 
+	'NO LABELS -  to be more meaningful, replaced 'SQLdata' or 'SQL' with 'MapData' or 'Map' respectively in the following variables' names (they relate to all databases, not only to SQL): importSQLdataToDGCol, importSQLdataToUser, importSQLreplace, importSQLdataTo, importSQLtoUsers, importSQLreplaceOption
+	'AS/12323xy - testing/debugging data mapping, fixing issues.
+	'AS/12323xz - RTE when importing string (au_lname) into DG column of integer datatype; FB 14345 Data Mapping: wrong dialog window open if map to Access or Oracle; 
+	'AS/14404 - 14404 Data Mapping: RTE on test model
+	'AS/14404a - more to 14404 Data Mapping: RTE on test model -- the model got corrupted (error when reopen) after importing costs or risks with nulls
+'AS/14407 - RTE during import when there is/are alternative(s) deleted from the source db and 14408 Alternatives newly added in the source db are not being added during import
+'AS/14406 - 14406: Data Mapping: Replace existing values is not working
+'AS/14415 - 14415: Link Icon remains gray for Cost even after mapping
+'AS/14405 - 14405: Data Mapping: Un-ending Please Wait when importing columns (Cost, P.Failure, Attributes)
+'AS/14485 - 14485 RTE when open project where cost is empty string
+'AS/14488a - 14488: Ignore when data to import is invalid type
+'AS/14487 - 14487: RTE when import categorical attribute
+'AS/14488b - more to 14488: Ignore when data to import is invalid type -- issue #2 (RTE with boolean)
+'AS/14496 - 14496 Importing integer with decimal places
+'AS/14516 - 14516: Data Mapping: RTE on connection string
+'AS/14373 - 14373: issue 2 -- it created new DataMapping item for each import, even for cases when existing one was edited
+'AS/14505 - 14505: Data Mapping: Categorical Attributes data not being imported
+'AS/14576 - 14576 Data Mapping: Duplicate categories created when map categorical attributes
+'AS/145791 - 14591: RTE when select write only when there is no existing value
+'AS/14592 - 14592: Data Mapping: Problem when there is undefined category from the database
+	'AS/14592a - more to 'AS/14592 -- if the attribute doesn't have default category, it also creates a blank attribute
+'AS/14611 - 14611: Importing doesn't work anymore when deleted alternatives from Structure / Alternatives
+'AS/14612 - 14612: Data Mapping: Create new Alternatives doesn't work when there are existing alts
+'AS/14629 - Data Mapping: Changes to UI Needed for Exporting Data from ECC to External DB
+	'AS/14629a - to accomodate with both data import and export, renamed functions doImportFromSQL/Access/Oracle to doDataMappingSQL/Access/Oracle; added "..._export" parameter to onAjax
+	'AS/14629b - incorporated case "sql_export" and function ECC_GetColumnData - in progress
+	'AS/14629c - prepare data for export (mostly no labels)
+	'AS/14629d - functions/changes to export data to SQL Server db
+	'AS/14629e - otherwise returned the first underscore as well (e.g. X_). Also some tweaks in ExportDataToSQL to handling nulls and long strings 
+	'AS/14629f - (no labels) more changes to handle external columns names with spaces
+	'AS/14629g - match datatypes when exporting to SQL
+	'AS/14629h - export to Access
+	'AS/14629i - export to Oracle
+	'AS/14629j - issue when tring to add new record to the external table
+	'AS/14629k - removed multiple calls to WriteAttributeValues from the cycles -- its enough to invoke `.StorageManager.Writer.SaveProject at the end of the operation
+	'AS/14629l - 15115 Data Mapping: Error prompt when exporting Cost
+'AS/15116 - Data Mapping UI comments / suggestions
+	'AS/15116a - (uncommented my initial pieces) started working on splitting Mapping and Importing into two separate operations (as in ECD)
+	'AS/15116b - 15116 Data Mapping UI suggestions -- split the data mapping creation and actual data import/export into two separate operations
+	'AS/15116c - 15116 Data Mapping UI suggestions (split the data mapping creation and actual data import/export into two separate operations) -- done for export
+	'AS/15116d - temporary added buttons "Create Mapping" and "Import Mapped Data" directly on the SQL Server dialog - work but with errors
+	'AS/15116e - 15116 Data Mapping UI suggestions --  import/export to/from multiple columns for SQL Server. Removed temporary added buttons "Create Mapping" and "Import Mapped Data". Placed the Map Key box before the Column to map.
+	'AS/15116f - 15116 Data Mapping UI suggestions --  import/export to/from multiple columns for Access and Oracle.
+	'AS/14506 - 14506: Data Mapping: Option to override existing and add new data
+	'AS/14506b - 14506: Data Mapping: Option to override existing and add new data -- added ckReplaceAlt and fixed the overwrite option; also changed the boxes order back to initial -- placed the Column to map before the Map Key box;
+'AS/15285 - (not all changes have labels) in progress, for ease of maintenance, numerous changes on restructuring/optimizing data mapping pieces, see 1Note "Known issues"
+	'AS/15285b - revisited the pieces, added Select Case for mapped db type, fixed errors for import from Oracle (not all changes have labels).
+	'AS/15285c - keep externalDBtype value during the session; issue with import from Access.
+	'AS/15285d - (not all changes have labels) Data Mapping UI: for SQL, enabled button "Create Mapping"; removed hardcoded pieces; incorporated rb's to select columns to export; set up the visibility.
+	'AS/15285e - (not all changes have labels) UI and functions to map and do import/export for multiple (selected) columns. Also (not all labeled) propagated 'AS/15285d changes to Access and Oracle pieces
+	'AS/15285f - fixes to export to selected columns
+	'AS/15285g - fixed: Cannot select alts as well as Costs and P.Failor columns; optimized code, redid/removed the pieces.
+	'AS/15285h - added alternatives name to the "data interchangable" columns.
+	'AS/15285i - enabled the "Map" button on the Data Grid and removed the temporary one "Create Mapping" which was placed directly on the form; made it working for SQL Server database.
+	'AS/15285j - (not all changes have labels) visibility issues (applied to SQL pieces only for now)
+	'AS/15285k - mapping and import/export for muliple columns for Access and Oracle
+	'AS/15285l - fixes to mapping/DI for Oracle
+	'AS/15285m - (in progress) unifying the data mapping UI and functions for use by any db type. At this point mapping works for all, next steps are (1) revisit the controls' visibility - show/hide them when needed and (2) remove obsolete database-specific functions and UI pieces 
+	'AS/15285n - (in progress) entirely removed obsolete db-specific functions and UI pieces. Working on the UI visibility issues (includes buttons, textboxes, and options). 
+	'AS/15285o - fixed RTE when open the mapping dialog and referencing the Map button
+	'AS/15285p - fixed syntax errors and autofill for mapped alts. To look at import - broken by 'selected columns'
+	'AS/15285q - fixed import to attributes which was broken when implementing import/export for selected columns 
+	'AS/15285r - hide title for cbExternalDB still which was shown when the combo was hidden
+	'AS/15285s - validation for connection string
+'AS/15624a,b,c  - (in progress; status quo is frozen for now; contains hardcoded pieces) case 15624 Data mapping for terminal nodes (covering objectives); at this point  import works for  direct and ratings measure types; 
+'AS/15597 - Interface to MS project -- added MS Project to db types menu
+	'AS/15597b - added reference to Microsoft.Office.Interop.MSProject, got connected; reapplied the piece that was removed for debugging and never restored
+	'AS/15597c - incorporated new default attributes Start and Finish; added div id's and code to show/hide the boxes; create instance of the target Project on Connect;
+	'AS/15597d - code to import names (works), cost, start and finish from mpp file; Obstacle: imported start and finish data not shown in DG, created new case for SL 15712: View new default attributes Start and Finish in DG
+	'NOTE: 10-14-18 put the case on hold and 2-13-2019 resumed working on it, see the labels below
+'AS/15624d - resumed case 15624 Data mapping for terminal nodes (covering objectives) -- implemented basic code to import to SF and UC.
+	'AS/15624e - import to Ratings column -- made it working as in ECD (imports only intensity names which already exist and updates ther Data Grid) 
+	'AS/15624f - ability to import numbers (between 0 and 1) into the Ratings columns -- in progress, at this point, adds new intensities but doesn't update data grid.
+	'AS/15624g - fixed the issue with updating Data Grid when importing numbers into the Ratings columns
+	'AS/15624h - removed a check if the the judgment already existed ot aws undefined if import numbers into the Ratings columns, should replace in both cases.
+	'AS/15624i - revisited import numbers to ratings (no new intencities should be created but rather prompt user and cancel the operation). Also import to SF and UC
+	'AS/15624j - put in the checks for valid input
+	'AS/15624k - revisited and partially removed 'AS/15285s since it broke autofill
+	'AS/15624l - fixed rte's which occurred when open the mapping dialog
+	'AS/15624m - more to 'AS/15624l - fixed the same rte's when mapping to Access db; also addressed the issues as of 11-6-2018 in case 15624
+	'AS/15624n - case 14403 fixed rte's which occurred when switching databases in the mapping dialog
+	'AS/15624o - Difference between "Map" and "Import" is not intuitive -- added msg, later may want to add tooltip and/or a text in gray
+	'AS/15624p - case 14403 The setting for one database type is being remembered to others
+	'AS/15624q - fixed -- Autofill not working after doing a "Map" for attributes (#9 in Known issues)
+	'AS/15624r - case 14403 -- fixed problem with 'not valid connection string' as well as with the pasting new conn string https://www.screencast.com/t/JBUibGcVLt
+				'for the time being, removed MS project as well as ECC from the external databases list;
+	'AS/15624s - in progress -- Known Issues #36-5, case 15959 When importing to CO, options "Create new" and "Replace…" not needed
+			'also removed the obsolete references to the old Access and Oracle separate UI pieces (_Acc, _Ora)
+	'AS/15959 - case 15959 When importing to CO, options "Create new" and "Replace…" not needed
+	'AS/15624u - fixed the issue "connection string is not valid" when using SQL Server (ZB ran into it on her machine)
+	'AS/15624v - fixed another issue with connection https://www.screencast.com/t/mIbPvd29
+'AS/16042 - 16042 Data Mapping: Error when Exporting any column data
+'AS/16011 - 16011 Data mapping: user input validation for alts' ID's when doing export
+'AS/16024 - (see also 'AS/16024b below) in progress 16024: Data Mapping: Cannot select another database under special circumstances
+'AS/16059a - 16059 BetaNS: Copy Participant Judgments from one user to another user(s) -- fixed rte which occurred when copy to all
+	'AS/16059b - 16059 BetaNS: Copy Participant Judgments from one user to another user(s) -- fixed "copied judgments are doubled"
+'AS/16024b - 16024: Data Mapping: Cannot select another database under special circumstances
+'AS/16059c - 16059 BetaNS: Copy Participant Judgments from one user to another user(s) -- fixed the functionality when accessing it from the hierarchy view, see https://www.screencast.com/t/Cs7iwsUqp
+'AS/16059d - (in betaNS ONLY) for the time being, hid the Copy and Paste menus in betaNS (working on these in beta)
+	'TBD: for now its copying all the judgments (same in participants screen) not only the selected node
+'AS/16095 - 16095: Prompt error on Datagrid when PM came from the pipe and open the Mapping dialog -- fixed the error; 	
+	'TBD: Issues with autofill and user input (the boxes not disabled) also noted in case 16095; happens only with covering objectives, works fine for attributes
+'AS/16216a - 16216 Copy judgments from one user to another user(s) -- entirely rewrote CopyJudgmentsFromNodeToNode 
+'AS/16215 - 16215 Data Mapping: Auto-fill and UI issues which happen with covering objectiveshttps://expertchoice.fogbugz.com/f/filters/277/AS-resolved-and-closed-cases
+'AS/16036 - 16036 Data Mapping: Import nonPW judgments for a selected user -- get selected user ID (retrive via CheckVar) and do import to this user
+'AS/16038 - 16038 Data Mapping: Map to "Selected Column" and "All Mapped columns" optinos are not working -- resolved; also made the option 'Replace Existing' ON by default
+'AS/16039a - 16039 Data Mapping: Limitation on mapping rating data because of the rating scale name -- issue #1 with the prompt and import into the Default Rating Scale
+'AS/16039b - 16039 Data Mapping: Limitation on mapping rating data because of the rating scale name -- when exporting from cov obj, altnames were exported instead of the column values
+'AS/16039c - more to 16039 Data Mapping: Limitation on mapping rating data because of the rating scale name -- made it able to import when the Default Rating Scale is in effect. Also a tuneup to the msg to avoid duplicate names.
+'AS/16276a - 16276 Data Mapping: Errors when exporting nonPW columns -- fixed the reported errors; added pieces for data validation when exporting to Access.
+'AS/16302 - 16032 Data Mapping: Can't import / export direct value on Rating column
+'AS/16276b - 16276 Data Mapping: Errors when exporting nonPW columns --  it was exporting the priorities and not the data
+'AS/16216b - 16216 Copy judgments from one user to another user(s) -- it was missing some users 
+'AS/16334 - 16334 Data Mapping: RTE when exporting Rating column
+'AS/16335 - 16335 Data Mapping: Error when exporting a "Not rated" judgment for Data methods
+'AS/16309 - Delete Mapping is not working for nonPW columns
+'AS/16301a - 16301 Data mapping Errors, unnecesarry prompts and incorrect labels -- fixed #2 (wrong labels) "No prompt name and two Yes buttons"
+'AS/16301b - 16301 Data mapping Errors, unnecesarry prompts and incorrect labels -- fixed #1 (unnecesarily prompt), replaced the message with the tooltip
+'AS/15597 - 2-13-2019 resumed working on the case
+	'AS/15597e - fixes to import start and finish from mpp file
+	'AS/15597f - (in progress) export data to MS Project mpp file
+	'AS/15597g - (in progress) export priorities
+	'AS/15597h -  TEMPORARY commented out - (1) prevented the Start and Finish from importing and (2) do not export Costs until 16001 is fixed
+	'AS/15597i - changes to the wording and 'show/hide' controls in the DM dialog when mapping to MPP. More to do.
+'AS/16439 - 16439 MPP: Do Export only to the terminal tasks and use map key
+'AS/16438 - 16438 MPP: Make a sketch of UI to .mpp file -- more to wording and 'show/hide' controls in the DM dialog
+'AS/16441 - 16441 MPP: Error when trying to connect to .mpp file
+'AS/16438a - more to 'AS/16438 -- since the goal is to make it working the same way as in ECD, hide "add new" and "replace" options for thr time being
+'AS/16440 - 16440 MPP: Error when exporting Costs -- fixed and tested with the hardcoded values. Cause - some fields in Project are calculated by Project and can not be edited by the user, so actually it was fixed by 'AS/16439
+'AS/16275 - 16275 Data Mapping: JS error message when importing non-PW judgment (source: https://stackoverflow.com/questions/17723944/to-display-the-webpage-again-internet-explorer-needs-to-resend)
+'AS/16216c - more to 16216 Copy judgments from one user to another user(s) -- It  copied judgments from one user to the other for the SAME node (alt or obj) even if the source and destination nodes were different https://www.screencast.com/t/l78a0Hwhl
+'AS/16216d - more to 16275 Data Mapping: JS error message when importing non-PW judgment -- working on the runtime syntax error https://www.screencast.com/t/63RyiN19b (the JS error resolved)
+'AS/16216e - more to 16216 Copy judgments from one user to another user(s) --  Please Wait stays on the sceen (actual cause - error when trying to copy judgments to an inappropriate node). Also should allow to copy from 'direct' to 'ratings'
+'AS/16216f - more to 16216 Copy judgments from one user to another user(s) -- it was deleting existing judgments/data when copy judgments https://www.screencast.com/t/TjMPd1tES
+'AS/16216g - more to 16216 Copy judgments from one user to another user(s) -- fixed option 'overwrite only existing judgments'
+'AS/16216h - more to 16216 Copy judgments from one user to another user(s) -- fixed the inconsistent operation when using the 'overwrite existing' option https://www.screencast.com/t/F93MYrid
+'AS/16216i - more to 16216 Copy judgments from one user to another user(s) -- fixed wrong prompt, see: https://www.screencast.com/t/78Dm70heCgM8 (revisited Try-Catch, replaced with the If condition)
+'AS/11642d - 11642 Option to copy all judgments/data for one alternative to another -- fixed unending 'Please wait', found an issue with copying
+'AS/11642e - 11642 Option to copy all judgments/data for one alternative to another -- revisited the entire sub - implemented copy judgments to only the selected alt, also added copy options (full rewrite, only missing...); 
+'AS/11642f - more to 11642, issue 'it deleted the prevously copyed judgments' -- incorporated function  DeleteJudgmentsForAlternative 
+'AS/11642g - more to 11642, fixed issues with pasting options
+'AS/16986 - 16986 BetaNS: Erase Judgments not working consistently
+'AS/11642i - more to 11642 - hide option to copy PW for alts
+'AS/16038 - 16308 Data Mapping: Import option for nonPW column to a group should be disabled
+'AS/17262 - (in progress) 17262 Be able to paste judgments to more than one alternatives or objectives. DA took the case to do changes to UI.
+'AS/17315 - (in progress) resumed working on 'AS/13258 Copy judgments in matrix from model to model; enabled the commented out pieces; made changes to doImportJudgmentsMatrix. 
+	*** at this point the basic functionality works
+'AS/17315a -  put in the checks to verify the structure of the source and destination matrixes; also some other changes (should not delete judgments in matrix, just load for user and update)
+'AS/17325 - 17325 The non-judgments columns has disabled import
+'AS/15265 - (no labels) removed wrong fix for 15265 Data Mapping: Chain icon gets disabled after doing Save 'AS/17587 - 17587 Combined report -- incorpotated GeneratePresentation.vb with a code from the smple project; at this point able to generate and download a test pptx file
+'AS/17533 -- Report Generator, parent case
+	'AS/17663 - 17663 Build test Word doc with the project info/notes for Goal and/or objectives 
+	'AS/17663a - incorpotated GenerateWordReport.vb with a code from the sample project; at this point able to generate and download a test docx file
+	'AS/17663b - testing GemBox. Incorporated GemBoxTestDoc.vb. At this point with sub Test_InfodocAndHierarchy able to generate Word doc for the Car Purchase model -- infodoc and hierarchy (as list and trreview)
+	'AS/17663c - testing GemBox -- building a table from the Data grid using the previously downloaded CSV file (ECC functionality)
+	'AS/17533a - replaced hardcoded doc name with the dynamic one, now can open the downloaded doc.
+	'AS/17533b - testing sample TreeView code in GemBox presentation (download to PowerPoint)
+	'AS/17533c - GemBox presentation, using template -- (in progress) creating test presentation with model name, model info (infodoc for goal), hierarchy , and a table
+	'no labels - completed 'AS/17533c: using template, created test presentation with model name, model info, hierarchy , and a table
+	'AS/17533d - testing GemBox --insert pictures
+	'AS/17533e - testing GemBox --created report for the Car model with a picture inserted
+	'AS/17533f - (in progress)  the bar chart for alternatives
+	'AS/17533g - (in progress) replacing the hard coded pieces when building a report for infodocs and hierarchy in Word; working on connectors in the hierarchy
+	'AS/17533h - (no labels) completed 'AS/17533g -- general code for drawing hierarchy (treeview) in Word including connectors
+	'AS/17533i - (in progress) drawing table (datagrid) in Word
+	'AS/17533j - (no labels) report in Word - infodoc, hierarchy, chart and table (due to limitations in trial, to do the demo I manually combined all the parts  in a single doc)
+	'AS/17533k - autosize algorithm for texbox
+	'AS/17533l - (in progress) function to split the table if it too wide to fit the page
+	'AS/17533m - installed GemBox.Pdf.dll, added reference to it and incorporated class GemboxTestPDF
+	'AS/17533n - (no labels) set pro licenses
+	'AS/17533o - (mostly no labels) added code to Download_GemBox_PDF and made other changes to make the pdf part working
+	'AS/17533p - combine infodoc, hierarchy, chart, and table in a single Word doc. Incorporated class ReportGenerator_Word.
+	'AS/17533q - split long hierarches and put them on several pages in Word doc. Connectors need some tweaking when proceeding to the new page.
+	'AS/17533r - fixed connectors which were incorrect when proceeding the treeview to the new page; also added title to Data grid page
+	'AS/17533s - redid and applied the "autosize" method to the hierarchy textboxes to accommodate their size to the text length
+	'(in progress, no labels) Using the UI template developed by AD, working on the report options; incorporated ReportGeneratorOptions.vb, ReportGeneratorPart.vb
+'AS/18229 - (in progress) 18229 Investigate ability to generate GemBox report in PDF which includes pictures (SL request). Since the  GemBox.Pdf doesn't provide a direct API function to put images in the PDF file, I'm testing the workaround provided by TS and adapting it to our needs.
+'AS/11-19-19 - fixed Error BC30456 'Min' is not a member of 'DocumentFormat.OpenXml.Math'. 
+'AS/17533t -- fix to: it was putting the chart on the same line with the title
+'AS/18229a - (no labels, in progress) 18229 Investigate ability to generate GemBox report in PDF which includes pictures (SL request)-- implementing the workaround to meet our needs. Successfully done for text parts (infodocs, comments), tables, and pictures. Working on the problem with hierarchy - nodes appear as empty boxes
+'AS/17533u - fixes to round function when loading datagrid
+'AS/18226 - (in progress) 18226 UI and functions to select ECC parts to include in the report -- list of parts in the UI, getting and inserting the selected parts.
+	'AS/18226a - 18226 UI and functions to select ECC parts to include in the report -- UI - ready, functions - in progress
+	'AS/18226b - in progress functions to insert and render the selected parts/views into the Combined Report.
+	'AS/18226c - insert and render "Objectives" as well as option to show descriptions
+	'AS/18226d - insert and render "Alternatives" and "Overall Results"
+'AS/18387 - (in progress) Reports Generator: Export Datagrid to Excel Using Gembox
+	'AS/18387a - export alts names and data to Excel, no formatting yet
+	'AS/18387b - export attributes; set header row and formatting
+	'AS/18387c - (no labels) changes in GetDatagridWorkbook to format the exported DataGrid
+	'AS/18387d - (in progress) adding sheets for individual users and groups (for now, there is no option to select user or group on the Combined Reports screen; it exists on the Data Grin screen but the selection is not saved. So the hardcoded ID's should be used for the time being)
+'AS/18422 - 18422 Create test presentation in PowerPoint (titles, info, pictures, tables)
+	'AS/18422a - fixed error when trying to export infodoc for the ITP model (text should not contain characters '\v', '\r' and '\n')
+	'AS/18422b - changes to function GetPictureSlide to render the title and the picture on the slide
+	'AS/18422c - export table -- create table and fill out it with values for combined
+	'AS/18422d - create slide for attributes, export attributes
+	'AS/18422e - export table -- some formatting and wording
+	'AS/18422f - made export data (datagrid to PP) working for individual users and groups as well
+	'AS/18422g - exploring built-in Gembox table styles in Presentation
+'AS/18712 - 18712 Reports Generator: implement functions to export individual Comparion reports to Word and Excel
+	'AS/18712a - (in progress) export Data grid to Excel for users and groups
+	'AS/18712b - completed export Data grid to Excel for users and groups
+	'AS/18712c - completed export Data grid to Word for users and groups. Also added columns for Cost and P.Failure
+	'AS/18712d - export Overall Results report -- done; also, since the code is growing, making some restructuring in the 'Export to Excel' block -- in progress, incorporated ReportGenerator_Excel; 
+	'AS/18712e - export Priorities for Objectives report-- done; also created xlsx file "Gembox Spreadsheet Colors"
+	'AS/18712f - export "Alternatives" report - done in Excel; also implementing table styles (in progress)
+	'AS/18712g - export "Objectives" report - done in Excel
+	'AS/18712h - export "Inconsistencies" report - done in Excel
+	'AS/18712i - export "Judgments Of Alternatives" report - done in Excel
+	'AS/18712j - export "Judgments Of Objectives" report - done in Excel
+	'AS/18712k - export "Objectives and Alternatives" report - done in Excel
+	'AS/18712l - export "Contributions" report - done in Excel
+	'AS/18712m - export "Judgments Overview" ad-hog report to Excel
+	'AS/18712n - export "Objectives Priorities" ad-hog report to Excel
+	'AS/18712o - export "Alternatives Priorities" ad-hog report to Excel
+	'AS/18712p - export "Evaluation Progress" ad-hog report to Excel
+	'AS/18712q - export "Inconsistency" report to Word
+	'AS/18712r - export "Overall Results" report to Word
+	'AS/18712s - export "Objectives/Alternatives Priorities" report to Word
+	'AS/18712t - incorporated some reusable things, some changes to wording and layout
+	'AS/18712u - export images to Excel
+	'AS/18712v - export Objectives Hierarchy (editable) report to Excel
+	'AS/18712w - Color scheme using EC colors; incorporated class "ECColors"
+	'AS/18712x - (mostly no labels) numerous changes to speed up the process of generating individual reports, see 1note "18712 Individual Reports..." for details
+	'AS/18712y - (in progress) applying styles to each generated page/table.
+	'AS/18712z - building Alternatives chart in Excel with Gembox
+	'AS/18712ya - continuing 'AS/18712y - (in progress) applying styles to each generated page/table.
+	'AS/18712za - added chart to the "Judgments of Objectives" report
+	'AS/18712yb - continuing 'AS/18712y - applied styles to Objectives And Alternatives, Contributions
+	'AS/18712yc - continuing 'AS/18712y - applied styles to Judgments Overview, Objectives Priorities, Alternatives Priorities, and Evaluation Progress
+	'AS/5-6-20 - in 'Judgments of Alternatives' report avoid merging because Row.AutoFit method doesn't work for the rows with merged cells -- add a single row for each line (node level) instead.
+	'AS/18712ia - more to AS/18712i 'Judgments of Alternatives' report-- if value is nothing, don't show it all, just proceed to the next one
+'AS/19203 - Export Synthesize data to Excel as plain data tables
+	'AS/19203a - export Alternatives Grid 
+	'AS/19203b - export Objectives Grid
+	'AS/19203c - in Objectives Grid, Goal and groups were missing in the table. 
+	'AS/19203d - in Objectives Grid, changes to speed up the sub
+	'AS/19203e - (in progress) export infodocs with images; also some fixes to tables layout
+	'AS/19203f - continue export infodocs with images -- export images downloaded as part of HTM file
+	'AS/19203g - (in progress) sizing and positioning infodoc images to keep the original width/height ratio
+	'AS/19203h - arranged the infodoc images in the cells (jpeg, png, etc.); working on the images saved in an htm format
+	'AS/19203i - sized and arranged the '.htm' images in the cells. To continue, need the actual image size
+	'AS/19203i - more to 'AS/19203i -- made some tweaks to the image sizes, added padding to uncover the grid lines, some other changes. Cleaned up the code.
+	'AS/19203j - restructured the functions for easy maintenance; propagated the "export image" changes to the Objectives Grid
+'AS/19464 - Export Synthesize data to Excel - Objectives and Alternatives Charts
+		'AS/19464a - made Objectives chart working for a single participant or group as well as for the selected WRT node (it used to work only for Goal)
+		'AS/19464b - propagate the changes 'AS/19464a to Alternatives chart
+'AS/19486 ExcelExport: Create Combined Report in Excel in line with the provided specifications 
+	'AS/19486a - Incorporated class "ExcelExport". Made code restructuring in line with the report specifications provided by Hal. Implemented export of Overview tab.
+	'AS/19486b - in Alternatives tab, implemented alternatives table
+		'AS/19486b1 - implemented alternatives chart including bars colors
+		'AS/19486b2 - inserted sensitivity graphs (as images)
+	'AS/19486c - implemented Objectives tab
+	'AS/19486d - in both Alternatives and Objectives tabs, made it using relative path when exporting images. Also added code to draw borders around the image (currenly commented out)
+	'AS/19486e - implemented ObjectiveInfodocs tab (no images)
+	'AS/19486f - implemented AlternativeInfodocs tab (with images). Also added images to ObjectiveInfodocs.
+	'AS/19486g - implemented ContributionMatrix tab
+	'AS/19486h - implemented OtherInfodocs tab
+	'AS/19486i - implemented Participants tab
+	'AS/19486j - implemented MeasurementMethods tab (except column 'Number of Comparisons')
+	'AS/19486k - implemented Inconsistency tab
+	'AS/19486l - implemented Consensus tab
+	'AS/19486m - to improve performance, made some restructuring, its 5 times faster so far. Also found and fixed bug in the Inconsistency report
+	'AS/19486n - implemented SurveyQuestions tab
+	'AS/19486o - implemented SurveySummary tab
+	'AS/19486p - implemented SurveyAnswers tab
+	'AS/19486q - fixed: Empty or incorrect sheets if there are no alternatives in the model. Also added debugging code to track down the timing.
+	'AS/19486r - fixed: errors if there is no survey in the model
+	'AS/19486s - if there is no survey in the model, omit the tab(s)
+	'AS/19486t - fixed: number of comparisons in MesurementMethods tab, RTE in some models when launching ExcelExport, and wrong nodes order in "MeasurementMethods" tab
+	'AS/19486u - fixed issues #2: Dynamic -- it doesn't work for all models; #3 - issue with local priorities for alternatives in the Alternatives tab (removed the column); #7 -  Measurement Methods -- PW no. of diagonals is not being populated.
+	'AS/19486v - fixed issues #4: Info docs for Objectives WRT to parent are not being exported. Minor - added debugging function Debug_getNodesIDs
+	'AS/19486w - fixed issues #6: Image is not being downloaded for Model Description
+	'AS/19486x - per Ernest's request, took out the things that don’t work (images - graph screenshots from Alternatives and Objectives tabs) to create a working version even if not complete.
+	'AS/19486y - per Hal's request, made the workbook and sheets protected (no passwords) - don't allow user to edit it.
+	'AS/19486z - fixed (EHF): Alternatives tab: made columns wider to see the names and priorities of what is in the table
+	'AS/19486_a - redid the entire function AddOtherInfodocs to display the infodocs similar to the infodocs grid, renamed the tab to AlternativesWRTObjectives
+	'AS/19486_b - LATER REMOVED, see 'AS/19486_c instead (in progress) AlternativesWRTObjectives tab: insert infodoc text and image in the same cell
+	'AS/19486_c - fixed issues with positioning infodoc images in Overview, ObjectivesInfodocs and AlternativesInfodocs tabs
+	'AS/19486_d - AlternativesWRTObjectives tab: insert infodoc image in the neighboring cell. Also fixed RTE's  Hal ran into when testing Reports.
+	'AS/19486_e, ' D6952 - more to 'AS/19486_d - AlternativesWRTObjectives tab: insert infodoc image in the neighboring cell
+	'AS/19486_f - omit Consensus tab in case of the rte (RTE may occur on the FIRST attempt to download the xlsx file; if try it again it was downloaded properly. https://www.screencast.com/t/HyJNt0DrchO)
+	'AS/19486_g - hide reports tabs if there is no data to display (DONE for tabs: Alternatives, ObjectivesInfodocs, AlternativesInfodocs,  AlternativesWRTObjectivesInfodocs, Inconsistency, Consensus)
+	'AS/19486_h - per Hal's request, on the Inconsistency tab, formatted Inconsistency to display four decimal places; on the Consensus tab, inserted a column for Variance as well as formatted all the numbers as numbers
+	'AS/19486_i - refactored the pieces which download the images
+	'AS/19486_j - fixed: 20760 Reports: Make the sorting on Charts consistent to the grid and move the image to the left
+		
+		===================== switched to new branch cr-reports ==================
+'AS/20761 - 20761 "Create RA Combined Report in Excel in Line with Provided Specification"
+	'AS/20761a - implemented Dependencies and Scenarios tabs, in progress - RA_main_grid (put on hold until learn the TimePeriods structure and data)
+	'AS/20761b - implemented Groups tab
+	'AS/20761c - implemented FundingPools tab
+	'AS/20761d - implemented CustomConstraints tab
+	'AS/20761e - implemented StrategicBuckets tab 
+	'AS/20761f - implemented Visualizations tab
+	'AS/20761g - implemented ScenarioComparisons tab
+	'AS/20761h - implemented ModelSpecification tab
+	'AS/20761i - implemented RelevantConstraints tab
+	'AS/20761j - implemented RA_TP_header tab
+	'AS/20761k - in progress RA_TP_details tab -- implemented rows grouping. TBD - periods naming.
+	'AS/20761l - completed RA_TP_details tab
+'AS/21022 - fixed: 21022 CR-Reports: New columns being added for each Alternatives WRT Objective information documents. Also, in the Participants tab freeze the top 2 rows.
+	'AS/21022 - more to 21022 CR-Reports: New columns being added for each Alternatives WRT Objective information documents -- fixes to arrange infodocs texts and images properly
+'AS/21039 - 21039 CR-Reports Information Document Issues (missing and misplaced infodocs, duplicate images)
+	'AS/21039a - fixed issues with missing and misplaced infodocs
+	'AS/21039b - fixed issues with duplicate images
+'AS/21104 - 21104 "Excel Reports:RA Exports Issues (Initial Test)"
+	'AS/21104a - FIXED issues as of 11/25/2020
+	'AS/21104b - issues as of 11/26/2020 -- FIXED issues in RA_Scenarios and RA_CustomConstraints tabs, in progress - RA_Details tab
+	'AS/21104c - issues as of 11/26/2020 - fixed RA_Details tab
+'AS/12-3-2020 - (in CR only) enabled all reports except RA_grid_main which is under development
+'AS/21149, 'AS/21149a  - fixed 21149 RTE in reports with new model
+
+
+		===================== switched to GAMMA branch ==================
+'tue1, 'wed1, fri1 - IN PROGRESS: 20761 -- time periods (grouped by column) in the Main grid
+		===================== switched to GAMMA branch ==================
+'AS/21354 - data mapping issues in GAMMA as of 3/11/2021 (introduced when switching to HTML)
+	'AS/21354a - removed 'AS/17262 which viewed mapping to ECC model when open the mapping form; also some other my and AD changes to make the feature working. Its under testing.
+	'AS/21354b - made it working again for non-data columns (costs, PFailour, etc).
+	'AS/21354c - fixed issue with getting ID for the selected user
+	'AS/21354d - fixed RTE which ocurred when import Direct, SF, and UC data and there were no judgments yet.
+	'AS/16001 - fixed: Import of Costs and Risks stopped working in changeset 34361
+	'AS/21354e - more to 'AS/16001 --  Cost/P.Failure import was not working for new alts imported after the 16001 changes
+	'AS/21354f - fixed: Import becomes enabled for Group if you select a participant and then back to the group
+	'AS/21354g - fixed: Error messages "currJ is nothing" and "map key not found"
+	'AS/21354h - fixed:  one can only import cost/p.failure once. https://www.screencast.com/t/6kqA5Hnxv -- created a workaround using "aguid" or "oguid" instead of "dm" in the CheckVar function
+	'AS/21354i - more to 'AS/21354h 
+	'AS/21354j - fixed issue #2 (case 22519) --- "link" icon stays gray for Cost and P.Falure columns after the mapping is created
+	'AS/21354k - fixed RTE which ocurred when mapping objective
+	'AS/21354l - fixed error when exporting a string type alternative attribute - https://www.screencast.com/t/7x0tk89h
+'AS/22565 - Data Mapping Issues 
+	'AS/22565a - made it able to edit the mapping settings -- right now once you mapped, the fields will be disabled. This way, you can easily update the column to another one if needed. 
+	'AS/22565b - fixed: export from the objectives columns didn't work
+'AS/22603 - fixed: 22603 "Data Mapping Export is not responding -- unending please wait (RTE)" -- moved connection out of the loop; added properties to clsDataMapping instead of using local variables elsewhere; more other changes.
+'AS/22602 - 22602 Error when exporting and there are additional alternatives
+	'AS/22602a - fixed function ExternalDB_GetColumnProperties which gets and assignes the column properties (both in ecc and db) to the dm object (clsDataMapping)
+	'AS/22602b - developed ability to create new map keys and insert new records automatically. Also removed extra messages which could confuse users.
+	'AS/22620 - fixed: 22620 "Data Mapping Export Error - Data type mismatch". Also added ability to work for the cases when the datatype of the ID column is not numeric
+	'AS/22602c - more to 'AS/22602 -- error occurs if there are boolean columns in the external table and/or columns which don't allow NULL. Also revisited the warning messages to avoid confuses, mostly removed them.
+	'AS/22602d - fixed:  when exporting only the Alternative Column and there is a not nullable column in the table, it proceeds without any message. There should be a prompt as well.
+	'AS/22602e - final fix to 'AS/22602c datatype mismatch error
+	'AS/22602f - more to 'AS/22602c --  if a not nullable column exists, made it working as in ECD.
+	'AS/22602g - fixed: with additional alts, doesn't export all the columns https://www.screencast.com/t/2OSl1PNVcy (introduced by recent fix 'AS/22602f, so partially removed it))
+	'AS/22602h - fixed: deleted the additional alternatives, hang up on please wait https://www.screencast.com/t/Fl5ohUsSJeMF
+	'AS/22602i - fixed: restarted and the message still popping out, but columns are updating correctly https://www.screencast.com/t/09ZqEWBd 
+'AS/22683 - fixed: 22683 Data Mapping: UI Issues as of 7/7/2021; also added Cancel buton and Success message 
+'AS/22708 - fixed: 22708 "Combined Report Generator Issues" -- typo errors (no labels) and Total=0 in SB
+'AS/22683a - fixed: 22683 Data Mapping: UI Issues as of 7/16/2021 -- If you select "Selected mapped column" but forgot to select a column, there will be unending please wait
+'AS/22683b - fixed: 22683  Data Mapping: UI Issues as of 7/26/2021 -- unending please wait and error on import
+'AS/22683c - fixed: 22683  Data Mapping: UI Issues as of 7/26/2021 -- changes in the function doDataMappingToExternalDB to make a correct exit from it if anything went wrong (don't just leave the function but rather do not perform any action on the condition)
+'AS/16440a - Mapping to MS Project stopped working after recent fixes to data mapping
+'AS/16440b - tentative fix to the error when exporting to MSProject: Invalid date 
+'AS/24176 - fixed: 24176 RTE: 'Object reference not set to an instance of an object.' [99900] [7ffe835]
+'AS/24178 - fixed: 24178 Data Mapping: P.Failure is named as Risk on select columns option
+'AS/24173 - fixed: 24173 Data Mapping Export Errors
+'AS/24173a - fixed: 24173 Data Mapping Export Errors  -- error occurs if there is a  non-nullable col in DB which is not mapped 
+'AS/24186 - fixed: 24186 Data Mapping: The link icon is missing for PW column; also only show the icon for Alternatives initially since it is the only one clickable at this point (no any mapping yet) (changes in ec.dg.js)
+'AS/24200 - 24200 Data Mapping: Instructions for Oracle db data mapping testing -- excluded Oracle from the drop-down
+'AS/24189 - 24189 Data Mapping: How to map on another ECC model? -- this UI piece was hidden, so I made it visible 
+	'AS/24189a - mapping to ECC model -- changes to UI: controls visibility issues which allow triggering wrong actions; also layout should be consistent with the other mapping dialoga
+	'AS/24189b - errors on import which occur if alternatives with the same ID already exist (not imported but added manually)
+	'AS/24189c - errors on import data
+'AS/24231 - Data Mapping: Unify Code for All Types of Mapped External Sources
+	'AS/24231a - changes to get data for import from external model
+	'AS/24231b - unifying mapping subs for use both with DB's and ECC models
+	'AS/24231c and 'AS/24231d - changes to UI and code to get attributes data for import
+	'AS/24231e - completed unified procedures for import alternatives non-PW data (Ratings, Direct, SF, and UC)
+	'AS/24231f - completed unified procedures for import default attributes (Costs and P.Failure)
+	'AS/24231g - implemented new UI for mapping to another ECC model which is consistent with the the other mapping dialogs
+	'AS/24231h - (in progress) connecting the functions to new UI
+	'AS/24231i - optimized mapping dialog to use the same set of controls for import options
+	'AS/24231j - fill out the dialog on "Map" click; also, in UI and code, deleted obsolete pieces related to the old mapping to another ECC model
+	'AS/24231k - final changes to 'AS/24231h - the unified functions also work with new UI for mapping to another ECC model
+'AS/24189d - (in progress) save dm data between sessions -- not working yet
+'AS/24189e - visibility issues with Options in data mapping dialog (in progress); also fixed error when trying to import from mpp (introduced recenly) and applied permanent fix to getting external source name
+'AS/24400 - 24400 Data Mapping: UI issues when mapping to another ECC model -- issue #4: moved functionality which was on the temporary buttons "Map" and "Import Alternatives" to the buttons "Map" and "Import" at the bottom of the dialog to be consistent with the other mapping dialogs for Access or SQL Server.
+'AS/24192 - 24192 Data Mapping: Importing covering objectives columns in a group instance -- investigated, made the  necessary changes in VB code and assigned to AD with the instructions of what is needed to change in UI
+'AS/24191 - fixed: 24191 Data Mapping: Map with Export when no mapping yet
+'AS/24195 - fixed: 24195 Data Mapping: Delete button is being shown/hidden incorrectly 
+'AS/24495 - applied a temp fix for 24495 Data Mapping: Prompt -- Import Results FALSE
+'AS/24192 - fixed: 24192 Data Mapping: Importing covering objectives columns in a group instance
+'AS/24507 - fixed: 24507 Data Mapping: Problem with selecting the External Source dropdown
+'AS/25701 - fixed: 25701 RTE: 'Object reference not set to an instance of an object.' [99900] [7c17e1c]
+'AS/24189f - 24189 Data Mapping: Issues with mapping to another ECC model (new issues came up after testing): fixed issue #1: the database type ("ECC model") not shown after mapping; also fixed rte which occurred in  a virgin model if not click "Connect' button
+'AS/24189g - 24189 Data Mapping: Issues with mapping to another ECC model (new issues came up after testing): after click on "Connect", show message like "Successfully connected", otherwise it's not clear what it does or even if it works at all
+'AS/24189h - 24189 Data Mapping: Issues with mapping to another ECC model (new issues came up after testing): fixed issue #3: section "Options" was not shown/hidden correctly
+'AS/25743a - 25743 Data Mapping: On mouse_over, show tooltip with the mapping data - implemented for attributes columns; 
+'AS/25743b - fix to RTE introduced by 'AS/25743a
+'AS/25796 - fixed: 25796 Data Mapping: Hide 'Connect' button when mapping to another ECC model; also removed extra messages, spelled out ECC Model to read EC COMPARION model.
+
+
+
+=================================================================
+	 *** TO REMOVE LATER --  temporary debugging and/or changed pieces ***
+		AS_hardcoded
+		"AS debug message"
+		'AS/12323output - temporary debugging pieces
+		'AS/1-22-19 - (currently commented out) added flexibility to import to the selected, all or any other requied user or set of users.
+		'AS/1-24-19 - temporarily commented out 'AS/16011 (which disabled the boxes if mapping exists)
+		'AS/15597h -  TEMPORARY commented out - (1) prevented the Start and Finish from importing and (2) do not export Costs until 16001 is fixed
+
+=================================================================
+
+				To show/hide Costs and Risks:
+			in CanvasWebBase\Modules\DataGridModule.vb 
+	        'Return Not attr.IsDefault Or (isRisk And (attr.ID = ECCore.ATTRIBUTE_RISK_ID Or attr.ID = ECCore.ATTRIBUTE_COST_ID)) Or (attr.ID = ECCore.ATTRIBUTE_MAPKEY_ID And isDataGrid)
+            Return Not attr.IsDefault Or (Not isRisk And (attr.ID = ECCore.ATTRIBUTE_RISK_ID Or attr.ID = ECCore.ATTRIBUTE_COST_ID)) Or (attr.ID = ECCore.ATTRIBUTE_MAPKEY_ID And isDataGrid) 'AS/14406
+
+
+New Roles:
+
+1. New model.
+	- Single user
+	  - Roles don't change: do nothing
+	  - Roles change: create new entry and fill it. Update upon structure change.
+	- Added new users
+	  - Roles don't change: do nothing
+	  - Roles change: for each user that has changed roles update appropriate entry upon structure change.
+	  - 
+2. Existing model.
+	
+	
+================================
+Save Project Steps:
+		SaveVersion
+        SaveUsersInfo_CanvasDatabase(Nothing)
+        DeleteAllMeasurementScales(False)
+        Save Measurement Scales:
+			Save rating scales
+			Save regular utility curves
+			Save advanced utility curves
+			Save step functions
+		Save Data Instances
+		Save Hierarchies
+		Save Nodes
+		SaveUserDisabledNodes
+		Save Alts Contributions
+		If Not StructureOnly Then 
+			Save Judgments
+			Save Permissions
+		End If
+		
+================================
+
+		
+--------------
+Needed functions:
+1. DeleteCombinedJudgmentsWRT(Optional CombinedUserID as integer = integer.minvalue, Optional ParentNode as clsNode = nothing, Optional ChildNode as clsNode = nothing)
+2. DeleteCalculatedWeights(Optional ParentNode as clsNode = nothing, optional UserID as integer=integer.Min)
+
+IMPORTANT: When calling this functions make sure you delete everything from memory as well!!!
+
+1. Adding new node 
+   Do nothing
+2. Deleting a node N
+   DONE: DeleteCombinedJudgmentsWRT(N) 
+   DONE: DeleteCalculatedWeights
+   DONE: DeleteCombinedJudgmentsWRT(N.ParentNode, N)
+   DONE: DeleteCalculatedWeights(N.Parent)
+3. Changing parent of N
+   DONE: DeleteCalculatedWeights(OldParent)
+   DONE: DeleteCalculatedWeights(NewParent)
+4. Adding new alternative
+   If AutoContribution=True Then
+     For Each N as clsNode in CoveringObjectives
+       DONE: DeleteCalculatedWeights(N)
+     Next
+   End If
+5. Deleting alternative A
+     For Each N as clsNode in CoveringObjectivesThatAContributesTo
+       DONE: DeleteCalculatedWeights(N)
+       DONE: DeleteCombinedJudgmentsWRT(N, A)
+     Next
+6. Adding contribution for alternative A and cob. obj. N
+   DeleteCalculatedWeights(N)
+7. Removing contribution for alternative A and cob. obj. N
+   DeleteCalculatedWeights(N)
+   DeleteCombinedJudgmentsWRT(N, A)
+8. Changing measurement type for covering objective N
+   DONE: DeleteCalculatedWeights(N)
+   DONE: DeleteCombinedJudgmentsWRT(N)
+9. Adding permissions
+10. Removing permissions
+
+
+-----------------------------------
+NEED GUID ONLY FOR:
+1. HierarchyID
+2. NodeID
+3. UserID
+4. RatingID
+
+
+1. Working with ahpx models:
+   If (the model is old) Then:
+	   a. read integer ID
+	   b. create Guid ID for this integer ID
+	   c. when saving the model write Guid ID to the db
+   Else
+       a. read integer ID
+       b. read Guid ID
+   End If
+   
+2. Working with streams models:
+   
+   Writing to streams:
+   a. write both integer and Guid IDs to the stream
+   b. when writing a reference to an object with ID use GuidID
+
+   Reading from streams:
+   a. read integer AND Guid IDs
+   b. when reading something that is referencing GuidID and object with such GuidID doesn't exist, skip it (doesn't matter what integer ID it has)
+   
+3. Working in memory
+   a. When creating new object with ID, create Guid ID as well
+   b. Work with integer IDs everywhere in the code!
+   
+   
+   
+1. GetUserID function is used more than needed (CalculateWeights)
+
+
+
+
+
+------------------------
+1. Improve GetNodesBelow function - make it by UserID
+
+=====================
+

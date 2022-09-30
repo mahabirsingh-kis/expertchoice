@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="Workflow (Comparion)" resourceKey="" icon="icon ec-hierarchy" roles="ignore,hide,comparion,project,layout=default">
+
+    <siteMapNode title="mnuManageProjects" icon="fa fa-folder-open" roles="workflow,resname,hide,projectslist,hidelookup,~CtrlL,js:onSelectProject();" />
+
+    <siteMapNode title="mnuDefineProject" icon="icon ec-hierarchy" roles="workflow,resname,hide" resourceKey="10101" ko="define-project-landing">
+      <siteMapNode title="mnuDefineModel" icon="fas fa-bullseye">
+        <!--<siteMapNode title="Manage Project" icon="fa fa-edit" roles="workflow">-->
+        <siteMapNode title="mnuProjectDescription" icon="far fa-file" roles="html5,~CtrlAltD,resname" resourceKey="20010" ko="project-description" description="DA/AD"/>
+        <siteMapNode title="Structuring" resourceKey="20450" roles="collapsemenu,html5,csdata,~CtrlAltB" ko="collaborative-structuring" icon="fas fa-chalkboard-teacher" description="DA"/>
+        <!--<siteMapNode title="Details" icon="far fa-file-alt" roles="html5" resourceKey ="20011" ko="project-details" description="DA/AD"/>-->
+        <!--<siteMapNode title="Details" icon="fa fa-file-alt" roles="html5" resourceKey ="20011" url="Manage_Project/ManageProject_ProjectSummary_ProjectAttributes.html" description="DA"/>-->
+        <!--<siteMapNode title="Online Status" icon="fa fa-power-off" resourceKey="20018" url="Manage_Project/ManageProject_ProjectStatus_OnlineStatus.html" description="AD"/>-->
+        <!--<siteMapNode title="Download" icon="fas fa-download" roles="project,html5" resourceKey ="20059" url="Manage_Project/ManageProject_Download.html" description="AD"/>-->
+      </siteMapNode>
+      <siteMapNode title="mnuRefineModel" icon="fa fa-dot-circle">
+        <siteMapNode title="Alternatives" resourceKey="20102" roles="html5" ko="identify-alternatives" icon="icon ec-alts" url="Structure/Structure_Alternatives.html" description="DA"/>
+        <siteMapNode title="Hierarchy" resourceKey="20101" roles="html5,~CtrlAltH" ko="define-objectives" icon="icon ec-hierarchy" url="Structure/Structure_Objectives.html" description="DA"/>
+        <siteMapNode title="Contributions" resourceKey="20111" roles="html5,alts" icon="icon ec-contribution" ko="contributions" url="Structure/Structure_Contributions.html" description="SL"/>
+        <siteMapNode title="Infodocs" resourceKey="20112" roles="html5" icon="fa fa-info-circle" ko="infodocs" url="Structure/Structure_Information_Documents.html" description="SL"/>
+      </siteMapNode>
+      <siteMapNode title="mnuDefineParticipants" icon="fa fa-users">
+        <siteMapNode title="Participants" resourceKey="20020" roles="html5,~CtrlAltU" ko="project-participants" icon="fa fa-users" url="Structure/Structure_Participants.html" description="DA/AD"/>
+        <!--<siteMapNode title="Participant Groups" resourceKey="20500" roles="html5" ko="project-participant-groups" icon="fas fa-users-cog" description="DA"/>-->
+        <!--<siteMapNode title="mnuRoles" icon="fa fa-unlock">
+        <siteMapNode title="For Objectives" resourceKey="20141" roles="html5" url="Structure/Structure_Participant_Roles_for_Evaluating_Objectives.html" description="SL" />
+        <siteMapNode title="For Alternatives" resourceKey="20142" roles="html5,alts" url="Structure/Structure_Participant_Roles_For_Evaluating_Alternatives.html" description="SL"/>
+        </siteMapNode>-->
+        <siteMapNode title="Participant Roles" resourceKey="20142" roles="html5" ko="participant-roles" url="Structure/Structure_Participant_Roles_For_Evaluating_Alternatives.html" description="SL" icon="fa fa-unlock"/>
+        <!--<siteMapNode title="Display What" resourceKey="20015" icon="fa fa-cog" ko="participant-display" url="Measure/Measure_Options_Display.html" description="AD"/>-->
+        <!--<siteMapNode title="Evalaution How" resourceKey="20014" icon="fa fa-cog" ko="advanced-evaluation-settings" url="Measure/Measure_Options_Navigation.html" description="AD"/>-->
+      </siteMapNode>
+      <siteMapNode title="mnuSetOptions" icon="fa fa-cogs">
+        <siteMapNode title="Preferences for measurement methods" resourceKey="20123" roles="html5" ko="measurement-methods" icon="fas fa-balance-scale" description="DA" />
+        <!--<siteMapNode title="Edit default measurement scales" resourceKey="20151" icon="fa fa-sliders-h" ko="default-scales" url="Measure/Measurement_Scales.html" description="DA"/>-->
+        <!--<siteMapNode title="Evaluation What" resourceKey="20013" roles="~CtrlAltO" icon="fa fa-cog" ko="judgment-options" url="Measure/Measure_Options_Evaluation.html" description="AD"/>-->
+        <!--<siteMapNode title="For Objectives" resourceKey="20122" roles="html5" icon="icon ec-hierarchy" url="Measure/Measure_Methods_for_Objectives.html" description="DA" />
+        <siteMapNode title="For Alternatives" resourceKey="20121" roles="html5,alts" icon="icon ec-alts" url="Measure/Measure_Methods_for_Alternatives.html" description="DA" />-->
+        <!--<siteMapNode title="Evaluation Progress" icon="icon ec-eval-progress" roles="html5" resourceKey="20061" url="Manage_Project/ManageProject_ProjectStatus_EvaluationProgress.html" description="DA/AD"/>-->
+      </siteMapNode>
+      <siteMapNode title="mnuDefineSurveys" icon="icon ec-survey">
+        <siteMapNode title="PreSurvey" resourceKey="79010" icon="icon ec-survey" ko="insight" url="" description="SL"/>
+        <siteMapNode title="PostSurvey" resourceKey="79012" icon="icon ec-survey" ko="insight" url="" description="SL"/>
+        <siteMapNode title="Insight" resourceKey="20016" icon="fa fa-cog" ko="insight" url="Measure/Creating_and_Editing_an_Insight_Survey.html" description="SL"/>
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="mnuCollectInput" icon="fa fa-keyboard" roles="workflow,resname,hide" resourceKey="10102" ko="collect-input-landing">
+      <siteMapNode title="Evaluation Progress" icon="fa fa-tasks" roles="html5,~CtrlAltE" resourceKey="20063" ko="evaluation-progress" url="Measure/Evaluation_Progress.html" description="DA"/>
+      <siteMapNode title="mnuEvaluationOptions" icon="fas fa-clipboard-list">
+        <siteMapNode title="Evaluation What" resourceKey="20013" roles="~CtrlAltO" icon="fa fa-cog" ko="judgment-options" url="Measure/Measure_Options_Evaluation.html" description="AD"/>
+        <siteMapNode title="Display What" resourceKey="20015" icon="fa fa-cog" ko="participant-display" url="Measure/Measure_Options_Display.html" description="AD"/>
+        <siteMapNode title="Evalaution How" resourceKey="20014" icon="fa fa-cog" ko="advanced-evaluation-settings" url="Measure/Measure_Options_Navigation.html" description="AD"/>
+      </siteMapNode>
+      <siteMapNode title="mnuIndividualEvaluation" icon="fas fa-clipboard-list">
+        <!-- <siteMapNode title="Anytime Instructions" roles="help" icon="fas fa-info-circle" ko="anytime-instructions" url="Measure/_anytime_instructions.html"/> -->
+        <siteMapNode title="Send Invitations" icon="icon ec-send-mail" resourceKey="30020" roles="html5,~CtrlAltN" ko="anytime-invitation" url="Measure/Measure_Anytime_Invite_Participants.html" description="SL/AD"/>
+        <!--<siteMapNode title="Send Invitations (responsive)" roles="nonadmin,gecko" />-->
+        <siteMapNode title="Collect My Input" icon="fas fa-clipboard-list" resourceKey="30010" roles="collapsemenu,nomobile,~CtrlM" description="AD"/>
+        <!--<siteMapNode title="Collect My Input (responsive)" roles="nonadmin,gecko" />-->
+        <!--<siteMapNode title="Data Mapping" resourceKey="50120" roles="draft" description="AS" />-->
+        <siteMapNode title="Data Grid" icon="icon ec-datagrid" resourceKey="50108" roles="~CtrlY" ko="datagrid" url="Measure/Measure_Anytime_Data_Grid.html" description="SL"/>
+        <!--<siteMapNode title="Data Grid [new]" icon="icon ec-datagrid" resourceKey="50180" roles="draft,~CtrlU" description="SL"/>-->
+      </siteMapNode>
+      <siteMapNode title="mnuTeamTimeEvaluation" icon="fa fa-users">
+        <!-- <siteMapNode title="Instructions" icon="fas fa-info-circle" roles="help" ko="tt-instructions" url="Measure/_teamtime_instructions.html"/> -->
+        <siteMapNode title="Select Participants" icon="fa fa-users" resourceKey="30503" roles="html5" ko="tt-select-participants" url="Measure/Measure_TeamTime_Select_Participants.html" description="SL"/>
+        <siteMapNode title="Invite Participants" icon="icon ec-mail" resourceKey="30120" roles="html5" ko="tt-invitation" url="Measure/Measure_TeamTime_Invite_Participants.html" description="AD/SL"/>
+        <!--<siteMapNode title="Invite Participants (responsive)" roles="nonadmin,gecko" />-->
+        <siteMapNode title="Start/Stop Meeting" icon="fas fa-stopwatch" resourceKey="30502" roles="~CtrlAltT" ko="start-stop-tt" url="Measure/MeasureTeamTime_StartSession.html" description="AD"/>
+        <!--<siteMapNode title="Start/Stop Meeting (responsive)" roles="nonadmin,gecko" />-->
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="mnuSeeResults" roles="workflow,hide" icon="fa fa-chart-bar" resourceKey="10103" ko="synthesize-landing">
+      <siteMapNode title="mnuOverallResults" icon="">
+        <!--<siteMapNode title="Charts" icon="icon ec-chart-columns" roles="" ko="charts" resourceKey="60219" description="SL" />-->
+        <siteMapNode title="Alternatives Chart"  icon="icon ec-chart-columns" roles="html5,alts" ko="alternatives-chart" resourceKey="60221" url="Synthesize/Synthesis_Alternatives_Chart.html" description="SL"/>
+        <siteMapNode title="Objectives Chart"  icon="icon ec-chart-sunburst" roles="html5,no_aip" ko="objectives-chart" resourceKey="60222" url="Synthesize/Synthesis_Objectives_Chart.html" description="SL"/>
+        <!--<siteMapNode title="Grids"  icon="icon ec-grid" roles="" ko="grids" resourceKey="60220" description="DA"/>-->
+        <siteMapNode title="Alternatives Grid"  icon="icon ec-grid" roles="html5,alts" resourceKey="60210" ko="alternatives-grid" url="Synthesize/Synthesis_Alternatives_Grid.html" description="DA"/>
+        <siteMapNode title="Objectives Grid"  icon="icon ec-grid" roles="html5,no_aip" resourceKey="60211" ko="objectives-grid" url="Synthesize/Synthesis_Objectives_Grid.html" description="DA"/>
+      </siteMapNode>
+      <siteMapNode title="mnuSensitivityObj" icon="">
+        <siteMapNode title="navDSA"  icon="icon ec-sa-dsa" roles="html5,no_aip,alts" ko="dynamic-analysis" resourceKey="60202" url="Synthesize/Synthesize_Dynamic_Sensitivity.htm" description="SL"/>
+        <siteMapNode title="navPSA" icon="icon ec-sa-psa" roles="html5,no_aip,alts" ko="performance-analysis" resourceKey="60203" url="Synthesize/Synthesize_Performance_Sensitivity.html" description="SL"/>
+        <siteMapNode title="navGSA" icon="icon ec-sa-gsa"  roles="html5,no_aip,alts" ko="gradient-analysis" resourceKey="60204" url="Synthesize/Synthesize_Gradient_Sensitivity.html" description="SL"/>
+        <siteMapNode title="nav2D" icon="icon ec-sa-2d" roles="html5,no_aip,alts" ko="2d-analysis" resourceKey="60207" url="Synthesize/Synthesize_2D_Analysis.html" description="SL"/>
+        <siteMapNode title="navHeadToHead" icon="icon ec-sa-hth" roles="html5,no_aip,alts" ko="head-to-head" resourceKey="60215" url="Synthesize/Head_to_head_analysis.html" description="SL"/>
+        <siteMapNode title="Mixed" icon="icon ec-sa-mixed" roles="html5,no_aip,collapsemenu,alts" ko="mixed" resourceKey="60216" url="Synthesize/Four_Graphs.html" description="DA"/>
+      </siteMapNode>
+      <siteMapNode title="mnuSensitivityAlt" icon="">
+        <siteMapNode title="One at a time"  icon="icon ec-sa-asa" roles="html5,collapsemenu,no_aip,alts" ko="one-at-a-time" resourceKey="60214" url="Synthesize/Synthesis_Performance_wrt_Alternatives.html" description="SL"/>
+        <siteMapNode title="Four at a time"  icon="icon ec-sa-mixed" roles="html5,collapsemenu,no_aip,alts" ko="four-at-a-time" resourceKey="60217" url="Synthesize/Four_Performance_wrt_Alternatives.html" description="SL"/>
+      </siteMapNode>
+      <!--<siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+        <siteMapNode title="Data Grid" icon="icon ec-grid" resourceKey="50107" url="Synthesize/DataGrid.html" description="SL"/>
+        <siteMapNode title="Consensus View" icon="icon ec-grid" roles="html5" resourceKey="60209" url="Synthesize/Synthesize_Consensus_View.html" description="SL/DA" />
+        <siteMapNode title="Inconsistency" resourceKey="50115" icon="icon icon-ec-font-report"  url="Report/Reports_Ad-Hoc_Reports.html?7" description="SL/AC"/>
+        <siteMapNode title="Survey Results" resourceKey="50116" icon="icon icon-ec-font-bar-chart" url="Report/Reports_Ad-Hoc_Reports.html?8" description="SL"/>
+      </siteMapNode>-->
+      <siteMapNode title="Others" icon="">
+        <siteMapNode title="Consensus View" icon="fa fa-exchange-alt" roles="" ko="consensus-view" resourceKey="60209" url="Synthesize/Synthesize_Consensus_View.html" description="SL/DA" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="mnuAllocate" icon="fa fa-balance-scale" roles="workflow,hide" resourceKey="10104" ko="allocate-landing">
+      <siteMapNode title="mnuPortfolioManagement" icon="icon icon-ec-font-allocate">
+        <siteMapNode title="Allocate" icon="icon icon-ec-font-allocate" roles="~CtrlAltA,alts" ko="allocate" resourceKey="77100" url="allocate/Allocdata gridation.html" description="AD"/>
+        <siteMapNode title="Dependencies" icon="icon icon-ec-font-dependencies" roles="alts" ko="dependencies" resourceKey="77101" url="allocate/Dependencies.htm" description="DA"/>
+        <siteMapNode title="Groups" resourceKey="77103" icon="icon icon-ec-font-group" roles="alts" ko="ra-groups" url="allocate/Groups.html" description="DA"/>
+        <siteMapNode title="Funding Pools" icon="icon icon-ec-font-fund-pool" roles="alts" ko="funding-pools" resourceKey="77102" url="allocate/Funding_Pools.html" description="AD"/>
+        <siteMapNode title="Custom Constraints" icon="icon icon-ec-font-constraint" roles="alts" ko="custom-constraints" resourceKey="77104" url="allocate/Custom_Constraints.html" description="AD"/>
+        <siteMapNode title="Time Periods Setttings" icon="icon icon-ec-font-constraint" roles="alts"  ko="time-periods" resourceKey="77118" url="allocate/Adjust_Periods.html" description="SL"/>
+        <siteMapNode title="Time Periods Results" icon="icon icon-ec-font-constraint" roles="alts"  ko="" resourceKey="77124" url="" description="SL"/>
+      </siteMapNode>
+      <siteMapNode title="mnuPortfolioAssessment" icon="icon icon-ec-font-scenario-comparison">
+        <siteMapNode title="Increasing Budgets" icon="icon icon-ec-font-relevant-constraint" roles="nomobile,alts" ko="efficient-frontier" resourceKey="77105" url="allocate/Efficient_Frontier.html" description="DA"/>
+        <siteMapNode title="Strategic Buckets" icon="icon icon-ec-font-strategy" roles="alts" resourceKey="77108" ko="strategic-buckets" url="allocate/Strategic_Buckets.html" description="DA"/>
+        <siteMapNode title="Visualization" icon="icon icon-ec-font-visualization" roles="alts" resourceKey="77107" ko="ra-visualization" url="allocate/Plot_Alternatives.html" description="AD/DA"/>
+        <siteMapNode title="Scenario Comparisions" icon="icon icon-ec-font-scenario-comparison" roles="alts" ko="scenario-comparisons" resourceKey="77117" url="allocate/Scenario_Comparison.html" description="DA"/>
+      </siteMapNode>
+      <siteMapNode title="mnuRAReports" icon="icon icon-ec-font-model-specification">
+        <siteMapNode title="Model Specifications" icon="icon icon-ec-font-model-specification" roles="alts" ko="ra-model-specifications" resourceKey="77112" url="allocate/Model_Specification.html" description="DA"/>
+        <!--<siteMapNode title="Constraint Summary"  icon="icon icon-ec-font-constraint-summary" roles="alts" ko="constraints-summary" resourceKey="77113" url="allocate/Model_Specification.html?2" description="DA"/>-->
+        <siteMapNode title="Relevant Constraints" icon="icon icon-ec-font-relevant-constraint" roles="alts" ko="relevant-constraints" resourceKey="77114" url="allocate/Relevant_Constraints.html" description="DA"/>
+      </siteMapNode>
+    </siteMapNode>
+
+    <!--<siteMapNode title="mnuIterate" roles="workflow" icon="fa fa-redo">
+      <siteMapNode title="mnuIterateOverview" icon="fas fa-book-open" roles="help" url="Iterate/iterate.html" />
+      <siteMapNode title="mnuIterateStructuring" icon="icon ec-hierarchy" roles="js:navOpenPage(20101);" />
+      <siteMapNode title="mnuIterateMeasurement" icon="fa fa-list-ol" roles="js:navOpenPage(20123);" />
+    </siteMapNode>-->
+
+    <!--<siteMapNode title="Dashboard" resourceKey="50111" roles="draft,workflow,nomobile,html5" icon="fa fa-columns"/>-->
+
+    <siteMapNode title="mnuDashboard" icon="fa fa-tachometer-alt" roles="workflow,hide,new" ko="dashboard" resourceKey="60219" description="AD/SL" />
+
+    <siteMapNode title="mnuViewReports" roles="workflow,hide" icon="fa fa-print" resourceKey="10105" ko="reports-landing">
+      <!--<siteMapNode title="Dashboards" icon="fa fa-tachometer-alt" roles="collapsemenu,draft" ko="dashboard" resourceKey="60219" description="AD/SL" />-->
+      <siteMapNode title="Data Grid" icon="icon ec-datagrid" resourceKey="50107" ko="datagrid" url="Synthesize/DataGrid.html?2" description="SL"/>
+      <siteMapNode title="Objectives" icon="icon ec-hierarchy" resourceKey="50004" ko="project-documentation" roles="no_report" url="Report/Reports_Predefined_Reports.html?2" description="SL/AC"/>
+      <siteMapNode title="Alternatives" icon="icon ec-alts" resourceKey="50009" roles="no_report,alts" ko="project-documentation" url="Report/Reports_Predefined_Reports.html?3" description="SL/AC"/>
+      <!--<siteMapNode title="Consensus View" icon="fa fa-exchange-alt" roles="html5" resourceKey="60209" url="Synthesize/Synthesize_Consensus_View.html?2" description="SL/DA"/>-->
+      <!--<siteMapNode title="Sensitivity Analysis" icon="icon icon-ec-font-line-graph-2">
+        <siteMapNode title="navDSA" roles="no_aip" resourceKey="60202" url="Synthesize/Synthesize_Dynamic_Sensitivity.htm?2" description="SL"/>
+        <siteMapNode title="navPSA" roles="no_aip" resourceKey="60203" url="Synthesize/Synthesize_Performance_Sensitivity.html?2" description="SL"/>
+        <siteMapNode title="navGSA" roles="no_aip" resourceKey="60204" url="Synthesize/Synthesize_Gradient_Sensitivity.html?2" description="SL"/>
+        <siteMapNode title="nav2D" roles="no_aip" resourceKey="60207" url="Synthesize/Synthesize_2D_Analysis.html?2" description="SL"/>
+        <siteMapNode title="navHeadToHead" roles="no_aip" resourceKey="60215" url="Synthesize/Head_to_head_analysis.html?2" description="SL"/>
+        <siteMapNode title="Mixed" roles="no_aip" resourceKey="60216" url="Synthesize/Four_Graphs.html?2" description="DA"/>
+      </siteMapNode>-->
+      <siteMapNode title="Survey Results" icon="icon ec-survey" roles="no_report" ko="project-documentation" resourceKey="50106" url="Report/Reports_Ad-Hoc_Reports.html?6" description="SL/AC"/>
+      <siteMapNode title="Inconsistency Report" icon="icon icon-ec-font-report" roles="no_report" ko="adhoc" resourceKey="50105" url="Report/Reports_Ad-Hoc_Reports.html?5" description="SL/AC"/>
+      <siteMapNode title="mnuProjectDocumentation" icon="icon icon-ec-font-project-documentation">
+        <siteMapNode title="Overall Results" icon="icon icon-ec-font-report" roles="no_report" ko="project-documentation" resourceKey="50011" url="Report/Reports_Predefined_Reports.html?10" description="SL/AC"/>
+        <siteMapNode title="Objectives/Alternatives priorities" icon="icon icon-ec-font-report" roles="no_report" ko="project-documentation" resourceKey="50007" url="Report/Reports_Predefined_Reports.html?9" description="SL/AC"/>
+        <siteMapNode title="Priority of Objectives" icon="icon icon-ec-font-report" roles="no_report" ko="project-documentation" resourceKey="50006" url="Report/Reports_Predefined_Reports.html?7" description="SL/AC"/>
+        <!--<siteMapNode title="Priority of Alternatives" icon="icon icon-ec-font-report" roles="no_report" ko="project-documentation" resourceKey="50011" url="Report/Reports_Predefined_Reports.html?8" description="SL/AC"/>-->-->
+        <siteMapNode title="Judgments of Objectives" icon="icon icon-ec-font-report" roles="no_report" ko="project-documentation" resourceKey="50003" url="Report/Reports_Predefined_Reports.html?5" description="SL/AC"/>
+        <siteMapNode title="Judgments of Alternatives" icon="icon icon-ec-font-report" roles="no_report,alts" ko="project-documentation" resourceKey="50010" url="Report/Reports_Predefined_Reports.html?6" description="SL/AC"/>
+        <siteMapNode title="Contribution" icon="icon icon-ec-font-report" roles="no_report" resourceKey="50002" ko="project-documentation" url="Report/Reports_Predefined_Reports.html?4" description="SL/AC"/>
+        <siteMapNode title="Objectives And Alternatives" icon="icon icon-ec-font-report" roles="no_report" ko="project-documentation" resourceKey="50005" url="Report/Reports_Predefined_Reports.html?1" description="SL/AC"/>
+      </siteMapNode>
+      <siteMapNode title="mnuReportCustom" icon="icon icon-ec-font-bar-chart">
+        <siteMapNode title="Judgments and data" icon="icon icon-ec-font-report" roles="no_report" ko="adhoc" resourceKey="50102" url="Report/Reports_Ad-Hoc_Reports.html?1" description="SL/AC"/>
+        <siteMapNode title="Objectives Priorities" icon="icon icon-ec-font-report" roles="no_report" ko="adhoc" resourceKey="50103" url="Report/Reports_Ad-Hoc_Reports.html?2" description="SL/AC"/>
+        <siteMapNode title="Alternatives Priorities" icon="icon icon-ec-font-report" roles="no_report,alts" ko="" resourceKey="50101" url="Report/Reports_Ad-Hoc_Reports.html?3" description="SL/AC"/>
+        <siteMapNode title="Evaluation Progress" icon="icon ec-eval-progress" roles="no_report" ko="adhoc" resourceKey="50104" url="Report/Reports_Ad-Hoc_Reports.html?4" description="SL/AC"/>
+      </siteMapNode>
+      <siteMapNode title="Others" icon="">
+        <siteMapNode title="Combined Report" roles="hide,draft,new" resourceKey="50130" icon="fas fa-file-excel" description="SL/AS"/>
+        <!--<siteMapNode title="Report Generator" roles="hide,draft" resourceKey="50001"  icon="fas fa-file-invoice" description="SL/AD"/>-->
+        <siteMapNode title="Download CSV file" roles="" resourceKey="50113"  icon="fa fa-download" description="SL"/>
+      </siteMapNode>
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

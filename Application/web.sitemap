@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="Home">
+
+    <!--<siteMapNode title="mnuProjects" icon="fa fa-folder-open" roles="left,hide">-->
+    <siteMapNode title="mnuManageProjects" icon="fa fa-folder-open" roles="usermenu,resname,hide,projectslist,js:onSelectProject();">
+      <siteMapNode title="Projects" resourceKey="20001" icon="far fa-file-alt" roles="html5" ko="projects-active" url="Home/Home_Project_Management_Projects.html" description="AD"/>
+      <siteMapNode title="Archived" resourceKey="20003" icon="far fa-file-archive" roles="html5" ko="project-archives" url="Home/Home_Project_Management_Archives.html" description="AD"/>
+      <siteMapNode title="Templates" resourceKey="20005" icon="far fa-file" roles="html5" ko="project-templates" url="Home/Home_Project_Management_Templates.html" description="AD"/>
+      <siteMapNode title="Marked as Deleted" resourceKey="20007" icon="far fa-file-excel" roles="html5" ko="projects-deleted" url="Home/Deleted_Projects.html" description="AD"/>
+      <siteMapNode title="mnuProjectHistory" resourceKey="" icon="far fa-clock" roles="html5,resname,starred,js:onShowProjectsHistory();" ko="project-history" url="" description="AD"/>
+      <siteMapNode title="mnuStarredProjects" resourceKey="" icon="far fa-star" roles="html5,resname,starred,js:onShowStarredProjects();" ko="projects-starred" url="" description="AD"/>
+      <siteMapNode title="Project Lookup" resourceKey="80111" icon="fa fa-binoculars" roles="" ko="project-lookup" url="" description="AD"/>
+      <siteMapNode title="Projects Statistic" resourceKey="80112" icon="fa fa-layer-group" roles="collapsemenu,draft" ko="project-statistic" description="AD"/>
+    </siteMapNode>
+
+    <siteMapNode siteMapFile="Comparion.sitemap" />
+    <siteMapNode siteMapFile="Riskion.sitemap" />
+    <siteMapNode siteMapFile="Riskion2.sitemap" />
+
+    <siteMapNode title="mnuManageWorkgroup" icon="fa fa-server" roles="usermenu,hide" ko="manage-workgroup-landing">
+      <siteMapNode title="License" resourceKey="80080" icon="fa fa-certificate" ko="wkg-license" url="Home/Home_WorkgroupManagement_License.html" description="AD"/>
+      <siteMapNode title="Manage Participants" resourceKey="80010" icon="fa fa-users" ko="wkg-participants" description="DA"/>
+      <siteMapNode title="On-line Participants" resourceKey="80091" icon="fa fa-user-secret" ko="online-participants" url="Home/Home_WorkgroupManagement_Online_Participants.html" description="AD"/>
+      <siteMapNode title="Default Option Sets" resourceKey="20006" icon="fa fa-asterisk" ko="default-option-sets" url="Home/Master_Projects.html" description="AD" />
+      <siteMapNode title="Wording Templates" resourceKey="80050" icon="ion ion-ios-pricetags" ko="wording-templates" url="Home/Wording_Templates.html" description="DA"/>
+      <siteMapNode title="Workgroup Templates" resourceKey="80040" icon="far fa-copy" ko="wkg-templates" url="" description="AD"/>
+      <siteMapNode title="Workgroup Samples" resourceKey="80045" icon="fas fa-copy" ko="wkg-samples" url="" description="AD"/>
+      <siteMapNode title="View Logs" roles="draft,collapsemenu" resourceKey="80090" icon="far fa-calendar-alt"  description="AD"/>
+      <siteMapNode title="Workgroups Statistic" resourceKey="80096" icon="fa fa-scroll" roles="collapsemenu,draft" description="AD"/>
+    </siteMapNode>
+
+    <siteMapNode title="mnuAdmin" icon="fa fa-cogs" roles="usermenu,hide" >
+      <siteMapNode title="Workgroups" resourceKey="80030" roles="collapsemenu" icon="fa fa-list-ul"  description="AD"/>
+      <siteMapNode title="Logs In Statistic" resourceKey="80095" icon="fa fa-fingerprint" roles="collapsemenu,draft" description="AD"/>
+      <siteMapNode title="Hash/Token URLs" resourceKey="80100" icon="fa fa-link"  description="AD"/>
+      <siteMapNode title="User Info" resourceKey="80110" icon="far fa-address-book"  description="AD"/>
+      <siteMapNode title="System Settings" roles="hide, collapsemenu" resourceKey="90021" icon="fas fa-user-secret"  description="AD"/>
+    </siteMapNode>
+
+    <siteMapNode title="Personal Settings" resourceKey="40010" icon="fa fa-user-cog" ko="personal-settings" roles="usermenu,html5,hide"/>
+    <siteMapNode title="Get PIN" resourceKey="40099" icon="ion ion-md-keypad" ko="personal-settings" roles="usermenu,html5,hide"/>
+    <!--<siteMapNode title="mnuFAQ" icon="fas fa-question-circle" roles="usermenu,auth,hide,resname,js:onShowFAQ();"/>-->
+    <siteMapNode title="Resource Center" resourceKey="10060" icon="fa fa-book" roles="usermenu,hide,js:onResourceCenter();"/>
+    <!--<siteMapNode title="Known Issues" resourceKey="10090" icon="fas fa-bug" roles="usermenu,hide,js:onKnownIssues();"/>-->
+    <siteMapNode title="mnuReleaseNotes" icon="fa fa-certificate" roles="usermenu,hide,resname,comparion,releasenotes,js:showReleaseNotes(true);"/>
+    <siteMapNode title="Customer Support" resourceKey="10070" icon="fa fa-envelope" roles="usermenu,hide,js:onCustomerSupport();"/>
+    <siteMapNode title="Logout" resourceKey="10002" icon="fa fa-sign-out-alt" roles="~CtrlAltX,usermenu,html5,js:confirmLogout();"/>
+
+  </siteMapNode>
+</siteMap>

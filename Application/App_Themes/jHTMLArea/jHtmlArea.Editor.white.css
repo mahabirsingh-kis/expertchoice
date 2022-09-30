@@ -1,0 +1,134 @@
+﻿body
+{	
+        background: #ffffff;
+	font-size: 16px;
+	font-weight:bold;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	color:#005292;
+	margin: 4px 0px 2px 0px;
+	padding: 0;
+	border: 0;
+	text-align:center;
+}
+
+.text
+{
+	font-size: 14px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	color: #333333;	
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color:#005292;
+	text-align:center;
+	margin:0px;
+	padding:0px 0px 0.75ex 0px;
+}
+
+h1
+{
+	font-size:18pt
+}
+h2
+{
+	font-size:16pt
+}
+h3
+{
+	font-size:15pt
+}
+h4
+{
+	font-size:14pt
+}
+h5
+{
+	font-size:13pt
+}
+h6
+{
+	font-size:11pt
+}
+
+.xsmall
+{
+    font-size: 7pt;
+    font-family:  Tahoma, Verdana, Arial, Sans;
+}
+.small
+{
+    font-size: 8pt;
+    font-family: Tahoma, Verdana, Arial, Sans;
+}
+
+.whole
+{
+    width: 100%;
+    height: 100%;
+}
+
+.panel
+{
+    padding: 1ex;
+}            
+
+.gray
+{
+    color: #999999;
+}
+
+.inactive
+{
+    color: #666677;
+}
+
+.aslink
+{
+  cursor: pointer;
+}
+
+.nu
+{
+ color: #333399;
+ text-decoration: none;
+}
+
+.warning
+{
+  font-size:10pt;
+  border:1px solid #cc3333;
+  background:#fffae0;
+  padding:5px 10px;
+}
+
+.eval_task
+{
+	padding:8px 14px;
+	background:#f0f0f0;
+	margin:4px;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.task_bold
+{
+	color:#0033cc;
+	font-weight:bold;
+}
+
+.wrt_name, #wrt_name
+{
+	color:#0033cc;
+	font-weight:bold;
+	border:1px dashed #999999;
+	background: #ffffa0;
+	padding:0px 1px;
+}
+
+.wrt_name_infodoc
+{
+	color:#0033cc;
+	font-weight:bold;
+	font-size:11pt;
+}

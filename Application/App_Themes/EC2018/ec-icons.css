@@ -1,0 +1,127 @@
+﻿@charset "UTF-8";
+
+@font-face {
+  font-family: "ec-font";
+  src:url("icons/ec-font.eot");
+  src:url("icons/ec-font.eot?#iefix") format("embedded-opentype"),
+    url("icons/ec-font.woff") format("woff"),
+    url("icons/ec-font.ttf") format("truetype"),
+    url("icons/ec-font.svg#ec-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "ec-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-ec-font"]:before,
+[class*=" icon-ec-font"]:before {
+  font-family: "ec-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ec-font-2d:before {
+  content: "\61";
+}
+.icon-ec-font-line-chart:before {
+  content: "\62";
+}
+.icon-ec-font-strategy:before {
+  content: "\63";
+}
+.icon-ec-font-user-role:before {
+  content: "\64";
+}
+.icon-ec-font-visualization:before {
+  content: "\65";
+}
+.icon-ec-font-measurement-type:before {
+  content: "\66";
+}
+.icon-ec-font-line-graph-2:before {
+  content: "\67";
+}
+.icon-ec-font-all-reports:before {
+  content: "\68";
+}
+.icon-ec-font-allocate:before {
+  content: "\69";
+}
+.icon-ec-font-alternatives:before {
+  content: "\6a";
+}
+.icon-ec-font-meeting-option:before {
+  content: "\6b";
+}
+.icon-ec-font-mixed:before {
+  content: "\6c";
+}
+.icon-ec-font-bar-chart:before {
+  content: "\6d";
+}
+.icon-ec-font-constraint:before {
+  content: "\6e";
+}
+.icon-ec-font-model-specification:before {
+  content: "\6f";
+}
+.icon-ec-font-objectives:before {
+  content: "\70";
+}
+.icon-ec-font-constraint-summary:before {
+  content: "\71";
+}
+.icon-ec-font-dependencies:before {
+  content: "\72";
+}
+.icon-ec-font-project-documentation:before {
+  content: "\73";
+}
+.icon-ec-font-project-settings:before {
+  content: "\74";
+}
+.icon-ec-font-frontier:before {
+  content: "\75";
+}
+.icon-ec-font-fund-pool:before {
+  content: "\76";
+}
+.icon-ec-font-relevant-constraint:before {
+  content: "\77";
+}
+.icon-ec-font-report:before {
+  content: "\78";
+}
+.icon-ec-font-grid:before {
+  content: "\79";
+}
+.icon-ec-font-group:before {
+  content: "\7a";
+}
+.icon-ec-font-report-template:before {
+  content: "\41";
+}
+.icon-ec-font-scenario-comparison:before {
+  content: "\42";
+}
+.icon-ec-font-group-invite:before {
+  content: "\43";
+}

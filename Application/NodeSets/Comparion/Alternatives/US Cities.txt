@@ -1,0 +1,317 @@
+#ALTERNATIVES
+New York	 New York	8,622,698
+Los Angeles	 California	3,999,759
+Chicago	 Illinois	2,716,450
+Houston	 Texas	2,312,717
+Phoenix	 Arizona	1,626,078
+Philadelphia	 Pennsylvania	1,580,863
+San Antonio	 Texas	1,511,946
+San Diego	 California	1,419,516
+Dallas	 Texas	1,341,075
+San Jose	 California	1,035,317
+Austin	 Texas	950,715
+Jacksonville	 Florida	892,062
+San Francisco	 California	884,363
+Columbus	 Ohio	879,17
+Fort Worth	 Texas	874,168
+Indianapolis	 Indiana	863,002
+Charlotte	 North Carolina	859,035
+Seattle	 Washington	724,745
+Denver	 Colorado	704,621
+Washington	 District of Columbia	693,972
+Boston	 Massachusetts	685,094
+El Paso	 Texas	683,577
+Detroit	 Michigan	673,104
+Nashville	 Tennessee	667,56
+Memphis	 Tennessee	652,236
+Portland	 Oregon	647,805
+Oklahoma City	 Oklahoma	643,648
+Las Vegas	 Nevada	641,676
+Louisville	 Kentucky	621,349
+Baltimore	 Maryland	611,648
+Milwaukee	 Wisconsin	595,351
+Albuquerque	 New Mexico	558,545
+Tucson	 Arizona	535,677
+Fresno	 California	527,438
+Sacramento	 California	501,901
+Mesa	 Arizona	496,401
+Kansas City	 Missouri	488,943
+Atlanta	 Georgia	486,29
+Long Beach	 California	469,45
+Omaha	 Nebraska	466,893
+Raleigh	 North Carolina	464,758
+Colorado Springs	 Colorado	464,474
+Miami	 Florida	463,347
+Virginia Beach	 Virginia	450,435
+Oakland	 California	425,195
+Minneapolis	 Minnesota	422,331
+Tulsa	 Oklahoma	401,8
+Arlington	 Texas	396,394
+New Orleans	 Louisiana	393,292
+Wichita	 Kansas	390,591
+Cleveland	 Ohio	385,525
+Tampa	 Florida	385,43
+Bakersfield	 California	380,874
+Aurora	 Colorado	366,623
+Anaheim	 California	352,497
+Honolulu	 Hawaii	350,395
+Santa Ana	 California	334,136
+Riverside	 California	327,728
+Corpus Christi	 Texas	325,605
+Lexington	 Kentucky	321,959
+Stockton	 California	310,496
+St. Louis	 Missouri	308,626
+Saint Paul	 Minnesota	306,621
+Henderson	 Nevada	302,539
+Pittsburgh	 Pennsylvania	302,407
+Cincinnati	 Ohio	301,301
+Anchorage	 Alaska	294,356
+Greensboro	 North Carolina	290,222
+Plano	 Texas	286,143
+Newark	 New Jersey	285,154
+Lincoln	 Nebraska	284,736
+Orlando	 Florida	280,257
+Irvine	 California	277,453
+Toledo	 Ohio	276,491
+Jersey City	 New Jersey	270,753
+Chula Vista	 California	270,471
+Durham	 North Carolina	267,743
+Fort Wayne	 Indiana	265,904
+St. Petersburg	 Florida	263,255
+Laredo	 Texas	260,654
+Buffalo	 New York	258,612
+Madison	 Wisconsin	255,214
+Lubbock	 Texas	253,888
+Chandler	 Arizona	253,458
+Scottsdale	 Arizona	249,95
+Reno	 Nevada	248,853
+Glendale	 Arizona	246,709
+Norfolk	 Virginia	244,703
+Winston–Salem	 North Carolina	244,605
+North Las Vegas	 Nevada	242,975
+Gilbert	 Arizona	242,354
+Chesapeake	 Virginia	240,397
+Irving	 Texas	240,373
+Hialeah	 Florida	239,673
+Garland	 Texas	238,002
+Fremont	 California	234,962
+Richmond	 Virginia	227,032
+Boise	 Idaho	226,57
+Baton Rouge	 Louisiana	225,374
+Des Moines	 Iowa	217,521
+Spokane	 Washington	217,108
+San Bernardino	 California	216,995
+Modesto	 California	214,221
+Tacoma	 Washington	213,418
+Fontana	 California	211,815
+Santa Clarita	 California	210,888
+Birmingham	 Alabama	210,71
+Oxnard	 California	210,037
+Fayetteville	 North Carolina	209,889
+Rochester	 New York	208,046
+Moreno Valley	 California	207,226
+Glendale	 California	203,054
+Yonkers	 New York	202,019
+Huntington Beach	 California	201,874
+Aurora	 Illinois	200,965
+Salt Lake City	 Utah	200,544
+Amarillo	 Texas	199,826
+Montgomery	 Alabama	199,518
+Grand Rapids	 Michigan	198,829
+Little Rock	 Arkansas	198,606
+Akron	 Ohio	197,846
+Augusta	 Georgia	197,166
+Huntsville	 Alabama	194,585
+Columbus	 Georgia	194,058
+Grand Prairie	 Texas	193,837
+Shreveport	 Louisiana	192,036
+Overland Park	 Kansas	191,278
+Tallahassee	 Florida	191,049
+Mobile	 Alabama	190,265
+Port St. Lucie	 Florida	189,344
+Knoxville	 Tennessee	187,347
+Worcester	 Massachusetts	185,677
+Tempe	 Arizona	185,038
+Cape Coral	 Florida	183,365
+Brownsville	 Texas	183,299
+McKinney	 Texas	181,33
+Providence	 Rhode Island	180,393
+Fort Lauderdale	 Florida	180,072
+Newport News	 Virginia	179,388
+Chattanooga	 Tennessee	179,139
+Rancho Cucamonga	 California	177,452
+Frisco	 Texas	177,286
+Sioux Falls	 South Dakota	176,888
+Oceanside	 California	176,193
+Ontario	 California	175,841
+Vancouver	 Washington	175,673
+Santa Rosa	 California	175,269
+Garden Grove	 California	174,226
+Elk Grove	 California	171,844
+Pembroke Pines	 Florida	170,712
+Salem	 Oregon	169,798
+Eugene	 Oregon	168,916
+Peoria	 Arizona	168,181
+Corona	 California	167,836
+Springfield	 Missouri	167,376
+Jackson	 Mississippi	166,965
+Cary	 North Carolina	165,904
+Fort Collins	 Colorado	165,08
+Hayward	 California	160,5
+Lancaster	 California	160,316
+Alexandria	 Virginia	160,035
+Salinas	 California	157,596
+Palmdale	 California	157,519
+Lakewood	 Colorado	154,958
+Springfield	 Massachusetts	154,758
+Sunnyvale	 California	153,656
+Hollywood	 Florida	153,627
+Pasadena	 Texas	153,52
+Clarksville	 Tennessee	153,205
+Pomona	 California	152,939
+Kansas City	 Kansas	152,938
+Macon	 Georgia	152,663
+Escondido	 California	151,969
+Paterson	 New Jersey	148,678
+Joliet	 Illinois	148,462
+Naperville	 Illinois	147,682
+Rockford	 Illinois	147,051
+Torrance	 California	146,758
+Bridgeport	 Connecticut	146,579
+Savannah	 Georgia	146,444
+Killeen	 Texas	145,482
+Bellevue	 Washington	144,444
+Mesquite	 Texas	143,949
+Syracuse	 New York	143,396
+McAllen	 Texas	142,696
+Pasadena	 California	142,647
+Orange	 California	140,56
+Fullerton	 California	140,392
+Dayton	 Ohio	140,371
+Miramar	 Florida	140,328
+Olathe	 Kansas	137,472
+Thornton	 Colorado	136,978
+Waco	 Texas	136,436
+Murfreesboro	 Tennessee	136,372
+Denton	 Texas	136,268
+West Valley City	 Utah	136,17
+Midland	 Texas	136,089
+Carrollton	 Texas	135,71
+Roseville	 California	135,329
+Warren	 Michigan	135,022
+Charleston	 South Carolina	134,875
+Hampton	 Virginia	134,669
+Surprise	 Arizona	134,085
+Columbia	 South Carolina	133,114
+Coral Springs	 Florida	133,037
+Visalia	 California	133,01
+Sterling Heights	 Michigan	132,631
+Gainesville	 Florida	132,249
+Cedar Rapids	 Iowa	132,228
+New Haven	 Connecticut	131,014
+Stamford	 Connecticut	130,824
+Elizabeth	 New Jersey	130,215
+Concord	 California	129,783
+Thousand Oaks	 California	128,995
+Kent	 Washington	128,458
+Santa Clara	 California	127,134
+Simi Valley	 California	126,878
+Lafayette	 Louisiana	126,848
+Topeka	 Kansas	126,587
+Athens	 Georgia	125,691
+Round Rock	 Texas	123,678
+Hartford	 Connecticut	123,4
+Norman	 Oklahoma	122,843
+Victorville	 California	122,441
+Fargo	  North Dakota	122,359
+Berkeley	 California	122,324
+Vallejo	 California	122,105
+Abilene	 Texas	121,885
+Columbia	 Missouri	121,717
+Ann Arbor	 Michigan	121,477
+Allentown	 Pennsylvania	121,283
+Pearland	 Texas	119,94
+Beaumont	 Texas	119,114
+Wilmington	 North Carolina	119,045
+Evansville	 Indiana	118,93
+Arvada	 Colorado	118,807
+Provo	 Utah	117,335
+Independence	 Missouri	117,306
+Lansing	 Michigan	116,986
+Odessa	 Texas	116,861
+Richardson	 Texas	116,783
+Fairfield	 California	116,266
+El Monte	 California	116,109
+Rochester	 Minnesota	115,733
+Clearwater	 Florida	115,513
+Carlsbad	 California	115,33
+Springfield	 Illinois	114,868
+Temecula	 California	114,327
+West Jordan	 Utah	113,905
+Costa Mesa	 California	113,825
+Miami Gardens	 Florida	113,75
+Cambridge	 Massachusetts	113,63
+College Station	 Texas	113,564
+Murrieta	 California	113,326
+Downey	 California	113,092
+Peoria	 Illinois	112,883
+Westminster	 Colorado	112,812
+Elgin	 Illinois	112,456
+Antioch	 California	111,674
+Palm Bay	 Florida	111,657
+High Point	 North Carolina	111,513
+Lowell	 Massachusetts	111,346
+Manchester	 New Hampshire	111,196
+Pueblo	 Colorado	111,127
+Gresham	 Oregon	111,053
+North Charleston	 South Carolina	110,861
+Ventura	 California	110,79
+Inglewood	 California	110,598
+Pompano Beach	 Florida	110,473
+Centennial	 Colorado	110,25
+West Palm Beach	 Florida	110,222
+Everett	 Washington	110,079
+Richmond	 California	110,04
+Clovis	 California	109,691
+Billings	 Montana	109,642
+Waterbury	 Connecticut	108,629
+Broken Arrow	 Oklahoma	108,303
+Lakeland	 Florida	108,054
+West Covina	 California	107,598
+Boulder	 Colorado	107,125
+Daly City	 California	107,074
+Santa Maria	 California	107,014
+Hillsboro	 Oregon	106,894
+Sandy Springs	 Georgia	106,739
+Norwalk	 California	106,084
+Jurupa Valley	 California	106,028
+Lewisville	 Texas	106,021
+Greeley	 Colorado	105,448
+Davie	 Florida	105,149
+Green Bay	 Wisconsin	105,116
+Tyler	 Texas	104,991
+League City	 Texas	104,903
+Burbank	 California	104,834
+San Mateo	 California	104,748
+Wichita Falls	 Texas	104,747
+El Cajon	 California	103,894
+Rialto	 California	103,562
+Lakewood	 New Jersey	102,682
+Edison	 New Jersey	102,45
+Davenport	 Iowa	102,32
+South Bend	 Indiana	102,245
+Woodbridge	 New Jersey	101,965
+Las Cruces	 New Mexico	101,712
+Vista	 California	101,568
+Renton	 Washington	101,379
+Sparks	 Nevada	100,888
+Clinton	 Michigan	100,712
+Allen	 Texas	100,685
+Tuscaloosa	 Alabama	100,287
+San Angelo	 Texas	100,119
+Vacaville	 California	100,032
+		
+		
+		
+		
+		

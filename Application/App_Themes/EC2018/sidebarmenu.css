@@ -1,0 +1,895 @@
+﻿.sidebar-menu-header, .sidebar-menu-header-mini {
+    padding-left: 16px;
+    float: left;
+    font-size: 1.5em;
+    font-weight: 900; }
+
+.sidebar-menu .sidebar-menu-header-mini, .sidebar-menu-header-mini {
+    width: 100%;
+    font-size: 1.1em;
+    display: none;
+    text-align: center;
+    padding-left: 0; }
+
+.sidebar-menu > ul > li.active > a, .sidebar-menu > ul > li.active > a:hover {
+    color: #ffffff;
+    background: #0051a8;
+    /*border-left-color: $light-blue;*/ }
+
+.sidebar-menu ul ul.submenu, .sidebar-menu ul ul.submenu li ul.submenu {
+    width: 100%;
+    display: none;
+    position: static; }
+
+.sidebar-menu ul li .sidebar-menu-label, .sidebar-menu ul ul.submenu li .sidebar-menu-label {
+    min-width: 16px;
+    width: 17px;
+    height: 17px;
+    padding: 2px;
+    position: absolute;
+    right: 6px;
+    top: 3px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 16px;
+    background: #CCCCCC;
+    border-radius: 100%; }
+
+.sidebar-menu.collapsed ul.submenu {
+    position: fixed;
+    width: 220px;
+    max-width: 350px;
+    box-shadow: 6px 6px 8px 1px rgba(150, 150, 150, 0.2);
+    border-top: 1px solid #EFEFEF;
+    border-right: 1px solid #F0F0F0;
+    border-bottom: 1px solid #CCCCCC;
+    z-index: 9;
+    left: 50px;
+    margin-top: 0;
+    display: none; }
+
+/*.sidebar-menu-wrapper {
+	height: 100%;
+	overflow: hidden;
+	box-shadow: 0 5px 10px 6px $mountain_mist;
+	float: left;
+	margin-right: 12px;
+	border-right: 1px solid $iron;
+}*/
+.sidebar-menu {
+    box-sizing: border-box;
+    outline: 0;
+    min-width: 42px;
+    min-height: 90px;
+    width: 100%;
+    /*overflow-y: auto;
+	overflow-x: hidden;
+	float: left;
+	position: relative;*/ }
+    .sidebar-menu * {
+        box-sizing: border-box;
+        outline: 0; }
+    .sidebar-menu.collapsed {
+        min-width: 50px;
+        width: 52px; }
+        .sidebar-menu.collapsed .sidebar-menu-footer {
+            display: none; }
+        .sidebar-menu.collapsed .sidebar-menu-header {
+            display: none; }
+        .sidebar-menu.collapsed .sidebar-menu-header-mini {
+            display: block; }
+        .sidebar-menu.collapsed ul li a {
+            padding-left: 10px;
+            font-size: 0; }
+            .sidebar-menu.collapsed ul li a i {
+                line-height: 17px;
+                font-size: 16px; }
+            .sidebar-menu.collapsed ul li a.submenu-indicator-minus {
+                background: #f5f5f5; }
+        .sidebar-menu.collapsed ul li.workflow a {
+            padding-left: 6px; }
+        .sidebar-menu.collapsed ul ul.submenu li ul.submenu {
+            display: block; }
+        .sidebar-menu.collapsed > ul > li .sidebar-menu-label {
+            display: none; }
+        .sidebar-menu.collapsed > ul > li.subactive > a {
+            border-left-color: #0051a8; }
+        .sidebar-menu.collapsed > ul .submenu-indicator {
+            display: none; }
+        .sidebar-menu.collapsed > ul ul .submenu-indicator {
+            display: block;
+            margin-top: -16px; }
+        .sidebar-menu.collapsed li:hover > ul.submenu {
+            display: block; }
+    .sidebar-menu ul {
+        margin: 0;
+        padding: 0;
+        list-style: none; }
+        .sidebar-menu ul li {
+            width: 100%;
+            display: block;
+            float: left;
+            position: relative; }
+            .sidebar-menu ul li a {
+                width: 100%;
+                padding: 3px 46px 3px 4px;
+                float: left;
+                text-decoration: none;
+                color: #333333;
+                font-size: 13px;
+                background: rgba(250, 252, 252, 0.85);
+                position: relative;
+                overflow: hidden;
+                border-bottom: 1px solid #EEEEEE;
+                border-left: 0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                transition: color .2s linear,background .2s linear; }
+                .sidebar-menu ul li a i {
+                    width: 20px;
+                    float: left;
+                    text-align: center;
+                    line-height: 15px;
+                    font-size: 15px;
+                    color: #333333; }
+                    .sidebar-menu ul li a i.ion {
+                        font-size: 1.45em; }
+                    .sidebar-menu ul li a i i.icon {
+                        font-size: 1.15em !important; }
+                .sidebar-menu ul li a.submenu-indicator-minus {
+                    background: #FAFAFA; }
+                .sidebar-menu ul li a:hover i {
+                    color: #0051a8;
+                    transition: color .2s linear; }
+            .sidebar-menu ul li.disabled > a, .sidebar-menu ul li:disabled > a {
+                color: #AAAAAA;
+                cursor: default; }
+                .sidebar-menu ul li.disabled > a:hover, .sidebar-menu ul li:disabled > a:hover {
+                    color: #AAAAAA; }
+                .sidebar-menu ul li.disabled > a i, .sidebar-menu ul li:disabled > a i {
+                    color: #AAAAAA; }
+            .sidebar-menu ul li.disabled > .sidebar-menu-label, .sidebar-menu ul li:disabled > .sidebar-menu-label {
+                opacity: 0.3; }
+            .sidebar-menu ul li.active a i {
+                color: #fff; }
+            .sidebar-menu ul li.workflow {
+                padding-left: 0;
+                /*border-left: 4px solid $ec-blue-normal;*/ }
+                .sidebar-menu ul li.workflow > a {
+                    /*background: $ghost;
+					border-bottom-color: $sea-mist;*/ }
+                .sidebar-menu ul li.workflow a.active {
+                    border-left-color: transparent; }
+                .sidebar-menu ul li.workflow a:hover {
+                    border-left-color: transparent;
+                    background: #F0F0F0; }
+                    .sidebar-menu ul li.workflow a:hover i {
+                        color: #0051a8; }
+                .sidebar-menu ul li.workflow a i {
+                    color: #6d8161; }
+                .sidebar-menu ul li.workflow ul.submenu a i {
+                    color: #6d8161; }
+                .sidebar-menu ul li.workflow ul.submenu a:hover {
+                    background: #F0F0F0; }
+                    .sidebar-menu ul li.workflow ul.submenu a:hover i {
+                        color: #0051a8; }
+                .sidebar-menu ul li.workflow ul.submenu li a {
+                    /*background: $harp;
+						border-bottom-color: $sea-mist;
+						color: $tuatara;*/ }
+                .sidebar-menu ul li.workflow.active > a {
+                    color: #ffffff; }
+                    .sidebar-menu ul li.workflow.active > a i {
+                        color: #ffffff; }
+                .sidebar-menu ul li.workflow.disabled > a {
+                    color: #AAAAAA;
+                    cursor: default; }
+                    .sidebar-menu ul li.workflow.disabled > a i {
+                        color: #AAAAAA; }
+                    .sidebar-menu ul li.workflow.disabled > a:hover {
+                        color: #AAAAAA; }
+                .sidebar-menu ul li.workflow.disabled > .sidebar-menu-label {
+                    opacity: 0.3; }
+        .sidebar-menu ul.submenu.active {
+            display: block; }
+        .sidebar-menu ul.submenu li a:hover {
+            background: #EFEFEF;
+            color: #333333; }
+        .sidebar-menu ul.submenu li.active a {
+            background: #0051a8;
+            color: #ffffff;
+            font-weight: 700; }
+            .sidebar-menu ul.submenu li.active a:hover {
+                background: #0051a8 !important;
+                color: #ffffff !important; }
+            .sidebar-menu ul.submenu li.active a i {
+                color: #ffffff !important; }
+        .sidebar-menu ul.submenu li.disabled > a {
+            color: #AAAAAA;
+            cursor: default; }
+            .sidebar-menu ul.submenu li.disabled > a i {
+                color: #AAAAAA; }
+            .sidebar-menu ul.submenu li.disabled > a:hover {
+                color: #AAAAAA; }
+        .sidebar-menu ul.submenu li.disabled > .sidebar-menu-label {
+            opacity: 0.3; }
+        .sidebar-menu ul ul.submenu .submenu-indicator {
+            line-height: 16px; }
+        .sidebar-menu ul ul.submenu li {
+            clear: both;
+            width: 100%; }
+            .sidebar-menu ul ul.submenu li a {
+                width: 100%;
+                float: left;
+                font-size: 13px;
+                background: rgba(250, 252, 252, 0.85);
+                position: relative;
+                /*border-left: solid 6px transparent;*/
+                border-bottom: 1px solid #EEEEEE;
+                transition: border .2s linear;
+                border-left: 0; }
+                .sidebar-menu ul ul.submenu li a i {
+                    color: #333333; }
+                .sidebar-menu ul ul.submenu li a:hover {
+                    color: #000000;
+                    background: #F0F0F0; }
+                    .sidebar-menu ul ul.submenu li a:hover i {
+                        color: #0051a8; }
+            .sidebar-menu ul ul.submenu li .sidebar-menu-label {
+                top: 3px; }
+            .sidebar-menu ul ul.submenu li.active a i {
+                color: #ffffff; }
+        .sidebar-menu ul ul.submenu > li > a {
+            padding-left: 22px;
+            color: #333333; }
+        .sidebar-menu ul ul.submenu > li > ul.submenu > li > a {
+            padding-left: 30px; }
+        .sidebar-menu ul ul.submenu > li > ul.submenu > li > ul.submenu > li > a {
+            padding-left: 40px; }
+        .sidebar-menu ul ul.submenu ul.submenu a {
+            background-color: #FAFAFA; }
+        .sidebar-menu ul ul.submenu ul.submenu li.active a {
+            background-color: #0051a8; }
+    .sidebar-menu .submenu-indicator {
+        float: right;
+        right: 11px;
+        position: absolute;
+        line-height: 17px;
+        font-size: 18px;
+        color: #555555; }
+    .sidebar-menu .sidebar-menu-header-collapse > a {
+        width: 100%;
+        line-height: 32px; }
+    .sidebar-menu > ul > li > a:hover {
+        color: #000000;
+        background: #F0F0F0; }
+    .sidebar-menu > ul > li.active > a.submenu-indicator-minus {
+        background: #0051a8; }
+    .sidebar-menu .submenu-indicator-minus > .submenu-indicator {
+        transform: rotate(45deg); }
+    .sidebar-menu .workflow ul.submenu li.active a {
+        /*border-left-color: $ec-blue-normal;*/
+        background: #0051a8;
+        color: #ffffff;
+        font-weight: 700; }
+        .sidebar-menu .workflow ul.submenu li.active a i {
+            color: #ffffff; }
+
+.sidebar-menu.no-desc ul li a {
+    padding-right: 26px; }
+
+.sidebar-menu.sidebar-no-borders ul li a {
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff; }
+
+.sidebar-menu.sidebar-no-borders ul.submenu li a {
+    background: #ffffff;
+    border-bottom: 1px solid #ffffff; }
+
+.sidebar-menu.sidebar-no-borders .active a, .sidebar-menu.sidebar-no-borders .submenu .active a {
+    background: #0051a8; }
+
+.sidebar-menu.sidebar-no-borders a:hover, .sidebar-menu.sidebar-no-borders .submenu a:hover {
+    background: #F0F0F0; }
+
+.sidebar-menu > ul > li.active.workflow > a:hover {
+    color: #ffffff;
+    background: #0051a8; }
+    .sidebar-menu > ul > li.active.workflow > a:hover icon {
+        color: #ffffff !important; }
+
+.sidebar-menu-footer-wrapper {
+    /*float: left;*/
+    /*display: inline-block;*/
+    text-align: left; }
+    .sidebar-menu-footer-wrapper i {
+        float: left;
+        font-size: 14px;
+        padding-right: 3px;
+        line-height: 19px; }
+    .sidebar-menu-footer-wrapper a.actions {
+        color: #0051a8; }
+        .sidebar-menu-footer-wrapper a.actions:hover {
+            opacity: 1;
+            color: #073763; }
+            .sidebar-menu-footer-wrapper a.actions:hover span {
+                text-decoration: underline; }
+    .sidebar-menu-footer-wrapper .actions span.sidebar-menu-footer {
+        /*text-decoration: none;*/
+        /*border-bottom: 1px dotted $white;*/
+        line-height: 19px;
+        margin-right: 1ex; }
+
+/*.hover_white {
+    opacity: 0.75;
+}
+
+.hover_white:hover {
+    opacity: 1.0;
+    color: $white;
+}*/
+.sidebar-menu-footer {
+    float: left;
+    font-size: 1.1em;
+    font-weight: 400;
+    overflow: hidden;
+    /*padding: 2px 10px 0 0;*/ }
+
+.sidebar-menu-option {
+    position: absolute;
+    font-size: 0.7rem;
+    bottom: 0px;
+    white-space: nowrap;
+    margin-right: 10px;
+    padding: 4px 15px 3px 6px;
+    color: #555555; }
+    .sidebar-menu-option i {
+        margin-right: 2px; }
+    .sidebar-menu-option a {
+        color: #555555; }
+        .sidebar-menu-option a:hover {
+            color: #0051a8; }
+
+.sidebar-menu-pinner {
+    padding: 2px 6px;
+    border-bottom: 1px solid #F5F5F5;
+    text-align: right;
+    font-size: 12px;
+    background: #FAFAFA !important;
+    transition: background-color 0.33s ease-out, color 0.33s ease-out; }
+
+.sidebar-menu-pinner-btn {
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    line-height: 21px;
+    background-color: transparent; }
+    .sidebar-menu-pinner-btn:hover {
+        background-color: #d2eaff; }
+
+.sidebar-menu-nowrap {
+    white-space: normal !important;
+    text-overflow: !important; }
+
+.pinned {
+    color: #0051a8; }
+    .pinned:hover, .pinned:hover a {
+        color: #073763; }
+
+.unpinned {
+    padding-right: 1px;
+    color: #888888;
+    transform: rotate(45deg); }
+    .unpinned:hover, .unpinned:hover a {
+        color: #0051a8; }
+
+.no-pinner, .no-pinner a {
+    opacity: 0;
+    height: 4px;
+    cursor: default; }
+
+.nopinner .sidebar-menu-pinner-btn, .nopinner .sidebar-menu-pinner-btn:hover {
+    background-color: transparent !important; }
+
+#optAdvanced {
+    display: inline-block;
+    float: left;
+    /*margin: -3px 1ex 0px 1ex;*/
+    /*i {
+        font-size: 18px;
+    }*/ }
+    #optAdvanced a.actions span, #optAdvanced a.actions span:hover {
+        text-decoration: none;
+        border-bottom: none; }
+
+#iconAdvanced {
+    font-size: 18px; }
+
+#iconHasAdvanced {
+    margin-top: 1px;
+    cursor: help;
+    display: inline-block; }
+
+.flip-h {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1); }
+
+.flip-v {
+    -moz-transform: scale(1, -1);
+    -webkit-transform: scale(1, -1);
+    -o-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    transform: scale(1, -1); }
+
+#divGoTop, #divGoBack {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    width: 21px;
+    padding: 5px 4px 0px 4px;
+    font-size: 16px;
+    line-height: 24px;
+    background: #f9fafc;
+    color: #0051a8;
+    height: 24px;
+    vertical-align: baseline;
+    border-right: 1px solid #DDDDDD;
+    transition: background-color 0.33s ease-out, color 0.33s ease-out; }
+    #divGoTop:hover, #divGoBack:hover {
+        background: #DDDDDD;
+        color: #539ddd; }
+
+#divCurPageName {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    max-width: 15em;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 1em;
+    background: #f0f8f0;
+    color: #38761d;
+    border-right: 1px solid #DDDDDD; }
+
+.collapsed .sidebar-menu-header {
+    display: none; }
+
+.collapsed .sidebar-menu-footer {
+    display: none; }
+
+.collapsed .sidebar-menu-header-mini {
+    display: block; }
+
+.collapsed.tdFooter {
+    padding-left: 5px;
+    padding-right: 5px; }
+
+.collapsed .sidebar-menu-footer-wrapper i {
+    font-size: 13px;
+    margin-right: 2px; }
+
+.collapsed .nav_desc {
+    display: none; }
+
+.menu-ink {
+    display: block;
+    position: absolute;
+    background: rgba(102, 153, 204, 0.5);
+    border-radius: 100%;
+    transform: scale(0); }
+
+.animate-menu-ink {
+    animation: ripple .5s linear; }
+
+@-webkit-keyframes ripple {
+    100% {
+        opacity: 0; } }
+
+@-moz-keyframes ripple {
+    100% {
+        opacity: 0; } }
+
+@-o-keyframes ripple {
+    100% {
+        opacity: 0; } }
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        transform: scale(2.5); } }
+
+.menu-group {
+    height: 8px;
+    background: #EFEFEF;
+    border-bottom: 1px solid #FAFAFA; }
+
+.sidebar-menu-header-collapse > a {
+    /*padding-top: 5px;*/
+    float: left;
+    text-decoration: none;
+    font-size: 24px;
+    color: #3366cc;
+    background: #ffffff;
+    border-bottom: 1px solid #EFEFEF;
+    border-top: 1px solid transparent;
+    overflow: hidden;
+    vertical-align: central; }
+    .sidebar-menu-header-collapse > a:hover {
+        color: #539ddd;
+        background: #F0F0F0;
+        border-top: 1px solid #e5e5e5; }
+
+.nav_desc {
+    position: absolute;
+    right: 26px;
+    top: 7px;
+    padding-left: 2px;
+    /*float: right; 
+    margin:3px 6px 0px 0px;*/
+    color: #999999;
+    font-size: 6pt;
+    font-weight: normal !important;
+    font-family: "Helvetica Narrow","Arial Narrow",Tahoma,Arial,Helvetica,sans-serif; }
+    .nav_desc.collapsed {
+        display: none; }
+
+.active > a > .nav_desc {
+    color: #EEEEEE; }
+
+#trWorkflow {
+    height: 26px;
+    box-sizing: border-box;
+    /*border-top: $workflow-border-top;
+    border-bottom: $workflow-border-bottom;
+    background: $workflow-bg-empty;*/ }
+
+#tdWorkflow {
+    border-top: 1px solid #0051a8;
+    border-bottom: 1px solid #0051a8;
+    background: transparent; }
+
+#workflow {
+    padding: 0px;
+    margin: 0px;
+    height: 26px;
+    min-width: 320px;
+    line-height: 26px;
+    /* line-height MUST be the same as height */
+    list-style-type: none;
+    white-space: nowrap;
+    /*text-overflow: ellipsis;*/
+    overflow: hidden;
+    /*background: $workflow-bg-empty;*/
+    /*text-transform: uppercase;*/ }
+    #workflow .project_actions {
+        position: absolute;
+        right: 12px;
+        white-space: nowrap;
+        line-height: 24px;
+        padding-top: 1px; }
+        #workflow .project_actions .prj_action {
+            padding: 0px 4px;
+            display: inline-block;
+            /*text-align: center;*/
+            margin-left: 3px;
+            vertical-align: middle;
+            min-width: 16px;
+            height: 24px;
+            border-radius: 3px; }
+            #workflow .project_actions .prj_action:hover {
+                background: #DDDDDD; }
+            #workflow .project_actions .prj_action.disabled:hover {
+                background-color: transparent; }
+        #workflow .project_actions a {
+            text-decoration: none;
+            /*&:hover {
+                 i, span {
+                    color: $workflow-color-hover;
+                }
+            }*/ }
+            #workflow .project_actions a i {
+                font-size: 15px;
+                color: #0051a8;
+                line-height: 25px;
+                float: left; }
+            #workflow .project_actions a i.ion {
+                font-size: 18px;
+                line-height: 26px;
+                padding-top: 3px; }
+            #workflow .project_actions a span {
+                font-weight: bold;
+                margin-left: 3px;
+                line-height: 25px;
+                color: #0051a8; }
+
+#workflow.workflow-no-arrows {
+    background: transparent; }
+    #workflow.workflow-no-arrows .project_actions .prj_action:not(.disabled):hover i, #workflow.workflow-no-arrows .project_actions .prj_action:not(.disabled):hover span {
+        color: #539ddd; }
+    #workflow.workflow-no-arrows .project_actions .prj_action a {
+        /*padding: 0px 2px;*/ }
+        #workflow.workflow-no-arrows .project_actions .prj_action a i {
+            color: #0051a8; }
+        #workflow.workflow-no-arrows .project_actions .prj_action a i:hover, #workflow.workflow-no-arrows .project_actions .prj_action a span:hover {
+            transition: color .5s linear, background .5s linear; }
+        #workflow.workflow-no-arrows .project_actions .prj_action a span {
+            font-weight: bold;
+            /*padding: 0px 3px;*/ }
+
+#workflow li {
+    /*float: left;*/
+    /*ie6/7 needs this */
+    background: transparent;
+    height: 26px;
+    display: inline-block;
+    position: relative;
+    /*padding-left: 1px;*/
+    border-right: 1px solid #0051a8;
+    /*a, span {
+        text-transform: uppercase;
+    }*/ }
+    #workflow li > span {
+        float: left;
+        position: relative;
+        padding: 0 20px 0 10px;
+        color: #CCCCCC;
+        font-weight: bold;
+        font-size: 110%; }
+    #workflow li a {
+        float: left;
+        position: relative;
+        padding: 0 20px 0 10px;
+        color: #0051a8;
+        text-decoration: none;
+        outline: none;
+        font-weight: bold;
+        font-size: 110%;
+        /*&:hover {
+            transition: color .5s linear,background .5s linear,border .5s linear;
+        }*/ }
+        #workflow li a:disabled, #workflow li a.disabled {
+            color: #CCCCCC; }
+            #workflow li a:disabled:hover, #workflow li a:disabled.hover, #workflow li a.disabled:hover, #workflow li a.disabled.hover {
+                color: #CCCCCC;
+                background-color: transparent !important;
+                cursor: default; }
+
+#workflow.upper .workflow-item-label {
+    text-transform: uppercase; }
+
+#workflow.workflow-no-arrows li {
+    background: transparent; }
+    #workflow.workflow-no-arrows li a, #workflow.workflow-no-arrows li > span {
+        padding: 0px 6px 0px 8px; }
+
+#workflow li a:hover {
+    text-decoration: underline; }
+
+#workflow li a.odd, #workflow li span.odd {
+    background: transparent; }
+
+#workflow .arrow {
+    position: absolute;
+    display: block;
+    line-height: 0px;
+    height: 0px;
+    width: 0px;
+    right: 0px;
+    top: 0px;
+    border-left: 10px solid transparent;
+    border-right: none;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent; }
+
+#workflow.workflow-no-arrows .arrow {
+    display: none; }
+
+#workflow li a.odd .arrow, #workflow li span.odd .arrow {
+    border-left: 10px solid transparent;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent; }
+
+#workflow li a.hover {
+    text-decoration: none;
+    color: #539ddd;
+    background: #DDDDDD; }
+
+#workflow.workflow-no-arrows li a.hover {
+    color: #539ddd;
+    background: #DDDDDD;
+    /*border-radius: 6px;*/ }
+    #workflow.workflow-no-arrows li a.hover:before {
+        color: #0051a8; }
+
+#workflow li a .arrow.hover {
+    border-left: 10px solid #DDDDDD; }
+
+#workflow li a .arrow.pre_hover, #workflow li span .arrow.pre_hover {
+    border-top: 13px solid #DDDDDD;
+    border-bottom: 13px solid #DDDDDD; }
+
+#workflow li a.selected, #workflow li span.selected {
+    text-decoration: none;
+    color: #ffffff;
+    background: #0051a8; }
+    #workflow li a.selected:before, #workflow li span.selected:before {
+        content: "\25b2";
+        position: absolute;
+        bottom: -12px;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        text-align: center;
+        color: #ffffff; }
+
+#workflow li a .arrow.selected, #workflow li span .arrow.selected {
+    border-left: 10px solid #0051a8; }
+
+#workflow li a .arrow.pre_selected, #workflow li span .arrow.pre_selected {
+    border-top: 13px solid #0051a8;
+    border-bottom: 13px solid #0051a8; }
+
+#workflow li a .arrow.last, #workflow li span .arrow.last {
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent; }
+
+#workflow li a .workflow-chevron, #workflow li span .workflow-chevron {
+    display: none; }
+
+#workflow.workflow-no-icons li a > i:not(.plist), #workflow.workflow-no-icons li span > i:not(.plist) {
+    display: none; }
+
+#workflow.workflow-no-icons li a .workflow-chevron, #workflow.workflow-no-icons li span span.workflow-chevron {
+    display: inline-block; }
+
+span.menu_new {
+    margin-left: 3px; }
+    span.menu_new i.fa, span.menu_new i.fas, span.menu_new i.far {
+        font-size: 15px;
+        color: #c41919;
+        z-index: 9; }
+    span.menu_new span {
+        color: #FAFAFA;
+        font-size: 10px;
+        font-weight: bold;
+        margin-top: -1px;
+        margin-left: -11px;
+        opacity: 1;
+        z-index: 99;
+        display: inline-block;
+        position: absolute; }
+
+span.menu_new.sidebar-menu-label span {
+    left: 17px;
+    top: 3px; }
+
+@media only screen and (max-width: 1250px) {
+    #workflow li a > i:not(.plist), #workflow li span > i:not(.plist) {
+        display: none; }
+    #divCurPageName {
+        max-width: 12em; }
+    #workflow li span.menu_new i.fa, #workflow li span.menu_new i.fas, #workflow li span.menu_new i.far {
+        display: inline-block; } }
+
+@media only screen and (max-width: 1100px) {
+    #workflow.workflow-no-icons li a .workflow-chevron, #workflow.workflow-no-icons li > span span.workflow-chevron {
+        display: none; }
+    #workflow.upper a, #workflow.upper span {
+        text-transform: initial !important; }
+    #divCurPageName {
+        max-width: 9em; } }
+
+@media only screen and (max-width: 950px) {
+    #workflow li a, #workflow li span {
+        font-size: 105%; }
+    #workflow li a, #workflow li span {
+        text-transform: none !important; }
+    span.menu_new {
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -o-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9); }
+    .prj_action.nowide900 {
+        display: none; } }
+
+@media only screen and (max-width: 850px) {
+    #trWorkflow {
+        height: 22px; }
+    #workflow {
+        height: 22px;
+        line-height: 22px;
+        /* line-height MUST be the same as height */ }
+        #workflow .project_actions {
+            line-height: 20px; }
+            #workflow .project_actions .prj_action {
+                height: 22px;
+                /*width: 24px;
+                margin-left: 2px;*/
+                border-radius: 2px;
+                line-height: 24px;
+                /*&:hover {
+                    background: $sea-mist;
+                }*/ }
+            #workflow .project_actions .prj_action.nowide800 {
+                display: none; }
+            #workflow .project_actions a i, #workflow .project_actions span i {
+                font-size: 14px; }
+            #workflow .project_actions a i.ion, #workflow .project_actions span i.ion {
+                font-size: 17px;
+                line-height: 24px; }
+    #workflow li {
+        height: 22px; }
+        #workflow li span.menu_new {
+            display: none; }
+    #workflow li a, #workflow li > span {
+        font-size: 100%;
+        font-weight: bold;
+        padding: 0px 15px 0px 6px; }
+        #workflow li a .workflow-item-label, #workflow li > span .workflow-item-label {
+            max-width: 100px;
+            text-overflow: ellipsis; }
+    .sidebar-menu ul li a {
+        /*padding: 2px 46px 2px 4px;*/
+        font-size: 12px; }
+        .sidebar-menu ul li a i {
+            line-height: 13px;
+            font-size: 13px; }
+    #divCurPageName {
+        display: none; }
+    #iconAdvanced {
+        margin-top: 3px;
+        font-size: 16px; }
+    #iconHasAdvanced {
+        margin-top: 1px; }
+    /*.sidebar-menu-footer-wrapper i {
+        font-size: 12px;
+        line-height: 16px;
+    }*/ }
+
+@media only screen and (max-width: 750px) {
+    #workflow li a {
+        font-size: 97%;
+        font-weight: bold;
+        padding: 1px 12px 1px 2px; }
+    .sidebar-menu-footer-wrapper i {
+        font-size: 0.8rem; }
+    #iconAdvanced {
+        margin-top: 1px;
+        font-size: 14px; } }
+
+@media only screen and (max-width: 700px) {
+    /*#workflow li a, #workflow li span {
+        font-size: 96%;
+        font-weight: normal;
+        padding: 1px 12px 1px 1px;
+
+        .workflow-item-label {
+            max-width: 75px;
+        }
+    }
+}
+
+@media only screen and (max-width: 580px) {*/
+    #workflow li a, #workflow li span {
+        font-size: 100%;
+        padding: 1px 14px 1px 8px; }
+        #workflow li a:before, #workflow li span:before {
+            content: "";
+            display: none; }
+        #workflow li a .workflow-item-label, #workflow li span .workflow-item-label {
+            display: none; }
+    #workflow li a > i:not(.plist), #workflow.workflow-no-icons li a > i:not(.plist), #workflow li span > i:not(.plist), #workflow.workflow-no-icons li span > i:not(.plist) {
+        display: inline-block; }
+    #iconHasAdvanced {
+        display: none; } }
+
+@media only screen and (max-width: 340px) {
+    .project_actions {
+        display: none; } }

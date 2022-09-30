@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68637B31-AA6B-41E1-875F-AF8BB926A009}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>CanvasBaseClasses</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>On</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CanvasBaseClasses.xml</DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CanvasBaseClasses.xml</DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base Classes\clsApplicationError.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsApplicationUser.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsCredentials.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsDatabaseAdvanced.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsExtra.vb" />
+    <Compile Include="Base Classes\clsLicense.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsLicenseParameter.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsSnapshot.vb" />
+    <Compile Include="Base Classes\clsProject.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsUserTemplate.vb" />
+    <Compile Include="Base Classes\clsUserWorkgroup.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsWorkgroup.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extra Classes\clsComparers.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extra Classes\clsExtraLoad.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsLanguageResource.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsMeetingID.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsPageAction.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsRoleAction.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsRoleGroup.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extra Classes\clsIntermediateResults.vb" />
+    <Compile Include="Extra Classes\clsOnlineUserSession.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base Classes\clsWorkspace.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extra Classes\clsRatingLine.vb" />
+    <Compile Include="Extra Classes\clsProjectLockInfo.vb" />
+    <Compile Include="..\SharedAssemblyInfo.vb">
+      <Link>SharedAssemblyInfo.vb</Link>
+    </Compile>
+    <Compile Include="Extra Classes\clsPairwiseLine.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Support Files\Baron.vb" />
+    <Compile Include="Support Files\Common.vb" />
+    <Compile Include="Support Files\CryptService.vb" />
+    <Compile Include="Support Files\Documentation.vb" />
+    <Compile Include="Support Files\FileService.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Support Files\StringService.vb" />
+    <Compile Include="Support Files\HTMLService.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECDatabase\ECDatabase.vbproj">
+      <Project>{0D4958E7-227B-4638-8ECF-0A5B4140311B}</Project>
+      <Name>ECDatabase</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ECSecurity\ECSecurity.vbproj">
+      <Project>{6FB6EB41-DD58-4A6A-95C5-0963353429B4}</Project>
+      <Name>ECSecurity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenericDBAccess\GenericDBAccess.vbproj">
+      <Project>{7B3AF3BF-94E8-46AD-A012-57BE9220B74D}</Project>
+      <Name>GenericDBAccess</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ECCore\ECCore.vbproj">
+      <Project>{4B3A2924-00B2-48DB-A474-0486A68D3B01}</Project>
+      <Name>ECCore</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

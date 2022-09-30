@@ -1,0 +1,2959 @@
+﻿<%@ Master Language="VB" CodeBehind="mpDesktop.Master.vb" EnableViewState="true" ViewStateMode="Inherit" Inherits="clsDefaultMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><% =_Page.GetPageTitle() %></title>
+    <script type="text/javascript">var time_start_loading_page = performance.now();</script>
+    <meta name="robots" content="none" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="Description" content="Collaborating on decisions is easy when your team uses Comparion's or Riskion's structured decision making process" />
+    <meta name="theme-color" content="#84bd3e" />
+    <meta name="msapplication-navbutton-color" content="#84bd3e" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="msapplication-starturl" content="/" />
+    <meta name="msapplication-TileColor" content="#fafafa" />
+    <meta name="msapplication-TileImage" content="/Images/favicon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/Images/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/Images/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Images/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/Images/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Images/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/Images/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Images/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/Images/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Images/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/Images/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/Images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/Images/favicon/favicon.ico" type="image/x-icon" />
+    <%--<script async="async" data-cfasync="false" src="https://d29l98y0pmei9d.cloudfront.net/js/widget.min.js?k=Y2xpZW50SWQ9NDI4NyZob3N0TmFtZT1jb21wYXJpb24uc3VwcG9ydGhlcm8uaW8="></script>--%>
+    <link rel="prefetch" href="/Images/preload.gif" />
+    <link rel="prefetch" href="/App_Themes/EC2018/images/ec_wm.png" />
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/Scripts/misc.js"></script>
+    <script type="text/javascript" src="/Scripts/masterpage.js"></script>
+    <script type="text/javascript" src="/Scripts/sidebarmenu.js"></script>
+    <script type="text/javascript" src="/Scripts/ec.reports.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.highlight.js"></script>
+    <script type="text/javascript" src="/Scripts/polyfill.min.js"></script>
+    <script type="text/javascript" src="/Scripts/screenfull.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="Scr"></script>
+    <script src="Scripts/js/main.js"></script>
+    <script src="//www.socialintents.com/api/socialintents.1.3.js#2c9fa7465c3c6e61015c3dd5e6d700f5" async="async"></script>
+
+    <asp:ContentPlaceHolder ID="head_JSFiles" runat="server" />
+    <script type="text/javascript" src="/Scripts/dx.all.js"></script>
+    <link href="/AnytimeComparion/CustomCSS/color.css" type="text/css" rel="stylesheet" />
+
+    <!--bootstrap min css-->
+    <link href="Styles/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Styles/css/bootstrap.min.css.map" rel="stylesheet" />
+    <link href="Styles/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Styles/css/sidebar-menus.css" />
+    <link rel="stylesheet" href="Styles/css/responsive.css" />
+    <link rel="stylesheet" href="Styles/css/fonts.css" />
+    <link rel="stylesheet" href="Styles/css/nav.css" />
+    <link rel="stylesheet" href="Styles/css/footer.css" />
+    <link rel="stylesheet" href="Styles/css/color.css" />
+    <link rel="stylesheet" href="Styles/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="Styles/css/owl.theme.default.min.css" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body class="skin-default<% =If(App.isCommercialUseEnabled, "", " nc") %>">
+    <nav class="navbar navbar-expand-lg navbar-dark navigation_menu p-0" id="stickyHeader">
+        <div class="container">
+            <!--  Show this only on mobile to medium screens  -->
+            <div class="mob_header d-lg-none">
+                <div class="mob_logo_workgroup">
+                    <a class="navbar-brand d-lg-none " href="#">
+                        <img src="../Images/img/fav.png"></a>
+                    <div class="work_group">
+                        <p>Model:</p>
+                        <h5>Multi Tech Updated IT Infrastructure</h5>
+                    </div>
+                </div>
+                <div class="navbar-nav right_nav">
+                    <div class="nav-items">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../Images/img/icon/User.svg">
+                                Rahul </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  Use flexbox utility classes to change how the child elements are justified  -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+                <!--   Show this only lg screens and up   -->
+                <div class="header_elements">
+                    <a class="navbar-brand d-none d-lg-block " href="#">
+                        <img src="../../Images/img/logo.png"></a>
+                    <div class=""></div>
+                    <div class="nav-items">
+                        <div class="workgroup">
+                            <ul>
+                                <li><span><% = ResString("lblWorkgroup") %>:</span> <% =SafeFormString(App.ActiveWorkgroup.Name) %></li>
+                                <li class="online_btn"><span>Model:</span> <span class="model_name"><% =SafeFormString(If(App.HasActiveProject, App.ActiveProject.ProjectName, "")) %></span>
+                                    <% If App.ActiveProject.ProjectStatus = ecProjectStatus.psActive AndAlso _Page.CanUserModifyActiveProject Then %>
+                                    <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" onclick='switchProjectOnline(); return false;' autocomplete="off">
+                                        <div class="handle"></div>
+                                        <span>On-line</span>
+                                    </button>
+                                    <% End if %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-nav right_nav">
+                    <% If Not _Page.isJustEvaluator AndAlso Not App.Options.isSingleModeEvaluation Then %>
+                    <div class="nav-items">
+                        <a href="javascript:;" id="divPageLookup" class="data-tooltip" data-title="Page lookup" onclick="switchPageLookup(); return false;">
+                            <img src="../../Images/img/icon/Location.svg">
+                        </a>
+                    </div>
+                    <% End if %>
+                    <div class="nav-items">
+                        <a href="javascript:;" class="data-tooltip" data-title="Switch to full screen mode" onclick="switchFullscreen(true, fs_alert); return false;">
+                            <img src="../../Images/img/icon/fullscreen.svg"></a>
+                    </div>
+                    <div class="nav-items">
+                        <div class="dropdown  dropdown_user_menu">
+                            <a class="dropdown-toggle" href="javascript:;" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../../Images/img/icon/User.svg">
+                                <% =If(App.ActiveUser IsNot Nothing, SafeFormString(App.ActiveUser.UserName), "") %> </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="/Account/Edit.aspx">Settings</a></li>
+                                <li><a class="dropdown-item" href="/Default.aspx?action=logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="menu_container">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="main_nav">
+                    <div class="home_menu" onclick="openNav()">
+                        <img src="../../Images/img/icon/homeicon.svg">
+                    </div>
+                    <ul class="navbar-nav getActiveClass" id="menu">
+                        <li class="nav-item head-main-nav-item-info activeStructure ">
+                            <a class="nav-link" href="javascript:;">Structure Model </a>
+                            <!-- dropdown-menu -->
+                            <div class="dropdown-menu mega-menu dropdown-menu-center show-mega-menus-info">
+                                <div id="menusMeasure" class="row">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item head-main-nav-item-info activeCollect ">
+                            <a class="nav-link" href="javascript:;">Collect Input </a>
+                            <div class="dropdown-menu mega-menu dropdown-menu-center show-mega-menus-info">
+                                <div id="menusCollect" class="row">
+                                </div>
+                            </div>
+                            <!-- dropdown-menu -->
+                        </li>
+                        <li class="nav-item head-main-nav-item-info activeReview">
+                            <a class="nav-link" href="javascript:;">Review & Consensus </a>
+                            <!-- dropdown-menu -->
+                            <div class="dropdown-menu mega-menu dropdown-menu-center show-mega-menus-info">
+                                <div id="menusReview" class="row">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item head-main-nav-item-info activeAllocate">
+                            <a class="nav-link" href="javascript:;">Allocate </a>
+                            <!-- dropdown-menu -->
+                            <div class="dropdown-menu mega-menu dropdown-menu-center show-mega-menus-info">
+                                <div id="menusAllocate" class="row">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item head-main-nav-item-info activeResult">
+                            <a class="nav-link" href="javascript:;">Results </a>
+                            <!-- dropdown-menu -->
+                            <div class="dropdown-menu mega-menu dropdown-menu-center show-mega-menus-info">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="mega-menu-column">
+                                            <ul>
+                                                <li class="nav-header"><span class="mega_header_icon">
+                                                    <img src="../../Images/img/icon/dashboard-mega-menu-icon.svg" class="img-fluid" alt="img" /></span>Dashboards</li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/all-dashboard-icon.svg" class="img-fluid" alt="img" /></span>All Dashboards</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/general-dsahboard-icon.svg" class="img-fluid" alt="img" /></span>General Dashboard</a>
+                                                </li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/result-dashboard-icon.svg" class="img-fluid" alt="img" /></span>Result Dashboard</a>
+                                                </li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/sensitivity-dashboard-icon.svg" class="img-fluid" alt="img" /></span>Sensitivity
+                                                    Dashboard</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/Settings.svg" class="img-fluid" alt="img" /></span>Custom Dashboard</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mega-menu-column">
+                                            <ul>
+                                                <li class="nav-header"><span class="mega_header_icon">
+                                                    <img src="../../Images/img/icon/report-mega-menu-icon.svg" class="img-fluid" alt="img" /></span>Reports</li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/objectives-hierarchy-icon.svg" class="img-fluid" alt="img" /></span>Objectives
+                                                    Hierarchy</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/pre-post-survey-icon.svg" class="img-fluid" alt="img" /></span>Alternatives Pros and
+                                                    Cons</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/alternative-pie-chart-icon.svg" class="img-fluid" alt="img" /></span>Alternatives Chart</a>
+                                                </li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/objective-pie-chart-icon.svg" class="img-fluid" alt="img" /></span>Objectives Chart</a>
+                                                </li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/performance-sensitivity-icon.svg" class="img-fluid" alt="img" /></span>Performance sensitivity
+                                                    analysis</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/Gradient-icon.svg" class="img-fluid" alt="img" /></span>Gradient sensitivity
+                                                    analysis</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/2d-icon.svg" class="img-fluid" alt="img" /></span>2D Analysis</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/head-to-head-icon.svg" class="img-fluid" alt="img" /></span>Head-to-Head
+                                                    Analysis</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/sensitivity-dashboard-icon.svg" class="img-fluid" alt="img" /></span>Sensitivity
+                                                    Alternatives</a></li>
+                                                <li><a href="#"><span>
+                                                    <img src="../../Images/img/icon/portfolio-bag-view-icon.svg" class="img-fluid" alt="img" /></span>Portfolio View</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item head-main-nav-item-info main-nav-help-menu-info activeHelp">
+                            <a class="nav-link" href="javascript;">Help </a>
+                            <!-- dropdown-menu -->
+                            <div class="dropdown-menu mega-menu dropdown-menu-center show-mega-menus-info">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mega-menu-column">
+                                            <ul>
+                                                <li><a href="#">Help Library</a></li>
+                                                <li><a target="_blank" href="https://comparion.knowledgeowl.com/help/contact-us">Contact Us</a></li>
+                                                <li><a target="_blank" href="https://comparion.knowledgeowl.com/help/resource-center">Resource Center</a></li>
+                                                <li><a target="_blank" href="https://comparion.knowledgeowl.com/help/release-notes">Wikis</a></li>
+                                                <li><a target="_blank" href="https://comparion.knowledgeowl.com/help/faq">FAQs</a></li>
+                                                <li><a href="#">Feature Requests</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav icon_list">
+                        <%-- <% If App.ActiveProject.ProjectStatus = ecProjectStatus.psActive AndAlso _Page.CanUserModifyActiveProject Then %>
+                        <li class="nav-item">
+                            <a id='prjActionLock' class="nav-link data-tooltip" onclick='switchProjectLock();return false;' href="javascript:;" data-title="<% = SafeFormString(ResString("titleProjectUnlock")) %>">
+                                <img id="prjActionIcon" src="../Images/img/icon/lock.svg" />
+                            </a>
+                        </li>
+                        <% End If%>--%>
+
+                        <% If _Page.CanUserModifyActiveProject Then %>
+                        <% If True OrElse Not HasListPage(_PAGESLIST_ANTIGUA, _Page.NavigationPageID) Then %>
+                        <li class="nav-item">
+                            <a id="linkSnapshots" class="nav-link data-tooltip" href="<% =JS_SafeString(_Page.PageURL(_PGID_PROJECT_SNAPSHOTS)) %>" onclick='onShowSnapshots(<% =_Page.App.ProjectID  %>); return false;' data-title="Model snapshots: timeline and create backup">
+                                <img src="../../Images/img/icon/camera.svg">
+                            </a>
+                        </li>
+                        <% End If%>
+                        <li class="nav-item">
+                            <a id="prjActionAddSnap" class="nav-link data-tooltip" href="<% =JS_SafeString(_Page.PageURL(_PGID_PROJECT_SNAPSHOTS)) %>" onclick='onAddSnapshot(" + curPrjID + "); return false;' data-title="Add snapshots">
+                                <img src="../../Images/img/icon/addsnapshot.svg">
+                            </a>
+                        </li>
+                        <% End If%>
+
+                        <% If App.CanUserCreateNewProject Then %>
+                        <li class="nav-item">
+                            <a id="linkPrjLookup" class="nav-link data-tooltip" href="<% =JS_SafeString(_Page.PageURL(_PGID_ADMIN_PRJ_LOOKUP)) %>" data-title="Model Lookup">
+                                <img src="../../Images/img/icon/binoculars.svg">
+                            </a>
+                        </li>
+                        <% End if %>
+
+                        <% If AllowLinks AndAlso Not App.isMobileBrowser Then %>
+                        <li class="nav-item position-relative">
+                            <a class="nav-link dropdown-toggle" href="#" id="keyboard_dropdown">
+                                <div id="divShortcuts" style="display: inline-block; float: left;">
+                                    <div onclick="return false;" title="">
+                                        <span class="data-tooltip" data-title="Shortcuts">
+                                            <img src="../../Images/img/icon/keyboard.svg" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <% End if %>
+                    </ul>
+                </div>
+                <!-- navbar-collapse.// -->
+                <!--Sidebar menus-->
+                <div class="leftsidebar-menus">
+                    <div id="mySidepanel" class="sidepanel">
+                        <div class="sidebar-header-info">
+                            <div class="sidebar-head-title">
+                                <h3 class="heading-title">Manage Models</h3>
+                            </div>
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                                <img src="../../Images/img/icon/close-red-icon.svg" alt="close-red-icon">
+                            </a>
+                        </div>
+                        <div class="sidebar-menus-info">
+                            <div id="divSideBar" ></div>
+                            <%--<ul class="nav nav-tabs d-block" id="sidebar-menu_tabs" role="tablist">            
+                            <li class="nav-item p-0" role="presentation">
+                                <a class="nav-link active sidebar-menus-link" id="models-tab" data-bs-toggle="tab" data-bs-target="#models" type="button" role="tab" aria-controls="models" aria-selected="true">
+                                 <div class="icons-info"><img src="../../Images/img/icon/models-icon.svg" alt="model-icon"></div> Models
+                                </a>
+                            </li>
+                            <li class="nav-item p-0" role="presentation">
+                                <a class="nav-link sidebar-menus-link" id="archives-tab" data-bs-toggle="tab" data-bs-target="#archives" type="button" role="tab" aria-controls="archives" aria-selected="false">
+                                <div class="icons-info"><img src="../../Images/img/icon/Archives-icon.svg" alt="archives-icon"></div> Archives
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item p-0" role="presentation">
+                                <a class="nav-link sidebar-menus-link" id="templates-tab" data-bs-toggle="tab" data-bs-target="#templates" type="button" role="tab" aria-controls="templates" aria-selected="false">
+                                 <div class="icons-info"><img src="../../Images/img/icon/Templates-icon.svg" alt="templates-icon"></div> Templates
+                                </a>
+                            </li>
+                            <li class="nav-item p-0" role="presentation">
+                                <a href="#" class="nav-link sidebar-menus-link" data-bs-toggle="modal" data-bs-target="#manage-model-history1">
+                                <div class="icons-info"><img src="../../Images/img/icon/Models-history-icon.svg" alt="model-history-icon"></div> Recent Models
+                                </a>
+                            </li>
+                            <li class="nav-item p-0" role="presentation">
+                                <a class="nav-link sidebar-menus-link" id="favorites-tab" data-bs-toggle="tab" data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites" aria-selected="false">
+                                <div class="icons-info"><img src="../../Images/img/icon/Favorites-icon.svg" alt="model-favorites-icon">
+                            </div> Favorites
+                                </a>
+                            </li>
+                            <li class="nav-item p-0" role="presentation">
+                                <a class="nav-link sidebar-menus-link" id="lookup-tab" data-bs-toggle="tab" data-bs-target="#lookup" type="button" role="tab" aria-controls="lookup" aria-selected="false">
+                                <div class="icons-info"><img src="../../Images/img/icon/Model-Lookup-icon.svg" alt="model-lookup-icon">
+                            </div> Model Lookup
+                                </a>
+                            </li>
+                             <li class="nav-item p-0" role="presentation">
+                                <a class="nav-link sidebar-menus-link" id="models-access-tab" data-bs-toggle="tab" data-bs-target="#models-access" type="button" role="tab" aria-controls="models-access" aria-selected="false">
+                              <div class="icons-info"><img src="../../Images/img/icon/Models-statistic-icon.svg" alt="model-statistic-icon"></div> Models Access Log
+                                </a>
+                            </li>  
+                        </ul>--%>
+
+                            <div class="sidebar-head-title sidebar-sub-head-title-wrap">
+                                <h3 class="heading-title">Manage Workgroup</h3>
+                            </div>
+                            <a href="manage-workgroup-license.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/license-icon.svg" alt="license-icon">
+                                </div>
+                                License
+                            </a>
+                            <a href="manage-workgroup-manage-participants.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/manage-participants.svg" alt="manage-participants">
+                                </div>
+                                Manage Participants
+                            </a>
+                            <a href="manage-workgroup-online-participants.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/Online-participants.svg" alt="online-icon">
+                                </div>
+                                Online Participants
+                            </a>
+                            <a href="manage-workgroup-new-model-option-sets.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/Settings-1.svg" alt="default-options-icon" />
+                                </div>
+                                New Model Option sets
+                            </a>
+                            <a href="wording_template.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/tags-label.svg" alt="label-icon" />
+                                </div>
+                                Workgroup
+                            Wording Templates
+                            </a>
+                            <a href="manag_ workgroup_sample_model_templates.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/sample-models.svg" alt="sample-model-icon" />
+                                </div>
+                                Sample Model Templates
+                            </a>
+                            <a href="manage_workgroup_sample_model.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/sample-model-1.svg" alt="sample-model-icon-1" />
+                                </div>
+                                Sample Models
+                            </a>
+                            <a href="view_logs.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/view-logs.svg" alt="view-logs" />
+                                </div>
+                                View Logs
+                            </a>
+                            <a href="workgroup_statistics.html" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/workgroup-statistics.svg" alt="workgroup-statistics">
+                                </div>
+                                Workgroup Statistics
+                            </a>
+                            <a href="#" class="sidebar-menus-link">
+                                <div class="icons-info">
+                                    <img src="../../Images/img/icon/delete-black-icon.svg" alt="workgroup-statistics" width="15">
+                                </div>
+                                Deleted Modals
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal History popup-->
+    <div class="modal fade resend-modal" id="manage-model-history1" aria-hidden="true" aria-labelledby="manage-model-history1" tabindex="-1">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body pt-5 px-4">
+                    <div class="resend_modal_form">
+                        <h4 class="mb-1 border-bottom fw-bold pop-up-model-heading-info">Recent Models</h4>
+                        <div class="model-history-wrap">
+                            <div class="form-group model-search-info">
+                                <div class="input-group search_div">
+                                    <span class="input-group-text" id="basic-addon1z">
+                                        <img src="../Images/img/icon/Search.svg"></span>
+                                    <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="manage-history-data-wrap">
+                                <div class="manage-history-data">
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">All Methods ZB(1)</div>
+                                        <div class="date-time-info">now</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">All Methods</div>
+                                        <div class="date-time-info">10 hours ago</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">MultiOmniTech Vendor Source Selection (1)</div>
+                                        <div class="date-time-info">20 hours ago</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">IT Portfolio Optimization Demonstration Model</div>
+                                        <div class="date-time-info">10 days ago</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">Perception of Relative Importance of Select...</div>
+                                        <div class="date-time-info">20 days ago</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">All Methods ZB(1)</div>
+                                        <div class="date-time-info">60 days ago</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info">All Methods ZB(1)</div>
+                                        <div class="date-time-info">90 days ago</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info gray-text-info">All Methods ZB(1)</div>
+                                        <div class="date-time-info">2021-10-17</div>
+                                    </a>
+                                    <a href="#" class="manage--model-history-data">
+                                        <div class="icon-info">
+                                            <img src="img/icon/result-dashboard-icon.svg" alt="result-icon">
+                                        </div>
+                                        <div class="history-info gray-text-info">All Methods ZB(1)</div>
+                                        <div class="date-time-info">2021-11-27</div>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <hr>
+                            <div class="d-flex justify-content-center">
+                                <button class="btn prm_green_outline_btn me-3" data-bs-dismiss="modal">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">INFODOCS</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row h-100">
+                        <div class="col-md-6 border-end">
+                            <div class="modal_info_header">
+                                <h3>PRICE</h3>
+                                <a href="#">
+                                    <img src="../Images/img/icon/edit-icon.svg">
+                                </a>
+                            </div>
+                            <div class="modal_info_content">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum
+                                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                                industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply
+                                dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="modal_info_header">
+                                <h3>PRICE WRT Vendor/Source selection</h3>
+                                <a href="#">
+                                    <img src="../Images/img/icon/edit-icon.svg">
+                                </a>
+                            </div>
+                            <div class="modal_info_content">
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum
+                                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                                industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply
+                                dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="questinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">STEPS</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>No Quick Help yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="stepsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">STEPS</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="steps_body">
+                        <div class="steps_list">
+                            <ul>
+                                <li>
+                                    <a href="#"><span class="current_step_no">1</span> "Welcome" page </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="notjudge_no">2</span> Insight™ survey: Insight Survey </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="result_step_no">3</span> Enter values from 0 to 1 to indicate
+                                    the priority for each of the objectives with respect to "Goal" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="judge_step_no">4</span> Priority of objectives with respect to
+                                    "Goal" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>5</span> Enter values from 0 to 1 to indicate the priority for each
+                                    of the alternatives with respect to "Direct Entry" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>6</span> Priority of alternatives with respect to "Direct Entry" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>7</span> All pairwises with respect to "Multi pw graphical" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>8</span> Priority of alternatives with respect to "Multi pw
+                                    graphical" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>9</span> All pairwises with respect to "Multi pw verbal" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>10</span> Priority of alternatives with respect to "Multi pw verbal"
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>11</span> Rate the preference of Alternatives with respect to Rating
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>12</span> Priority of alternatives with respect to "Rating" </a>
+                                </li>
+                                <li>
+                                    <a href="#"><span>13</span> Pairwise for "Alternative 1" vs. "Alternative 2" WRT
+                                    "Single pw graphical" </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="step_legent">
+                            <h3>Judgment Links Info</h3>
+                            <p>The steps are colored as follows:</p>
+                            <hr>
+                            <ul>
+                                <li class="current_step">Current Step</li>
+                                <li class="notjudge">Judgment has not yet been made</li>
+                                <li class="result_step">Results or information steps</li>
+                                <li class="judge_step">Judgment is made</li>
+                                <li class="abstained_step">Judgment is abstained</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="context-menu" style="z-index: 9999;"></div>
+    <div class="loadpanel" style="z-index: 9999;"></div>
+    <div id="popupContainer" style="z-index: 9997;"></div>
+    <div id="popupContainer1" style="z-index: 9998;"></div>
+    <div id="popupContainer2" style="z-index: 9999;"></div>
+    <div id="divTooltipShortcuts"></div>
+
+    <!-- Dashbord modals-->
+
+    <form id="theForm" runat="server" style="height: 100%; display: block">
+        <% If Request IsNot Nothing AndAlso Not Request.IsLocal Then %>
+        <script type="text/javascript">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', '<% =JS_SafeString(WebConfigOption(_OPT_GOOGLE_UID, _DEF_GOOGLE_UA, False)) %>');
+        </script>
+        <% End If %><% If ShowPreloader Then %><div class="page-preloader">
+            <div class="page-preloader-content">
+                <div>
+                    <div class="ec_wm_bg">
+                        <img src="<% =_Page.ImagePath %>ec_wm.png" width="256" height="72" class="ec_wm" />
+                    </div>
+                </div>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+                <label></label>
+            </div>
+        </div>
+        <% End If %>
+        <div class="page-mainwrapper">
+
+
+            <% If ShowPreloader Then %>
+            <script type="text/javascript"><!--
+    var preload = $(".page-preloader");
+    if ((preload) && (preload.length)) {
+        $(".page-mainwrapper").css("opacity", "0.01");
+        preload.show();
+        setTimeout(function () {
+            onPageLoaded();
+            if ($("#divFakePreloader").length) $(".tdMenu").hide();
+        }, 8000);
+    }
+    //--></script>
+            <% End If %>
+            <script type="text/javascript"><!--
+
+    ping_interval = <% = _DEF_PING_TIMEOUT * 1000 %>;
+                    isAdvancedMode = <% =Bool2JS(If(_Page.isJustEvaluator, False, _Page.isAdvancedMode)) %>;
+        isRiskion = <% =Bool2JS(App.isRiskEnabled) %>;
+    curPrjID = <% =_Page.App.ProjectID  %>;
+    curPrjHID = <% = CInt(If(App.HasActiveProject AndAlso App.ActiveProject.isImpact, ECHierarchyID.hidImpact, ECHierarchyID.hidLikelihood)) %>;
+    show_draft = <% =Bool2JS(ShowDraftPages) %>;
+                    rep_sess_report_id += curPrjID;
+                rep_sess_dashboard_id += curPrjID;
+                pgID = <% =_Page.NavigationPageID %>;
+                    curSID = "<% = JS_SafeString(GetMD5(App.Options.SessionID)) %>";
+                var ignoreAdvancedSwitch = false;
+                var is_mobile = <% = Bool2JS(_Page.App.isMobileBrowser) %>;
+        var sess_useridx = "<% =If(App.isAuthorized, App.ActiveUser.UserID, -1) %>";
+                var sess_username = "<% =JS_SafeString(SafeFormString(_Page.GetSessionUserName())) %>";
+                var sess_useremail = "<% =JS_SafeString(If(App.isAuthorized, SafeFormString(App.ActiveUser.UserEmail), "")) %>";
+                var sess_user_anon = <% = Bool2JS(Not App.isAuthorized) %>;
+        var sess_sidebar_width = localStorage.getItem("sidebar_width");
+                var sidebar_width = !(sess_sidebar_width) || typeof sess_sidebar_width == "undefined" ? -1 : parseInt(sess_sidebar_width, 10);
+        <% =GetParsedTemplates() %>
+                ko_widget2 = true;  //<% =Bool2JS(App.isRiskEnabled) %>;
+                ko_prjid = "<% =JS_SafeString(If(App.isRiskEnabled, HelpAuthWebAPI._KO_PrjID_Riskion, HelpAuthWebAPI._KO_PrjID)) %>";
+                ko_base_url = "<% =JS_SafeString(HelpAuthWebAPI.GetHelpPath(App.isRiskEnabled)) %>";
+                initLoadingPanel();
+
+//--></script>
+
+
+            <div class="tblMain" id="divTblMain">
+                <asp:ContentPlaceHolder ID="PageContent" runat="server" />
+                <%--<div class="tr trHeader" id="trHeader">
+                    <div class="td tdHeader onswipe<% =If(_Page.ShowNavigation, " tdLogo", If(_Page.ShowTopNavigation, "", " tdHeaderNoNav")) %>">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle" align="left">
+                                <td class="logo-container"><% If AllowLinks Then %><a href="<% = _Page.GetDefaultPath(False) %>"><% End if %>
+                                    <div id="imgLogoFull">
+                                        <img src='<% =_Page.ThemePath + _FILE_IMAGES %><% If App.isRiskEnabled Then %>riskion_logo_142.png<% Else %>ecc_logo_183.png<% End If %>' height="38" title="<% =SafeFormString(_Page.ApplicationName) %>" />
+                                    </div>
+                                    <div id="imgLogoSmall" style="text-align: center;">
+                                        <img src='<% =_Page.ThemePath + _FILE_IMAGES %><% If App.isRiskEnabled Then %>riskion_logo_square_38.png<% Else %>ecc_logo_square_38.png<% End if %>' title="<% =SafeFormString(_Page.ApplicationName) %>" style="border: 0px;" />
+                                    </div>
+                                    <% If AllowLinks Then %></a><% End if %></td>
+                                <% If AllowLinks Then %><td class="wg-details-container">
+                                    <% If App.ActiveUser IsNot Nothing AndAlso App.ActiveWorkgroup IsNot Nothing Then %>
+                                    <div id="divWkgName" style="margin-bottom: 3px">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr valign="bottom">
+                                                <td><span style="vertical-align: middle;"><i class="wkg-icon far fa-folder-open icon-light"></i><b><% = ResString("lblWorkgroup") %>:</b>&nbsp;</span></td>
+                                                <td width="99%"><% If App.AvailableWorkgroups(App.ActiveUser, App.UserWorkgroups).Count > 1 %><div id="divWorkgroups"><% =SafeFormString(App.ActiveWorkgroup.Name) %></div>
+                                                    <% Else %><% = SafeFormString(App.ActiveWorkgroup.Name) %><% End if %></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <% End If %>
+                                    <% If App.HasActiveProject AndAlso Not App.Options.isSingleModeEvaluation Then %><div style="vertical-align: text-bottom;">
+                                        <nobr>
+                                            <i class="wkg-icon far fa-file-alt icon-light"></i>
+                                            <div id="CurPrjName" title="<% =SafeFormString(SafeFormString(If(App.HasActiveProject, String.Format("#{0}: {1}", App.ProjectID, App.ActiveProject.ProjectName), ""))) %>"><b><span id="spanModelTypeName"><% =_Page.GetProjectTypeName(App.ActiveProject) %></span>:</b>&nbsp;<% =SafeFormString(If(App.HasActiveProject, App.ActiveProject.ProjectName, "")) %></div>
+                                            <% If App.HasActiveProject AndAlso (App.ActiveProject.ProjectStatus = ecProjectStatus.psActive OrElse App.ActiveProject.ProjectStatus = ecProjectStatus.psMasterProject) AndAlso _Page.CanUserModifyActiveProject Then %><% If App.ActiveProject.ProjectStatus = ecProjectStatus.psActive Then %><i class="fas fa-link" onclick="mpShowProjectLinks(); return false;" title="<% =SafeFormString(ResString("lblGetLink")) %>" id="iconPrjLink" style="margin-left: 5px; font-size: 13px; display: inline-block; cursor: pointer;"></i><% End If %><% If App.HasActiveProject AndAlso _Page.CanUserModifyActiveProject Then %><i class="fas fa-download" onclick="downloadActiveModel(); return false;" title="<% =SafeFormString(ResString("titleProjectDownload")) %>" id="iconPrjDownload" style="padding: 0px; margin-left: 4px; font-size: 10px; display: inline-block; cursor: pointer;"></i><% End If %><% End if %><% If _Page.isStarredAvailable Then  %><i class="fa-star <% =If(App.ActiveWorkspace IsNot Nothing AndAlso App.ActiveWorkspace.isStarred, "fas  project-starred", "far") %>" onclick="onToggleStarred(<% =App.ProjectID %>, this, false); return false;" title="<% =SafeFormString(ResString("lblFavotite")) %>" id="curPrjStarred" style="margin-left: 5px; display: inline-block; cursor: pointer;"></i><% End if %></nobr>
+                                    </div>
+                                    <% End If %>
+                                </td>
+                                <% End if %>
+                                <% If Not App.isCommercialUseEnabled Then %><td align="center">
+                                    <div style="margin: 0px 1ex;" class="text nc_warning"><% = ResString("lblNonCommercialUseOnly") %></div>
+                                </td>
+                                <% End if %>
+                                <td align="right" class="right-nav-links" valign="middle">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tr valign="middle">
+                                            <td>
+                                                <div class="icon-links">
+                                                    <% If App.ActiveUser IsNot Nothing AndAlso AllowLinks Then %>
+                                                   
+                                                    <% If App.isAuthorized Then %><a href="<%= If(_OPT_HELP_ROBOHELP, _URL_ROOT + ResString(If(App.isRiskEnabled, "help_BaseRisk", "help_Base")) + ResString(If(App.isRiskEnabled, "help_StartRisk", "help_Start")), "") %>" target="_blank" onclick="onShowHelp(help_uri); return false;"><i class="far fa-question-circle" id="help_icon" title="<% =SafeFormString(ResString("titleOnlineHelp")) %>"></i><span class="icon_hint"><% =SafeFormString(ResString("titleOnlineHelp")) %></span></a><% End if %>
+                                                    <% If Not _Page.isJustEvaluator AndAlso Not App.Options.isSingleModeEvaluation Then %><a href="" onclick="switchPageLookup(); return false;"><i class="fa fa-search-location" id="divPageLookup" title="<% =SafeFormString(ResString("lblPageLookup")) %>"></i><span class="icon_hint"><% =SafeFormString(ResString("lblPageLookup")) %></span></a><% End if %>
+                                                   <% End if %>
+                                                    <% If App.isAuthorized AndAlso App.ActiveWorkgroup IsNot Nothing AndAlso App.ActiveWorkgroup.Status <> ecWorkgroupStatus.wsSystem AndAlso App.HasActiveProject AndAlso (App.Options.isSingleModeEvaluation OrElse _Page.isJustEvaluator() AndAlso _Page.CurrentPageID <> _PGID_CREATE_PASSWORD) Then%><a href="<% = JS_SafeString(_Page.PageURL(EvalPageID)) %>" onclick="onOpenPage(<% = EvalPageID %>); return false;" title="<% =SafeFormString(_Page.PageMenuItem(EvalPageID)) %>"><i class="fas fa-clipboard-list<%=If(_Page.CurrentPageID = EvalPageID, " icon-round", "") %>"></i></a><% End If %>
+                                                    <a href="" onclick="switchFullscreen(true, fs_alert); return false;"><i class="fa fa-expand" title="<% =SafeFormString(ResString("hintFullScreen")) %>"></i><span class="icon_hint"><% =SafeFormString(ResString("hintFullScreen")) %></span></a>
+                                                </div>
+                                            </td>
+                                            <% If App.ActiveUser IsNot Nothing OrElse HasListPage(_PAGESLIST_ANTIGUA, _Page.NavigationPageID) Then %><td>
+                                                <div id="divUserMenu"><% =If(App.ActiveUser IsNot Nothing, HTMLUserLinkEmail(App.ActiveUser), "") %></div>
+                                            </td>
+                                            <% End if %>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>--%>
+                <% If _Page.App.HasActiveProject Then %>
+                <%--<div class="tr" id="trTopMenu" style="display: none;">
+                    <div id="tdTopLineMenu" class="td">
+                        <div id="divTopMenu" class="upper"></div>
+                    </div>
+                </div>--%>
+                <%--<div class="tr" id="trWorkflow" style="display: none;">
+                    <div id="tdWorkflow" class="td">
+                        <nobr>
+                            <ul id="workflow" class="workflow-no-arrows<% =If(App.isRiskEnabled, "", " upper") %>"></ul>
+                        </nobr>
+                    </div>
+                </div>--%>
+                <% End If %>
+                <%--<div class="tr">
+                    <div class="td tdMainContent">
+                        <div class="content-wrapper">
+                            <div class="content" id="MainContent">
+                                <!-- Navigation -->
+                                 <% If _Page.ShowNavigation Then %><div class="tdMenu sidebar-menu-panel" onmouseout="autoToggleSideBarMenu(false);" onmouseover="autoToggleSideBarMenu(true);">
+                                    <table border="0" cellspacing="0" cellpadding="0" class="whole">
+                                        <tr>
+                                            <td valign="top" style="height: 100%" id="tdMenuContent">
+                                                <div class="sidebar-menu-content sidebar-no-borders">
+                                                    <!-- style="padding-bottom:1.75em;">-->
+                                                    <div class="sidebar-menu-pinner">
+                                                        <a href="" onclick="toggleAutoHideMenu(); return false;">
+                                                            <div class="sidebar-menu-pinner-btn"><i class="fas fa-thumbtack" id="iconAutoHideMenu" style="padding-top: 5px;"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <!-- sideleft menu -->
+                                                    <div class="sidebar-menu<% =If(ShowDraftPages(), "", " no-desc") %> sidebar-no-borders" id="divMenu" style="padding-top: 6px;">
+                                                        <p class="text small gray" style="text-align: center; margin-top: 40%;" id="divFakePreloader">
+                                                            <img src="/Images/loader.gif" height="48" style="margin-bottom: 12px;" /><br />
+                                                            <% =ResString("msgLoading") %>
+                                                        </p>
+                                                    </div>
+                                                    <!-- /sideleft menu -->
+                                                </div>
+                                            </td>
+                                            <td valign="middle" style="width: 12px;" id="tdMenuToggler" onmouseover="autoToggleSideBarMenu(true);">
+                                                <a href="" onclick="doToggleSidebarMenu(); return false;">
+                                                    <div class="sidebar-menu-toggler"><i class="fa fa-chevron-left"></i></div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <% End If %>
+                                <!-- /Navigation -->
+                                <div id="divMainContent" style="height: 100%; overflow: hidden; <% =If(_Page.AlignHorizontalCenter, " text-align:center;", "") %>">
+                                    <div class="mainContentContainer" id="divMainContentPlaceholder">
+                                        <% If _Page.AlignVerticalCenter Then %><div class="table">
+                                            <div class="tr">
+                                                <div class="td tdCentered">
+                                                    <% If _Page.AlignHorizontalCenter Then %><div style="display: inline-block">
+                                                        <% End if %><% End if %>
+                                                        <!-- main content -->
+
+                                                        <asp:ContentPlaceHolder ID="PageContent" runat="server" />
+
+                                                        <!-- /main content -->
+                                                        <% If _Page.AlignVerticalCenter Then %><% If _Page.AlignHorizontalCenter Then %>
+                                                    </div>
+                                                    <% End if %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% End if %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>--%>
+                <%--<div class="tr trFooter">
+                    <div class="td tdFooter onswipe" id="tdFooter">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr valign="middle" align="left">
+                                <td class="footer_left">
+                                    <div class="sidebar-menu-footer-wrapper" style="white-space: nowrap;">
+                                        <nobr>
+                                            <% If App.Languages.Count > 1 Then %><div id="divLanguage" style="display: inline-block; float: left;">
+                                                <a href="" onclick="return false;" class="actions lang" title=""><i class="fa fa-globe"></i>
+                                                    <span class="sidebar-menu-footer"><% =If(App.CurrentLanguage IsNot Nothing, App.CurrentLanguage.LanguageName, "") %></span></a>
+                                            </div>
+                                            <% End if %>
+                                            <% If AllowLinks AndAlso Not App.isMobileBrowser Then %><div id="divShortcuts" style="display: inline-block; float: left;">
+                                                <a href="" onclick="return false;" class="actions shortcuts" title=""><i class="far fa-keyboard"></i>
+                                                    <span class="sidebar-menu-footer"><% = ResString("lblShortcuts") %></span></a>
+                                            </div>
+                                            <% if ShowDraftPages() Then %><div style="display: inline-block; float: left; margin: 0px 1px; opacity: 0.8" class="text small" id="divPagesStat"></div>
+                                            <% End If %>
+                                            <% End if %></nobr>
+                                    </div>
+                                </td>
+                                <td align="left">
+                                    <div style="width: 100%; overflow: hidden; white-space: nowrap; float: left; text-overflow: ellipsis;">
+                                        <nobr>
+                                            <% If Not _Page.isJustEvaluator AndAlso App.isAuthorized AndAlso AllowLinks Then %><div class="sidebar-menu-footer-wrapper white-on-hover" id="optAdvanced" style="margin-right: 1ex;">
+                                                <a href="" onclick="switchAdvanced(); return false;" class="actions"><i class="fas white-on-hover <% =If(_Page.isAdvancedMode, "fa-toggle-on", "fa-toggle-off") %>" id="iconAdvanced"></i>
+                                                    <span class="sidebar-menu-footer" id="spanAdvanced"><% =ResString(If(_Page.isAdvancedMode, "lblAdvancedModeOn", "lblAdvancedModeOff")) %></span></a>
+                                                <div onclick="showHasAdvanced(); return false;" id="iconHasAdvanced" style="display: inline-block" onmouseover="flashAdvancedOptions(true);" onmouseout="flashAdvancedOptions(false);">
+                                                    <i class="white-on-hover light fas fa-eye"></i>
+                                                </div>
+                                            </div>
+                                            <% End If %>
+                                            <div style="display: inline-block;" id="divBackgroundProgress" onclick="hideBackgroundMessage();"></div>
+                                        </nobr>
+                                    </div>
+                                </td>
+                                <td style="width: 15%" align="right">
+                                    <div style="padding-left: 1ex; padding-right: <% = CInt(If(ShowChatSupport, 34, 0)) + CInt(If( _Page.ShowNavigation, 0, 8)) %>px; white-space: nowrap;">
+                                        <% If App.isAuthorized AndAlso GetPageLink() <> "" AndAlso AllowLinks Then %><div class='footer_sharebtn'><a href="<% =SafeFormString(GetPageLink()) %>" onclick="copyPageDirectLink(); return false;" title="<% =SafeFormString(ResString("titleCopyPageLink")) %>"><i class="fas fa-share-alt-square white-on-hover light"></i></a></div>
+                                        <div style="margin-right: 28px; display: inline-block;">
+                                            <% Else %><div>
+                                                <% End If %>
+                                                <span <% If False AndAlso App.isAuthorized AndAlso App.CanUserCreateNewProject Then %>onclick="onWhatsNew(true);" title="Recent updates list (all)" style="cursor: pointer;" <% End if %>><% =String.Format(ResString("lblVersion"), GetVersion(_Page.GetWebCoreVersion(), VersionFormat.Normal)) %></span>
+                                                <br />
+                                                <span id="divCopyright"><% =ResString("lblCopyright")%></span>
+                                            </div>
+                                        </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="divTooltipLangs"></div>
+                        <div id="divTooltipShortcuts"></div>
+                        <div id="tooltipPagesStat"></div>
+                        <div id="popupShellSettings" class="cs-popup"></div>
+                    </div>
+                </div>--%>
+            </div>
+        </div>
+        <input type="hidden" name="csrf_token" value="<% =SafeFormString(_Page._antiXsrfToken) %>" />
+
+        <script type="text/javascript">
+            var btn_fullscreen_drag = false;
+            var can_fullscreen = !!screenfull.isEnabled;
+            var do_toggle_star = false;
+            curPrjData = <% = If(App.HasActiveProject, WebAPI.jProject.GetProjectByID(App).ToJSON(), "{}") %>;
+            _url_infopage = "<% =JS_SafeString(_Page.PageURL(_PGID_INFO_PAGE)) %>";
+            _url_landingpage = "<% =JS_SafeString(_Page.PageURL(_PGID_LANDING_COMMON)) %>";
+        <% if App.HasActiveProject Then %>_url_download = "<% =JS_SafeString(_Page.PageURL(_PGID_PROJECT_DOWNLOAD, _PARAM_ACTION + "=download")) %>"<% End If %>
+            ping_hash = "<% = JS_SafeString(GetMD5(WebAPI.jSessionStatus.CreateFromBaseObject(App, _Page.Session).ToJSON())) %>";
+
+            wkg_json = [<% =GetWorkgroupsJSON() %>];
+            wkg_id = <% =If(App.ActiveWorkgroup IsNot Nothing, App.ActiveWorkgroup.ID, -1) %>;
+            nav_json = [<%=GetSitemapJSON()%>];
+            nav_layout = "<% = JS_SafeString(LayoutName()) %>";
+            menu_last = [];
+            showSidebar = false;
+            var show_issues = <% =Bool2JS(_Page.ShowKnownIssues(App)) %>;
+            var fs_alert = <% =Bool2JS(Str2Bool(_Page.GetCookie("fs_alert", "1"))) %>;
+
+<% If HotKeys IsNot Nothing AndAlso HotKeys.Count > 0 Then %>
+            var global_shortcuts = [<% =GetHotKeysList %>];
+            shortcuts = shortcuts.concat(global_shortcuts);
+            shortcuts = shortcuts.concat([
+            <% If App.HasActiveProject AndAlso Not App.Options.isSingleModeEvaluation Then %>{ "code": "Ctrl+Alt+C", "title":"<% =ResStringJS("btnCloseProject") %>", "js": "closeProject(curPrjID);" }, <% End if %>
+            <% If _Page.isStarredAvailable Then %>{ "code": "Alt+H", "title":"<% =ResStringJS("titleProjectHistory") %>", "js": "onShowProjectsHistory();" }, <% End if %>
+<% If _Page.ShowNavigation OrElse _Page.ShowTopNavigation Then %>
+<% If _Page.ShowNavigation Then %>
+                { "code": "Ctrl+~", "title":"<% =ResStringJS("lblSwitchSidebarMenu") %>", "js": "toggleSideBarMenu(true, -1, true);" },
+<% End If %>
+            <% If ShowDraftPages AndAlso _LAYOUTS_ALLOWED.Count > 1 Then %>{ "code": "Ctrl+Shift+Alt+N", "title": "Switch navigation layout", "js": "switchNavigation();" }, <%End if%>
+<% End If %>
+            //{"code":"Alt+F11", "title":"<% =ResStringJS("hintFullScreen") %>", "js":"switchFullscreen(-1, false);"},
+            <% If App.isAuthorized AndAlso Not App.isRiskEnabled Then %>{ "code": "F1", "title":"<% =ResStringJS("lblShowHelp") %>", "js": "onShowHelp(help_uri);" }, <% End if%>
+                { "code": "Alt+F1", "title":"<% =ResStringJS("lblShowShortcuts") %>", "js": "toggleSideBarMenu(true, -1, true);" }
+            ]);
+<% End If %>
+        <% If _Page.ShowNavigation OrElse _Page.ShowTopNavigation Then %>
+        <% If App.HasActiveProject AndAlso App.ActiveProject.IsProjectLoaded Then %>
+            use_aip = <% =Bool2JS(App.HasActiveProject AndAlso App.ActiveProject.PipeParameters.CombinedMode = CombinedCalculationsMode.cmAIPTotals) %>;
+            has_alts = <% = Bool2JS(App.HasActiveProject AndAlso App.ActiveProject.HierarchyAlternatives.Nodes.Count > 0) %>;
+            has_csdata = <% =Bool2JS(HasCSData) %>;
+            prj_reports_list = <% = ReportWebAPI.ReportsListJSON(App.ActiveProject.ProjectManager.Reports, ecReportCategory.All, False) %>;<% Else %>
+            use_aip = false;
+            has_alts = false;
+            has_csdata = false;<% End if %>
+        <% End If %>
+
+        <% If App.ActiveWorkgroup IsNot Nothing Then %>
+            function initWorkgroups() {
+                $("#divWorkgroups").dxSelectBox({
+                    dataSource: DevExpress.data.query(wkg_json)
+                        .sortBy("title", false)
+                        .toArray(),
+                    value: wkg_id,
+                    displayExpr: "title",
+                    valueExpr: "id",
+                    disabled: (wkg_json.length < 1),
+                    width: "auto",
+                    //elementAttr: { "id" : "cbSelectWorkgroup"},
+                    searchEnabled: true,
+                    onFocusIn: function (e) {
+                        if (e.element) e.element.find("input[type=text]").select();
+                    },
+                    //onOpened: function(e) {
+                    //    if (e.element) e.element.find("input[type=text]").select();
+                    //    var lst = $(".dx-overlay-content.dx-popup-normal.dx-popup-draggable.dx-resizable");
+                    //    if ((lst) && (lst.length)) {
+                    //        if (lst.width() < 200) lst.width($(window).width() > 600 ? 300 : 200);
+                    //    }
+                    //},
+                    onFocusOut: function (e) {
+                        if (e.component.option("text") == "") e.component.reset();
+                    },
+                    openOnFieldClick: true,
+                    onValueChanged: function (e) {
+                        if (e.value == "" || e.value == null || typeof e.value == "undefined") {
+                            e.component.option("value", e.previousValue);
+                        } else {
+                            var id = e.value * 1;
+                            if (id > 0 && id != wkg_id) {
+                                for (var i = 0; i < wkg_json.length; i++) {
+                                    if (wkg_json[i].id == id) {
+                                        if (wkg_json[i].expired || !wkg_json[i].enabled) {
+                                            DevExpress.ui.dialog.alert((wkg_json[i].comment == "" ? "<% =ResStringJS("msgCantOpenWorkgroup") %>" : wkg_json[i].comment), wkg_json[i].title);
+                                            e.component.option("value", e.previousValue);
+                                            return false;
+                                        }
+                                        break;
+                                    }
+                                }
+                                openWorkgroup(e.value * 1);
+                            }
+                        }
+                    },
+                    itemTemplate: function (itemData, itemIndex, itemElement) {
+                        var images = ["wkg_comparion.png", "wkg_riskion.png", "wkg_system.png", "wkg_startup.png"]
+                        return $("<div" + (itemData.expired ? " class='error'" : (itemData.enabled ? "" : " class='gray'")) + (itemData.comment == "" ? "" : " title=\"" + itemData.comment + "\"") + "><img src='<% =_URL_ROOT + _FILE_IMAGES %>" + images[itemData.status] + "' width=16 height=16 border=0 title='' style='margin-right:6px'/>" + itemData.title + "</div>");
+                    },
+                    //fieldTemplate: function (selectedItem, fieldElement) {
+                    //    return $("<div />").append(
+                    //        $("<img />").attr("src", selectedItem.imgSrc),
+                    //        $("<div />").dxTextBox({ value: selectedItem.name })
+                    //                    .css("display", "inline-block")
+                    //    );
+                    //}
+                    //}).on("mouseenter", function (e) {
+                    //    $("#divWorkgroups").dxSelectBox("instance").option("opened", true);
+                });
+            }
+
+            function openWorkgroup(id) {
+                callAPI("workgroup/?<% = _PARAM_ACTION %>=open", { "id": id }, onOpenWkg);
+            }
+
+            function onOpenWkg(res) {
+                var err = "<% =ResStringJS("msgCantOpenWorkgroup") %>";
+                if (isValidReply(res)) {
+                    if (res.Result == _res_Success) {
+                        if (typeof res.ObjectID != "undefiend" && res.ObjectID * 1 > 0 && res.ObjectID != wkg_id) {
+                            showLoadingPanel("", true);
+                            if (pgID == <% =CInt(_PGID_ANTIGUA_MEETING) %> || pgID == <% =CInt(_PGID_ANTIGUA_MEETING_IMPACT) %> || pgID == <% =CInt(_PGID_ANTIGUA_MEETING_LIKELIHOOD) %> || curPrjID > 0) {
+                                loadURL("<% = JS_SafeString(_Page.PageURL(_PGID_PROJECTSLIST)) %>");
+                            } else {
+                                reloadPage();
+                            }
+                        }
+                        return true;
+                    } else {
+                        if (typeof res.Message != "undefined" && res.Message != "") err = res.Message;
+                        if (typeof res.ObjectID != "undefiend" && res.ObjectID * 1 > 0) {
+                            var id = res.ObjectID * 1;
+                            var dl = $("#divWorkgroups");
+                            if ((dl) && dl.data("dxSelectBox")) {
+                                wkg_id = id;
+                                dl.dxSelectBox("instance").option("value", id);
+                            }
+                            if (typeof res.Data != "undefiend" && res.Data * 1 > 0) {
+                                var old_id = res.Data * 1;
+                                if (old_id != wkg_id) {
+                                    for (var i = 0; i < wkg_json.length; i++) {
+                                        if (wkg_json[i].id == old_id) {
+                                            wkg_json[i].enabled = false;
+                                            if (typeof initWorkgroups == "function") initWorkgroups();
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                showErrorMessage(err, true);
+            }
+
+            function getPageForProjectList(pg) {
+                if (typeof curPrjData != "undefined" && typeof curPrjData.ProjectStatus != "undefined" && (nav_json)) {
+                    var _pgID = _pgid_projectslist;
+                    switch (curPrjData.ProjectStatus * 1) {
+                        case 1:
+                            _pgID = _pgid_projects_archived;
+                            break;
+                        case 2:
+                            _pgID = _pgid_projects_templates;
+                            break;
+                        case 3:
+                            _pgID = _pgid_projects_master;
+                            break;
+                    }
+                    var _pg = pageByID(nav_json, _pgID);
+                    if ((_pg)) pg = _pg;
+                }
+                return pg;
+            }
+
+            function onSelectProject() {
+                var prj = pageByID(nav_json, <% =_PGID_PROJECTSLIST %>);
+                if ((prj)) {
+                    if (typeof prj.pguid != "undefined") {
+                        var p = pageByUID(nav_json, prj.pguid);
+
+                        if ((p)) p = getPageForProjectList(p);
+
+                        if ((p)) {
+                            var _p = curPrjID;
+                            curPrjID = -1;
+                            onWorkflowClick(p, nav_json);
+                            curPrjID = _p;
+                            return false;
+                        }
+
+                        openPage(<% =_PGID_PROJECTSLIST %>);
+                    }
+                }
+                return false;
+            }
+
+            function onShowSnapshots(id) {
+                if (id * 1 > 0) onShowIFrame("<% = _Page.PageURL(_PGID_PROJECT_SNAPSHOTS, "prj_id") %>=" + id, "<% =JS_SafeString(_Page.PageTitle(_PGID_PROJECT_SNAPSHOTS)) %>");
+            }
+
+
+            function onAddSnapshot(id) {
+                var w = dlgMaxWidth(450);
+                $("#popupContainer").dxPopup({
+                    width: w,
+                    height: "auto",
+                    title: resString("lblAddSnapshot"),
+                    toolbarItems: [{
+                        widget: 'dxButton',
+                        options: {
+                            text: resString("btnCreateSnapshot"),
+                            type: "default",
+                            onClick: function () { addSnapshot(id, $("#inpComment").dxTextBox("option", "value")); return false; }
+                        },
+                        toolbar: "bottom",
+                        location: 'after'
+                    }, {
+                        widget: 'dxButton',
+                        options: {
+                            text: resString("btnCancel"),
+                            onClick: function () { closePopup(); return false; }
+                        },
+                        toolbar: "bottom",
+                        location: 'after'
+                    }],
+                    contentTemplate: function () {
+                        return "<b>" + resString("lblCreateSnapshotComment") + "</b>:<br/><div id='inpComment'/>";
+                    }
+                });
+                $("#popupContainer").dxPopup("show");
+                $("#inpComment").dxTextBox({ value: "" });
+                setTimeout(function () { $('#inpComment').find('input').select().focus(); }, 500);
+            }
+
+            function addSnapshot(prj_id, comment) {
+                closePopup();
+                showLoadingPanel("<% =JS_SafeString(ResString("msgSaving")) %>");
+                callAPI("project/?<% =_PARAM_ACTION %>=snapshot_add", { "comment": comment }, function (res) {
+                    onSaveSnapshot(res, comment)
+                }, true);
+            }
+
+            function onSaveSnapshot(res, name) {
+                hideLoadingPanel();
+                if (isValidReply(res)) {
+                    //var msg = (typeof res.Data != "undefined" && (res.ObjectID) ? "#" + res.ObjectID + " (" + res.Data + ")" : "");
+                    var msg = (typeof name != "undefined" && name != "" ? "&laquo;" + htmlEscape(name) + "&raquo;" : "") + (typeof res.Data != "undefined" && (res.ObjectID) ? " (#" + res.ObjectID + ")" : "");
+                    msg = replaceString("{0}", msg, "<% =JS_SafeString(ResString("msgSnapshotSaved")) %>");
+                    DevExpress.ui.dialog.alert("<div style='max-width:700px;'>" + msg + "</div>", "<%=JS_SafeString(ResString("btnCreateSnapshot")) %>");
+                } else {
+                    showResMessage(res, true);
+                }
+            }
+
+            function copyPageDirectLink() {
+                var lnk = '<% =JS_SafeString(GetPageLink().Replace("""", " &quot;")) %>';
+                if (typeof onGetDirectLink == "function") {
+                    var e = onGetDirectLink();
+                    if (lnk.indexOf(e) < 0) lnk += "&" + onGetDirectLink();
+                }
+                copyDataToClipboard(lnk, resString('msgLinkCopied'));
+            }
+
+            function initProjectActions() {
+            <% If App.HasActiveProject Then %>var prjActions = $(".project_actions");
+                if ((prjActions) && (prjActions.length)) {
+                    prjActions.html("");
+                <% If App.CanActiveUserModifyProject(App.ProjectID) AndAlso Not App.isRiskEnabled Then %>var rep = "<i class='fas fa-file-export' id='iconReport'></i><span class='nowide1200' style='margin-left:2px'><% = ResString("btnSavePageTo") %></span>";
+                    if ((typeof onGetReport == "function")) {
+                        rep = "<a href='' onclick='addPage2Report(); return false;'>" + rep + "</a>";
+                        $("<div class='prj_action nowide800" + ((typeof onGetReport == "function") ? "" : " disabled") + "' id='prjActionAddReport' title='<% = SafeFormString(ResString("titleAddToProjectReport")) %>'>" + rep + "</div>").appendTo(prjActions);
+                    }<% End if %>
+                <% If Not HasListPage(_PAGESLIST_ANTIGUA, _Page.NavigationPageID) Then %>$("<div class='prj_action nowide900' id='prjActionRefresh' title='<% = SafeFormString(ResString("btnStructureReloadProject")) %>'><a href='<% =JS_SafeString(_Page.PageWithExtraParameter("resetproject=yes")) %>' id='linkReloadProject' onclick='resetProjectAndReload(); return false;'><i class='fas fa-sync-alt' style='font-size:0.9rem'></i><span class='nowide1200'><% = SafeFormString(ResString("btnRefreshProjects")) %></span></a></div>").appendTo(prjActions);<% End if %>
+                <% If App.ActiveProject.ProjectStatus = ecProjectStatus.psActive AndAlso _Page.CanUserModifyActiveProject Then %>$("<div class='prj_action nowide800' id='prjActionOnline' title='<% = SafeFormString(ResString("lblToggleOnline")) %>'><a href='' onclick='switchProjectOnline(); return false;'><i class='fas fa-toggle-off fa-toggle-on' id='iconOnline'></i><span class='nowide1200'><% = ResString("lblOnline") %></span></a></div>").appendTo(prjActions);
+                    $("<div class='prj_action on_advanced nowide800' id='prjActionLock' title='<% = SafeFormString(ResString("titleProjectUnlock")) %>'><a href='' onclick='switchProjectLock(); return false;'><i class='fas fa-unlock fa-lock' id='iconLock'></i><span class='nowide1200'><% = ResString("btnLock") %></span></a></div>").appendTo(prjActions);<% End If%>
+                <% If _Page.CanUserModifyActiveProject Then %>
+                <% If True OrElse Not HasListPage(_PAGESLIST_ANTIGUA, _Page.NavigationPageID) Then %>$("<div class='prj_action'><a href='<% =JS_SafeString(_Page.PageURL(_PGID_PROJECT_SNAPSHOTS)) %>' id='linkSnapshots' onclick='onShowSnapshots(" + curPrjID + "); return false;' title='<% = SafeFormString(ResString("btnSnapshotsList")) %>'><i class='ion ion-md-reverse-camera'></i><span class='nowide1200'><% = ResString("btnSnapshots") %></span></a></div>").appendTo(prjActions);<% End If %>
+                    $("<div class='prj_action on_advanced nowide800' style='margin-left:0px' title='<% = SafeFormString(ResString("btnAddSnapshot")) %>' id='prjActionAddSnap'><a href='<% =JS_SafeString(_Page.PageURL(_PGID_PROJECT_SNAPSHOTS)) %>' id='linkAddSnapshot' onclick='onAddSnapshot(" + curPrjID + "); return false;'><i class='fas fa-save'></i><!--span class='nowide1200'><% = ResString("btnAddSnapshot") %></span--></a></div>").appendTo(prjActions);<% End If%>
+                <% If App.CanUserCreateNewProject Then %>$("<div class='prj_action on_advanced nowide800' style='margin-left:0px'><a href='<% =JS_SafeString(_Page.PageURL(_PGID_ADMIN_PRJ_LOOKUP)) %>' id='linkPrjLookup' onclick='onProjectLookup(); return false;' title='<% = SafeFormString(ResString("titleAdminPrjLookup")) %>'><i class='fa fa-binoculars'></i></a></div>").appendTo(prjActions);<% End if %>
+<%--                <% If App.ActiveProject IsNot Nothing Then %>
+                $("<div class='prj_action' style='margin-left:0px' title='<%=SafeFormString(ResString("hintSettings"))%>'><a href='' onclick='shellSettingsDialog(); return false;'><i class='fas fa-sliders-h'></i><span class='nowide1200'><% =SafeFormString(ResString("hintSettings")) %></span></a></div>").appendTo(prjActions);
+                <% End If %>--%>
+                    updateProjectActions();
+                }<% End if %>
+            }
+
+            function resetProjectAndReload() {
+                loadURL(urlWithParams("resetproject=yes"), "<% = JS_SafeString(ResString("btnStructureReloadProject")) %>");
+            }
+
+            function updateProjectActions() {
+                if (curPrjID > 0 && typeof curPrjData != "undefined") {
+                    var cl = ((curPrjData.isOnline) ? "fa-toggle-on" : "fa-toggle-off");
+                    var blink = !($("#iconOnline").hasClass(cl));
+                    var src = (curPrjData.LockStatus == 0 ? "../Images/img/icon/unlock.svg" : "../Images/img/icon/lock.svg");
+                    $("#iconOnline").removeAttr('class').addClass("fas " + cl);
+                    if (blink) $("#iconOnline").addClass("blink_opacity_twice");
+                    cl = (curPrjData.LockStatus == 0 ? "fa-unlock" : "fa-lock");
+                    blink = !($("#iconLock").hasClass(cl));
+                    $("#iconLock").removeAttr('class').addClass("fas " + cl);
+                    if (blink) $("#iconLock").addClass("blink_opacity_twice");
+                    //$("#prjActionLock").prop("title", resString(curPrjData.LockStatus == 0 ? "titleProjectLock" : "titleProjectUnlock"));
+                    $("#prjActionLock").attr("data-title", resString(curPrjData.LockStatus == 0 ? "titleProjectLock" : "titleProjectUnlock"));
+                    $('#prjActionIcon').attr('src', src);
+                    $("#prjActionOnline").prop("title", resString((curPrjData.isOnline) ? "lblToggleOffline" : "lblToggleOnline"));
+                    $(".project_actions").show();
+                    setTimeout(function () {
+                        $("#iconOnline").removeClass("blink_opacity_twice");
+                        $("#iconLock").removeClass("blink_opacity_twice");
+                    }, 2100);
+                } else {
+                    $(".project_actions").hide();
+                }
+            }
+
+            function switchProjectOnline() {
+                if (typeof curPrjData != "undefined" && typeof curPrjData.isOnline != "undefined") setProjectOnline(curPrjData.ID, !curPrjData.isOnline);
+            }
+
+            function switchProjectLock() {
+            <% If HasListPage(_PAGESLIST_ANTIGUA, _Page.CurrentPageID) Then %>DevExpress.ui.dialog.alert("<% =ResStringJS("lblProjectLockedByAntigua") %>", "<% =ResStringJS("lblWarning") %>");<%Else %>
+                if (typeof curPrjData != "undefined" && typeof curPrjData.LockStatus != "undefined") setLockProject(curPrjData.ID, (curPrjData.LockStatus == <% =CInt(ECLockStatus.lsUnLocked) %> ? <% =CInt(ECLockStatus.lsLockForModify) %> : <% =CInt(ECLockStatus.lsUnLocked) %>));<%End If %>
+            }
+
+            function onProjectLookup() {
+                var pg = pageByID(nav_json, <% =_PGID_ADMIN_PRJ_LOOKUP %>);
+                if ((pg)) onMenuItemClick(pg);
+            }
+        <% End If %>
+
+            function getHelpURL(uri, use_base) {
+                var base = "<% = JS_SafeString(_URL_ROOT + ResString(If(App.isRiskEnabled, "help_BaseRisk", "help_Base"))) %>";
+                var def = "<% = ResStringJS(If(App.isRiskEnabled, "help_StartRisk", "help_Start")) %>";
+                if (uri == "" || typeof uri == "undefined") uri = "<% =JS_SafeString(GetHelpPage) %>";
+                if (uri[0] == "/") uri = uri.substring(1);
+                return base + (use_base ? def : "") + uri;
+            }
+
+            var helpwin = null;
+            var load_help_attempts = 3;
+            function onShowHelp(uri) {
+            <% If _OPT_HELP_ROBOHELP Then %>if (forLoggedOnly()) {
+                    var url = getHelpURL(uri, true);
+                    var first = (helpwin == null);
+                    helpwin = CreatePopup(((first) ? url : "<% = JS_SafeString(_URL_ROOT) %>dummy.htm"), 'helpwin', 'menubar=no,maximize=no,titlebar=no,status=yes,location=yes,toolbar=yes,channelmode=no,scrollbars=yes,resizable=yes,width=950,height=600,left=50,top=30', true);
+                if (!(first) && (helpwin)) setTimeout("helpwin.document.location.href = '" + url + "'; helpwin.focus();", 350);
+            }<% Else %>
+                if ((!ko_widget2 && typeof __ko16 != "undefined") || (ko_widget2 && typeof _ko19 != "undefined" && (ko_script_loaded))) {
+                    showBackgroundMessage("Help context: '" + help_uri + "'", "fas fa-question-circle", false);
+                    setTimeout(function () { hideBackgroundMessage(); }, 1000);
+                    updateHelpPage(uri);
+                    if (ko_widget2) {
+                        //_ko19.open();
+                        _ko19.loadKnowledge();
+                    } else {
+                        __ko16._toggleOpen();
+                        setTimeout(function () { storeHelpPanelState(); }, 350)
+                    }
+                } else {
+                    if (load_help_attempts > 0) {
+                        ko_loaded_callback = setTimeout(function () {
+                            hideLoadingPanel();
+                            onShowHelp(uri);
+                        }, 2000);
+                        showLoadingPanel();
+                        loadKOScript();
+                        load_help_attempts--;
+                    }
+                }<% End If %>
+            }
+
+            function onShowFAQ() {
+                onShowHelp("<% =ResStringJS(If(App.isRiskEnabled, "help_FAQRisk", "help_FAQ")) %>");
+                return false;
+            }
+
+            function onShowStarredProjects(force_reload) {
+                if (typeof PrjDataSource != "undefined" && typeof projects != "undefined" && (projects.length) && force_reload != true) {
+                    showLoadingPanel();
+                    res = { Result: _res_Success, Data: [] };
+                    for (var i = 0; i < projects.length; i++) {
+                        if ((projects[i].Starred && !projects[i].isMarkedAsDeleted)) res.Data.push(projects[i]);
+                    }
+                    onGetStarredProjects(res);
+                    hideLoadingPanel();
+                } else {
+                    callAPI("project/?<% =_PARAM_ACTION %>=list_starred", null, onGetStarredProjects);
+                }
+                return false;
+            }
+
+            function onGetStarredProjects(res) {
+                if (isValidReply(res) && typeof res.Data != "undefined") {
+                    var datasource = res.Data;
+                    var h_max = $(window).height() - 140;
+                    var h = (datasource.length ? datasource.length : 1) * 28 + 150;
+                    if (h > h_max) h = h_max;
+                    var popupOptions = {
+                        width: ($(window).width() > 500 ? 450 : $(window).width() - 48),
+                        height: h,
+                        contentTemplate: function () {
+                            return $("<div id='divStarredList'></div>");
+                        },
+                        toolbarItems: [{
+                            widget: 'dxButton',
+                            options: {
+                                disabled: (datasource.length == 0),
+                                text: "<% =ResStringJS("btnClearAll") %>",
+                                elementAttr: { "id": "btnStarredClear" },
+                                onClick: function (e) {
+                                    var a = DevExpress.ui.dialog.confirm("<% = ResStringJS("msgStarredReset") %>", "<% =ResStringJS("titleConfirmation") %>");
+                                    a.done(function (dialogResult) {
+                                        if (dialogResult) {
+                                            callAPI("project/?<% =_PARAM_ACTION %>=Starred_Clear", null, onToggledProject);
+                                            e.element.dxButton("option", "disabled", true);
+                                        }
+                                    });
+                                    return false;
+                                }
+                            },
+                            toolbar: "bottom",
+                            location: 'center'
+                        }, {
+                                widget: 'dxButton',
+                                options: {
+                                    text: "<% =ResStringJS("btnReload") %>",
+                                    onClick: function (e) {
+                                        closePopup();
+                                        onShowStarredProjects(true);
+                                    }
+                                },
+                                toolbar: "bottom",
+                                location: 'center'
+                            }, {
+                                widget: 'dxButton',
+                                options: {
+                                    text: "<% =ResStringJS("btnClose") %>",
+                                    onClick: function (e) {
+                                        closePopup();
+                                    }
+                                },
+                                toolbar: "bottom",
+                                location: 'center'
+                            }],
+                        showTitle: true,
+                        title: "<% =ResStringJS("titleStarredProjects") %>",
+                        dragEnabled: true,
+                        shading: true,
+                        closeOnOutsideClick: true,
+                        resizeEnabled: true,
+                        //position: { my: 'center', at: 'center', of: window },
+                        showCloseButton: true
+                    };
+                    $("#popupContainer").dxPopup(popupOptions).dxPopup("show");
+
+                    $("#divStarredList").dxList({
+                        height: "100%",
+                        dataSource: datasource,
+                        searchEnabled: (datasource.length),
+                        searchExpr: "text",
+                        pageLoadMode: "scrollBottom",
+                        keyExpr: "ID",
+                        searchExpr: ["Name"],
+                        noDataText: "<p align=center style='margin-top:3ex'><% =ResStringJS("msgEmptyStarredList") %></p>",
+                        hoverStateEnabled: true,
+                        focusStateEnabled: false,
+                        itemTemplate: function (itemData, itemIndex, element) {
+                            var lnk = "<span class='" + (itemData.CanOpen && !itemData.isMarkedAsDeleted ? "" : "gray") + "'" + ("<% = JS_SafeString(GetCurrentDBVersion.GetVersionString) %>" != itemData.Version ? " style='color:#666688;'" : "") + ">" + htmlEscape(itemData.Name) + (itemData.isMarkedAsDeleted ? " <nobr><span class='small'> (<% =ResStringJS("mnuProjectsListDeleted") %>)</span></nobr>" : "") + "</span>";
+                            element.append(
+                                $('<i class="fas fa-star project-starred starred-all" style="margin-right: 1ex;" onclick="onToggleStarred(' + itemData.ID + ', this, false); return false;"></i>'), $(lnk)
+                            );
+                        },
+                        onItemClick: function (e) {
+                            var prj = e.itemData;
+                            if (!do_toggle_star && (prj) && (!prj.isMarkedAsDeleted)) {
+                                openProject(prj.ID);
+                            }
+                        }
+                    });
+                } else {
+                    showErrorMessage("Unable to load the list of starred projects", true);
+                }
+            }
+
+            function onToggleStarred(prjid, icon, silent) {
+                do_toggle_star = true;
+                if ((icon)) $(icon).toggleClass("project-starred fas").toggleClass("far");
+                callAPI("project/?<% =_PARAM_ACTION %>=Starred_Toggle", {"<% =_PARAM_ID %>": prjid }, onToggledProject, (silent ? "<% =ResStringJS("msgSaving") %>" : false));
+            }
+
+            function setStarredIcon(icon, isStarred) {
+                if ((icon)) {
+                    if (isStarred) {
+                        icon.addClass("project-starred fas").removeClass("far");
+                    } else {
+                        icon.removeClass("project-starred fas").addClass("far");
+                    }
+                }
+            }
+
+            function mpShowProjectLinks() {
+                getProjectLinkDialog(curPrjID, "<% =JS_SafeString(If(App.HasActiveProject, App.ActiveProject.ProjectName, "")) %>", "<% =JS_SafeString(If(App.HasActiveProject, App.ActiveProject.PasscodeLikelihood, "")) %>", "<% =JS_SafeString(If(App.HasActiveProject, clsMeetingID.AsString(App.ActiveProject.MeetingIDLikelihood), "")) %>", "<% =JS_SafeString(If(App.HasActiveProject, clsMeetingID.AsString(App.ActiveProject.MeetingIDLikelihood, clsMeetingID.ecMeetingIDType.Antigua), "")) %>", <% =If(App.HasActiveProject, "((curPrjData) && (curPrjData.isOnline))", "true") %>, "<% =JS_SafeString(_Page.ApplicationURL(False, False)) %>", "", "<% =JS_SafeString(_Page.ApplicationURL(False, False)) %>", true);
+            }
+
+            function onShowProjectsHistory() {
+                callAPI("project/?<% =_PARAM_ACTION %>=list_history", null, onGetProjectsHistory);
+                return false;
+            }
+
+            function onGetProjectsHistory(res) {
+                if (isValidReply(res) && typeof res.Data != "undefined") {
+                    var datasource = res.Data;
+                    var h_max = $(window).height() - 140;
+                    var h = (datasource.length ? datasource.length : 1) * 28 + 150;
+                    if (h > h_max) h = h_max;
+                    var popupOptions = {
+                        width: ($(window).width() > 500 ? 450 : $(window).width() - 48),
+                        height: h,
+                        contentTemplate: function () {
+                            return $("<div id='divHistoryList'></div>");
+                        },
+                        toolbarItems: [<%--{
+                            widget: 'dxButton', 
+                            options: {
+                                text: "<% =ResStringJS("btnReload") %>",
+                                onClick: function(e) {
+                                    closePopup();
+                                    onShowProjectsHistory();
+                                }
+                            },
+                            toolbar: "bottom",
+                            location: 'center'
+                        },--%>{
+                            widget: 'dxButton',
+                            options: {
+                                text: "<% =ResStringJS("btnClose") %>",
+                                onClick: function (e) {
+                                    closePopup();
+                                }
+                            },
+                            toolbar: "bottom",
+                            location: 'center'
+                        }],
+                        showTitle: true,
+                        title: "<% =ResStringJS("titleProjectHistory") %>",
+                        dragEnabled: true,
+                        shading: true,
+                        closeOnOutsideClick: true,
+                        resizeEnabled: true,
+                        //position: { my: 'center', at: 'center', of: window },
+                        showCloseButton: true
+                    };
+                    $("#popupContainer").dxPopup(popupOptions).dxPopup("show");
+
+
+                    var dt_now = new Date();
+                    if (typeof res.Tag != "undefined" && res.Tag != null) dt_now = new Date(res.Tag);
+                    $("#divHistoryList").dxList({
+                        height: "100%",
+                        dataSource: datasource,
+                        searchEnabled: (datasource.length),
+                        searchExpr: "text",
+                        pageLoadMode: "scrollBottom",
+                        keyExpr: "ID",
+                        searchExpr: ["Name"],
+                        noDataText: "<p align=center style='margin-top:3ex'><% =ResStringJS("msgEmptyHistoryList") %></p>",
+                        hoverStateEnabled: true,
+                        focusStateEnabled: false,
+                        itemTemplate: function (itemData, itemIndex, element) {
+                            var lnk = "";
+                            if (typeof itemData.LastVisited != "undefined" && itemData.LastVisited != "" && itemData.LastVisited != null) {
+                                var dt = new Date(itemData.LastVisited);
+                                lnk = "<div class='text small gray' style='padding-left:1em; display:inline-block; float:right; text-align:right'>" + (itemData.ID == curPrjID ? "<% =JS_SafeString(ResString("lblNow")) %>" : getPeriodString(dt, dt_now)) + "</div>";
+                            }
+                            var st = "far fa-file-alt";
+                            if (itemData.ProjectStatus == <% =CInt(ecProjectStatus.psArchived) %>) st = "far fa-file-archive";
+                            if (itemData.ProjectStatus == <% =CInt(ecProjectStatus.psTemplate) %>) st = "far fa-file";
+                            if (itemData.ProjectStatus == <% =CInt(ecProjectStatus.psMasterProject) %>) st = "fa fa-asterisk";
+                        //lnk += "<div class='" + (itemData.CanOpen ? "" : "gray") + "' style='" + ("<% = JS_SafeString(GetCurrentDBVersion.GetVersionString) %>" != itemData.Version ? "color:#666688;" : "color:#0051a8;") + (lnk == "" ? "" : "width:calc(100% - 106px);") + "overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'><i class='gray " + st + "' style='width:2em; text-align:center;'></i>&nbsp;" + htmlEscape(itemData.Name) + "</div>";
+                            lnk += "<div class='" + (itemData.CanOpen ? "" : "gray") + "' style='" + ("<% = JS_SafeString(GetCurrentDBVersion.GetVersionString) %>" != itemData.Version ? "color:#666688;" : "color:#0051a8;") + (lnk == "" ? "" : "width:calc(100% - 106px);") + "overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'><i class='gray " + st + "' style='width:2em; text-align:center;'></i>&nbsp;" + htmlEscape(itemData.Name) + "</div>";
+                            element.parent().width("100%");
+                            element.append($(lnk));
+                        },
+                        onItemClick: function (e) {
+                            var prj = e.itemData;
+                            if (!do_toggle_star && (prj)) {
+                                openProject(prj.ID);
+                            }
+                        }
+                    });
+                } else {
+                    showErrorMessage("Unable to load the projects history", true);
+                }
+            }
+
+            function onToggledProject(res) {
+                do_toggle_star = false;
+                //setTimeout(function () {hideLoadingPanel(); }, 100);
+                if (isValidReply(res)) {
+                    if (res.Result == _res_Success) {
+                        var lst = (res.ObjectID > 0 ? [res.ObjectID] : res.Tag);
+                        var has_prj_list = (typeof PrjDataSource != "undefined" && typeof projects != "undefined");
+                        for (var i = 0; i < lst.length; i++) {
+                            var id = lst[i];
+                            if (has_prj_list) {
+                                var p = getItemByID(projects, id);
+                                if (p != null && typeof p.Starred != "undefined") {
+                                    p.Starred = !p.Starred;
+                                    pushProjectData(p);
+                                }
+                            }
+                            if (curPrjID == id) setStarredIcon($("#curPrjStarred"), (res.Data));
+                        }
+                        if (res.ObjectID <= 0) setStarredIcon($(".starred-all"), false);
+                        var btn = $("#btnStarredClear");
+                        if ((btn) && (btn.length)) btn.dxButton("option", "disabled", !$(".starred-all.project-starred").length);
+                    } else {
+                        if (res.Message != "") DevExpress.ui.dialog.alert(res.Message, "<% =ResStringJS("titleError") %>");
+                    }
+                }
+            }
+
+            function forLoggedOnly() {
+            <% If App.isAuthorized OrElse Not _OPT_SHOW_HELP_AUTHORIZED Then %>
+                return true;
+            <% Else %>
+                DevExpress.ui.dialog.alert("<% =ResStringJS("msgAuthorizedOnly") %>", "<% =ResStringJS("titleInformation") %>");
+                return false;
+            <% End If %>
+            }
+
+            function onCustomerSupport() {
+                var doc = CreatePopup('', 'CustomerSupport', 'menubar=no,maximize=yes,titlebar=no,status=yes,location=no,toolbar=no,channelmode=no,scrollbars=no,resizable=yes,width=550,height=370');
+                if ((doc)) {
+                    initFrameLoader(doc);
+                    doc.location.href = '<% = _Page.PageURL(_PGID_CUSTOMER_SUPPORT) %>';
+                    setTimeout(function () { if ((doc)) doc.focus(); }, 1000);
+                }
+                return false;
+            }
+
+            function onResourceCenter() {
+                var w = CreatePopup('', 'ResourceCenter', ',');
+                if ((w)) {
+                    initFrameLoader(w);
+                    w.location.href = '<% =JS_SafeString(HelpAuthWebAPI.GetHelpPath(App.isRiskEnabled)) %>help/resource-center';
+                    setTimeout(function () { if ((w)) w.focus(); }, 1000);
+                }
+                return false;
+            }
+
+            // patch for chat widget for fill form
+            window.addEventListener("message", receiveMessage, false);
+            function receiveMessage(event) {
+            // Using new API, so ignore it, but keep event handler for backward compat due to using old versions with scripts
+            //if (event.data=="chat") event.source.postMessage({name: "<% =JS_SafeString(_Page.ActiveUserName) %>", email: "<% =JS_SafeString(_Page.ActiveUserEmail(True)) %>"}, "*");
+            }
+
+            function callChat() {
+                if ($("#silc-btn").length) {
+                    $("#silc-btn").click();
+                } else {
+
+                    var w = CreatePopup('<% =JS_SafeString(_Page.ResString("lnkChat")) %>', 'chat', 'width=' + dlgMaxWidth(630) + ',height=' + dlgMaxHeight(650));
+                    if ((w)) setTimeout(function () { if ((w)) w.focus(); }, 1000);
+                }
+                return false;
+            }
+
+            function onSIApiReady() {
+                SI_API.setChatInfo('<% =JS_SafeString(SafeFormString(_Page.ActiveUserName))%>','<% =JS_SafeString(_Page.ActiveUserEmail(True))%>', '', '');
+                SI_API.onChatOpened = function () {
+                    var params = [];
+                    params.push({ name: 'Project', value: "<% = JS_SafeString(_Page.ActiveProjectName) %>" });
+                    params.push({ name: 'Workgroup', value: "<% = JS_SafeString(_Page.ActiveWorkgroupName) %>" });
+                    params.push({ name: 'SessionID', value: curSID });
+                    SI_API.addParams(params);
+                }
+            };
+
+            function OpenLinkWithReturnUser(url, prjid, hid, passcode, is_responsive) {
+                if (url != "") {
+                    document.cookie = "<% =_COOKIE_RET_USER %>=<% =JS_SafeString(If(App.ActiveUser IsNot Nothing, HttpUtility.UrlEncode(EncodeString(App.ActiveUser.UserEmail, Nothing, True)), "")) %>;path=/;";
+                    document.cookie = "<% =_COOKIE_RET_PRJID %>=" + prjid + ";path=/;";
+                    document.cookie = "<% =_COOKIE_RET_HID %>=" + hid + ";path=/;";
+                    document.cookie = "<% =_COOKIE_RET_PATH %>=" + encodeURIComponent(document.location.href) + ";path=/;";
+                    document.cookie = "<% =_COOKIE_RET_REMEMBER %>=<% =Bool2Num(_Page.GetCookie(_COOKIE_REMEMBER, "0") = "1") %>;path=/;";
+                    document.cookie = "<% =_COOKIE_RET_PASSCODE %>=" + passcode + ";path=/;";
+                <%--document.cookie = "<% =_COOKIE_RET_ORIG_PASSCODE %>=<% =JS_SafeString(_Page.GetCookie(_COOKIE_PASSCODE, "")) %>;path=/;";--%>
+                    //loadURL(url + "&pipe=yes");
+                    setTimeout(function () {
+                        if (typeof is_responsive != "undefined" && (is_responsive)) {
+                            CreatePopup(url + "&pipe=yes", "gecko", ",", true);
+                        } else {
+                            showLoadingPanel();
+                            loadURL(url + "&pipe=yes");
+                        }
+                    }, 300);
+                } else {
+                    DevExpress.ui.notify("Unable to open page. It can be unavailable.", "warning");
+                }
+            }
+
+            function prepareShortcuts() {
+                var s = [];
+                for (var i = 0; i < shortcuts.length; i++) {
+                    var pg = pageByID(nav_json, shortcuts[i].page * 1);
+                    if (typeof pg != "undefined" && (pg) && typeof pg.disabled != "undefined" && !(pg.disabled)) {
+                        var pref = "";
+                        var p = pageWorkflowByID(nav_json, pg.pgID);    // pageParentByID(nav_json, pg.pgID, "undefined");
+                        if (!(p)) p = pageWorkflowByUID(nav_json, pg.pguid);
+                        if ((p)) pref = p.text + " &gt; ";
+                        var t = (typeof shortcuts[i].title == "undefined" ? "" : shortcuts[i].title);
+                        if (t == "") t = (typeof pg.title != "undefined" && pg.title != "" ? pg.title : pg.text);
+                        s = s.concat({ "code": shortcuts[i].code, "title": pref + t, "pgid": pg.pgID, "url": pg.url });
+                    } else {
+                        if (shortcuts[i].code != "" && shortcuts[i].title != "") {
+                            s = s.concat(shortcuts[i]);
+                        }
+                    }
+                }
+                shortcuts = s;
+                initShortcuts("divTooltipShortcuts", "divShortcuts");
+            }
+
+            function switchFullscreen(fs, show_msg) {
+                if (can_fullscreen) {
+                    if (fs == -1) fs = !(screenfull.isFullscreen);
+                    isFullscreenMode = ((fs) ? true : false);
+                    if (fs) {
+                        screenfull.request();
+                    } else {
+                        screenfull.exit();
+                    }
+                } else {
+                    if (fs == -1) fs = !($(document.body).hasClass('fullscreen'));
+                    isFullscreenMode = ((fs) ? true : false);
+                    if (fs) {
+                        $("#btnFullscreenOff").show();
+                        $(document.body).addClass('fullscreen');
+                        if (show_msg) {
+                            var conf_options = {
+                                "title": "<% =ResStringJS("hintFullScreen") %>",
+                                "messageHtml": "<% =ResStringJS("msgReturnFromPrintVersion") %>",
+                                "buttons": [{
+                                    text: "<% =ResStringJS("btnIGotIt") %>",
+                                    onClick: function () {
+                                        setTimeout('onMPResize(true);', 100);
+                                    }
+                                }]
+                            };
+                            var a = DevExpress.ui.dialog.custom(conf_options);
+                            a.show();
+                            document.cookie = "fs_alert=0;path=/;expires=Mon, 31-Dec-2029 23:59:59 GMT;"
+                            fs_alert = false;
+                        }
+                    } else {
+                        $("#btnFullscreenOff").hide();
+                        $(document.body).removeClass('fullscreen'); //.css("overflow", "");
+                    }
+                    onMPResize(false);
+                    setTimeout('onMPResize(true);', 350);
+                }
+            }
+
+            /* Settings Dialog */
+            var popupShellSettings = null,
+                popupShellOptions = {
+                    width: 750,
+                    height: "auto",
+                    contentTemplate: function () {
+                        return $("<div class='dx-fieldset'></div>").append(
+                            $("<div class='dx-fieldset-header'><i class='fas fa-palette'></i> Color Palette</div>"),
+                            $("<div class='dx-field'></div>").append(
+                                $("<div class='dx-field-label'>Palette</div>"),
+                                $("<div class='dx-field-value'></div>").append(
+                                    $("<div id='cbPalettes'></div>"))),
+                            $("<br />"),
+                            $("<br />"),
+                            $("<div id='btnShellSettingsClose' style='margin-top: 10px; margin-bottom: 10px; float: right;'></div>")
+                        );
+                    },
+                    showTitle: true,
+                    title: "Settings",
+                    dragEnabled: true,
+                    closeOnOutsideClick: true
+                };
+
+            var shellSettings = {
+                paletteId: <% = If(App.isAuthorized AndAlso App.ActiveProject IsNot Nothing AndAlso App.ActiveProject.ProjectManager IsNot Nothing, App.ActiveProject.ProjectManager.Parameters.SynthesisColorPaletteId, 1)%>,
+            };
+
+            var paletteItems = [{ "text": "No colors", "value": -1 }, { "text": "Old", "value": 0 }, { "text": "Default", "value": 1 }, { "text": "Palette 1", "value": 2 }, { "text": "Palette 2", "value": 3 }];
+
+            function shellSettingsDialog() {
+                if (popupShellSettings) $(".popupShellSettings").remove();
+                var $popupContainer = $("<div />").addClass("popupShellSettings").appendTo($("#popupShellSettings"));
+                popupShellSettings = $popupContainer.dxPopup(popupShellOptions).dxPopup("instance");
+                popupShellSettings.show();
+
+                $("#cbPalettes").dxSelectBox({
+                    items: paletteItems,
+                    value: shellSettings.paletteId,
+                    displayExpr: "text",
+                    valueExpr: "value",
+                    disabled: false,
+                    searchEnabled: false,
+                    onValueChanged: function (e) {
+                        shellSettings.paletteId = e.value * 1;
+                        callAPI("pm/params/?action=shell_settings", shellSettings, function (data) {
+                            reloadPage();
+                        });
+                    },
+                    //itemTemplate: function (itemData, itemIndex, itemElement) {
+
+                    //},
+                    width: 400
+                });
+
+                $("#btnShellSettingsClose").dxButton({
+                    text: "Close",
+                    icon: "fas fa-times",
+                    onClick: function () {
+                        popupShellSettings.hide();
+                    }
+                });
+
+            }
+            /* end Settings Dialog */
+
+            function toggleShortcuts(vis) {
+                var s = $("#divTooltipShortcuts").dxTooltip("instance");
+                s.toggle((vis > 0) || (vis == -1 && !s.option("visible")));
+            }
+
+            function switchAdvanced() {
+                var msg = "";
+                if (typeof confirmSwitchAdvancedMode == "string" || typeof confirmSwitchAdvancedMode == "function") {
+                    msg = (typeof confirmSwitchAdvancedMode == "function" ? confirmSwitchAdvancedMode() : confirmSwitchAdvancedMode);
+                    if (msg != "") {
+                        var a = DevExpress.ui.dialog.confirm(msg, "<% =ResStringJS("titleConfirmation") %>");
+                        a.done(function (dialogResult) {
+                            if (dialogResult) {
+                                doSwitchAdvanced();
+                            }
+                        });
+                    }
+                }
+                if (msg == "") doSwitchAdvanced();
+            }
+
+            function doSwitchAdvanced() {
+                flashAdvancedOptions(true);
+                callAPI("account/?action=option", { "name": "AdvancedMode", "value": !(isAdvancedMode) }, onSetAdvanced);
+            }
+
+            function onSetAdvanced(res) {
+                if (isValidReply(res) && res.Result == _res_Success) {
+                    if (reloadOnAdvanced) {
+                        reloadPage(0);
+                    } else {
+                        if (typeof res.Data != "undefined") isAdvancedMode = res.Data; else isAdvancedMode = !isAdvancedMode;
+                        onAdvanceChanged();
+                    }
+                } else {
+                    flashAdvancedOptions(false);
+                    showResMessage(res, true);
+                }
+            }
+
+            function onAdvanceChanged() {
+                updateAdvancedOption(false);
+                if (typeof onSwitchAdvancedMode == "function") onSwitchAdvancedMode(isAdvancedMode);
+                flashAdvancedOptions(true);
+                setTimeout(function () {
+                    flashAdvancedOptions(true);
+                }, 1100);
+                setTimeout(function () {
+                    flashAdvancedOptions(false);
+                }, 4100);
+            }
+
+            function flashAdvancedOptions(enable) {
+                if ((enable)) {
+                    $(".on_advanced").addClass("blink_me");
+                } else {
+                    $(".on_advanced").removeClass("blink_me");
+                }
+            }
+
+            function updateAdvancedOption(is_init) {
+                $("#iconAdvanced").removeAttr("class").addClass("fas " + ((isAdvancedMode) ? "fa-toggle-on" : "fa-toggle-off"));
+                $("#iconHasAdvanced").prop("title", getAdvancedTooltip());
+                $("#spanAdvanced").html(getAdvancedCaption());
+                //$("#prjActionRefresh").toggle(isAdvancedMode);
+                //$("#prjActionOnline").toggle(isAdvancedMode);
+                var as = (isAdvancedMode ? "" : "none");
+                var ah = (isAdvancedMode ? "none" : "");
+                //$("#prjActionLock").toggle(isAdvancedMode);
+                //$("#prjActionAddSnap").toggle(isAdvancedMode);
+                //$("#divGoTop").toggle(!isAdvancedMode);
+                //$("#divCurPageName").toggle(!isAdvancedMode);
+                $("#prjActionLock").css("display", as);
+                $("#prjActionAddSnap").css("display", as);
+                $("#divGoTop").css("display", ah);
+                $("#divGoBack").css("display", ah);
+                $("#divCurPageName").css("display", ah);
+                if (typeof is_init != "undefined" && (is_init)) return true;
+            <% If _Page.ShowNavigation Then %>if ((showSidebar)) {
+                    $(".tdMenu").show();
+                    toggleSideBarMenu(ignoreAdvancedSwitch, (isAdvancedMode ? 1 : 0), false);
+                    onMPResize(true, 50);
+                    if (!isAdvancedMode && !ignoreAdvancedSwitch) $(".tdMenu").hide();
+                }<% Else %>
+                onMPResize(true);<% End If %>
+            }
+
+            function getAdvancedTooltip() {
+                return resString(isAdvancedMode ? "lblHasAdvancedOptionsAdvanced" : "lblHasAdvancedOptionsBasic");
+            }
+
+            function getAdvancedCaption() {
+                return resString(isAdvancedMode ? "lblAdvancedModeOn" : "lblAdvancedModeOff");
+            }
+
+            function showHasAdvanced() {
+                var msg = getAdvancedTooltip(); // "This screen has an extra settings/information, that available/visible only in Advanced Mode.";
+                DevExpress.ui.dialog.alert(msg, "Advanced mode");
+            }
+
+            function _getNavItemsPlain(items, indent, add_url) {
+                var lst = "";
+                if ((items)) {
+                    for (var i = 0; i < items.length; i++) {
+                        var n = items[i];
+                        //if (typeof n.extra == "undefined" || n.extra.indexOf("hidelookup")<0) {
+                        lst += indent + n.text + (add_url && typeof n.itemData.url != "unedfined" && n.itemData.url != "" ? " <% = JS_SafeString(_Page.ApplicationURL(False, False)) %>" + n.itemData.url : "") + "\n\r";
+                        if ((n.children) && (n.children.length)) lst += _getNavItemsPlain(n.children, indent + "\t", add_url);
+                        //}
+                    }
+                }
+                return lst;
+            }
+
+            function _getNavItemsFiltered(items) {
+                var lst = [];
+                if ((items)) {
+                    for (var i = 0; i < items.length; i++) {
+                        var n = items[i];
+                        if (typeof n.extra == "undefined" || n.extra.indexOf("hidelookup") < 0) {
+                            lst.push(n);
+                            if ((n.children) && (n.children.length)) lst.children = _getNavItemsFiltered(n.children);
+                        }
+                    }
+                }
+                return lst;
+            }
+
+            function _getSideBarItemsFiltered(items) {
+                var lst = [];
+                if ((items)) {
+                   
+                    for (var i = 0; i < items.length; i++) {
+                        var n = items[i];
+                        if (n.position == "usermenu" && n.text == "Manage Models") {
+                            console.log(n)
+                            if (typeof n.extra == "undefined" || n.extra.indexOf("hidelookup") < 0) {
+                                for (var j = 0; j < n.items.length; j++) {
+                                    lst.push(n.items[j]);
+                                }
+                            }
+                        }
+                       
+                    }
+                }
+                return lst;
+            }
+
+            function onPageLookupSearch(el) {
+                if ((el) && (el.target) && typeof (el.target.value != "undefined")) {
+                    setTimeout(function () {
+                        var lst = $("#divNavList").find(".dx-treeview-item-content");
+                        lst.unhighlight();
+                        lst.highlight(el.target.value);
+                    }, 30);
+                }
+            }
+
+            function switchPageLookup() {
+                var d = $("#divPageLookup");
+                if ((d) && (d.length)) {
+                    var dl = $("#divNavList");
+                    var vis = (dl.length < 1 || !(dl.is(":visible")));
+                    if (vis) {
+                        showLoadingPanel();
+                        var lst = ((dl.length) ? dl.html("") : $("<div id='divNavList'></div>"));
+
+                        var w = dlgMaxWidth(600);
+                        var h = dlgMaxHeight(650);
+
+                        if ($("#popupContainer").data("dxPopup")) $("#popupContainer").dxPopup("instance").dispose();
+
+                        var popup = $("#popupContainer").dxPopup({
+                            width: w,
+                            height: h,
+                            minWidth: "280px",
+                            contentTemplate: function () {
+                                return lst;
+                            },
+                            animation: {
+                                show: { "duration": 0 },
+                                hide: { "duration": 0 }
+                            },
+                            showTitle: true,
+                            title: resString("lblPageLookup"),
+                            dragEnabled: true,
+                            shading: true,
+                            closeOnOutsideClick: true,
+                            resizeEnabled: true,
+                            //position: position || {},
+                            showCloseButton: true,
+                            toolbarItems: [{
+                                widget: 'dxButton',
+                                options: {
+                                    hint: resString("btnExpand"),
+                                    //icon: "expand",
+                                    text: resString("btnExpand"),
+                                    visible: true,
+                                    elementAttr: {
+                                        class: "dx-btn-no-minwidth"
+                                    },
+                                    onClick: function (e) {
+                                        var tv = $("#divNavList").dxTreeView("instance");
+                                        if ((tv)) tv.expandAll();
+                                    }
+                                },
+                                toolbar: "bottom",
+                                location: "before"
+                            }, {
+                                    widget: 'dxButton',
+                                    options: {
+                                        hint: resString("btnCollapse"),
+                                        text: resString("btnCollapse"),
+                                        //icon: "collapse",
+                                        visible: true,
+                                        elementAttr: {
+                                            class: "dx-btn-no-minwidth"
+                                        },
+                                        onClick: function (e) {
+                                            var tv = $("#divNavList").dxTreeView("instance");
+                                            if ((tv)) tv.collapseAll();
+                                        }
+                                    },
+                                    toolbar: "bottom",
+                                    location: "before"
+                                }, {
+                                    widget: 'dxButton',
+                                    options: {
+                                        hint: "Pick current page",
+                                        icon: "map",
+                                        visible: true,
+                                        elementAttr: {
+                                            class: "dx-btn-no-minwidth"
+                                        },
+                                        onClick: function (e) {
+                                            var tv = $("#divNavList").dxTreeView("instance");
+                                            if ((tv)) {
+                                                tv.expandItem(pgID);
+                                                tv.selectItem(pgID);
+                                                tv.scrollToItem(pgID);
+                                            }
+                                        }
+                                    },
+                                    toolbar: "bottom",
+                                    location: "before"
+                                }
+                                <%--, {
+                                    widget: 'dxButton',
+                                    options: {
+                                        text: resString("btnExport"),
+                                        visible: true, //<% =Bool2JS(ShowDraftPages()) %>,
+                                        //type: "default",
+                                        onClick: function (e) {
+                                            var result = DevExpress.ui.dialog.confirm(resString("confExportURLs"), resString("titleConfirmation"));
+                                            result.done(function (dialogResult) {
+                                                var lst = "";
+                                                var items = $("#divNavList").dxTreeView("instance").getNodes();
+                                                lst += _getNavItemsPlain(items, "", (dialogResult));
+                                                copyDataToClipboard(lst);
+                                            });
+                                        }
+                                    },
+                                    toolbar: "bottom",
+                                    location: "center"
+                                }, {
+                                    widget: 'dxButton',
+                                    options: {
+                                        text: resString("btnClose"),
+                                        //type: "default",
+                                        onClick: function (e) {
+                                            closePopup();
+                                        }
+                                    },
+                                    toolbar: "bottom",
+                                    location: 'after'
+                                }--%>
+                            ],
+                            onShowing: function () {
+                            },
+                            onHidding: function () {
+                            }
+                        });
+                        lst.dxTreeView({
+                            items: _getNavItemsFiltered(nav_json),
+                            keyExpr: "pgID",
+                            displayExpr: "text",
+                            itemsExpr: "items",
+                            parentIdExpr: "pguid",
+                            searchEnabled: true,
+                            onItemClick: function (e) {
+                                if ((e.itemData)) {
+                                    var mnu = e.itemData;
+                                    if (!onMenuItemClick(mnu)) {
+                                        if (typeof mnu.url != "undefined" && mnu.url != "") {
+                                            closePopup();
+                                            loadURL(mnu.url);
+                                            return false;
+                                        }
+                                        if (!navOpenPage(mnu.pgID, true)) {
+                                            closePopup();
+                                            return false;
+                                        };
+                                        if (typeof mnu.items != "undefined" && mnu.items.length) {
+                                            loadURL(_url_landingpage + "?navpgid=" + mnu.pgID);
+                                            return false;
+                                        }
+                                    }
+                                }
+                            },
+                            //itemTemplate: function (itemData, itemIndex, itemElement) {
+                            //    itemElement.append((typeof itemData != "undefined" && (typeof itemData.extra == "undefined" || itemData.extra.indexOf("hidelookup")<0)) ? itemData.text : "<span class='tohide'>" + itemData.text + "</span>");
+                            //}
+                            itemTemplate: function (itemData, itemIndex, itemElement) {
+                                itemElement.append('<i class="dx-icon ' + itemData.icon + '"></i><span' + (typeof itemData.position != "undefined" && itemData.position != "" ? ' class="dx-tree-' + itemData.position + '"' : '') + '>' + itemData.text + '</span>');
+                            }
+                        });
+                        //lst.dxTreeView("expandAll");
+                        $("#popupContainer").dxPopup("show");
+                        lst.dxTreeView("expandItem", pgID);
+                        lst.dxTreeView("selectItem", pgID);
+                        lst.dxTreeView("scrollToItem", pgID);
+                        lst.find(".tohide").closest(".dx-treeview-node").hide();
+                        setTimeout(function () {
+                            lst.find("input").focus().on("keyup", onPageLookupSearch).on("click", onPageLookupSearch);
+                        }, 350);
+                        hideLoadingPanel();
+                    } else {
+                        closePopup();
+                    }
+                }
+            }
+
+            function initSideBar() {
+                var d = $("#divSideBar");
+                if ((d) && (d.length)) {
+                    d.dxTreeView({
+                        items: _getSideBarItemsFiltered(nav_json),
+                        keyExpr: "pgID",
+                        displayExpr: "text",
+                        itemsExpr: "items",
+                        parentIdExpr: "pguid",
+                        searchEnabled: false,
+                        onItemClick: function (e) {
+                            if ((e.itemData)) {
+                                var mnu = e.itemData;
+                                if (!onMenuItemClick(mnu)) {
+                                    if (typeof mnu.url != "undefined" && mnu.url != "") {
+                                        loadURL(mnu.url);
+                                        return false;
+                                    }
+                                    if (!navOpenPage(mnu.pgID, true)) {
+                                        return false;
+                                    };
+                                    if (typeof mnu.items != "undefined" && mnu.items.length) {
+                                        loadURL(_url_landingpage + "?navpgid=" + mnu.pgID);
+                                        return false;
+                                    }
+                                }
+                            }
+                        },
+                        //itemTemplate: function (itemData, itemIndex, itemElement) {
+                        //    itemElement.append((typeof itemData != "undefined" && (typeof itemData.extra == "undefined" || itemData.extra.indexOf("hidelookup")<0)) ? itemData.text : "<span class='tohide'>" + itemData.text + "</span>");
+                        //}
+                        itemTemplate: function (itemData, itemIndex, itemElement) {
+                            itemElement.append('<i class="dx-icon ' + itemData.icon + '"></i><span' + (typeof itemData.position != "undefined" && itemData.position != "" ? ' class="dx-tree-' + itemData.position + '"' : '') + '>' + itemData.text + '</span>');
+                        }
+                    });
+                 }
+             }
+
+            function initNavigation() {
+                initSideBar();
+                if (typeof beforeInitNavigation == "function") beforeInitNavigation(nav_json);
+                if ((nav_json)) {
+                    var pg = pageByID(nav_json, pgID);
+                    if ((pg) && help_uri == "" && typeof pg.help != "undefined" && pg.help != "") help_uri = updateHelpPage(pg.help);
+                }
+                initLandingPageContent();
+                initLanguages("divTooltipLangs", "divLanguage", [<% =GetLanguages() %>], "<% = JS_SafeString(IIf(App.CurrentLanguage IsNot Nothing, App.CurrentLanguage.LanguageCode, "")) %>");
+            <% If _Page.ShowNavigation OrElse _Page.ShowTopNavigation Then %>
+                menu_switch_hover = <% =Bool2JS(Str2Bool(_Page.GetCookie("menu_autohide", "0"))) %>;
+            <% If _Page.CanUserModifyActiveProject AndAlso App.isRiskEnabled AndAlso App.ActiveWorkgroup IsNot Nothing AndAlso App.ActiveWorkgroup.Status <> ecWorkgroupStatus.wsSystem Then %>
+                initTopLineMenu(nav_json);
+            <% Else %>
+                initWorkflowMenu(nav_json, "<% =JS_SafeString(If(_Page.NavigationPageID = _PGID_INFO_PAGE, _Page.CheckVar("pg", ""), "")) %>");
+            <% End If %>
+                if ($(window).width() < menu_switch_min_width && !menu_switch_hover) {
+                    toggleSideBarMenu(false, 0, false);
+                }
+            <% If App.HasActiveProject Then %>
+                initProjectActions();<% End If %>
+            <% End if %>
+            <% If App.ActiveUser IsNot Nothing OrElse HasListPage(_PAGESLIST_ANTIGUA, _Page.NavigationPageID) Then %>
+                initUserMenu();
+            <% End if %>
+            <% If App.ActiveWorkgroup IsNot Nothing Then %>
+                initWorkgroups();
+            <% End if %>
+                if ($("#trTopMenu").is(":visible") || $("#workflow").is(":visible") && $("#workflow").html() != "") {
+                    $(".tdHeader").removeClass("tdHeaderNoNav").addClass("tdLogo");
+                } else {
+                    $(".tdHeader").removeClass("tdLogo").addClass("tdHeaderNoNav");
+                }
+                showSidebar = ($(".tdMenu").length && $(".tdMenu").is(":visible"));
+                if (showSidebar && typeof isAdvancedMode != "undefined" && !(isAdvancedMode) && !(ignoreAdvancedSwitch)) {
+                    $(".tdMenu").hide();
+                }
+                if (showSidebar && menu_switch_hover) {
+                    overlayToggleSideBarMenu(false);
+                }
+
+            <% If App.isAuthorized AndAlso ShowDraftPages() AndAlso (App.ActiveUser.CannotBeDeleted OrElse App.CanUserDoSystemWorkgroupAction(ecActionType.at_slManageAnyWorkgroup, App.ActiveUser.UserID)) Then %>
+                $("#divPagesStat").html("<i style='cursor:help; margin-top:1px;' title='Pages statistic' class='white-on-hover light ion ion-logo-html5'></i>");
+                $("#tooltipPagesStat").dxTooltip({
+                    target: "#divPagesStat",
+                    showEvent: 'dxclick',
+                    //hideEvent: 'dxclick',
+                    position: 'top',
+                    closeOnBackButton: true,
+                    closeOnOutsideClick: true,
+                    animation: {
+                        show: { type: "fade", from: 0, to: 1 },
+                        hide: { type: "fade", from: 1, to: 0 }
+                    },
+                    onShowing: function (e) {
+                        var s = $("#divStatsList");
+                        if (s.html() == "") {
+                            s.html("<p align=center><i class='fas fa-spinner fa-pulse'></i> Loading...</p>");
+                            callAPI("account/?action=pages_statistic", {}, onGetStatistic, true);
+                        }
+                    },
+                    contentTemplate: function (contentElement) {
+                        return "<div style='text-align:left; width:12em;' id='divStatsList'></div>";
+                    }
+                });
+            }
+
+            function onGetStatistic(res) {
+                if (isValidReply(res) && res.Result == _res_Success) {
+                    $("#tooltipPagesStat").dxTooltip("hide");
+                    $("#divStatsList").html(res.Data);
+                    $("#tooltipPagesStat").dxTooltip("show");
+                } else {
+                    showResMessage(res, true);
+                }
+            }
+
+            function showStats(mode, name) {
+                var lst = $(".ps_" + mode);
+                if ((lst) && (lst.length)) {
+                    var sLst = "";
+                    for (var i = 0; i < lst.length; i++) {
+                        var lnk = lst[i].outerHTML;
+                        var d = $(lst[i]).data("pgid");
+                        if (mode != "missing" && (d) && (d * 1) > 0 && (nav_json)) {
+                            var pg = pageByID(nav_json, d);
+                            if ((pg)) {
+                                lnk = replaceString("<!--{-->", "<a href='" + (typeof pg.URL != "undefined" && pg.URL != "" ? pg.URL : "") + "' class='actions' onclick='onOpenPage(" + d + "); return false;'>", replaceString("<!--}-->", "</a>", lnk));
+                            }
+                        }
+                        sLst += lnk
+                    }
+                    var conf_options = {
+                        "title": "'" + name + "' pages list",
+                        "messageHtml": "<div style='max-height:20em; width:40em; overflow-y: auto'>" + sLst + "</div>",
+                        "buttons": [{
+                            text: "<% =ResStringJS("btnOK") %>",
+                            //onClick: function () {
+                            //}
+                        }]
+                    };
+                    var a = DevExpress.ui.dialog.custom(conf_options);
+                    a.show();
+                }
+            }<% Else %>
+        }
+        <% End If %>
+
+<%--        function initWireframeLink() {
+            $("#divWireframe").prop("onclick", null).off("click");
+            var p = pageByID(nav_json, pgID);
+            if (!(p)) p = pageByUID(nav_json, pgID);
+            if ((p) && typeof p.wf != "undefined") {
+                $("#divWireframe").click(function(){ 
+                    var w_ = dlgMaxWidth(1280);
+                    var h_ = dlgMaxHeight(960);
+                    w = CreatePopup('<% =_URL_ROOT %>Wireframes/' + p.wf, 'Wireframe', 'menubar=no,maximize=yes,titlebar=yes,status=yes,location=no,toolbar=no,channelmode=no,scrollbars=yes,resizable=yes,width=' + w_ + ',height=' + h_, true);
+                    if ((w)) w.focus();
+                }).find("i").removeClass("far").addClass("fas");
+            } else {
+                $("#divWireframe").click(function(){ 
+                    DevExpress.ui.dialog.alert("Wireframe for page " + ((p && typeof p.text != "undefined") ? "'" + replaceString("'", "\'", p.text) + "' " : "") + "[#" + pgID + "] does not exist.", "Page wireframe");
+                }).find("i").removeClass("fas").addClass("far");
+            }
+        }--%>
+
+            function getZIndex(el) {
+                if ((el)) {
+                    var e = $(el);
+                    var z = e.css("z-index");
+                    var v = parseInt(z, 10) * 1;
+                    if (v + "" == z) return v;
+                    if (e.prop("localName").toLowerCase() != "body" && e.parent()) return getZIndex(e.parent());
+                }
+                return 0;
+            }
+
+            function iterateButtonsAndClick(lst) {
+                if ((lst) && (lst.length)) {
+                    var el = null;
+                    var zIndex = -99999;
+                    for (var i = 0; i < lst.length; i++) {
+                        var btn = lst[i];
+                        if ((btn) && (typeof btn.disabled == "undefined" || !(btn.disabled)) && typeof btn.click != "undefined") {
+                            if ($(btn).is(":focus")) {
+                                return false;
+                                //el = btn;
+                                break;
+                            }
+                            var z = getZIndex(btn);
+                            if (z > zIndex) el = btn;
+                        }
+                    }
+                    if ((el)) {
+                        el.focus();
+                        setTimeout(function () {
+                            el.click();
+                        }, 50);
+                        return true;
+                    }
+                }
+                return false;
+            }
+<% If _LOGOUT_AFTER_TIMEOUT AndAlso App.isAuthorized Then %>
+            var timerSession = null;
+            function runSessionTimer() {
+                if ((timerSession)) clearTimeout(timerSession);
+                timerSession = setTimeout(onSessionTimeoutLogout, <% =WebOptions.SessionTimeout * 1000 %>);
+            }
+
+            function onSessionTimeoutLogout() {
+                cancelPing(true);
+                callAPI("account/?<% = _PARAM_ACTION %>=logout", {}, function (res) { }, true);
+                var can_close = false;
+                $("#popupContainer").dxPopup({
+                    minWidth: 200,
+                    maxWidth: dlgMaxWidth(600),
+                    width: "auto",
+                    minHeight: 50,
+                    maxHeight: dlgMaxHeight(150),
+                    height: "auto",
+                    contentTemplate: function () {
+                        return $("<table border=0><tr valign=middle><td style='padding-right:12px'><i class='fa fa-user-clock fa-2x gray'></i></td><td><% = JS_SafeString(ResString("msgSessionClosed")) %></td></tr></table>");
+                    },
+                    showTitle: true,
+                    title: resString("lblSessionTimeout"),
+                    dragEnabled: false,
+                    shading: true,
+                    closeOnOutsideClick: false,
+                    resizeEnabled: false,
+                    showCloseButton: false,
+                    toolbarItems: [{
+                        widget: 'dxButton',
+                        options: {
+                            text: resString("btnOK"),
+                            //type: "default",
+                            onClick: function (e) {
+                                can_close = true;
+                                closePopup();
+                                doLogout();
+                            }
+                        },
+                        toolbar: "bottom",
+                        location: 'after'
+                    }],
+                    onHiding: function (e) {
+                        if (!can_close) e.cancel = true;
+                    }
+                });
+                $("#popupContainer").dxPopup("show");
+                $(".dx-overlay-shader").css("background-color", "rgba(240, 240, 240, 0.97)");
+                //$(".dx-overlay-content").css("background-color", "rgba(240, 240, 240, 0.97)");
+            }
+<% End If %>
+            function onMouseDown(e) {
+            <% If _LOGOUT_AFTER_TIMEOUT AndAlso App.isAuthorized Then %>runSessionTimer();<% End if %>
+            }
+
+            function switchNavigation() {
+                callAPI("account/?<% = _PARAM_ACTION %>=allowed_pages", { "layout": nav_layout, "getnext": true }, onGetNavPages);
+            }
+
+            function onGetNavPages(res) {
+                if (isValidReply(res)) {
+                    if (res.Result == _res_Success) {
+                        if (typeof res.Tag != "undefined" && typeof res.Tag != nav_layout && typeof res.Data != " undefined") {
+                            nav_layout = res.Tag;
+                            setCookieCrossDomain("<% = JS_SafeString(_COOKIE_LAYOUT) %>", nav_layout);
+                            nav_json = parseReply(res.Data);
+                            initNavigation();
+                            var pl = $("#divNavList");
+                            if ((pl) && (pl.data("dxTreeView"))) {
+                                pl.dxTreeView({ items: _getNavItemsFiltered(nav_json) });
+                                //pl.dxTreeView("expandItem", pgID);
+                                pl.dxTreeView("selectItem", pgID);
+                                pl.dxTreeView("scrollToItem", pgID);
+                            }
+                        }
+                    } else {
+                        DevExpress.ui.notify("Unable to load pages list, sorry.", "warning");
+                    }
+                }
+            }
+
+            function onKeyDown(e) {
+            //DevExpress.ui.notify(e.keyCode, "info");
+            <% If _LOGOUT_AFTER_TIMEOUT AndAlso App.isAuthorized Then %>runSessionTimer();<% End if %>
+                if (!e.ctrlKey && !e.altKey && !e.shiftKey && e.keyCode == 27 && $(document.body).hasClass("fullscreen")) switchFullscreen(false, false); // ESC for cancel fullscreen
+                if (typeof keyup_custom == "function") keyup_custom(e);
+                var f = $(':focus');
+                var is_textarea = ((f) && (f.length) && f.prop("localName").toLowerCase() == "textarea");
+                if ((!e.ctrlKey && !is_textarea || e.ctrlKey) && !e.altKey && !e.shiftKey && e.keyCode == 13) if (iterateButtonsAndClick($(".button_enter:visible"))) return;        // check default Enter key (usually on dialogs), Ctrl+Enter for textareas
+                if (!e.ctrlKey && !e.altKey && !e.shiftKey && e.keyCode == 27) if (iterateButtonsAndClick($(".button_esc:visible"))) return;       // check default ESC/Cancel key (usually on dialogs)
+                //if (!e.ctrlKey && e.altKey && !e.shiftKey && (e.keyCode==122)) { e.preventDefault(); switchFullscreen(-1, false); return false; } // AltF11
+                if (!e.ctrlKey && e.altKey && !e.shiftKey && (e.keyCode == 112)) { toggleShortcuts(-1); e.preventDefault(); return; } // Alt+F1
+<% If App.isAuthorized AndAlso Not App.isRiskEnabled Then %>            
+                if (!e.ctrlKey && !e.altKey && !e.shiftKey && (e.keyCode == 112)) { window.onhelp = function () { return false; }; onShowHelp(help_uri); e.cancelBubble = true; e.stopPropagation(); e.returnValue = false; e.preventDefault(); return; }  // F1 for help<% End if%>
+<% if App.HasActiveProject AndAlso Not App.Options.isSingleModeEvaluation Then %>
+                if (e.ctrlKey && e.altKey && !e.shiftKey && (e.keyCode == 67)) { var on_close = DevExpress.ui.dialog.confirm(resString("confCloseModel"), resString("titleConfirmation")); on_close.done(function (dialogResult) { if (dialogResult) { closeProject(curPrjID); } }); e.cancelBubble = true; e.stopPropagation(); e.returnValue = false; e.preventDefault(); return; }  // Cltr+Alt+C for close model<% End if %>
+<% if _Page.isStarredAvailable Then %>
+                if (!e.ctrlKey && e.altKey && !e.shiftKey && (e.keyCode == 72)) { toggleShortcuts(0); onShowProjectsHistory(); e.cancelBubble = true; e.stopPropagation(); e.returnValue = false; e.preventDefault(); return; }  // Cltr+Alt+H for models history<% End if %>
+<% If _Page.ShowNavigation OrElse _Page.ShowTopNavigation Then %>
+            <% If ShowDraftPages AndAlso _LAYOUTS_ALLOWED.Count > 0 Then %>
+                if (e.ctrlKey && e.altKey && e.shiftKey && (e.keyCode == 78)) { switchNavigation(); }  // CtrlAltShiftN<% End if %>
+<% If Not _Page.isJustEvaluator AndAlso Not App.Options.isSingleModeEvaluation Then %>
+                if (e.ctrlKey && !e.altKey && e.shiftKey && (e.keyCode == 192)) { switchPageLookup(); } // CtrlShift~<% End If %>
+                if (e.ctrlKey && !e.altKey && !e.shiftKey && (e.keyCode == 192)) { toggleSideBarMenu(true, -1, true); } // Ctrl~<% End If %>
+<% =GetHotKeysCode() %>
+            }
+
+            //var resizeTimer;
+            function onWindowResize(e) {
+                //window.clearTimeout(resizeTimer);
+                //resizeTimer = setTimeout('onMPResize();', 50);
+                onMPResize(false);
+            }
+
+            initNavigation();
+            //initWireframeLink();
+            if (!isAdvancedMode && !ignoreAdvancedSwitch) updateAdvancedOption(true);
+            $(window).bind("unload", function () {
+                cancelPing(true);
+            });
+            $(document).keydown(function (e) { onKeyDown(e); });
+            $(document).mousedown(function (e) { onMouseDown(e); });
+            $(document).ready(function () {
+                $(window).bind("resize", onWindowResize);
+                $(window).bind("orientationchange", onWindowResize);
+                if (can_fullscreen) screenfull.on('change', function () {
+                    if (screenfull.isFullscreen) $(document.body).addClass('fullscreen'); else $(document.body).removeClass('fullscreen');
+                    onMPResize(true);
+                });
+
+                _url_tt_status = "<% =JS_SafeString(_Page.PageURL(_PGID_TEAMTIME_STATUS)) %>";
+                _url_tt_pipe = "<% =JS_SafeString(_Page.PageURL(_PGID_TEAMTIME)) %>";
+                _url_structuring = "<% =JS_SafeString(_Page.PageURL(_PGID_ANTIGUA_MEETING)) %>";
+                _url_report_generator = "<% =JS_SafeString(_Page.PageURL(_PGID_REPORT_GENERATOR)) %>";
+                _url_dashboards = "<% =JS_SafeString(_Page.PageURL(_PGID_ANALYSIS_DASHBOARD)) %>";
+                rich_editor_url = "<% =JS_SafeString(_Page.PageURL(_PGID_RICHEDITOR)) %>"
+                infodoc_view_url = "<% =JS_SafeString(_Page.PageURL(_PGID_EVALUATE_INFODOC)) %>";
+
+            //theForm.focus();<% If ShowPreloader Then %>
+                onPageLoaded();<% End If%>
+                opt_store_last_visited = <% =Bool2JS(App.isAuthorized AndAlso Not _Page.ShowLandingPages(App, App.ActiveUser.UserID)) %>;
+                prepareShortcuts();
+
+                $("#btnFullscreenOff").draggable({
+                    snap: true,
+                    stop: function (event, ui) {
+                        localStorage.setItem("fsx", ui.position.top);
+                        localStorage.setItem("fsy", ui.position.left);
+                        btn_fullscreen_drag = true;
+                        setTimeout(function () { btn_fullscreen_drag = false; }, 250);
+                    }
+                });
+                var p = localStorage.getItem("fsx");
+                if (typeof p != "undefined" && p != "" && p * 1 > 0) $("#btnFullscreenOff").css("top", "").css("top", p + "px");
+                p = localStorage.getItem("fsy");
+                if (typeof p != "undefined" && p != "" && p * 1 > 0) $("#btnFullscreenOff").css("right", "").css("left", p + "px");
+
+                //$(".divMainContent_padding").dxScrollView({
+                //    //showScrollbar: "always",
+                //    direction: "vertical",
+                //});
+                if (!isAdvancedMode && !ignoreAdvancedSwitch) updateAdvancedOption(false);
+                if (!(reloadOnAdvanced || typeof confirmSwitchAdvancedMode != "undefined" || typeof onSwitchAdvancedMode != "undefined")) $("#iconHasAdvanced").hide();
+                $("#iconHasAdvanced").prop("title", getAdvancedTooltip());
+                $("#spanAdvanced").html(getAdvancedCaption());
+            <% If Not HasListPage(_PAGESLIST_IGNORE_PING, _Page.CurrentPageID) Then %>ping_active = true; startPing();<% End If %>
+            <% If App.HasActiveProject AndAlso App.ActiveProject.ProjectStatus = ecProjectStatus.psArchived Then
+                Dim Pg As clsPageAction = _Page.PageByID(_Page.CurrentPageID)
+                If Pg IsNot Nothing AndAlso (Pg.Permission = ecPagePermission.ppProject OrElse Pg.Permission = ecPagePermission.ppProjectWithLock) Then %>setTimeout(function () {
+                DevExpress.ui.notify("<% =ResStringJS("lblProjectReadOnly") %>", "info");
+            }, 1000);<% End If %>
+            <% End If %>
+                $("#divCopyright").prop("title", "Page loading time from server: " + Math.round((time_end_loading_page - time_start_loading_page) / 10) / 100 + " sec.<br> Page loading time in browser: " + Math.round((performance.now() - time_end_loading_page) / 10) / 100 + " sec.");
+            <% If Not _OPT_HELP_ROBOHELP AndAlso App.isAuthorized Then %><%If Not _Page.LoadOnlineHelpOnDemand Then %>loadKOScript();<% End if %><% End if %>
+                onMPResize(true);
+                initTooltips();<% If _LOGOUT_AFTER_TIMEOUT AndAlso App.isAuthorized Then %>
+                runSessionTimer();<% End if %>
+                intiSidebarResizable();
+            });
+
+            function intiSidebarResizable() {
+                if ($(".sidebar-menu-content").is(":visible")) {
+                    $(".sidebar-menu-content").dxResizable({
+                        handles: "right",
+                        maxWidth: parseInt($(".tdMenu").css("max-width"), 10) - $("#tdMenuToggler").width(),
+                        minWidth: parseInt($(".tdMenu").css("min-width"), 10) - $("#tdMenuToggler").width(),
+                        onInitialized: function (e) {
+                            if (sidebar_width !== -1) onSidebarResize(sidebar_width, true);
+                        },
+                        onResize: function (e) {
+                            onSidebarResize(e.width, true);
+                        }
+                    });
+                }
+            }
+
+            function onSidebarResize(width, do_resize) {
+                if (!isNarrowScreen()) {
+                    localStorage.setItem("sidebar_width", Math.round(width));
+                    $(".tdMenu").width(width + $("#tdMenuToggler").width());
+                    $(".sidebar-menu-content").width(width);
+                    $("#divMainContent").css("padding-left", document.getElementById("divMenu").clientWidth);
+                    sidebar_width = width;
+                    if (do_resize) onMPResize();
+                }
+            }
+
+            //window.focus();
+            var time_end_loading_page = performance.now();
+
+            //Dropdown Menu Fade    
+            jQuery(document).ready(function () {
+
+                $('.getActiveClass li.active').removeClass('active');
+                // $(".activeCollect").addClass('active');
+
+                $(".dropdown").hover(function () {
+                    $('.dropdown-menu', this).fadeIn("fast");
+                }, function () {
+                    $('.dropdown-menu', this).fadeOut("fast");
+                });
+                // Copy clipboard 
+                $(".attach-link-info").click(function () {
+                    $(this).find(".show-copy-link-info").show();
+                    var clkshow = $(".show-copy-link-info");
+                    setTimeout(function () {
+                        clkshow.hide();
+                    }, 1000);
+                });
+                // Choose columns cta
+                $(".choose-column-btn-info").click(function () {
+                    $(".dropdown-menu-choose-options-info").toggle();
+                });
+
+                // legends show/hide
+                $(".legends-toogle-info").click(function () {
+                    $(".legends-description-info").toggle();
+                })
+            });
+            function openNav() {
+                document.getElementById("mySidepanel").style.width = "25%";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidepanel").style.width = "0";
+            }
+
+            $(".head-main-nav-item-info").hover(function () {
+                $(this).find(".show-mega-menus-info").toggle();
+            });
+
+            $(document).ready(function () {
+                if (output.lockedInfo.status) {
+                    $('#stickyHeader').css('display', 'none');
+                    $('#stickyHeader').css('display', 'none');
+                    $('..chat-icon-link-info').css('display', 'none');
+                    $('#MainContent_quickHelpmodal').css('display', 'none');
+                }
+
+                setTimeout(function () {
+                    var headElement = document.getElementsByTagName("head")[0];
+                    var chatScript = document.createElement("script");
+                    chatScript.type = "text/javascript";
+                    chatScript.src = "//www.socialintents.com/api/socialintents.1.3.js#2c9fa7465c3c6e61015c3dd5e6d700f5";
+                    chatScript.async = "async";
+                    headElement.appendChild(chatScript);
+
+                }, 0);
+
+                if (output.qh_info != undefined && output.qh_info != null && output.qh_info.trim() != '') {
+                    $('#quickHelp').removeClass('text_blue');
+                    $('#quickHelp').addClass('text_blue');
+                }
+            });
+
+            function callChat() {
+                if ($(".chat-icon-link-info").length) {
+                    $(".chat-icon-link-info").click();
+                } else {
+
+                    var w = CreatePopup('http://chat.socialintents.com/c/expertchoice', 'chat', 'width=' + dlgMaxWidth(630) + ',height=' + dlgMaxHeight(650));
+                    if ((w)) setTimeout(function () { if ((w)) w.focus(); }, 1000);
+                }
+                return false;
+            }
+
+            /*==19/Sep/2022==*/
+
+
+
+            function initPageLinkLanding(element, pgid, onclick) {
+                if ((element)) {
+                    var lnk = '';
+                    var apage = pageByID(nav_json, pgid);
+                    if (apage) {
+                        var icon = "";
+                        if (apage.icon != "") icon = '<i class="lp-link-icon ' + apage.icon + '"></i>';
+                        //lnk = (apage.title == "" ? apage.text : apage.title);
+                        lnk = apage.text;
+                        if (typeof apage.disabled != "undefined" || !(apage.disabled)) {
+                            lnk = '<a ' + (typeof onclick != "undefined" && onclick != "" ? 'href="" onclick="' + onclick + '" style="cursor:default; text-overflow: ellipsis; color: gray"' : 'href="' + (apage.url == "" ? "" : apage.url) + '" onclick="onOpenPage(' + (apage.pgID > 0 ? apage.pgID : apage.pguid) + '); return false;"') + ' title="' + htmlEscape(apage.title == "" || apage.text == apage.title ? "" : apage.title) + '">' + lnk + '</a>';
+                        }
+                        var extra = "";
+                        if (typeof apage.extra != "undefined" && apage.extra.indexOf("new") >= 0) {
+                            if (apage.pgID) {
+                                var c = localStorage.getItem("new" + apage.pgID);
+                                if (typeof c == "undefined" || c == null || c == "") {
+                                    extra += "<span class='menu_new' title='" + resString("lblNewFeature") + "'><i class='fas fa-certificate' style='margin-top:3px'></i><span>N</span></span>";
+                                }
+                            }
+                        }
+                        lnk = "<li>" + icon + lnk + extra + "<div id='ph" + apage.uid + "' style='float:right'></div></li>";
+                        element.append(lnk);
+                    }
+                }
+            }
+
+            function generateStructureModelLinks(pageID) {
+                var pg = pageByID(nav_json, pageID);
+                var showTitle = false;
+                var hasItems = false;
+                if ((pg) && typeof pg.items != "undefined") {
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (page.uid !== "20063" && !page.items) {
+                            showTitle = true;
+                            break;
+                        }
+                    }
+                    if (showTitle) {
+                        $("#menusMeasure").append('<div id="linksgroup' + pageID + '" class="col-md-4"></div>')
+                        var titleItem = '<div class="mega-menu-column">';
+                        var extra = '';
+                        titleItem += '<ul id="ul' + pageID + '"><li class="nav-header"><span class="mega_header_icon"></span>' + pg.text + extra + '</li></ul>';
+                        titleItem += '</div>';
+                        $("#linksgroup" + pageID).append($(titleItem));
+                    }
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (!page.items) {
+                            //if (!page.disabled) {
+
+                            var onclick = "";
+                            var show_warning = false;
+                            if (typeof page.extra != "undefined" && (typeof page.items == "undefined" || !page.items.length)) {
+                                if (page.extra.indexOf(menu_option_alts) >= 0 && typeof has_alts != "undefined") {
+                                    page.disabled = !(has_alts);
+                                    if (!(has_alts)) {
+                                        show_warning = true;
+                                        onclick = "msgNoAlts(); return false;";
+                                    }
+                                }
+                                if (page.extra.indexOf(menu_option_noAIP) >= 0 && typeof use_aip != "undefined") {
+                                    page.disabled = (use_aip);
+                                    if ((use_aip)) {
+                                        show_warning = true;
+                                        onclick = "msgUseAIP(); return false;";
+                                    }
+                                }
+                            }
+
+                            if (page.disabled && typeof page.extra != "undefined" && page.extra.indexOf("hide") >= 0) {
+                                // just ignore it if "hide" specified and page is disabled
+                            } else {
+                                initPageLinkLanding($("#ul" + pageID), page.pgID, onclick);
+                                if (show_warning) {
+                                    $("#ph" + page.pgID).html("<div class='count' style='background:#cc0000;'><a href='' onclick='" + onclick + "' style='color:white'><b>?</b></a></div>");
+                                }
+                                //counterIDs.push(page.pgID);
+                                hasItems = true;
+                            }
+                            //}
+                        } else {
+                            if (generateStructureModelLinks(page.pgID)) hasItems = true;
+                        }
+                    }
+                    if (!hasItems && showTitle) {
+                        $("#linksgroup" + pageID).remove();
+                    }
+                }
+                return hasItems;
+            }
+
+            function generateCollectModelLinks(pageID) {
+                var pg = pageByID(nav_json, pageID);
+                var showTitle = false;
+                var hasItems = false;
+                if ((pg) && typeof pg.items != "undefined") {
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (page.uid !== "20063" && !page.items) {
+                            showTitle = true;
+                            break;
+                        }
+                    }
+                    if (showTitle) {
+                        $("#menusCollect").append('<div id="linksgroup' + pageID + '" class="col-md-4"></div>')
+                        var titleItem = '<div class="mega-menu-column">';
+                        var extra = '';
+                        titleItem += '<ul id="ul' + pageID + '"><li class="nav-header"><span class="mega_header_icon"></span>' + pg.text + extra + '</li></ul>';
+                        titleItem += '</div>';
+                        $("#linksgroup" + pageID).append($(titleItem));
+                    }
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (!page.items) {
+                            //if (!page.disabled) {
+
+                            var onclick = "";
+                            var show_warning = false;
+                            if (typeof page.extra != "undefined" && (typeof page.items == "undefined" || !page.items.length)) {
+                                if (page.extra.indexOf(menu_option_alts) >= 0 && typeof has_alts != "undefined") {
+                                    page.disabled = !(has_alts);
+                                    if (!(has_alts)) {
+                                        show_warning = true;
+                                        onclick = "msgNoAlts(); return false;";
+                                    }
+                                }
+                                if (page.extra.indexOf(menu_option_noAIP) >= 0 && typeof use_aip != "undefined") {
+                                    page.disabled = (use_aip);
+                                    if ((use_aip)) {
+                                        show_warning = true;
+                                        onclick = "msgUseAIP(); return false;";
+                                    }
+                                }
+                            }
+
+                            if (page.disabled && typeof page.extra != "undefined" && page.extra.indexOf("hide") >= 0) {
+                                // just ignore it if "hide" specified and page is disabled
+                            } else {
+                                initPageLinkLanding($("#ul" + pageID), page.pgID, onclick);
+                                if (show_warning) {
+                                    $("#ph" + page.pgID).html("<div class='count' style='background:#cc0000;'><a href='' onclick='" + onclick + "' style='color:white'><b>?</b></a></div>");
+                                }
+                                //counterIDs.push(page.pgID);
+                                hasItems = true;
+                            }
+                            //}
+                        } else {
+                            if (generateCollectModelLinks(page.pgID)) hasItems = true;
+                        }
+                    }
+                    if (!hasItems && showTitle) {
+                        $("#linksgroup" + pageID).remove();
+                    }
+                }
+                return hasItems;
+            }
+
+            function generateReviewModelLinks(pageID) {
+                var pg = pageByID(nav_json, pageID);
+                var showTitle = false;
+                var hasItems = false;
+                if ((pg) && typeof pg.items != "undefined") {
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (page.uid !== "20063" && !page.items) {
+                            showTitle = true;
+                            break;
+                        }
+                    }
+                    if (showTitle) {
+                        $("#menusReview").append('<div id="linksgroup' + pageID + '" class="col-md-4"></div>')
+                        var titleItem = '<div class="mega-menu-column">';
+                        var extra = '';
+                        titleItem += '<ul id="ul' + pageID + '"><li class="nav-header"><span class="mega_header_icon"></span>' + pg.text + extra + '</li></ul>';
+                        titleItem += '</div>';
+                        $("#linksgroup" + pageID).append($(titleItem));
+                    }
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (!page.items) {
+                            //if (!page.disabled) {
+
+                            var onclick = "";
+                            var show_warning = false;
+                            if (typeof page.extra != "undefined" && (typeof page.items == "undefined" || !page.items.length)) {
+                                if (page.extra.indexOf(menu_option_alts) >= 0 && typeof has_alts != "undefined") {
+                                    page.disabled = !(has_alts);
+                                    if (!(has_alts)) {
+                                        show_warning = true;
+                                        onclick = "msgNoAlts(); return false;";
+                                    }
+                                }
+                                if (page.extra.indexOf(menu_option_noAIP) >= 0 && typeof use_aip != "undefined") {
+                                    page.disabled = (use_aip);
+                                    if ((use_aip)) {
+                                        show_warning = true;
+                                        onclick = "msgUseAIP(); return false;";
+                                    }
+                                }
+                            }
+
+                            if (page.disabled && typeof page.extra != "undefined" && page.extra.indexOf("hide") >= 0) {
+                                // just ignore it if "hide" specified and page is disabled
+                            } else {
+                                initPageLinkLanding($("#ul" + pageID), page.pgID, onclick);
+                                if (show_warning) {
+                                    $("#ph" + page.pgID).html("<div class='count' style='background:#cc0000;'><a href='' onclick='" + onclick + "' style='color:white'><b>?</b></a></div>");
+                                }
+                                //counterIDs.push(page.pgID);
+                                hasItems = true;
+                            }
+                            //}
+                        } else {
+                            if (generateReviewModelLinks(page.pgID)) hasItems = true;
+                        }
+                    }
+                    if (!hasItems && showTitle) {
+                        $("#linksgroup" + pageID).remove();
+                    }
+                }
+                return hasItems;
+            }
+
+            function generateAllocateModelLinks(pageID) {
+                var pg = pageByID(nav_json, pageID);
+                var showTitle = false;
+                var hasItems = false;
+                if ((pg) && typeof pg.items != "undefined") {
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (page.uid !== "20063" && !page.items) {
+                            showTitle = true;
+                            break;
+                        }
+                    }
+                    if (showTitle) {
+                        $("#menusAllocate").append('<div id="linksgroup' + pageID + '" class="col-md-4"></div>')
+                        var titleItem = '<div class="mega-menu-column">';
+                        var extra = '';
+                        titleItem += '<ul id="ul' + pageID + '"><li class="nav-header"><span class="mega_header_icon"></span>' + pg.text + extra + '</li></ul>';
+                        titleItem += '</div>';
+                        $("#linksgroup" + pageID).append($(titleItem));
+                    }
+                    for (var i = 0; i < pg.items.length; i++) {
+                        var page = pg.items[i];
+                        if (!page.items) {
+                            //if (!page.disabled) {
+
+                            var onclick = "";
+                            var show_warning = false;
+                            if (typeof page.extra != "undefined" && (typeof page.items == "undefined" || !page.items.length)) {
+                                if (page.extra.indexOf(menu_option_alts) >= 0 && typeof has_alts != "undefined") {
+                                    page.disabled = !(has_alts);
+                                    if (!(has_alts)) {
+                                        show_warning = true;
+                                        onclick = "msgNoAlts(); return false;";
+                                    }
+                                }
+                                if (page.extra.indexOf(menu_option_noAIP) >= 0 && typeof use_aip != "undefined") {
+                                    page.disabled = (use_aip);
+                                    if ((use_aip)) {
+                                        show_warning = true;
+                                        onclick = "msgUseAIP(); return false;";
+                                    }
+                                }
+                            }
+
+                            if (page.disabled && typeof page.extra != "undefined" && page.extra.indexOf("hide") >= 0) {
+                                // just ignore it if "hide" specified and page is disabled
+                            } else {
+                                initPageLinkLanding($("#ul" + pageID), page.pgID, onclick);
+                                if (show_warning) {
+                                    $("#ph" + page.pgID).html("<div class='count' style='background:#cc0000;'><a href='' onclick='" + onclick + "' style='color:white'><b>?</b></a></div>");
+                                }
+                                //counterIDs.push(page.pgID);
+                                hasItems = true;
+                            }
+                            //}
+                        } else {
+                            if (generateAllocateModelLinks(page.pgID)) hasItems = true;
+                        }
+                    }
+                    if (!hasItems && showTitle) {
+                        $("#linksgroup" + pageID).remove();
+                    }
+                }
+                return hasItems;
+            }
+
+            function initLandingPageContent() {
+                generateStructureModelLinks(10101);
+                generateCollectModelLinks(10102);
+                generateReviewModelLinks(10103);
+                generateAllocateModelLinks(10104);
+            }
+
+            $(".btn-toggle").click(function () {
+                $(this).toggleClass("ev_view");
+            });
+        </script>
+        <div id="btnFullscreenOff" class="fullscreen-esc" style="display: none;" title="<% =ResString("btnFullscreenEsc") %>"><a href="" onclick="if (!(btn_fullscreen_drag)) switchFullscreen(false, false); return false;"><i class="fa fa-compress"></i></a></div>
+    </form>
+
+    <!-- Start:Footer -->
+    <div class="footer-chat-icon-wrapper">
+        <div class="footer-chat-icon-info">
+            <div class="chat-icon-info">
+                <a href="#" class="chat-icon-link-info">
+                    <img src="../../Images/img/icon/chat-orange-icon.svg" alt="footer-chat-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer footer-dynamic-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-copyright-wrapper">
+                        <div class="footer-copyright-info text-center">
+                            <h5 id="divCopyright" class="copyright-title-info"><% =ResString("lblCopyright")%></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Eqd:Footer -->
+<!-- Comparion Core Suite (C) AD # Expert Choice Inc., 2007-22 -->

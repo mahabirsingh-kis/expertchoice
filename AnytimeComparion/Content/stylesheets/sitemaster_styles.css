@@ -1,0 +1,129 @@
+/**
+
+Site.Master inline styles
+
+Add any styles related to Site.master
+
+**/
+
+_:-ms-fullscreen,
+:root .row {
+    max-width: 65rem;
+}
+
+_:-ms-fullscreen,
+:root .ie-cancel-btn-fix {
+    left: 0px; 
+    width: 16%;
+}
+
+_:-ms-fullscreen,
+:root span.iconNav {
+    float: left;
+    margin: 5px;
+}
+
+_:-ms-fullscreen,
+:root img.lvl-line {
+    top: 24px;
+}
+
+_:-ms-fullscreen,
+:root span.text {
+    /*float: none !Important;*/
+}
+
+/*safari hack for vesions 5 and below */
+_::-moz-svg-foreign-content, :root .sorter-view a.sv-arrow-sorter:not(*:root) {
+    float: none !important;
+}
+
+_::-moz-svg-foreign-content, :root .tt-content-wrap .tt-body .tt-homepage h1, .tt-content-wrap .tt-body .tt-homepage h1.tt-header:not(*:root) {
+    font-size: 20px !important;
+}
+
+_::-moz-svg-foreign-content, :root .tt-content-wrap .tt-body .tt-accordion-head:not(*:root) {
+    height: auto !important;
+}
+
+::-moz-svg-foreign-content, :root .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .fnv-toggler:not(*:root) {
+    left: 47% !important;
+}
+
+_::-moz-svg-foreign-content, :root .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .fnv-toggler.up:not(*:root) {
+    left: 47% !important;
+}
+
+_::-moz-svg-foreign-content, :root .tt-auto-resize-content:not(*:root){
+    min-height: 0px !important;
+}
+_::-moz-svg-foreign-content, :root .tt-modal-wrap .tt-modal-content:not(*:root) {
+    overflow-x: initial;
+    height: 370px;
+}
+_::-moz-svg-foreign-content, :root .hide-pie-chart:not(*:root) {
+    display: none !important;
+}
+_::-moz-svg-foreign-content, :root .vs:not(*:root) {
+    left: 49.4% !important;
+}
+_::-moz-svg-foreign-content, :root .tt-equalizer-levels:not(*:root) {
+    display: none;
+}
+_::-moz-svg-foreign-content, :root span.lvl-txt:not(*:root) {
+    margin-left: -16.4px;
+}
+_::-moz-svg-foreign-content, :root .tt-content-wrap .tt-header .tt-controll-settings ul li span.text:not(*:root) {       
+    float: none;
+}
+_::-moz-svg-foreign-content, :root .tt-controll-settings ul li.synthesize-wrap:not(*:root){
+    width: 170px;        
+}
+_::-moz-svg-foreign-content, :root span.iconNav:not(*:root){
+    float: left;
+    margin-top: 6px;
+}
+_::-moz-svg-foreign-content, :root .tg-en :not(*:root){
+    font-weight: normal;
+    font-family: 'Tahoma', Arial;
+}
+ _::-moz-svg-foreign-content, :root .tt-verbal-bars-wrap :not(*:root){
+    margin-top: 10px !important;
+}
+
+/* Safari 5.1-6*/
+_::-moz-svg-foreign-content, :root .tg-en {
+    font-weight: normal;
+    font-family: 'Tahoma', Arial;
+}
+_::-moz-svg-foreign-content, :root .tt-verbal-bars-wrap {
+    margin-top: 10px !important;
+}
+
+.wrt_link{
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+}
+
+.not-active {
+   pointer-events: none;
+   cursor: default;
+   background: #999999;
+    color: #FFFFFF;
+}
+
+.not-active-footer-navs {
+   pointer-events: none;
+   cursor: default;
+   opacity: 0.5
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.error-modal {
+    border-radius: 5px;
+    min-height:unset;
+}

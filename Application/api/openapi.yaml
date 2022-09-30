@@ -1,0 +1,5067 @@
+openapi: 3.0.1
+info:
+  title: Comparion WebAPI
+  description: 'This is a draft webAPI used for Comparion by ExpertChoice Inc. There you can find a list of public methods, available as REST/CRUD calls. The simple test requests can be performed directly from that screen under the each method via "Try out" function. For calling the most data-sensitive methods you must be authorized.'
+  contact:
+    name: API Support
+    url: https://www.expertchoice.com/support/
+    email: support@expertchoice.com
+  version: 0.5.220410
+servers:
+  - url: /api/
+    description: The local development server
+  - url: 'https://{server}.expertchoice.com/api/'
+    description: The public servers with webAPI
+    variables:
+      server:
+        default: beta
+        enum:
+          - comparion
+          - cngamma
+          - cr
+          - beta
+          - risk
+          - alpha
+paths:
+  /account/?action=Logon:
+    get:
+      tags:
+        - account
+      summary: "This is a common function for perform user authentication\r\n \r\n There are available a different login ways, which can be used to start a session for a specific user/credentials. You can force specific method with passing 'mode' [int] parameter (optional  parameter, since the system can recognize the most cases, especially when hash parameter used).\r\n Logout can be performed via  method.\r\n ?action=logon&email=user&password=psw&params={\"\"rememberme\":1}, ?action=logon&params={\"hash\":\"1234567890abcdefgh...\"}"
+      description: "\r\n There are available a different login ways, which can be used to start a session for a specific user/credentials. You can force specific method with passing 'mode' [int] parameter (optional ecAuthenticateWay parameter, since the system can recognize the most cases, especially when hash parameter used).\r\n Logout can be performed via [Logout](#/account/get_account__action_Logout) method.\r\n "
+      parameters:
+        - name: email
+          in: query
+          description: Unique user e-mail. Default value is ""
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: User password. Default value is ""
+          schema:
+            type: string
+        - name: passcode
+          in: query
+          description: Access code (if exists/required) for specify model. Default value is ""
+          schema:
+            type: string
+        - name: meetingID
+          in: query
+          description: The MeetingID (if required) for join to TeamTime or Brainstorming session. Default value is ""
+          schema:
+            type: string
+        - name: hash
+          in: query
+          description: The unique hash code that encrypt he user/model/extra credentials. Default value is ""
+          schema:
+            type: string
+        - name: params
+          in: query
+          description: 'Required (the listed above) or any custom parameters, which can be used during the autorization. List as a common named array {"name":"value"}'
+          schema:
+            type: array
+            items: { }
+            description: NameValueCollection
+      requestBody:
+        content:
+          request:
+            example: '?action=logon&email=user&password=psw&params={""rememberme":1}, ?action=logon&params={"hash":"1234567890abcdefgh..."}'
+      responses:
+        '200':
+          description: "It returns the jActionResult with a code of ecAuthenticateError and user/project data in case of success or an information message in case of error.\r\n "
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+              example: '{"Result" 2,  "ObjectID": -1,  "Message": "",  "URL": "",  "Data": "aeUnknown",  "Tag": null}'
+  /account/?action=Logout:
+    get:
+      tags:
+        - account
+      summary: Perform user logout
+      responses:
+        '200':
+          description: Returns jActionResult with success code and URL as start page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=ConnectWithPin:
+    get:
+      tags:
+        - account
+      summary: ''
+      parameters:
+        - name: pin
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: PinType
+          in: query
+          description: Default value is "mfaAlexa"
+          schema:
+            $ref: '#/components/schemas/ecPinCodeType'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=EULA_Accept:
+    get:
+      tags:
+        - account
+      summary: "Accept the EULA for current user\r\n User must be logged. Active workgroup is not required. Saved in the DB the EULA name and revision (for masterDB v. 0.0092+). Also pushed the row to the global Logs with user IP."
+      parameters:
+        - name: EULA
+          in: query
+          description: 'EULA file name, must be non-empty'
+          required: true
+          schema:
+            type: string
+        - name: Version
+          in: query
+          description: 'EULA revision, usually came from _EULA_REVISION (like "200128")'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns jActionResult with success/error code and optional message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=Option:
+    get:
+      tags:
+        - account
+      summary: "Set user option value by name\r\n use this method for set some account/UI settings, specific for the active user (must be logged)."
+      parameters:
+        - name: Name
+          in: query
+          description: 'UI or Account option name (''show_splash'', ''advancedmode'', ''autologon'', ''user_name'', etc).'
+          required: true
+          schema:
+            type: string
+        - name: Value
+          in: query
+          description: Option value as string
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Returns jActionResult with success/error code and optional message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=Pages_Statistic:
+    get:
+      tags:
+        - account
+      summary: Get pages statistic information
+      responses:
+        '200':
+          description: 'Html string containing information about counts of Total pages, html5 enabled pages, drafts and missing pages'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=Allowed_Pages:
+    get:
+      tags:
+        - account
+      summary: ''
+      parameters:
+        - name: Layout
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: GetNext
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=PasswordRemind:
+    get:
+      tags:
+        - account
+      summary: Send Password reminder email
+      parameters:
+        - name: Email
+          in: query
+          description: user email
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=Language:
+    get:
+      tags:
+        - account
+      summary: ''
+      parameters:
+        - name: Value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=MFASendCode:
+    get:
+      tags:
+        - account
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /account/?action=MFACheckCode:
+    get:
+      tags:
+        - account
+      summary: ''
+      parameters:
+        - name: Code
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /alexa/?action=CheckAlexaProjectMode:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: App
+          in: query
+          description: ''
+          required: true
+          schema: { }
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: boolean
+  /alexa/?action=addAlternativeInCS:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: ProjectID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: UserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: UserName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: UserEmail
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: AlternativeName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /alexa/?action=RegisterNewUser:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: UserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: UserName
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: GroupName
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /alexa/?action=CreateGroup:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: UserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: GroupName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /alexa/?action=LoginByUserID:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: UserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /alexa/?action=LoginByPIN:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: UserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: PIN
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /alexa/?action=UnregisterUser:
+    get:
+      tags:
+        - alexa
+      summary: ''
+      parameters:
+        - name: UserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /manage/?action=Logs_System:
+    get:
+      tags:
+        - manage
+      summary: Get list of system log events using sorting and filter options
+      parameters:
+        - name: Limit
+          in: query
+          description: 'Use this parameter to limit number of items, default value is 1000. Default value is "1000"'
+          schema:
+            type: integer
+            format: int32
+        - name: Skip
+          in: query
+          description: 'Use it to skip first records to get next portion (useful for pagination), default value is 0. Default value is "0"'
+          schema:
+            type: integer
+            format: int32
+        - name: WkgID
+          in: query
+          description: 'Use this parameter to specify workgroup, use default value -1 to show events for all workgroups. Default value is "-1"'
+          schema:
+            type: integer
+            format: int32
+        - name: sort
+          in: query
+          description: 'Use this parameter in form of jsonSortSelector {selector:"fieldName", desc: true}, to sort log events. Default value is ""'
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: dataField
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/combinedgroups/?action=List:
+    get:
+      tags:
+        - pm combinedgroups
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/combinedgroups/?action=List_JSON:
+    get:
+      tags:
+        - pm combinedgroups
+      summary: ''
+      parameters:
+        - name: PM
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/clsProjectManager'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=GetAlternativesData:
+    get:
+      tags:
+        - pm dashboard
+      summary: "Get Alternatives list in form of JSON Array\r\n Items in array: AltID, AltName, AltColor, IsAltSelected, AltEnabled, AltIndex, \"Risk\"/\"Opportunity\", [CovObjIDs]"
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=GetCVTreeNodesData:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get DataSource for Consensus View Tree in form of JSON Array
+      parameters:
+        - name: IsSensitivityView
+          in: query
+          description: set true if you need to disable covering objectives for the tree
+          required: true
+          schema:
+            type: boolean
+        - name: lblTreeNodeNoSources
+          in: query
+          description: set title for "No Sources" node in the tree
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=SetOption:
+    get:
+      tags:
+        - pm dashboard
+      summary: Set Dashboard chart option
+      parameters:
+        - name: OptionName
+          in: query
+          description: Option Name
+          required: true
+          schema:
+            type: string
+        - name: OptionValue
+          in: query
+          description: Option Value as string
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=Options:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get Dashboard Chart options
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=Download_GemBox_XLSX:
+    get:
+      tags:
+        - pm dashboard
+      summary: Download XLSX GemBox report
+      parameters:
+        - name: sType
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=Download_GemBox_DOCX:
+    get:
+      tags:
+        - pm dashboard
+      summary: Download DOCX GemBox report
+      parameters:
+        - name: sType
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=Download_GemBox_PPTX:
+    get:
+      tags:
+        - pm dashboard
+      summary: Download PPTX GemBox report
+      parameters:
+        - name: sType
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=Download_GemBox_PDF:
+    get:
+      tags:
+        - pm dashboard
+      summary: Download GemBox PDF report
+      parameters:
+        - name: sType
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=get_WRTState:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ECWRTStates'
+  /pm/dashboard/?action=set_WRTState:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ECWRTStates'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=get_ShowComponents:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: boolean
+  /pm/dashboard/?action=set_ShowComponents:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=get_SAUserID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /pm/dashboard/?action=set_SAUserID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=initSAData:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: wrtID
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+        - name: RiskParam
+          in: query
+          description: Default value is "0"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=GetSAObjectives:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get Objectives List for Sensitivity Analysis in form of JSON objects array string
+      parameters:
+        - name: wrtID
+          in: query
+          description: WRT Node ID
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: view
+          in: query
+          description: '2D, HTH, DSA, PSA, GSA or ASA'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=GetSAAlternatives:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get List of Alternatives for Sensitivity Analysis in form of JSON objects array string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=getASADataForUserGroupID:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get Sesitivity Data for Sensitivity delta alternatives view
+      parameters:
+        - name: UserGroupID
+          in: query
+          description: Specify Combined User ID
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_UsersList:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/clsApplicationUser'
+                description: List(clsApplicationUser)
+  /pm/dashboard/?action=get_WSList:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/clsWorkspace'
+                description: List(clsWorkspace)
+  /pm/dashboard/?action=get_UWFullList:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/clsUserWorkgroup'
+                description: List(clsUserWorkgroup)
+  /pm/dashboard/?action=get_UWPrjList:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/clsUserWorkgroup'
+                description: List(clsUserWorkgroup)
+  /pm/dashboard/?action=UserByID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: tUserID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/clsApplicationUser'
+  /pm/dashboard/?action=UserByEmail:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: sEmail
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/clsApplicationUser'
+  /pm/dashboard/?action=get_result_groups:
+    get:
+      tags:
+        - pm dashboard
+      summary: 'Get list of participants, groups and attributes in form of JSON string'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=assign_result_group:
+    get:
+      tags:
+        - pm dashboard
+      summary: Add or Remove user from group
+      parameters:
+        - name: group_id
+          in: query
+          description: specify group ID
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: user_email
+          in: query
+          description: specify user email
+          required: true
+          schema:
+            type: string
+        - name: value
+          in: query
+          description: 'if true then add user, if false then remove'
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=add_result_group:
+    get:
+      tags:
+        - pm dashboard
+      summary: Create new result group
+      parameters:
+        - name: name
+          in: query
+          description: Specify group name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=edit_result_group:
+    get:
+      tags:
+        - pm dashboard
+      summary: Change result group name
+      parameters:
+        - name: id
+          in: query
+          description: result group ID
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: name
+          in: query
+          description: New result group name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=delete_result_group:
+    get:
+      tags:
+        - pm dashboard
+      summary: Delete Result group
+      parameters:
+        - name: id
+          in: query
+          description: Result group ID to delete
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=move_result_group:
+    get:
+      tags:
+        - pm dashboard
+      summary: Reorder Result Group
+      parameters:
+        - name: fromIndex
+          in: query
+          description: Old Index
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: toIndex
+          in: query
+          description: New Index
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_users_and_groups:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get List of Participants and groups
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=GetProjectSurveysQuestionsList:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get Survey questions list
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=LinkAttributeToSurveyQuestion:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: aAttributeGUID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+        - name: aQuestionGUID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+        - name: aSurveyType
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/SurveyType'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: boolean
+  /pm/dashboard/?action=GetAnswersByQuestionGUID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: sQuestionGUID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: IsWelcomeSurvey
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items: { }
+                description: Dictionary`2
+  /pm/dashboard/?action=AddUserAttributeFromSurvey:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: sQuestionGUID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: AttrGUID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+        - name: AttributeName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Type
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/AttributeValueTypes'
+        - name: DefaultValue
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: object
+        - name: IsWelcomeSurvey
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=RemoveLinkedAttribute:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: aAttributeGUID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: boolean
+  /pm/dashboard/?action=GetLinkedUserAttributesIDs:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: Guid
+                description: List(Guid)
+  /pm/dashboard/?action=CreateNewResultGroupsWithRules:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: tGroups
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items: { }
+            description: Dictionary`2
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items: { }
+                description: Dictionary`2
+  /pm/dashboard/?action=GetFilterRule:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: attrID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+        - name: tFilterText
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_RA:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: ResourceAligner
+  /pm/dashboard/?action=get_Scenario:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: RAScenario
+  /pm/dashboard/?action=get_ShowEventsOfType:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RiskionShowEventsType'
+  /pm/dashboard/?action=set_ShowEventsOfType:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/RiskionShowEventsType'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=get_GridWRTNodeID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /pm/dashboard/?action=set_GridWRTNodeID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=GetReportOptions:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: ReportGeneratorOptions
+  /pm/dashboard/?action=get_UserIDsWithData:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: HashSet`1
+  /pm/dashboard/?action=set_UserIDsWithData:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: HashSet`1
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=IsGroupHasData:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: grp
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/clsCombinedGroup'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: boolean
+  /pm/dashboard/?action=GetUsersData:
+    get:
+      tags:
+        - pm dashboard
+      summary: 'Returns list of users in form of JSON array string, each item in array contains [isChecked, UserID, UserName, UserEmail, HasData]'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=GetGroupsData:
+    get:
+      tags:
+        - pm dashboard
+      summary: "Get information about groups in form of JSON array string.\r\n Each item in array contains isChecked, ID, name, 'email - obsolete', HasData (1/0), Participants, Column Header Extra Text, Column Header Tooltip"
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_FilterCombination:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FilterCombinations'
+  /pm/dashboard/?action=set_FilterCombination:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/FilterCombinations'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=ParseAttributesFilter:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: sFilter
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: sComb
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=get_SESSION_FILTER_RULES:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_CurrentFiltersList:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/clsFilterItem'
+                description: List(clsFilterItem)
+  /pm/dashboard/?action=set_CurrentFiltersList:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/clsFilterItem'
+            description: List(clsFilterItem)
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=GetVisibleAlternatives:
+    get:
+      tags:
+        - pm dashboard
+      summary: Get information about which alternative is visible (checked manually or filter applied)
+      responses:
+        '200':
+          description: 'Dictionary(Of Integer, Boolean) key = Aleternative ID value = true if visible '
+          content:
+            text/plain:
+              schema:
+                type: array
+                items: { }
+                description: Dictionary`2
+  /pm/dashboard/?action=GetSAComponentsData:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: wrtID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=Synthesize:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: wrtNodeID
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+        - name: dataItems
+          in: query
+          description: list of active dashboard panels
+          schema:
+            type: 'String[]'
+        - name: UserIDs
+          in: query
+          description: list of selected users/combined groups
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+            description: List(Int32)
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_alternatives_and_objectves_priorities:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: UserIDs
+          in: query
+          description: List of users/groups combined IDs
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+            description: List(Int32)
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=get_WRTNodeID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: AllowTerminalNodes
+          in: query
+          description: Default value is "True"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /pm/dashboard/?action=set_WRTNodeID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: AllowTerminalNodes
+          in: query
+          description: Default value is "True"
+          schema:
+            type: boolean
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=get_WRTNodeParentGUID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/dashboard/?action=set_WRTNodeParentGUID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/dashboard/?action=GridWRTNodeIsTerminal:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: boolean
+  /pm/dashboard/?action=GridWRTNodePID:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /pm/dashboard/?action=get_HierarchyTerminalNodes:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/clsNode'
+                description: List(clsNode)
+  /pm/dashboard/?action=GetCoveringSources:
+    get:
+      tags:
+        - pm dashboard
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=Nodes_All:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/jNode'
+                description: List(jNode)
+  /pm/hierarchy/?action=get_edges:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=set_edge:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: tFromId
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: tToId
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: tMT
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=check_edges:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=get_simulation_groups:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=add_simulation_group:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: tabID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: tBehavior
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: tEnabled
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=edit_simulation_group:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: sGuid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: tabID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: sName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: tBehavior
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: tEnabled
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=assign_simulation_group:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: tabID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: groupIndex
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: precedence
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: nodeGuid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=delete_simulation_group:
+    get:
+      tags:
+        - pm hierarchy
+      summary: Delete Simulation Group
+      parameters:
+        - name: tabID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: groupGuid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: Guid
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=get_scenarios:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=move_node:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: fromID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: toID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: HierarchyID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: MoveAction
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/NodeMoveAction'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=update_node_name:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: HierarchyID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=update_node_description:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Description
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: HierarchyID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=update_node_type:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: EventType
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: HierarchyID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=add_new_event_to_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: EventName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: EventType
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/EventType'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=add_new_objective_to_event:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: EventID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ObjectiveName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Hid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=add_existing_events_to_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: EventIDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+            description: List(Int32)
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=add_existing_objectives_to_event:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: EventID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ObjIDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items:
+              type: integer
+              format: int32
+            description: List(Int32)
+        - name: Hid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=move_event_to_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: fromID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: toID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: fromScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: toScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: MoveAction
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/NodeMoveAction'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=copy_event_to_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: fromID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: toID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: fromScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: toScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: MoveAction
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/NodeMoveAction'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=delete_event_from_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: EventID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=delete_objective_from_event:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: EventID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ObjID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=add_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ScenarioName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=delete_scenario:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: ScenarioID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=save_wizard_option:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: OptionID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: OptionValue
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DiagramNodeToJS:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: node
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/clsNode'
+        - name: sNodePath
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: sChecked
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=get_hierarchy_nodes_data:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodes
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/clsHierarchy'
+        - name: SelectedAltID
+          in: query
+          description: ''
+          schema:
+            type: Nullable`1
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/hierarchy/?action=GetMeasurementScales:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DeleteMeasurementScale:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=SetMeasurementScaleDefault:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=MoveMeasurementScaleUp:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=MoveMeasurementScaleDown:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=GetAlternatives:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: withProsCons
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=AddAlternative:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=GetAlternativeInfo:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=AddAlternativeInfo:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: pros
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: cons
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DeleteAlternative:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=RenameAlternative:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=ResetProsAndCons:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=RenameProByIndex:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: index
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: newname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=RenameProByName:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: proname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: newname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=RenameConByIndex:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: index
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: newname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=RenameConByName:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: conname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: newname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DeleteProByIndex:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: index
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DeleteProByName:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: proname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DeleteConByIndex:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: index
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=DeleteConByName:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      parameters:
+        - name: nodeid
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: conname
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/hierarchy/?action=get_RA:
+    get:
+      tags:
+        - pm hierarchy
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: ResourceAligner
+  /pm/params/?action=get_NormalizeMode:
+    get:
+      tags:
+        - pm params
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LocalNormalizationType'
+  /pm/params/?action=set_NormalizeMode:
+    get:
+      tags:
+        - pm params
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocalNormalizationType'
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/params/?action=Get_Pipe_Option:
+    get:
+      tags:
+        - pm params
+      summary: ''
+      parameters:
+        - name: OptionName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/params/?action=Set_Pipe_Option:
+    get:
+      tags:
+        - pm params
+      summary: ''
+      parameters:
+        - name: OptionName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: OptionValue
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/params/?action=Get_Param_Option:
+    get:
+      tags:
+        - pm params
+      summary: ''
+      parameters:
+        - name: OptionName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/params/?action=Set_Param_Option:
+    get:
+      tags:
+        - pm params
+      summary: ''
+      parameters:
+        - name: OptionName
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: OptionValue
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Add_Report:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ReportType
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ecReportType'
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Options
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Edit_Report:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Options
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Clone_Report:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Options
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Delete_Report:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Download:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: Category
+          in: query
+          description: Default value is "All"
+          schema:
+            $ref: '#/components/schemas/ecReportCategory'
+        - name: ID
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: Void
+  /pm/report/?action=Add_Sample:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: Category
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ecReportCategory'
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Dest
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Upload:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: Category
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ecReportCategory'
+        - name: File
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+            format: binary
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=List:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: Category
+          in: query
+          description: Default value is "All"
+          schema:
+            $ref: '#/components/schemas/ecReportCategory'
+        - name: Short
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=ReportsListJSON:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: Reports
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/clsReportsCollection'
+        - name: Category
+          in: query
+          description: Default value is "All"
+          schema:
+            $ref: '#/components/schemas/ecReportCategory'
+        - name: WithItems
+          in: query
+          description: Default value is "True"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/report/?action=Add_Item:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ReportID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ItemType
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ecReportItemType'
+        - name: PageID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: EditURL
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: ExportURL
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: ItemOptions
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: ContentOptions
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Edit_Item:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ReportID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ItemType
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ecReportItemType'
+        - name: PageID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: EditURL
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: ExportURL
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: ItemOptions
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: ContentOptions
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Clone_Item:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ReportID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: EditURL
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: ExportURL
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: ItemOptions
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: ContentOptions
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Item_Index:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ReportID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Idx_Old
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Idx_New
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/report/?action=Delete_Item:
+    get:
+      tags:
+        - pm report
+      summary: ''
+      parameters:
+        - name: ReportID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/ra/?action=getScenarios:
+    get:
+      tags:
+        - pm ra
+      summary: ''
+      parameters:
+        - name: RA
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: ResourceAligner
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/jRAScenario'
+                description: List(jRAScenario)
+  /pm/ra/?action=getScenariosAsJSON:
+    get:
+      tags:
+        - pm ra
+      summary: ''
+      parameters:
+        - name: RA
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: ResourceAligner
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/ra/?action=scenarios:
+    get:
+      tags:
+        - pm ra
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/ra/?action=set_active_scenario:
+    get:
+      tags:
+        - pm ra
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/ra/?action=get_portfolio_grid:
+    get:
+      tags:
+        - pm ra
+      summary: ''
+      parameters:
+        - name: Solve
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /pm/scenario/?action=list:
+    get:
+      tags:
+        - pm scenario
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/scenario/?action=set_active:
+    get:
+      tags:
+        - pm scenario
+      summary: ''
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/scenario/?action=add:
+    get:
+      tags:
+        - pm scenario
+      summary: ''
+      parameters:
+        - name: name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: desc
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /pm/scenario/?action=delete:
+    get:
+      tags:
+        - pm scenario
+      summary: ''
+      parameters:
+        - name: id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /project/?action=List:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Reload
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=List_Short:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Reload
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=ProjectbyID:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=ProjectByID_Short:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=ActiveProject:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=ActiveProject_Short:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Open:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: IgnoreOnlineUsers
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+        - name: sPasscode
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Close:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Close_Active:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Set_Lock:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Status
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ECLockStatus'
+        - name: ID
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Create:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Status
+          in: query
+          description: Default value is "psActive"
+          schema:
+            $ref: '#/components/schemas/ecProjectStatus'
+        - name: Src_ID
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+        - name: sDescription
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: RiskionModelType
+          in: query
+          description: Default value is "ptRegular"
+          schema:
+            $ref: '#/components/schemas/ProjectType'
+        - name: UseWkgWording
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+        - name: TimeFrame
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Copy:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Src_ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Name
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Type
+          in: query
+          description: Default value is "ptRegular"
+          schema:
+            $ref: '#/components/schemas/ProjectType'
+        - name: DBVer
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+        - name: hide_objname
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+        - name: hide_altname
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+        - name: save_users
+          in: query
+          description: Default value is "True"
+          schema:
+            type: boolean
+        - name: hide_useremail
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+        - name: hide_username
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+        - name: save_snapshots
+          in: query
+          description: Default value is "False"
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Upgrade:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: pgid
+          in: query
+          description: Default value is "-1"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Delete:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: IDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=UnDelete:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: IDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Wipeout:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: IDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Restore_Defaults:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Set_Archived:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: IDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: Archived
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Set_Online:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Online
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Upload:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: File
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+            format: binary
+        - name: Status
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ecProjectStatus'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Update:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Params
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items: { }
+            description: NameValueCollection
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Project_HID_Move:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: prj_id
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: dest
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Replace:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Src_ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Dest_ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=TeamTime_Stop:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=List_Starred:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Starred_Toggle:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Starred_Clear:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=List_History:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Landing_Info:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: IDs
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            description: List(String)
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Eval_Progress:
+    get:
+      tags:
+        - project
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /project/?action=Snapshot_Add:
+    get:
+      tags:
+        - project
+      summary: ''
+      parameters:
+        - name: Comment
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /risk/?action=LoadControlsDatagrid:
+    get:
+      tags:
+        - risk
+      summary: ''
+      parameters:
+        - name: ctrlType
+          in: query
+          description: ''
+          required: true
+          schema:
+            $ref: '#/components/schemas/ControlType'
+        - name: OnlyActive
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /risk/?action=GetControlsList:
+    get:
+      tags:
+        - risk
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /risk/?action=GetControlsRiskReduction:
+    get:
+      tags:
+        - risk
+      summary: ''
+      parameters:
+        - name: ids
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: array
+            items:
+              type: Guid
+            description: List(Guid)
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /risk/?action=UseSimulations:
+    get:
+      tags:
+        - risk
+      summary: ''
+      parameters:
+        - name: value
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /service/?action=Version:
+    get:
+      tags:
+        - service
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+  /service/?action=Session_State:
+    get:
+      tags:
+        - service
+      summary: ''
+      parameters:
+        - name: Hash
+          in: query
+          description: Default value is ""
+          schema:
+            type: string
+        - name: ExtraParams
+          in: query
+          description: ''
+          schema:
+            type: array
+            items: { }
+            description: NameValueCollection
+      responses:
+        '200':
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: object
+  /service/?action=WhatsNew:
+    get:
+      tags:
+        - service
+      summary: ''
+      parameters:
+        - name: FullList
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /service/?action=KnownIssues:
+    get:
+      tags:
+        - service
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /service/?action=Upload:
+    get:
+      tags:
+        - service
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /workgroup/?action=Open:
+    get:
+      tags:
+        - workgroup
+      summary: ''
+      parameters:
+        - name: ID
+          in: query
+          description: ''
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /workgroup/?action=List:
+    get:
+      tags:
+        - workgroup
+      summary: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+  /workgroup/?action=UpdateUserWorkgroup:
+    get:
+      tags:
+        - workgroup
+      summary: Set user workgroup state (enable/disable) for active user
+      parameters:
+        - name: ID
+          in: query
+          description: WorkgroupID
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: Disabled
+          in: query
+          description: Any positive value in case of disable
+          required: true
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: '.ObjectID as Workgroup ID (passed paramter), .Data is the current user workgroup state.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jActionResult'
+components:
+  schemas:
+    ecActionResult:
+      enum:
+        - arNone (0)
+        - arSuccess (1)
+        - arError (2)
+        - arWarning (3)
+      type: integer
+      description: The code or API request result
+    jActionResult:
+      type: object
+      properties:
+        Result:
+          $ref: '#/components/schemas/ecActionResult'
+        ObjectID:
+          type: integer
+          format: int32
+        Message:
+          type: string
+        URL:
+          type: string
+        Data:
+          type: object
+        Tag:
+          type: object
+      description: This is the base class for webAPI responses
+    ecPinCodeType:
+      enum:
+        - mfaNone (0)
+        - mfaAlexa (1)
+        - mfaEmail (2)
+      type: integer
+      description: ''
+    clsXMLDataProvider:
+      type: object
+      description: ''
+    clsProjectManager:
+      type: object
+      properties:
+        mXML:
+          $ref: '#/components/schemas/clsXMLDataProvider'
+        BaronSolverCallback:
+          type: SolveBaronFunction
+        BaronSolverCallback2:
+          type: SolveBaronFunction2
+        AddLog:
+          type: AddLogFunction
+        LastModifyTime:
+          type: Nullable`1
+      description: ''
+    ECWRTStates:
+      enum:
+        - wsGoal (0)
+        - wsSelectedNode (1)
+      type: integer
+      description: ''
+    clsApplicationUser:
+      type: object
+      properties:
+        LastVisited:
+          type: Nullable`1
+        _mask_CantBeDelete:
+          type: integer
+          format: int32
+        LastJudgmentTime:
+          type: string
+          format: date-time
+      description: ''
+    clsWorkspace:
+      type: object
+      description: ''
+    clsUserWorkgroup:
+      type: object
+      description: ''
+    SurveyType:
+      enum:
+        - stWelcomeSurvey (1)
+        - stThankyouSurvey (2)
+        - stImpactWelcomeSurvey (3)
+        - stImpactThankyouSurvey (4)
+      type: integer
+      description: ''
+    AttributeValueTypes:
+      enum:
+        - avtString (0)
+        - avtBoolean (1)
+        - avtLong (2)
+        - avtDouble (3)
+        - avtEnumeration (4)
+        - avtEnumerationMulti (5)
+      type: integer
+      description: ''
+    RiskionShowEventsType:
+      enum:
+        - etRisks (0)
+        - etGains (1)
+        - etBoth (2)
+      type: integer
+      description: ''
+    clsCombinedGroup:
+      type: object
+      properties:
+        RulesParsed:
+          type: boolean
+      description: ''
+    FilterCombinations:
+      enum:
+        - fcAnd (0)
+        - fcOr (1)
+      type: integer
+      description: ''
+    FilterOperations:
+      enum:
+        - None (-1)
+        - Contains (0)
+        - Equal (1)
+        - NotEqual (2)
+        - StartsWith (3)
+        - GreaterThan (4)
+        - GreaterThanOrEqual (5)
+        - LessThan (6)
+        - LessThanOrequal (7)
+        - IsTrue (8)
+        - IsFalse (9)
+      type: integer
+      description: ''
+    clsFilterItem:
+      type: object
+      properties:
+        IsChecked:
+          type: boolean
+        SelectedAttributeID:
+          type: Guid
+        FilterText:
+          type: string
+        FilterEnumItemID:
+          type: Guid
+        FilterEnumItemsIDs:
+          type: array
+          items:
+            type: Guid
+          description: List(Guid)
+        FilterCombination:
+          $ref: '#/components/schemas/FilterCombinations'
+        FilterOperation:
+          $ref: '#/components/schemas/FilterOperations'
+      description: ''
+    clsNode:
+      type: object
+      description: ''
+    jNode:
+      type: object
+      description: ''
+    NodeMoveAction:
+      enum:
+        - nmaBeforeNode (1)
+        - nmaAsChildOfNode (2)
+        - nmaAfterNode (4)
+      type: integer
+      description: ''
+    EventType:
+      enum:
+        - Risk (0)
+        - Opportunity (1)
+      type: integer
+      description: ''
+    clsHierarchy:
+      type: object
+      description: ''
+    LocalNormalizationType:
+      enum:
+        - ntNormalizedForAll (0)
+        - ntNormalizedMul100 (1)
+        - ntNormalizedSum100 (2)
+        - ntUnnormalized (3)
+      type: integer
+      description: ''
+    ecReportType:
+      enum:
+        - Document (1)
+        - Spreadsheet (2)
+        - Presentation (4)
+        - Dashboard (8)
+      type: integer
+      description: ''
+    ecReportCategory:
+      enum:
+        - All (0)
+        - Report (1)
+        - Dashboard (2)
+      type: integer
+      description: ''
+    clsReportsCollection:
+      type: object
+      properties:
+        Reports:
+          type: array
+          items: { }
+          description: Dictionary`2
+        ActualVersion:
+          type: string
+      description: ''
+    ecReportItemType:
+      enum:
+        - Unspecified (0)
+        - ModelDescription (1)
+        - Objectives (3)
+        - Alternatives (5)
+        - Participants (6)
+        - EvalProgress (20)
+        - DataGrid (50)
+        - AlternativesChart (60)
+        - ObjectivesChart (61)
+        - AltsGrid (68)
+        - ObjsGrid (69)
+        - DSA (62)
+        - PSA (63)
+        - GSA (64)
+        - Analysis2D (65)
+        - ASA (66)
+        - HTH (67)
+        - ProsAndCons (70)
+        - PortfolioGrid (71)
+        - Infodoc (94)
+        - Counter (95)
+        - Page (97)
+        - Space (98)
+        - PageBreak (99)
+        - NewItem (999)
+      type: integer
+      description: ''
+    jRAScenario:
+      type: object
+      description: ''
+    ECLockStatus:
+      enum:
+        - lsUnLocked (0)
+        - lsLockForModify (1)
+        - lsLockForTeamTime (2)
+        - lsLockForAntigua (3)
+        - lsLockForSystem (9)
+      type: integer
+      description: ''
+    ecProjectStatus:
+      enum:
+        - psActive (0)
+        - psArchived (1)
+        - psTemplate (2)
+        - psMasterProject (3)
+      type: integer
+      description: ''
+    ProjectType:
+      enum:
+        - ptRegular (0)
+        - ptRiskAssociated (1)
+        - ptOpportunities (2)
+        - ptMixed (4)
+        - ptMyRiskReward (8)
+      type: integer
+      description: ''
+    ControlType:
+      enum:
+        - ctCause (0)
+        - ctConsequence (1)
+        - ctEvent (2)
+        - ctCauseToEvent (3)
+        - ctConsequenceToEvent (4)
+        - ctUndefined (5)
+      type: integer
+      description: ''
+  securitySchemes:
+    SID:
+      type: apiKey
+      description: Use the major way to authorize in the system
+      name: ASP.NET_SessionId
+      in: cookie
+tags:
+  - name: account
+    description: User account functionality
+  - name: alexa
+    description: ''
+  - name: manage
+    description: ''
+  - name: pm combinedgroups
+    description: ''
+  - name: pm dashboard
+    description: ''
+  - name: pm hierarchy
+    description: ''
+  - name: pm params
+    description: ''
+  - name: pm report
+    description: ''
+  - name: pm ra
+    description: ''
+  - name: pm scenario
+    description: ''
+  - name: project
+    description: ''
+  - name: risk
+    description: ''
+  - name: service
+    description: ''
+  - name: workgroup
+    description: ''
+externalDocs:
+  description: Find out more about our software
+  url: https://www.expertchoice.com/

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="edit-icon-btn" transform="translate(-1124.887 -398)">
+    <g id="Group_614" data-name="Group 614" transform="translate(1124.887 398)">
+      <rect id="Rectangle_9_copy_7" data-name="Rectangle 9 copy 7" width="34" height="34" rx="5" fill="#e7edf6" style="mix-blend-mode: multiply;isolation: isolate"/>
+    </g>
+    <g id="Edit_button" data-name="Edit button" transform="translate(1134.869 406.496)">
+      <g id="Edit_icon" data-name="Edit icon" transform="translate(0 1.504)">
+        <g id="Group_71" data-name="Group 71" transform="translate(0 -1.504)">
+          <path id="Path_40" data-name="Path 40" d="M2.795,10.568l3.187,2.858,6.76-7.534L9.554,3.032ZM8.756,6.53l-3.8,4.231a.27.27,0,0,1-.185.089.263.263,0,0,1-.194-.069l-.188-.169a.268.268,0,0,1-.02-.378L8.168,6a.268.268,0,0,1,.379-.021l.188.169A.269.269,0,0,1,8.756,6.53Zm1.1-2.012.188.168a.268.268,0,0,1,.021.379l-.33.368a.273.273,0,0,1-.185.089.267.267,0,0,1-.194-.068l-.188-.169a.275.275,0,0,1-.09-.185.266.266,0,0,1,.069-.194l.33-.368A.269.269,0,0,1,9.86,4.518Zm.786-2.7,3.187,2.859-.783.873L9.863,2.689Zm4.468.041L13.307.237A.926.926,0,0,0,12,.308L10.934,1.5l3.187,2.858,1.065-1.187a.928.928,0,0,0-.073-1.309Zm-1.058,1.3L12.123,1.43l.558-.621,1.931,1.732ZM1.317,14.8a.462.462,0,0,0,.618.555l3.665-1.5L2.413,10.994Zm3.239-1.127-1.44.589-.842-.755.431-1.495Z" transform="translate(-1.299 0)" fill="#354052"/>
+          <rect id="Rectangle_464" data-name="Rectangle 464" width="13.333" height="0.889" transform="translate(0 15.111)" fill="#5e980a"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

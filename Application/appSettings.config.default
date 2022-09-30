@@ -1,0 +1,72 @@
+﻿<appSettings>
+  <!-- Name for MasterDB. By default is "CoreDB" -->
+  <add key="SQLMasterDB" value="CoreDB"/>
+  <!-- Name of Preferred sql connection (from connections.config file). Must be non-empty and exists in connection.config -->
+  <add key="SQLDefaultProvider" value="sqlserver"/>
+  <!-- Enable this option in case of Windows Platform FIPS validated cryptographic algorithms -->	
+  <add key="FIPSMode" value="0"/>
+  <!-- Option for enable/disabled trace/output info. Set "1" for enable when debugging. By default is "0". -->
+  <add key="TraceEnabled" value="0"/>
+  <!-- Option for "fixed" resource, used in App. By default is blank. -->
+  <add key="LanguageFile" value=""/>
+  <!-- Use "0" value for hide Languages selector. By default is "1". -->
+  <add key="ShowLanguages" value="1"/>
+  <!-- Use this option for force all not-secured requests to HTTPS calls (value="1/0". By default is "0". -->
+  <add key="ForceSSL" value="0"/>
+  <!-- Use this option for use secure connection for SMTP server (value="1/0". By default is "0". -->
+  <add key="SMTPSSL" value="1"/>
+  <!-- Disable autocomplete on login screen -->
+  <add key="DisableAutoCompleteForLogin" value="0"/>
+  <!-- Use this option for provide special pipe parameters for all of new/uploaded decisions. Used special xmlfile with options from /App_data/settings folder. By default is "pipe_default.xml". -->
+  <add key="DefaultPipeParams" value="pipe_default.xml"/>
+  <!-- List of pre-defined pipe parameters options for every project manager. Used special xmlfile with options from /App_data/settings folder, listed with ";" delimiter. -->
+  <add key="DefaultPipeParamSets" value="Choice project with few alternatives.xml;Choice project with many alternatives.xml;Resource Allocation.xml"/>
+  <!-- Fix for new MS patch -->
+  <add key="aspnet:MaxHttpCollectionKeys" value="5000"/>
+  <!-- Special option for force optimization on huge decision for load data in "on-load" mode. By default is "1". In some cases (like TT sessions), this option will be ignored by Core. -->
+  <add key="LoadOnDemand" value="1"/>
+  <!-- This option required for upload/download decision for read/write properly (compatible) AHP data. By default is "0". -->
+  <add key="ForceAllowedAlts" value="0"/>
+  <!-- Timeout in seconds for lock decision on editing by Project Owner. By default is 10 minutes (600 sec). -->
+  <add key="LockTimeout" value="1"/>
+  <!-- Default refresh timeout for TeamTime controls. Don't use very short timeouts. By default is 5 seconds. -->
+  <add key="SynchronousRefresh" value="2"/>
+  <add key="HookErrors" value="1"/>
+  <!-- Special option for force to see all Draft (sketches/unfinished) screens and elements in UI. Used only for developers and debug/beta versions. By default is "0". -->
+  <add key="ShowDraftPages" value="0"/>
+  <!-- Option for force to check EULA licenses for PO/AM/Admin before starting to work. By default is "1". -->
+  <add key="CheckEULA" value="1"/>
+  <add key="LDAP_Query" value=""/>
+  <add key="LDAP_SearchQuery" value="(&amp;(objectCategory=Person)(objectClass=user)(mail=*)(|(mail={0})(displayname={0}))(!userAccountControl:1.2.840.113556.1.4.803:=2))"/>
+  <add key="LDAP_Username" value=""/>
+  <add key="LDAP_Password" value=""/>
+  <!-- URL for link to FogBugz Feedback (used in the main menu). -->
+  <add key="FogBugz_Feedback" value="https://expertchoice.fogbugz.com/default.asp?pg=pgPublicEdit"/>
+  <!-- URL for sending crash info to FogBugz. Must be non-empty for allow to send RTE feedbacks. -->
+  <add key="FogBugz_URL" value="https://expertchoice.fogbugz.com/scoutSubmit.asp"/>
+  <!-- Default UserName for sending info to FogBugz cases. -->
+  <add key="FogBugz_UserName" value="Runtime Error User"/>
+  <!-- FogBugz Project name for posting crash info. -->
+  <add key="FogBugz_Project" value="Comparion"/>
+  <!-- FogBugz Area name for posting crash info. -->
+  <add key="FogBugz_Area" value="Runtime Errors"/>
+  <!-- FogBugz Inbox address for feedback submission. Send when value isn't empty. Use "feedback@....fogbugz.com", for example. -->
+  <add key="FogBugz_Inbox" value="feedback@expertchoice.com"/>
+  <!-- FogBugz feedback submission: 1 for auto-submit and hide "Feedback" button. By default is disabled for local instances. -->
+  <add key="FogBugz_AutoSubmit" value="0"/>
+  <!-- Default E-mail address for submit feedback/Customer Support to FogBugz -->
+  <add key="FogBugz_NoReply" value="do-not-reply@expertchoice.com"/>
+  <!-- Changeset Info -->
+  <add key="changeset" value="IDE"/>
+  <!-- Master Header -->
+  <add key="aspnet:MaxHttpCollectionKeys" value="15000"/>
+  <add key="OptionsOverride" value="1" />
+  <!-- MD5 hash for license manager password. Can create at http://hash.online-convert.com/md5-generator -->
+  <add key="LicensePswHash" value="7ed29eef654266656f42902885a4146e" />
+  <add key="ShowEvalSiteOnly" value="1" />
+
+  <add key="PartnerIdP" value="https://sts.windows.net/2a2afccb-5352-470a-969c-0f06601e1f1b/" />
+  <add key="UseSSO" value="0" />
+  <add key="SSO_Only" value="0" />
+
+</appSettings>

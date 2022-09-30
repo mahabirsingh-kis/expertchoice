@@ -1,0 +1,389 @@
+<!--<div class="large-12 columns tt-left-col">-->
+   
+    <div class="large-12 columns tt-tabs-wrap-results">
+        <ul class="tabs" data-tabs>
+          <li class="tab-title"><a href="#obecives" ng-click="changePage(collectInputPages.objectivesMeasurement)">Objectives</a></li>
+          <li class="tab-title active"><a href="#alternatives" ng-click="changePage(collectInputPages.alternativesMeasurement)">Alternatives</a></li>
+          
+        </ul>
+        <div class="tabs-content">
+          <div class="content active" id="head-to-head">
+            <div class="row collapse tt-tabs-header-menus">
+                <div class="large-12 columns">
+                    <ul>
+                        <li>
+                            <a class="button tt-button-primary" data-reveal-id="newScales">
+                                <span class="icon-tt-plus"></span>
+                                <span class="text">New Scales </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="button tt-button-primary" data-reveal-id="newScales">
+                                <span class="icon-tt-pencil"></span>
+                                <span class="text">Edit Scales </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-tooltip class="has-tip" data-options="disable_for_touch:true" title="Copy Objectives"><span class="icon icon-tt-copy"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" data-tooltip class="has-tip" data-options="disable_for_touch:true" title="View in TeamTime (Separate Window)"><span class="icon icon-tt-search"></span></a>
+                        </li>
+
+                        
+                        <li>
+                            <a class="button tt-button-primary tt-dropdown" data-dropdown="filter-view" aria-controls="filter-view" aria-expanded="false">
+                                <span class="text">Filter Columns </span>
+                                <span class="icon-tt-chevron-down drop-arrow"></span>
+                            </a>
+                            <ul id="filter-view" class="tt-dd-content f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+                                <li><label><input type="checkbox">View All</label></li>
+                                <li><label><input type="checkbox" checked>Mearurement Type</label></li>
+                                <li><label><input type="checkbox" checked>No. of Elements in cluster</label></li>
+                                <li><label><input type="checkbox" checked>No. of Judgments in cluster</label></li>
+                                <li><label><input type="checkbox" checked>No. of Comparisons</label></li>
+                                <li><label><input type="checkbox" checked>Display</label></li>
+                                
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="button tt-button-primary tt-dropdown" data-dropdown="more-options" aria-controls="more-options" aria-expanded="false">
+                                <span class="text">More Options </span>
+                                <span class="icon-tt-chevron-down drop-arrow"></span>
+                            </a>
+                            <ul id="more-options" class="tt-dd-content f-dropdown small" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+                                <li><label><input type="radio" name="test">Direct Priorities in all clusters</label></li>
+                                <li><label><input type="radio" name="test">Pairwise in all clusters</label></li>
+                                <hr>
+                                <li><span class=""><span class="icon icon-tt-info-circle"></span> Tell me more</span></li>
+                                <li><span class="">Reset Defaults</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tt-resize-div-wrap tt-measurments-methods-wrap" data-equalizer="thead-tr">
+                    <div class="large-3 columns tt-sr-left">
+
+<!--                        <h3>All Objectives</h3>-->
+                        <div class="large-12 columns tt-results-nav-wrap text-left">
+                            <!--<div class="row collapse" >
+                                <span style="color:black">Obectives Name</span>
+                            </div>-->
+
+                            <div class="row collapse" >
+
+                                <table class="tt-table-wrap">
+                                    <thead >
+                                        <tr data-equalizer-watch="thead-tr">
+                                            <th class="tt-mt">Measure Alternatives with respect to</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tt-sw-ul">
+                                        <!-- start parent 1 -->
+                                        <tr>
+                                            <td class="tt-mt">
+                                                <a id="1a" href="#" class="left tt-toggler" data-toggler="tg-tree-nav-sub-first"><span class="icon icon-tt-minus-square"></span></a>
+                                                <a href="#" >Parent1a</a>
+                                            </td>
+                                        </tr>
+                                            <tr class="tt-r-child sub tg-tree-nav-sub-first-1a">
+                                                <td class="tt-mt">
+                                                    <a href="#" >sub (Parent1a)</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="tt-r-child sub tg-tree-nav-sub-first-1a">
+                                                <td class="tt-mt">
+                                                    <a href="#" >sub (Parent1a)</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="tt-r-child sub tg-tree-nav-sub-first-1a">
+                                                <td class="tt-mt">
+                                                    <a id="1b" href="#" class="left tt-toggler" data-toggler="tg-tree-nav-sub-first"><span class="icon icon-tt-minus-square"></span></a>
+                                                    <a href="#" >sub (Parent1a) with sub</a>
+                                                </td>
+                                            </tr>
+                                            <tr class="tt-r-child sub tier2  tg-tree-nav-sub-first-1b">
+                                                <td class="tt-mt">
+                                                    <a href="#" >sub (Parent1b)</a>
+                                                </td>
+                                            </tr>
+                                        <!-- end parent 1 -->
+                                        
+                                        <!-- start parent 2 -->
+                                        <tr>
+                                            <td class="tt-mt">
+                                                <a id="2" href="#" class="left tt-toggler" data-toggler="tg-tree-nav-sub-first"><span class="icon icon-tt-minus-square"></span></a>
+                                                <a href="#" >Parent2</a>
+                                            </td>
+                                        </tr>
+                                        <tr class="tt-r-child sub tg-tree-nav-sub-first-2">
+                                            <td class="tt-mt">
+                                                <a href="#" >sub (Parent2)</a>
+                                            </td>
+                                        </tr>
+                                        <tr class="tt-r-child sub tg-tree-nav-sub-first-2">
+                                            <td class="tt-mt">
+                                                <a href="#" >sub (Parent2)</a>
+                                            </td>
+                                        </tr>
+                                        <!-- end parent 2 -->
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                            <!-- start drop downs -->
+                            <div id="drop-1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+                              <p>Lorem ipsum</p>
+
+                            </div>
+                            <!-- end drop downs -->
+                        </div>
+                    </div>
+                    <div class="large-9  columns tt-sr-right">
+                        <div class="tt-sr-mid tt-resize-div-handle"></div>
+                        <table class="tt-table-wrap">
+                            <thead>
+                                <tr data-equalizer-watch="thead-tr">
+                                    <th class="tt-mt">Measurement Type <a href="#" class="help thead collect-input" data-dropdown="help-dd-mt" aria-controls="" aria-expanded="false"><span class="icon-tt-info-circle"></span></a></th>
+                                    <th class="tt-ms">Measurement Scale</th>
+                                    <th class="tt-nec">No. of Elements in Cluster <span class="">(15)</span></th>
+                                    <th class="tt-njc">No. of Judgments in Cluster <span class="">(13)</span></th>
+                                    <th class="tt-ncd">No. of Comparisons <span class="">(13)</span> <a href="#" class="help thead collect-input" data-dropdown="help-dd-ncd-head" aria-controls="" aria-expanded="false"><span class="icon-tt-info-circle"></span></a></th>
+                                    <th class="tt-dd">Display <a href="#" class="help thead collect-input" data-dropdown="help-dd-display" aria-controls="" aria-expanded="false"><span class="icon-tt-info-circle"></span></a></th>
+                                    <th class="tt-ptdv">Pairwise Type Default Verbal</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody class="tt-sw-ul">
+                                <!-- start parent1 -->
+                                <tr>
+                                    <td class="tt-mt">
+                                        <select>
+                                            <option>Direct</option>
+                                            <option>Pairwise Comparison</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-ms">
+                                        <select>
+                                            <option>Default</option>
+                                            <option>Create New</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-nec">3</td>
+                                    <td class="tt-njc">3*(3-1)/2 = 3</td>
+                                    <td class="tt-ncd">
+                                        <div class="small-10 columns text-left">
+                                            <select class="">
+                                                <option>All Pairs</option>
+                                                <option selected>Two Diagonals</option>
+                                                <option>One Diagonals</option>
+                                            </select>
+                                        </div>
+                                        <div class="small-2 columns text-right">
+                                            <a href="#" class="help collect-input" data-dropdown="help-dd-ncd" aria-controls="" aria-expanded="false"><span class="icon-tt-info-circle"></span></a>
+                                        </div>
+                                        
+                                        
+                                    </td>
+                                    <td class="tt-dd">
+                                        <select>
+                                            <option>One Pair</option>
+                                            <option>Two Pairs</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-ptdv">
+                                        <select>
+                                            <option>Verbal</option>
+                                            <option>Graphical</option>
+                                            <option>Numerical</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                <tr class="tt-r-child sub tg-tree-nav-sub-first-1a">
+                                    <td class="tt-mt"></td>
+                                    <td class="tt-nec"></td>
+                                    <td class="tt-njc"></td>
+                                    <td class="tt-ncd"></td>
+                                    <td class="tt-dd"></td>
+                                    <td class="tt-ptdv"></td>
+                                </tr>
+                                <tr class="tt-r-child sub tg-tree-nav-sub-first-1a">
+                                    <td class="tt-mt"></td>
+                                    <td class="tt-nec"></td>
+                                    <td class="tt-njc"></td>
+                                    <td class="tt-ncd"></td>
+                                    <td class="tt-dd"></td>
+                                    <td class="tt-ptdv"></td>
+                                </tr>
+                                <!-- start sub parent1 -->
+                                <tr class="tt-r-child sub tg-tree-nav-sub-first-1a">
+                                    <td class="tt-mt">
+                                        <select>
+                                            <option>Pairwise Comparison</option>
+                                            <option>Direct</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-ms">
+                                        <select>
+                                            <option>Default</option>
+                                            <option>Create New</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-nec">3</td>
+                                    <td class="tt-njc">3*(3-1)/2 = 3</td>
+                                    <td class="tt-ncd">
+                                        <div class="small-10 columns text-left">
+                                            <select class="">
+                                                <option>All Pairs</option>
+                                                <option selected>Two Diagonals</option>
+                                                <option>One Diagonals</option>
+                                            </select>
+                                        </div>
+                                        <div class="small-2 columns text-right">
+                                            <a href="#" class="help collect-input" data-dropdown="help-dd-ncd" aria-controls="" aria-expanded="false"><span class="icon-tt-info-circle"></span></a>
+                                        </div>
+                                        
+                                        
+                                    </td>
+                                    <td class="tt-dd">
+                                        <select>
+                                            <option>Two Pairs</option>
+                                            <option>One Pair</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-ptdv">
+                                        <select>
+                                            <option>Graphical</option>
+                                            <option>Verbal</option>
+                                            <option>Numerical</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                <!-- end sub parent1 -->
+                                <tr class="tt-r-child sub tg-tree-nav-sub-first-1b">
+                                    <td class="tt-mt"></td>
+                                    <td class="tt-nec"></td>
+                                    <td class="tt-njc"></td>
+                                    <td class="tt-ncd"></td>
+                                    <td class="tt-dd"></td>
+                                    <td class="tt-ptdv"></td>
+                                </tr>
+                                <!-- end parent1 -->
+                                
+                                <!-- start parent2 -->
+                                <tr>
+                                    <td class="tt-mt">
+                                        <select>
+                                            <option>Pairwise Comparison</option>
+                                            <option>Direct</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-ms">
+                                        <select>
+                                            <option>Default</option>
+                                            <option>Create New</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-nec">3</td>
+                                    <td class="tt-njc">3*(3-1)/2 = 3</td>
+                                    <td class="tt-ncd">
+                                        <div class="small-10 columns text-left">
+                                            <select class="">
+                                                <option>All Pairs</option>
+                                                <option selected>Two Diagonals</option>
+                                                <option>One Diagonals</option>
+                                            </select>
+                                        </div>
+                                        <div class="small-2 columns text-right">
+                                            <a href="#" class="help collect-input" data-dropdown="help-dd-ncd" aria-controls="" aria-expanded="false"><span class="icon-tt-info-circle"></span></a>
+                                        </div>
+                                    </td>
+                                    <td class="tt-dd">
+                                        <select>
+                                            <option>Two Pairs</option>
+                                            <option>One Pair</option>
+                                        </select>
+                                    </td>
+                                    <td class="tt-ptdv">
+                                        <select>
+                                            <option>Graphical</option>
+                                            <option>Verbal</option>
+                                            <option>Numerical</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                                <tr class="tt-r-child sub tg-tree-nav-sub-first-2">
+                                    <td class="tt-mt"></td>
+                                    <td class="tt-nec"></td>
+                                    <td class="tt-njc"></td>
+                                    <td class="tt-ncd"></td>
+                                    <td class="tt-dd"></td>
+                                    <td class="tt-ptdv"></td>
+                                </tr>
+                                <tr class="tt-r-child sub tg-tree-nav-sub-first-2">
+                                    <td class="tt-mt"></td>
+                                    <td class="tt-nec"></td>
+                                    <td class="tt-njc"></td>
+                                    <td class="tt-ncd"></td>
+                                    <td class="tt-dd"></td>
+                                    <td class="tt-ptdv"></td>
+                                </tr>
+                                <!-- end parent2 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+
+<!-- help dropdown for ncd-->
+<div id="help-dd-ncd" class="f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+    <p>
+         change note depends on selected <br>
+            -(max. Accuracy)(All Diagonals)<br>
+            -(First and Second Diagonals)<br>
+            -(Least Time)(First Diagonal)<br>
+        
+    </p>
+</div>
+
+<div id="help-dd-ncd-head" class="f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+    <p>
+          Default: Two Diagonals 
+    </p>
+</div>
+<!-- help-dd dropdown for ncd-->
+
+<!-- help-dd dropdown for display-->
+<div id="help-dd-display" class="f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+    <p>
+          Default: One Pair
+    </p>
+</div>
+<!-- //help-dd dropdown for display-->
+
+<!-- help-dd dropdown for measurement type-->
+<div id="help-dd-mt" class="f-dropdown" data-dropdown-content="" aria-hidden="true" tabindex="-1">
+    <p>
+          Default: Rating Scale
+    </p>
+</div>
+<!-- //help-dd dropdown for measurement type-->
+
+
+
+<script>
+    $(document).foundation('reflow');
+</script>
+
+<!--</div> -->
+<!-- tt-left-col-->

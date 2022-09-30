@@ -1,0 +1,7 @@
+<!-- External section for storing all connection srting, used in this Application -->
+<connectionStrings>
+  <clear />
+  <add name="SqlServer" connectionString="Data Source=localhost;Initial Catalog=master;Integrated Security=SSPI;" providerName="system.data.sqlclient" />
+  <add name="OleDb" connectionString="Provider=SQLNCLI;Server=localhost;Database=master;Trusted_Connection=yes;"  providerName="system.data.oledb" />
+  <add name="ODBC" connectionString="Driver={SQL Native Client};Server=localhost;Database=master;Trusted_Connection=yes;" providerName="system.data.odbc" />
+</connectionStrings>

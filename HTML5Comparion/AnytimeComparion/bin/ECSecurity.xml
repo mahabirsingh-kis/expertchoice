@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ECSecurity
+</name>
+</assembly>
+<members>
+<member name="T:ECSecurity.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ECSecurity.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ECSecurity.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:ECSecurity.ECSecurity.CRC.CRC32">
+ <summary>
+ Implements a 32-bit CRC hash algorithm compatible with Zip etc.
+ </summary>
+ <remarks>
+ Crc32 should only be used for backward compatibility with older file formats
+ and algorithms. It is not secure enough for new applications.
+ If you need to call multiple times for the same data either use the HashAlgorithm
+ interface or remember that the result of one Compute call needs to be ~ (XOR) before
+ being passed in as the seed for the next Compute call.
+ </remarks>
+</member>
+</members>
+</doc>

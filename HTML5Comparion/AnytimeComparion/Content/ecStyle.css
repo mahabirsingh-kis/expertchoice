@@ -1,0 +1,134 @@
+@font-face {
+  font-family: 'ecfont';
+  src:  url('fonts/ecfont.eot?udquli');
+  src:  url('fonts/ecfont.eot?udquli#iefix') format('embedded-opentype'),
+    url('fonts/ecfont.ttf?udquli') format('truetype'),
+    url('fonts/ecfont.woff?udquli') format('woff'),
+    url('fonts/ecfont.svg?udquli#ecfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ecfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ec-hierarchy:before {
+  content: "\e90b";
+}
+.ec-alts:before {
+  content: "\e900";
+}
+.ec-chart-sunburst:before {
+  content: "\e908";
+}
+.ec-chart-pie:before {
+  content: "\e906";
+}
+.ec-chart-donut:before {
+  content: "\e903";
+}
+.ec-chart-columns:before {
+  content: "\e901";
+}
+.ec-chart-components:before {
+  content: "\e902";
+}
+.ec-chart-stacked:before {
+  content: "\e907";
+}
+.ec-chart-labels:before {
+  content: "\e917";
+}
+.ec-chart-legend:before {
+  content: "\e918";
+}
+.ec-chart-rotate-ccw:before {
+  content: "\e919";
+}
+.ec-chart-rotate-cw:before {
+  content: "\e91a";
+}
+.ec-font-dec:before {
+  content: "\e905";
+}
+.ec-font-inc:before {
+  content: "\e904";
+}
+.ec-sort-none:before {
+  content: "\e91b";
+}
+.ec-sort-az:before {
+  content: "\e91c";
+}
+.ec-sort-val:before {
+  content: "\e91d";
+}
+.ec-sa-dsa:before {
+  content: "\e90f";
+}
+.ec-sa-psa:before {
+  content: "\e910";
+}
+.ec-sa-gsa:before {
+  content: "\e911";
+}
+.ec-sa-2d:before {
+  content: "\e912";
+}
+.ec-sa-hth:before {
+  content: "\e913";
+}
+.ec-sa-asa:before {
+  content: "\e914";
+}
+.ec-sa-mixed:before {
+  content: "\e915";
+}
+.ec-grid:before {
+  content: "\e90a";
+}
+.ec-datagrid:before {
+  content: "\e916";
+}
+.ec-contribution:before {
+  content: "\e91e";
+}
+.ec-link:before {
+  content: "\e91f";
+}
+.ec-eval-progress:before {
+  content: "\e909";
+}
+.ec-survey:before {
+  content: "\e90c";
+}
+.ec-mail:before {
+  content: "\e90d";
+}
+.ec-send-mail:before {
+  content: "\e90e";
+}
+.ec-single-row:before {
+  content: "\e920";
+}
+.ec-multi-row:before {
+  content: "\e921";
+}
+.ec-group-users:before {
+  content: "\e922";
+}
+.ec-group-nodes:before {
+  content: "\e923";
+}

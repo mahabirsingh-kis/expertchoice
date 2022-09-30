@@ -1,0 +1,178 @@
+﻿<%-- imports --%>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Assembly="DevExpress.Web.v9.1" Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dxrp" %>
+<%@ Register Assembly="DevExpress.Web.v9.1" Namespace="DevExpress.Web.ASPxNavBar" TagPrefix="dxnb" %>
+<%@ Register Assembly="DevExpress.Web.v9.1" Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dxtc" %>
+<%@ Register Assembly="DevExpress.Web.v9.1" Namespace="DevExpress.Web.ASPxClasses" tagprefix="dxw" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="AjaxToolkit" %>
+
+<%-- 3rd side components --%>
+
+<telerik:RadToolBar runat="server" Skin="Default" EnableEmbeddedSkins="false" />
+
+<telerik:RadComboBox runat="server" Skin="WebBlue" EnableEmbeddedSkins="false" />
+
+<telerik:RadSplitter runat="server" Skin="WebBlue" />
+
+<telerik:RadTreeView runat="server" Skin="WebBlue" EnableEmbeddedSkins="false" />
+
+<telerik:RadSlider runat="server" EnableEmbeddedSkins="false" Skin="Outlook" />
+
+<telerik:RadToolTip runat="server" SkinID="tooltipInfo" EnableEmbeddedSkins="false" Skin="Telerik" RelativeTo="Element" />
+
+<telerik:RadToolTipManager runat="server" SkinID="tooltipGlobal" EnableEmbeddedSkins="false" Skin="Telerik" Position="BottomRight" RelativeTo="Element" AutoTooltipify="true" MouseTrailing="false" ShowDelay="350" OffsetX="-5" OffsetY="-2" Animation="Fade" HideEvent="LeaveTargetAndToolTip" />
+
+<telerik:RadToolTipManager runat="server" SkinID="tooltipInfodoc" EnableEmbeddedSkins="false" Skin="Telerik" Position="BottomRight" RelativeTo="Element" AutoTooltipify="false" MouseTrailing="false" HideEvent="ManualClose" Animation="Fade" ShowDelay="1000" />
+
+<dxrp:ASPxRoundPanel SkinID="RoundPanel" runat="server" BackColor="White" ForeColor="#838383">
+    <ContentPaddings PaddingBottom="6px" PaddingLeft="9px" PaddingRight="9px" PaddingTop="6px" />
+    <HeaderStyle Font-Bold="True" ForeColor="White" CssClass="text text_font">
+        <BorderBottom BorderStyle="None" />
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Blue/rpHeaderBack.png" />
+        <BorderRight BorderStyle="None" />
+        <BorderTop BorderColor="#B5D8FF" BorderStyle="Solid" BorderWidth="1px" />
+        <BorderLeft BorderStyle="None" />
+    </HeaderStyle>
+    <HeaderRightEdge>
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Blue/rpHeaderBack.png" />
+    </HeaderRightEdge>
+    <Border BorderColor="#68AFFD" BorderStyle="Solid" BorderWidth="1px" />
+    <TopEdge>
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Blue/rpHeaderEdge.png" />
+    </TopEdge>
+    <BottomLeftCorner Height="6px" Url="~/Skins/DevEx/Blue/rpBottomLeftCorner.png" Width="6px" />
+    <BottomRightCorner Height="6px" Url="~/Skins/DevEx/Blue/rpBottomRightCorner.png" Width="6px" />
+    <TopLeftCorner Height="6px" Url="~/Skins/DevEx/Blue/rpTopLeftCorner.png" Width="6px" />
+    <TopRightCorner Height="6px" Url="~/Skins/DevEx/Blue/rpTopRightCorner.png" Width="6px" />
+    <HeaderLeftEdge>
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Blue/rpHeaderBack.png" />
+    </HeaderLeftEdge>
+</dxrp:ASPxRoundPanel>
+
+
+<dxnb:ASPxNavBar Width="100%" SkinID="ASPxNavBarGroup" runat="server" GroupSpacing="1px" AutoCollapse="True" EnableHotTrack="True" ExpandButtonPosition="Right" Font-Size="Medium">
+	<Border BorderColor="#BEBEBE" BorderStyle="Solid" BorderWidth="1px" />
+	<Paddings Padding="1px" />
+	<GroupContentStyle Font-Size="Medium" >
+		<Border BorderStyle="None" />
+		<BorderTop BorderColor="White" BorderStyle="Solid" BorderWidth="1px" />
+		<Paddings Padding="11px" />
+	</GroupContentStyle>
+	<GroupHeaderStyleCollapsed BackColor="#F1F1F1" ForeColor="Gray">
+		<HoverStyle BackColor="#DAEBFD"></HoverStyle>
+	</GroupHeaderStyleCollapsed>
+	<GroupHeaderStyle BackColor="#C7DEF7" ImageSpacing="1px">
+		<Paddings Padding="4px" PaddingLeft="11px" />
+		<Border BorderStyle="None" />
+	</GroupHeaderStyle>
+	<ExpandImage Url="~/Skins/DevEx/NavBar/bExpand.gif" AlternateText="Open" Width="21px" Height="21px" />
+	<CollapseImage Url="~/Skins/DevEx/NavBar/bCollapse.gif" Width="21px" Height="21px" AlternateText="Close" />
+	<ItemStyle VerticalAlign="Top" ForeColor="Black">
+		<Paddings Padding="13px" PaddingBottom="39px" />
+	</ItemStyle>
+</dxnb:ASPxNavBar>
+
+
+<dxtc:ASPxPageControl SkinID="ASPxPageControl" runat="server">
+    <TabStyle Font-Names="Arial,Sans,Sans Serif, Tahoma, Verdana" Font-Size="10pt" />
+    <ContentStyle Font-Names="Arial,Sans,Sans Serif, Tahoma, Verdana" Font-Size="10pt" />
+</dxtc:ASPxPageControl>
+
+
+<dxtc:ASPxPageControl SkinID="ASPxPageControlMainTabs" runat="server" Width="100%" ActivateTabPageAction="Click" TabSpacing="4">
+    <TabStyle BackColor="White" Wrap="false" Font-Bold="true" Width="95">
+        <Paddings PaddingTop="5" PaddingBottom="3" PaddingLeft="10" PaddingRight="4"/>
+        <HoverStyle ForeColor="#0174bf">
+            <BackgroundImage ImageUrl="~/Skins/DevEx/Green/tcTabHBack.gif" />
+        </HoverStyle>
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Green/tcTabBack.gif" Repeat="NoRepeat" />
+        <Border BorderColor="#999999" />
+    </TabStyle>
+    <ContentStyle Wrap="True" VerticalAlign="Middle">
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Green/tcContentBack.gif" Repeat="RepeatX" />
+        <Paddings PaddingLeft="6" PaddingTop="7" PaddingBottom="3" PaddingRight="4" />
+        <BorderBottom BorderWidth="4" BorderColor ="#8abe45" />
+        <BorderLeft BorderWidth="4" BorderColor="#8abe45" />
+        <BorderRight BorderWidth="4" BorderColor ="#8abe45" />
+    </ContentStyle>
+    <ActiveTabStyle BackColor="#8bbe45" ForeColor="White">
+        <HoverStyle BackColor="#8bbe45" ForeColor="White">
+            <BackgroundImage ImageUrl="~/Skins/DevEx/Green/tcTabABack.gif" Repeat="RepeatX" />
+        </HoverStyle>
+        <BackgroundImage ImageUrl="~/Skins/DevEx/Green/tcTabABack.gif" Repeat="RepeatX" />
+        <Border BorderColor="#6b9e25" />
+    </ActiveTabStyle>
+</dxtc:ASPxPageControl>
+
+
+<%-- standart components and predefined SkinIDs --%>
+
+
+<asp:TextBox runat="server" CssClass="input" />
+<asp:TextBox runat="server" CssClass="input as_number" SkinID="TextInput" />
+
+
+<asp:Image SkinID="LogoImage" runat="server" BorderWidth="0px" Height="60px" ImageUrl="images/logo_ec_suite.gif" Width="233px" />
+<asp:Image SkinID="LogoImageRisk" runat="server" BorderWidth="0px" Height="77px" ImageUrl="images/RiskionA_Logo.png" Width="90px" />
+<asp:Image SkinID="ECLogoImage" runat="server" BorderWidth="0px" Height="60px" ImageUrl="images/logo_ec.gif" Width="255px" />
+<asp:Image SkinID="PopupIconImage" ImageUrl="images/popup.gif" runat="server" BorderWidth="0px" width="11px" height="9px" CssClass="popupicon" />
+<asp:Image SkinID="imgSpacer" runat="server" BorderWidth="0px" ImageUrl="images/blank.gif" />
+<asp:Image SkinID="LoadingImage" runat="server" AlternateText="Loading..." ImageUrl="images/process.gif" width="60" Height="12"/>
+<asp:Image SkinID="PWBarImage" runat="server" ImageUrl="images/bars/point.gif" CssClass="pw_bar"/>
+<asp:Image SkinID="PWScaleImage" runat="server" AlternateText="" BorderWidth="0"/>
+<asp:Image SkinID="PWNumericScaleImage" runat="server" AlternateText="" BorderWidth="0" ImageUrl="images/bars/pw_nums.gif" />
+<asp:Image SkinID="PWVerbalScaleImage" runat="server" AlternateText="" BorderWidth="0" ImageUrl="images/bars/pw_scale.gif" />
+<asp:Image SkinID="InfoIcon9" runat="server" ImageUrl="images/info9.gif" Width="9" Height="9" AlternateText="" ToolTip="" />
+<asp:Image SkinID="InfoIcon15" runat="server" ImageUrl="images/info15.png" Width="16" Height="16" AlternateText="" ToolTip="" />
+<asp:Image SkinID="InfoIcon15Disabled" runat="server" ImageUrl="images/info15_dis.png" Width="16" Height="16" AlternateText="" ToolTip="" />
+<asp:Image SkinID="InfoIcon12" runat="server" ImageUrl="images/info12.png" Width="12" Height="12" AlternateText="" ToolTip="" />
+<asp:Image SkinID="InfoIcon12Disabled" runat="server" ImageUrl="images/info12_dis.png" Width="12" Height="12" AlternateText="" ToolTip="" />
+<asp:Image SkinID="InfoReadme" runat="server" ImageUrl="images/readme.gif" Width="16" Height="16" AlternateText="" ToolTip="" />
+<asp:Image SkinID="InfoReadmeDisabled" runat="server" ImageUrl="images/readme_dis.gif" Width="16" Height="16" AlternateText="" ToolTip="" />
+<asp:Image SkinID="HelpIcon16" runat="server" ImageUrl="images/help.gif" width="16" height="16" />
+<asp:Image SkinID="HelpIconQuestion" runat="server" ImageUrl="images/help_q.gif" width="14" height="16" />
+<asp:Image SkinID="HelpIconRound" runat="server" ImageUrl="images/help16.gif" width="16" height="16" />
+<asp:Image SkinID="HelpIconVideo" runat="server" ImageUrl="images/videohelp.gif" width="16" height="16" />
+<asp:Image SkinID="TreeImage" ImageUrl="images/TreeView.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:Image SkinID="ListImage" ImageUrl="images/pane-list.png" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:Image SkinID="RefreshIcon" ImageUrl="images/reload.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:Image SkinID="NoteIcon" runat="server" ImageUrl="images/note.gif" Width="15" Height="15" AlternateText="" ToolTip="" />
+<asp:Image SkinID="NoteDisabledIcon" runat="server" ImageUrl="images/note_.gif" Width="15" Height="15" AlternateText="" ToolTip="" />
+<asp:Image SkinID="OnlineIcon" runat="server" ImageUrl="images/online_tiny.gif" Width="10" Height="10" AlternateText="" ToolTip="" />
+<asp:Image SkinID="OfflineIcon" runat="server" ImageUrl="images/offline_tiny.gif" Width="10" Height="10" AlternateText="" ToolTip="" />
+<asp:Image SkinID="LinkIcon" runat="server" ImageUrl="images/shortcut.gif" Width="16" Height="16" AlternateText="" ToolTip="" />
+<asp:Image SkinID="RefreshImage" ImageUrl="images/reload.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+
+
+<asp:ImageButton SkinID="RefreshImageButton" ImageUrl="images/reload.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:ImageButton SkinID="ImageUserAsEvaluator" Height="38" Width="37" runat="server" ImageUrl="images/usr_evaluator.gif"/>
+<asp:ImageButton SkinID="ImageUserAsOwner" Height="38" Width="37" runat="server" ImageUrl="images/usr_owner.gif"/>
+<asp:ImageButton SkinID="ImageUserDelete" Height="38" Width="37" runat="server" ImageUrl="images/usr_delete.gif"/>
+<asp:ImageButton SkinID="ImageUserDeleteJudgments" Height="38" Width="37" runat="server" ImageUrl="images/usr_del_judg.gif"/>
+<asp:ImageButton SkinID="ImageUserEnable" Height="38" Width="37" runat="server" ImageUrl="images/usr_start.gif"/>
+<asp:ImageButton SkinID="ImageUserDisable" Height="38" Width="37" runat="server" ImageUrl="images/usr_pause.gif"/>
+<asp:ImageButton SkinID="ImageUserAdd" Height="38" Width="37" runat="server" ImageUrl="images/usr_add.gif"/>
+<asp:ImageButton SkinID="ImageUserAddMulti" Height="38" Width="37" runat="server" ImageUrl="images/usr_add_multi.gif"/>
+<asp:ImageButton SkinID="ImageUsersShowTeam" Height="38" Width="37" runat="server" ImageUrl="images/usr_team.gif"/>
+<asp:ImageButton SkinID="ImageUsersShowAll" Height="38" Width="37" runat="server" ImageUrl="images/usr_all.gif"/>
+<asp:ImageButton SkinID="ImageUserAsEvaluatorSmall" Height="15" Width="15" runat="server" ImageUrl="images/usr_evaluator_small.gif"/>
+<asp:ImageButton SkinID="ImageUserAsOwnerSmall" Height="15" Width="15" runat="server" ImageUrl="images/usr_owner_small.gif"/>
+<asp:ImageButton SkinID="ImageUserDeleteSmall" Height="15" Width="15" runat="server" ImageUrl="images/usr_delete_small.gif"/>
+<asp:ImageButton SkinID="ImageKey" Height="16" Width="16" runat="server" ImageUrl="images/key.gif"/>
+<asp:ImageButton SkinID="ImageEdit" Height="16" Width="16" runat="server" ImageUrl="images/edit_small.gif"/>
+<asp:Image SkinID="ImageViewTree" ImageUrl="images/view_tree.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:Image SkinID="ImageViewText" ImageUrl="images/view_text.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:Image SkinID="ImageEditGroup" ImageUrl="images/edit_group.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+<asp:Image SkinID="ImageLaunchTTClient" ImageUrl="images/launch_TTClient.gif" runat="server" BorderWidth="0px" width="16px" height="16px"/>
+
+<asp:LinkButton SkinID="ImageDeleteSmall" Height="10" Width="10" runat="server" ImageUrl="images/delete_tiny.gif"/>
+<asp:LinkButton SkinID="ImageNoDeleteSmall" Height="10" Width="10" runat="server" ImageUrl="images/nodelete_tiny.gif"/>
+<asp:LinkButton SkinID="ImageEditSmall" Height="10" Width="10" runat="server" ImageUrl="images/edit_tiny.gif"/>
+<asp:LinkButton SkinID="ImageCancelSmall" Height="10" Width="10" runat="server" ImageUrl="images/discard_tiny.gif"/>
+<asp:LinkButton SkinID="ImageApplySmall" Height="10" Width="10" runat="server" ImageUrl="images/apply_tiny.gif"/>
+
+
+<asp:Label SkinID="LoadingMessage" runat="server">Please wait</asp:Label>
+
+<ajaxToolkit:ResizableControlExtender SkinID="ResizableControl" runat="server" ResizableCssClass="resizingText" HandleCssClass="handleText" MinimumWidth="120" MinimumHeight="70" MaximumWidth="800" MaximumHeight="800" />

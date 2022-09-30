@@ -1,0 +1,561 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CanvasBusinessLogic
+</name>
+</assembly>
+<members>
+<member name="M:ExpertChoice.Data.clsComparionCore.CheckProjectManagerUsers(ExpertChoice.Data.clsProject,System.Boolean)">
+ <summary>
+ This function will check attached from App users in Project manager and will add missed users to decision. Also checking the PM users and attach missing when possible
+ </summary>
+ <param name="tProject"></param>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.LanguagesScanFolder(System.String)">
+ <summary>
+ Scan folder for .resx files and try use each as language-file
+ </summary>
+ <param name="sPath">Folder name (or local path) for seeking .resx files</param>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.ProjectWordingUpdateWithWorkgroupWording(ExpertChoice.Data.clsProject@,System.Boolean)">
+ <summary>
+ Trying to get the wording from the workgroup and updates the pipe params wording (for both hierarchies when Riskion). Also trying to update the Goal naeming when required: return true in that case (hierarchies has been changed)
+ </summary>
+ <param name="tPrj"></param>
+ <param name="fSaveProject"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.ProjectCreateFromFile(System.String,System.String,System.String,ExpertChoice.Data.ecProjectStatus,System.Boolean,System.Boolean,System.String,System.String@,System.Boolean@,System.String)">
+ <summary>
+ Upload model from the file
+ Need to extract archive (in case of .zip, .rar) and pass the extracted file there
+ </summary>
+ <param name="sFile">The real file name with a path to uploaded file</param>
+ <param name="sOriginalFilename">Original model name (passed from the client)</param>
+ <param name="sPasscode">For save in Logs</param>
+ <param name="fCheckEmails">Option for check e0mail addresses on import users</param>
+ <param name="sError">Error message. Parse the value with ParseAllTemplates() call if required</param>
+ <returns>Nothing in case of error</returns>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.CheckProjectUserEmail(ECCore.ECTypes.clsUser,ExpertChoice.Data.clsApplicationUser@,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="tAHPUser"></param>
+ <param name="tAppUser"></param>
+ <param name="fCheckUserEmail"></param>
+ <returns></returns>
+ <remarks>Pass tAppUser as Nothing for read from DB</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.SnapshotRestoreProject(System.Int32,System.Int32,System.String@)">
+ <summary>
+ Restore active project from the specified snapshot
+ </summary>
+ <param name="tSnapshotID">Use -1 for restore to the latest snapshot</param>
+ <returns>True when successful</returns>
+ <remarks>Project manager will be reset</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.DBProjectCreateFromCanvasFile(ExpertChoice.Data.clsProject@,System.String,System.String@)">
+ <summary>
+ Create project database from file.
+ </summary>
+ <param name="tProject">Reference to object with new Project data. Must be provided. Fields Filename, Passcode and ProjectName will not be updated and should be filled out of this call.</param>
+ <param name="sFilename">Existed file with AHP-decision.</param>
+ <param name="sErrorMessage">Reference to string for save error details.</param>
+ <returns>True, when database created.</returns>
+ <remarks>When error occurred, all created database and tables will be automatically deleted (rollback). Transaction used.</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.CheckPMsWhoIsWkgMember(ExpertChoice.Data.clsWorkgroup,System.Int32)">
+ <summary>
+ Function for check specified or all users in project in workgroup. Selected PMs only, but who is workgroup member. Will set their as Project Organazers.
+ </summary>
+ <param name="tWorkgroup">Workgroup</param>
+ <param name="tUserID">Optional, checked all users in workgroup when -1</param>
+ <returns>List of updated UserIDs</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore.TeamTimeStartSession(ExpertChoice.Data.clsApplicationUser@,ExpertChoice.Data.clsProject@,ECCore.ECTypes.ECHierarchyID,System.Collections.Generic.List{ExpertChoice.Data.clsApplicationUser}@,System.Collections.Generic.List{ExpertChoice.Data.clsWorkspace}@,System.Boolean,Canvas.PipeParameters.ecAppliationID,System.Boolean)">
+ <summary>
+ Set project as synchronous session
+ </summary>
+ <param name="tProject">Set status isSynchronous for this Project</param>
+ <param name="SessionUsers">list of clsApplicationUsers, who are included in this session</param>
+ <returns>True then successful</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsComparionCore._licGetMaxUsersCount(ExpertChoice.Data.clsWorkgroup,ExpertChoice.Data.clsProject,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Get max count of users on model(s)
+ </summary>
+ <param name="tWorkgroup"></param>
+ <param name="tProject">Use Nothing for check all projects in Specified Workspace</param>
+ <param name="fCanModifyProject"></param>
+ <param name="fOnlyActive"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:ExpertChoice.Data.ecAuthenticateWay">
+ <summary>
+ The way how the user authentication will be performed.
+ <remark>You don't need to specify that parameter in the most cases, since the code tries to detect the credentials data/type automatically, especially in case of Hash using.</remark>
+ </summary>
+</member>
+<member name="F:ExpertChoice.Data.ecAuthenticateWay.awRegular">
+ <summary>
+ Regular login - Used as the basic user authentication via web site/web form (email, password, passcode, rememberme can be used)
+ </summary>
+</member>
+<member name="F:ExpertChoice.Data.ecAuthenticateWay.awStartMeeting">
+ <summary>
+ Start a meeting. Deprecated for now.
+ </summary>
+</member>
+<member name="F:ExpertChoice.Data.ecAuthenticateWay.awJoinMeeting">
+ <summary>
+ Join the meeting - Can be used for join to the TeamTime or Collaborative Structuring (Brainstorming) meetings  (email and meetingid can be used)
+ </summary>
+</member>
+<member name="F:ExpertChoice.Data.ecAuthenticateWay.awTokenizedURL">
+ <summary>
+ Using the hash/token - More complex and universal way to user authorize by unique, encrypted hash key (hash parameter can be used)
+ </summary>
+</member>
+<member name="F:ExpertChoice.Data.ecAuthenticateWay.awCredentials">
+ <summary>
+ Login by encoded credentials line. Deprecated for now.
+ </summary>
+</member>
+<member name="T:ExpertChoice.Data.Consts.reObjectType">
+ <summary>
+ Type of Object for edit Richtext content
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEF_LOCK_TIMEOUT">
+ <summary>
+ Default timeout for project lock (in seconds). By default is 600 (10 minutes).
+ </summary>
+ <remarks>This value could be overloaded via web.config option "LockTimeout".</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEF_SESS_TIMEOUT">
+ <summary>
+ Default timeout for session timeout (in seconds). By default is 10 minutes.
+ </summary>
+ <remarks>Used for getting list of on-line users</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._EULA_REVISION">
+ <summary>
+ User this constant for reflect current version of EULA
+ </summary>
+ <remarks>I recommend to use timestamp</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEF_SYNCH_REFRESH">
+ <summary>
+ Default period in seconds for Synchronous requests
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._OPT_DEFAULTPIPEPARAMS">
+ <summary>
+ Web.config option name for store filename with default pipe-parameters
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DB_MINVER_MASTERDB">
+ <summary>
+ Required version for Canvas Master DB
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DB_CHECK_AHP_VERSION">
+ <summary>
+ Flag for check AHP version before upload data to server. By default is true.
+ </summary>
+ <remarks>used for suppress situations with AHP models, created under beta EC version</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._AHP_EXTRATABLES_PREFIX">
+ <summary>
+ Prefix for separate extra AHP table from Canvas' ProjectDB tables
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts.FACILITATOR_USER_ID">
+ <summary>
+ Predefined ID for user, marked in AHP model as Facilitator
+ </summary>
+ <remarks>Used for import users. When user have this ID, he will attached as to decision as project owner.</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DB_DEFAULT_SYSWORKGROUP_NAME">
+ <summary>
+ Default name for System workgroup
+ </summary>
+ <remarks>Should be non-empty and not NULL</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DB_DEFAULT_ADMIN_LOGIN">
+ <summary>
+ Predefined Account with highest privileges, named as Administrator.
+ </summary>
+ <remarks>User with this login couldn't be deleted or disabled. Account will attached to each object in system automatically.</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DB_DEFAULT_ADMIN_PSW">
+ <summary>
+ Predefined password for default Administrator account. Could be changed with 'Edit Account' screen after log in to any workgroup.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_ADMINISTRATOR">
+ <summary>
+ List of ActionTypes for predefined group "Administrator"
+ </summary>
+ <remarks>System/App level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_ECACCOUNTMANAGER">
+ <summary>
+ List of ActionTypes for predefined group "EC Account manager"
+ </summary>
+ <remarks>System level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_WORKGROUPMANAGER">
+ <summary>
+ List of ActionTypes for predefined group "Workgroup Manager"
+ </summary>
+ <remarks>App level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_PROJECTORGANIZER">
+ <summary>
+ List of ActionTypes for predefined group "Project Organizer"
+ </summary>
+ <remarks>App level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_TECHSUPPORT">
+ <summary>
+ List of ActionTypes for predefined group "Workgroups Viewer" (was "Technical Support")
+ </summary>
+ <remarks>System level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_USER">
+ <summary>
+ List of ActionTypes for predefined group "User"
+ </summary>
+ <remarks>System level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_PROJECTMANAGER">
+ <summary>
+ List of ActionTypes for predefined group "Project Manager"
+ </summary>
+ <remarks>Project level</remarks>
+</member>
+<member name="F:ExpertChoice.Data.Consts._DEFROLE_EVALUATOR">
+ <summary>
+ List of ActionTypes for predefined group "Evaluator"
+ </summary>
+ <remarks>Project level</remarks>
+</member>
+<member name="M:ExpertChoice.Service.ArchivesService.ExtractArchiveForFile(ExpertChoice.Data.clsComparionCore,System.String,System.String,System.Collections.ArrayList,System.String,System.String@,System.String@,System.Boolean)">
+ <summary>
+ Try to extract decision from the archive
+ </summary>
+ <param name="CoreApp">Could be Nothing. In this case nothing will be saved in Logs and you will get default messages.</param>
+ <param name="sOriginalName"></param>
+ <param name="sArchiveName"></param>
+ <param name="sFileExtList"></param>
+ <param name="sLogObject"></param>
+ <param name="sError"></param>
+ <param name="sFoundFilename"></param>
+ <param name="fEraseArchive"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetProcessorId">
+ <summary>
+ Get ProcessorID
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetHDDVolumeSerial">
+ <summary>
+ Retrieving HDD Volume Serial No.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetMACAddress">
+ <summary>
+ Retrieving System MAC Address.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetBoardMaker">
+ <summary>
+ Retrieving Motherboard Manufacturer.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetBoardProductId">
+ <summary>
+ Retrieving Motherboard Product Id.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetBIOSmaker">
+ <summary>
+ Retrieving BIOS Maker.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetBIOSserNo">
+ <summary>
+ Retrieving BIOS Serial No.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetBIOScaption">
+ <summary>
+ Retrieving BIOS Caption.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetAccountName">
+ <summary>
+ Retrieving System Account Name.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetPhysicalMemory">
+ <summary>
+ Retrieving Physical Ram Memory.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetNoRamSlots">
+ <summary>
+ Retrieving No of Ram Slot on Motherboard.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetCPUManufacturer">
+ <summary>
+ method for retrieving the CPU Manufacturer
+ using the WMI class
+ </summary>
+ <returns>CPU Manufacturer</returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetCPUCurrentClockSpeed">
+ <summary>
+ method to retrieve the CPU's current
+ clock speed using the WMI class
+ </summary>
+ <returns>Clock speed</returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetDefaultIPGateway">
+ <summary>
+ method to retrieve the network adapters
+ default IP gateway using WMI
+ </summary>
+ <returns>adapters default IP gateway</returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetCpuSpeedInGHz">
+ <summary>
+ Retrieve CPU Speed.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetCurrentLanguage">
+ <summary>
+ Retrieving Current Language
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetOSInformation">
+ <summary>
+ Retrieving Current Language.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetProcessorInformation">
+ <summary>
+ Retrieving Processor Information.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.GetComputerName">
+ <summary>
+ Retrieving Computer Name.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HardwareInfo.DetectVirtualMachine">
+ <summary>
+ Detect if this OS runs in a virtual machine
+ Microsoft themselves say you can see that by looking at the motherboard via wmi
+ </summary>
+ <returns>false</returns> if it runs on a fysical machine
+</member>
+<member name="T:ExpertChoice.Service.Options">
+ <summary>
+ Module with run-time options from web.config file and web-server parameters.
+ </summary>
+ <remarks>Could be used like as Options.*, when this unit is not imported</remarks>
+</member>
+<member name="M:ExpertChoice.Service.Options.WebConfigOption(System.String,System.String,System.Boolean)">
+ <summary>
+ Get option value from web.config file
+ </summary>
+ <param name="sOptionName">Name for Options.</param>
+ <param name="sDefaultValue">Optional, string for default value (when not provided)</param> 
+ <param name="fEmptyAsDefault">Use sDefaultValue instead empty option. Optional</param>
+ <returns>String with value. If Option not been found, empty string will be returned.</returns>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.InfodocService._RTF2HTML_IMAGES_AS_PNG">
+ <summary>
+ Flag for use PNG files instead GIF while RTF2HTML infodocs were parsed
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.InfodocService._UseBlankBaseHyperlinks">
+ <summary>
+ Option for replace all &lt;a href=''&gt; hyperlinks in parsed html infodocs for open in blank screens (use "target=_blank")
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.CreateMHT">
+ <summary>
+ Create MHT parser
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.PackHTMLasMHT(System.String,System.String,System.String)">
+ <summary>
+ Encode HTML string as MHT string
+ </summary>
+ <param name="sHTML"></param>
+ <param name="sBaseURL">Base URL for HTML</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.UnpackMHTasHTML(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ Decode MHT string to HTML file with unpack images
+ </summary>
+ <param name="MhtText"></param>
+ <param name="UnpackDir">Full path for writeable folder for unpack images</param>
+ <param name="htmlFilename">Name for created HTML</param>
+ <param name="partsSubDir">Sub-folder for included in HTML files (images, styles, etc)</param>
+ <returns></returns>
+ <remarks>Some files with web-unsafe names (non-urlencoded) could be created twice with encoded and non-encoded file names.</remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.Infodoc_Path(System.Int32,System.Int32,ExpertChoice.Data.Consts.reObjectType,System.String,System.Int32)">
+ <summary>
+ Create full path for MHT
+ </summary>
+ <param name="ProjectID"></param>
+ <param name="InfodocType"></param>
+ <param name="sInfodocID"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.Infodoc_Prepare(System.Int32,System.Int32,ExpertChoice.Data.Consts.reObjectType,System.String,System.String@,System.Int32)">
+ <summary>
+ Prepare folder for MHT pack/unpack
+ </summary>
+ <param name="ProjectID"></param>
+ <param name="InfodocType"></param>
+ <param name="sInfodocID"></param>
+ <param name="sError"></param>
+ <returns>True when folder for specified MHT is available</returns>
+ <remarks>When folder not exists this will be created with media sub-folder</remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.Infodoc_Unpack(System.Int32,System.Int32,ExpertChoice.Data.Consts.reObjectType,System.String,System.String,System.Boolean,System.Boolean,System.Int32,System.Boolean)">
+ <summary>
+ Unpack MHT-Infodoc string to HTML-string
+ </summary>
+ <param name="ProjectID"></param>
+ <param name="InfodocType"></param>
+ <param name="sInfodocID"></param>
+ <param name="sInfodocContent"></param>
+ <param name="fPrepareFolderWrite"></param>
+ <param name="fFixPath"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.Infodoc_Pack(System.String,System.String,System.String)">
+ <summary>
+ Encode HTML-string as MHT-string
+ </summary>
+ <param name="sInfodoc"></param>
+ <param name="sBaseURL"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.Infodoc_CleanItem(System.Int32,System.Int32,ExpertChoice.Data.Consts.reObjectType,System.String,System.Int32)">
+ <summary>
+ Try to erase folder with MHT-data
+ </summary>
+ <param name="ProjectID"></param>
+ <param name="InfodocType"></param>
+ <param name="sInfodocID"></param>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.Infodoc_CleanProject(System.Int32)">
+ <summary>
+ Try to erase all MHT-folders for specified ProjectID
+ </summary>
+ <param name="ProjectID"></param>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.CreateRTFParser">
+ <summary>
+ Create RTF2HTML (HTML2RTF) parser.
+ </summary>
+ <returns></returns>
+ <remarks>Since version 8 no need to register EasyByte's DLLs in system. HTML2RTS also available.</remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.ConvertRTF2HTML(System.String,System.Boolean,System.Boolean,System.String,System.String,System.String,System.String)">
+ <summary>
+ Parse string with RTF to HTML string
+ </summary>
+ <param name="sRTF">String with RTF. Should be not NULL.</param>
+ <param name="fParseImages">Use True for parse included images</param>
+ <param name="fRAW">Use True for parse as HTML without headers and other stuff</param>
+ <param name="sTitle">HTML page title</param>
+ <param name="sImagesPath">Path for write parsed images</param>
+ <param name="sImagesURL">URL for replace paths to parsed images</param>
+ <param name="sErrorMessage">Reference to variable with response when error occurred</param>
+ <returns>HTML string with parsed text</returns>
+ <remarks>Folder for images should be available for write. Use _RTF2HTML_MAGES_AS_PNG for parse palette images as PNG instantiated GIF.</remarks>
+</member>
+<member name="M:ExpertChoice.Service.InfodocService.ConvertHTML2RTF(System.String,System.String,System.String)">
+ <summary>
+ Convert HTML-string to RTF string
+ </summary>
+ <param name="sHTML">HTML</param>
+ <param name="sImagesPath">Path for images</param>
+ <param name="sErrorMessage">Reference to variable with response when error occurred</param>
+ <returns>HTML content, encoded as RTF string</returns>
+ <remarks></remarks>
+</member>
+<member name="T:ExpertChoice.Service.JetDatabasesService">
+ <summary>
+ Module with main common functions for database access: create and parse connection strings, check connections, etc.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.LDAP.GetLDAPUsersList(System.String,System.String,System.String,System.String,System.String,System.String@)">
+ <summary>
+ Returns the list of clsUser (filled only UserEmail and UserName) from LDAP under specified user
+ </summary>
+ <param name="sLDAPQuery">Should be valid, like LDAP://.../ </param>
+ <param name="sLDAPUserName">Use domain prefix if available</param>
+ <param name="sLDAPUSerPsw"></param>
+ <param name="sSearch"></param>
+ <param name="sError"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.032" height="23.379" viewBox="0 0 17.032 23.379">
+  <g id="sample-models" transform="translate(-57.156)">
+    <rect id="Rectangle_991" data-name="Rectangle 991" width="6.471" height="0.833" transform="translate(63.917 6.113)" fill="#010101"/>
+    <rect id="Rectangle_992" data-name="Rectangle 992" width="6.471" height="0.833" transform="translate(63.917 8.196)" fill="#010101"/>
+    <rect id="Rectangle_993" data-name="Rectangle 993" width="6.471" height="0.833" transform="translate(63.917 12.363)" fill="#010101"/>
+    <rect id="Rectangle_994" data-name="Rectangle 994" width="6.471" height="0.833" transform="translate(63.859 16.529)" fill="#010101"/>
+    <rect id="Rectangle_995" data-name="Rectangle 995" width="6.471" height="0.833" transform="translate(63.859 14.446)" fill="#010101"/>
+    <rect id="Rectangle_996" data-name="Rectangle 996" width="6.471" height="0.833" transform="translate(63.859 10.279)" fill="#010101"/>
+    <rect id="Rectangle_997" data-name="Rectangle 997" width="6.471" height="0.833" transform="translate(63.917 18.612)" fill="#010101"/>
+    <path id="Path_339" data-name="Path 339" d="M69.826,1.512V0H61.517V1.512H57.156V23.379H74.188V1.512Zm0,3.433V4.219h1.745V20.673h-11.8V4.219h1.745v.727h8.309ZM62.35.833h6.643v3.28H62.35Zm11,21.713H57.989V2.345h3.528V3.386H58.939v18.12H72.4V3.386H69.826V2.345h3.528v20.2Z" fill="#010101"/>
+    <rect id="Rectangle_998" data-name="Rectangle 998" width="4.05" height="0.833" transform="translate(63.647 2.056)" fill="#010101"/>
+    <path id="Path_340" data-name="Path 340" d="M112.97,112.627l1.355,1.355,1.787-1.787-.589-.589-1.2,1.2-.766-.766Z" transform="translate(-52.715 -105.409)" fill="#010101"/>
+    <path id="Path_341" data-name="Path 341" d="M114.325,208.3l-.766-.766-.589.589,1.355,1.355,1.787-1.787-.589-.589Z" transform="translate(-52.715 -195.605)" fill="#010101"/>
+    <path id="Path_342" data-name="Path 342" d="M118.037,297.289l-.825.825-.825-.825-.589.589.825.825-.825.825.589.589.825-.825.825.825.589-.589-.825-.825.825-.825Z" transform="translate(-55.387 -280.78)" fill="#010101"/>
+  </g>
+</svg>

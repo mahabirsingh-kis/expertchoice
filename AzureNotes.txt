@@ -1,0 +1,4 @@
+At the Windows PowerShell command prompt, type the following command, and then press Enter.
+Get-AzurePublishSettingsFile
+A web browser opens at https://windows.azure.com/download/publishprofile.aspx for signing in to Windows Azure.
+

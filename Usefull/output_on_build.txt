@@ -1,0 +1,4 @@
+If you don't want the Output Window to show up every time you do a build,
+you can easily keep it from happening by going to Tools -> Options ->
+Projects and Solutions -> General and deselect the "Show Output window when
+build starts" option

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{58F75418-9FF4-4D1E-9DD9-18E6547848F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>CanvasWebBase</AssemblyName>
+    <MyType>Windows</MyType>
+    <OptionStrict>On</OptionStrict>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\Application\bin\</OutputPath>
+    <DocumentationFile>CanvasWebBase.xml</DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CanvasWebBase.xml</DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentSpace.SAML2, Version=3.4.0.0, Culture=neutral, PublicKeyToken=16647a1283418145, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\ComponentSpace.SAML2.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Interop.ADODB.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ADOX, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Interop.ADOX.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Interop.JRO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Binaries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="ExpertChoice" />
+    <Import Include="ExpertChoice.Data" />
+    <Import Include="ExpertChoice.Web" />
+    <Import Include="ExpertChoice.WebAPI" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Newtonsoft.Json" />
+    <Import Include="Newtonsoft.Json.Converters" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.UI" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.vb">
+      <Link>SharedAssemblyInfo.vb</Link>
+    </Compile>
+    <Compile Include="Modules\DataGridModule.vb" />
+    <Compile Include="Modules\EcSecurity.vb" />
+    <Compile Include="Modules\WebPageUtils.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="WebAPI\Common.vb" />
+    <Compile Include="WebAPI\jResourceAligner.vb" />
+    <Compile Include="WebAPI\jWorkgroup.vb" />
+    <Compile Include="WebAPI\jUser.vb" />
+    <Compile Include="WebAPI\jAppUser.vb" />
+    <Compile Include="WebAPI\jProject.vb" />
+    <Compile Include="WebAPI\jProjectManager.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsComparionCorePage.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\clsComparionCorePage.PagesList.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\clsPairwiseData.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\clsUtilityCurveData.vb" />
+    <Compile Include="Modules\PagesList.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modules\Params.vb" />
+    <Compile Include="Modules\WebOptions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CanvasBaseClasses\CanvasBaseClasses.vbproj">
+      <Project>{68637B31-AA6B-41E1-875F-AF8BB926A009}</Project>
+      <Name>CanvasBaseClasses</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\CanvasBusinessLogic\CanvasBusinessLogic.vbproj">
+      <Project>{7B90E36D-3781-48F1-97CB-F5F4DCA90181}</Project>
+      <Name>CanvasBusinessLogic</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ECDatabase\ECDatabase.vbproj">
+      <Project>{0D4958E7-227B-4638-8ECF-0A5B4140311B}</Project>
+      <Name>ECDatabase</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ECSecurity\ECSecurity.vbproj">
+      <Project>{6FB6EB41-DD58-4A6A-95C5-0963353429B4}</Project>
+      <Name>ECSecurity</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\GenericDBAccess\GenericDBAccess.vbproj">
+      <Project>{7B3AF3BF-94E8-46AD-A012-57BE9220B74D}</Project>
+      <Name>GenericDBAccess</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ECCore\ECCore.vbproj">
+      <Project>{4B3A2924-00B2-48DB-A474-0486A68D3B01}</Project>
+      <Name>ECCore</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SpyronControls\SpyronControls.vbproj">
+      <Project>{A8D6F5D6-71F8-4E94-BD27-BEB8FAEE875F}</Project>
+      <Name>SpyronControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

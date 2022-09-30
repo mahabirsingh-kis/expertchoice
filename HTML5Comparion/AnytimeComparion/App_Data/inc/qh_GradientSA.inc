@@ -1,0 +1,1 @@
+The blue vertical line indicates the current priority of the selected %%objective%%. The intersections of the blue line with the %%alternative%% lines/curves represent the priorities of the %%alternatives%%. You can drag the blue line to see how the priorities (intersections) would change if the priority of the selected %%objective%% were to become more or less important.

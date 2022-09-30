@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"item","name":"Welcome","url":"Evaluation/Welcome.htm"},{"type":"item","name":"Single Pairwise Verbal","url":"Evaluation/Single_Pairwise_Verbal.htm"},{"type":"item","name":"Single Pairwise Graphical","url":"Evaluation/Single_Pairwise_Graphical.htm"},{"type":"item","name":"Multi Pairwise Verbal","url":"Evaluation/Multi_Pairwise_Verbal.htm"},{"type":"item","name":"Multi Pairwise Graphical","url":"Evaluation/Multi_Pairwise_Graphical.htm"},{"type":"item","name":"Rating","url":"Evaluation/Rating.htm"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

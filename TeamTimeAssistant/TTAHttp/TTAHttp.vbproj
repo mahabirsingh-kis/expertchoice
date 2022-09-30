@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+	</PropertyGroup>
+	<Import Project="..\..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.1\build\MSBuild.Microsoft.VisualStudio.Web.targets.props" Condition="Exists('..\..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.1\build\MSBuild.Microsoft.VisualStudio.Web.targets.props')" />
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProductVersion>9.0.30729</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>{9FE5712E-2B8C-4B2D-955C-8851A239A771}</ProjectGuid>
+		<ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+		<OutputType>Library</OutputType>
+		<RootNamespace>
+		</RootNamespace>
+		<AssemblyName>TTAHttp</AssemblyName>
+		<TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+		<OptionExplicit>On</OptionExplicit>
+		<OptionCompare>Binary</OptionCompare>
+		<OptionStrict>Off</OptionStrict>
+		<OptionInfer>On</OptionInfer>
+		<FileUpgradeFlags>
+		</FileUpgradeFlags>
+		<OldToolsVersion>12.0</OldToolsVersion>
+		<UpgradeBackupLocation>
+		</UpgradeBackupLocation>
+		<TargetFrameworkProfile />
+		<UseIISExpress>true</UseIISExpress>
+		<IISExpressSSLPort />
+		<IISExpressAnonymousAuthentication />
+		<IISExpressWindowsAuthentication />
+		<IISExpressUseClassicPipelineMode />
+		<UseGlobalApplicationHostFile />
+		<NuGetPackageImportStamp>
+		</NuGetPackageImportStamp>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<DefineDebug>true</DefineDebug>
+		<DefineTrace>true</DefineTrace>
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>TTAHttp.xml</DocumentationFile>
+		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+		<Prefer32Bit>false</Prefer32Bit>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<DefineDebug>false</DefineDebug>
+		<DefineTrace>true</DefineTrace>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\</OutputPath>
+		<DocumentationFile>TTAHttp.xml</DocumentationFile>
+		<NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+		<Prefer32Bit>false</Prefer32Bit>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="PostSharp, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\..\Binaries\PostSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="SecuritySwitch, Version=4.0.4138.20441, Culture=neutral, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\..\Binaries\SecuritySwitch.dll</HintPath>
+		</Reference>
+		<Reference Include="System" />
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="System.Drawing" />
+		<Reference Include="System.EnterpriseServices" />
+		<Reference Include="System.Runtime.Serialization">
+			<RequiredTargetFramework>3.0</RequiredTargetFramework>
+		</Reference>
+		<Reference Include="System.ServiceModel">
+			<RequiredTargetFramework>3.0</RequiredTargetFramework>
+		</Reference>
+		<Reference Include="System.Web" />
+		<Reference Include="System.Web.ApplicationServices" />
+		<Reference Include="System.Web.DynamicData" />
+		<Reference Include="System.Web.Entity" />
+		<Reference Include="System.Web.Extensions" />
+		<Reference Include="System.Web.Mobile" />
+		<Reference Include="System.Web.Services" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Xml.Linq" />
+	</ItemGroup>
+	<ItemGroup>
+		<Import Include="Microsoft.VisualBasic" />
+		<Import Include="System" />
+		<Import Include="System.Collections" />
+		<Import Include="System.Collections.Generic" />
+		<Import Include="System.Data" />
+		<Import Include="System.Diagnostics" />
+		<Import Include="System.Collections.Specialized" />
+		<Import Include="System.Configuration" />
+		<Import Include="System.ServiceModel" />
+		<Import Include="System.Runtime.Serialization" />
+		<Import Include="System.Linq" />
+		<Import Include="System.Text" />
+		<Import Include="System.Text.RegularExpressions" />
+		<Import Include="System.Web" />
+		<Import Include="System.Web.Caching" />
+		<Import Include="System.Web.SessionState" />
+		<Import Include="System.Web.Security" />
+		<Import Include="System.Web.Profile" />
+		<Import Include="System.Web.UI" />
+		<Import Include="System.Web.UI.WebControls" />
+		<Import Include="System.Web.UI.WebControls.WebParts" />
+		<Import Include="System.Web.UI.HtmlControls" />
+		<Import Include="System.Xml.Linq" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Keypad.svc" />
+		<Content Include="Web.config" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="CoreHelper.vb" />
+		<Compile Include="ExceptionWrapper.vb" />
+		<Compile Include="Keypad.svc.vb">
+			<DependentUpon>Keypad.svc</DependentUpon>
+		</Compile>
+		<Compile Include="IKeypad.vb" />
+		<Compile Include="My Project\AssemblyInfo.vb" />
+		<Compile Include="My Project\Application.Designer.vb">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Application.myapp</DependentUpon>
+		</Compile>
+		<Compile Include="My Project\Resources.Designer.vb">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Include="My Project\Settings.Designer.vb">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="My Project\Resources.resx">
+			<Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.vb</LastGenOutput>
+			<CustomToolNamespace>My.Resources</CustomToolNamespace>
+			<SubType>Designer</SubType>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="appSettings.config" />
+		<Content Include="connections.config" />
+		<None Include="My Project\Application.myapp">
+			<Generator>MyApplicationCodeGenerator</Generator>
+			<LastGenOutput>Application.Designer.vb</LastGenOutput>
+		</None>
+		<None Include="My Project\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<CustomToolNamespace>My</CustomToolNamespace>
+			<LastGenOutput>Settings.Designer.vb</LastGenOutput>
+		</None>
+		<Content Include="packages.config" />
+		<Content Include="web.config.build">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="web.config.build" />
+		<Content Include="web.config.default" />
+		<Content Include="web.config.selfhost" />
+		<Content Include="web.config.default">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="web.config.selfhost" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\CanvasBaseClasses\CanvasBaseClasses.vbproj">
+			<Project>{68637B31-AA6B-41E1-875F-AF8BB926A009}</Project>
+			<Name>CanvasBaseClasses</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\CanvasBusinessLogic\CanvasBusinessLogic.vbproj">
+			<Project>{7B90E36D-3781-48F1-97CB-F5F4DCA90181}</Project>
+			<Name>CanvasBusinessLogic</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\CanvasWebBase\CanvasWebBase.vbproj">
+			<Project>{58F75418-9FF4-4D1E-9DD9-18E6547848F4}</Project>
+			<Name>CanvasWebBase</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\ECCore\ECCore.vbproj">
+			<Project>{4B3A2924-00B2-48DB-A474-0486A68D3B01}</Project>
+			<Name>ECCore</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\ECDatabase\ECDatabase.vbproj">
+			<Project>{0D4958E7-227B-4638-8ECF-0A5B4140311B}</Project>
+			<Name>ECDatabase</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\..\GenericDBAccess\GenericDBAccess.vbproj">
+			<Project>{7B3AF3BF-94E8-46AD-A012-57BE9220B74D}</Project>
+			<Name>GenericDBAccess</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="App_Data\" />
+	</ItemGroup>
+	<PropertyGroup>
+		<VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+		<VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+	</PropertyGroup>
+	<Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+	<ProjectExtensions>
+		<VisualStudio>
+			<FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+				<WebProjectProperties>
+					<UseIIS>True</UseIIS>
+					<AutoAssignPort>False</AutoAssignPort>
+					<DevelopmentServerPort>59445</DevelopmentServerPort>
+					<DevelopmentServerVPath>/</DevelopmentServerVPath>
+					<IISUrl>http://localhost:59445/</IISUrl>
+					<NTLMAuthentication>False</NTLMAuthentication>
+					<UseCustomServer>False</UseCustomServer>
+					<CustomServerUrl>
+					</CustomServerUrl>
+					<SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+				</WebProjectProperties>
+			</FlavorProperties>
+		</VisualStudio>
+	</ProjectExtensions>
+	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+		<PropertyGroup>
+			<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+		</PropertyGroup>
+		<!--Error Condition="!Exists('..\..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.1\build\MSBuild.Microsoft.VisualStudio.Web.targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.1\build\MSBuild.Microsoft.VisualStudio.Web.targets.props'))" /-->
+	</Target>
+	<Import Project= "..\..\Binaries\MSBuild.Microsoft.VisualStudio.Web.targets.14.0.0.1\build\Microsoft.WebApplication.targets" />
+	<!--Import Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets')" Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" /-->
+</Project>

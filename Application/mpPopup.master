@@ -1,0 +1,47 @@
+<%@ Master Language="VB" Inherits="clsComparionCoreMasterPopupPage" Codebehind="mpPopup.master.vb" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Assembly="System.Web.Extensions" Namespace="System.Web.UI" TagPrefix="asp" %>
+<html>
+<head id="HeadPopup" runat="server">
+    <title>Canvas</title>
+    <link href="~/styles.css" type="text/css" rel="stylesheet" />
+    <meta name="robots" content="none" /> 
+    <link rel="apple-touch-icon" sizes="180x180" href="~/apple-touch-icon.png?v=yyx3rL46rG">
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png?v=yyx3rL46rG" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png?v=yyx3rL46rG" sizes="16x16">
+    <link rel="manifest" href="~/manifest.json?v=yyx3rL46rG">
+    <link rel="mask-icon" href="~/safari-pinned-tab.svg?v=yyx3rL46rG" color="#84bd3e">
+    <link rel="shortcut icon" href="~/favicon.ico?v=yyx3rL46rG">
+</head>
+<body style="margin:0px; padding:0px; background-image:none; background:#ffffff"><form id="frmMain" runat="server"><table border="0" width="100%" style="height:100%" cellpadding="0" cellspacing="0" class="whole">
+    <script type="text/javascript" src="<% =_URL_ROOT %>Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="<% =_URL_ROOT %>Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="<% =_URL_ROOT %>Scripts/jDialog.js"></script>
+    <script type="text/javascript" src="<% =_URL_ROOT %>Scripts/jquery.qtip.min.js"></script>
+    <script type="text/javascript" src="<% =_URL_ROOT %>Scripts/misc.js"></script>
+    <script type="text/javascript">
+
+        jDialog_error = "<% = JS_SafeString(_Page.ResString("lblError")) %>";
+        jDialog_info = "<% = JS_SafeString(_Page.ResString("lblInformation")) %>";
+        jDialog_btn_OK = "<% = JS_SafeString(_Page.ResString("btnOK")) %>";
+        jDialog_btn_Cancel = "<% = JS_SafeString(_Page.ResString("btnCancel")) %>";
+
+        function replaceString(pat, newpat, str) {
+            var repl = 0;
+            str += "";
+            while (repl < 100 && str.indexOf(pat) >= 0) { str = str.replace(pat, newpat); repl++; }
+            return str;
+        }
+
+</script>
+<!-- content -->
+<tr><td id="tdContent" runat="server" style="height:99%;padding:10px;" align="center" valign="middle">
+    <asp:ScriptManager ID="ScriptManagerGlobal" runat="server" AsyncPostBackTimeout="180" LoadScriptsBeforeUI="true"/>
+    <telerik:RadToolTipManager ID="RadToolTipManagerMain" runat="server" Animation="None" Position="TopRight" Enabled="false">
+    </telerik:RadToolTipManager>
+    <asp:ContentPlaceHolder ID="PageContent" runat="server"/><input type="hidden" name="csrf_token" value="<% =SafeFormString(_Page._antiXsrfToken) %>" /></td></tr>
+<!-- buttons -->
+<tr valign="bottom" runat="server" id="tdButtons" visible="false"><td style="text-align:right;border-top:3px solid #188FD7;" class="panel"><asp:ContentPlaceHolder ID="ContentPlaceHolderButtons" runat="server"/></td></tr>
+</table><div id="alert_div" title="" style="display:none;"><span class="ui-icon" style="float:left; margin:10px 7px 50px 0;" id="alert_icon"></span><div id="alert_content" class="text" style="padding-top:10px"></div></div></form>
+</body>
+</html><!-- Comparion Core Suite (C) AD // Expert Choice Inc., 2010-18 -->

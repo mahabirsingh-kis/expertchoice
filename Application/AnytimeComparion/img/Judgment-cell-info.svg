@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="181.001" height="45" viewBox="0 0 181.001 45">
+  <g id="Group_1216" data-name="Group 1216" transform="translate(-1326.999 -248)">
+    <text id="_1" data-name="1" transform="translate(1417 289)" fill="#5e980a" font-size="13" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+    <text id="_1-2" data-name="1" transform="translate(1357 284)" fill="#010101" font-size="16" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">1</tspan></text>
+    <text id="_2" data-name="2" transform="translate(1417 262)" fill="#0058a3" font-size="13" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">2</tspan></text>
+    <g id="Rectangle_1006" data-name="Rectangle 1006" transform="translate(1326.999 265)" fill="none" stroke="#cecece" stroke-width="1">
+      <rect width="73" height="28" stroke="none"/>
+      <rect x="0.5" y="0.5" width="72" height="27" fill="none"/>
+    </g>
+    <path id="long-arrow-alt-left-solid-svgrepo-com" d="M8.855,9.281,4.094,14.042,8.855,18.8l1-1.019L6.817,14.751H21.034V13.334H6.817L9.851,10.3Z" transform="translate(1435.866 243.556)"/>
+    <path id="long-arrow-alt-left-solid-svgrepo-com-2" data-name="long-arrow-alt-left-solid-svgrepo-com" d="M8.855,9.281,4.094,14.042,8.855,18.8l1-1.019L6.817,14.751H21.034V13.334H6.817L9.851,10.3Z" transform="translate(1434.856 272.815)"/>
+    <text id="Rank" transform="translate(1467 261)" fill="#0058a3" font-size="12" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">Rank</tspan></text>
+    <text id="Best_Fit" data-name="Best Fit" transform="translate(1467 288)" fill="#5e980a" font-size="12" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">Best Fit</tspan></text>
+    <text id="Judgment" transform="translate(1334 261)" fill="#010101" font-size="12" font-family="Roboto-Medium, Roboto" font-weight="500"><tspan x="0" y="0">Judgment</tspan></text>
+  </g>
+</svg>

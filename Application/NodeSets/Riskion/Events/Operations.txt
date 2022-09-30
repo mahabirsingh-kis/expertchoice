@@ -1,0 +1,8 @@
+#EVENTS
+Process failure
+Work site accident
+Mechanical breakdown
+Product quality problems
+Production line problems
+Supply chain disruption
+Decrease in customer satisfaction

@@ -1,0 +1,6 @@
+<connectionStrings>
+  <clear />
+    <add name="SqlServerIntegratedSecurity" providerName="system.data.sqlclient" connectionString="Data Source=localhost;Initial Catalog=master;Integrated Security=SSPI;" />
+    <add name="SqlServerPassword" providerName="system.data.sqlclient" connectionString="Data Source=localhost;Initial Catalog=master;User Id=SelfHostDBUser;Password=SelfHostDBPassword;Max Pool Size=200;" />
+    <add name="SqlServer" providerName="system.data.sqlclient" connectionString="Data Source=localhost;Initial Catalog=master;Integrated Security=SSPI;" />
+</connectionStrings>

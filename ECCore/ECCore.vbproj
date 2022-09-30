@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B3A2924-00B2-48DB-A474-0486A68D3B01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <MyType>Windows</MyType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Core.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Core.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>Core.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>Core.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gurobi75.NET">
+      <HintPath>..\Binaries\Gurobi75.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Binaries\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Optimizer_x32">
+      <HintPath>..\Binaries\Optimizer_x32.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="GenericDBAccess.ECGenericDatabaseAccess" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Optimizer" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ECCore\AHPConverterHelperFunctions.vb" />
+    <Compile Include="ECCore\CacheManager.vb" />
+    <Compile Include="CanvasModule\CanvasTypes.vb" />
+    <Compile Include="CanvasModule\clsAntiguaDashboard.vb" />
+    <Compile Include="CanvasModule\clsCanvasProjectManager.vb" />
+    <Compile Include="CanvasModule\clsPipeBuilder.vb" />
+    <Compile Include="CanvasModule\clsPipeParameters.vb" />
+    <Compile Include="CanvasModule\clsProjectAnalyzer.vb" />
+    <Compile Include="CanvasModule\clsProjectDataProvider.vb" />
+    <Compile Include="CanvasModule\clsTeamTimePipe.vb" />
+    <Compile Include="CanvasModule\PipeActions.vb" />
+    <Compile Include="ECCore\BayesianUpdate.vb" />
+    <Compile Include="ECCore\clsProjectManager.DataMapping.vb" />
+    <Compile Include="ECCore\clsProjectManager.Obsolete.vb" />
+    <Compile Include="ECCore\clsDataMapping.vb" />
+    <Compile Include="ECCore\Comments.vb" />
+    <Compile Include="ECCore\Contributions.vb" />
+    <Compile Include="ECCore\Edges.vb" />
+    <Compile Include="ECCore\JudgmentsAnalyzer.vb" />
+    <Compile Include="ECCore\clsReports.vb" />
+    <Compile Include="ECCore\ProjectParameters.vb" />
+    <Compile Include="ECCore\RiskSimulations.InverseLaplaceFunction.vb" />
+    <Compile Include="ECCore\RiskSimulations.vb" />
+    <Compile Include="ECCore\StorageReaderAHP.vb" />
+    <Compile Include="ECCore\StorageReaderStreams.vb" />
+    <Compile Include="ECCore\StorageWriter.vb" />
+    <Compile Include="ECCore\StreamModelReaders.vb" />
+    <Compile Include="ECCore\StreamModelWriters.vb" />
+    <Compile Include="Resource Aligner\RAEfficientFrontier.vb" />
+    <Compile Include="Resource Aligner\RASolver.Baron.vb" />
+    <Compile Include="Resource Aligner\RASolver.XA.Old.vb" />
+    <Compile Include="Resource Aligner\RASolverPriority.vb" />
+    <Compile Include="Resource Aligner\RAOptions.vb" />
+    <Compile Include="Resource Aligner\RACommon.vb" />
+    <Compile Include="Resource Aligner\RAConstraints.vb" />
+    <Compile Include="Resource Aligner\RADependencies.vb" />
+    <Compile Include="Resource Aligner\RAFundingPools.vb" />
+    <Compile Include="Resource Aligner\RAGroups.vb" />
+    <Compile Include="Resource Aligner\RAScenarios.vb" />
+    <Compile Include="Resource Aligner\RASolver.Gurobi.vb" />
+    <Compile Include="Resource Aligner\RASolver.XA.vb" />
+    <Compile Include="Resource Aligner\RASolver.vb" />
+    <Compile Include="Resource Aligner\RATimePeriods.vb" />
+    <Compile Include="Resource Aligner\ResourceAligner.vb" />
+    <Compile Include="ECCore\clsAHPSFileManager.vb" />
+    <Compile Include="ECCore\clsCalculationsManager.vb" />
+    <Compile Include="ECCore\clsEigenCalcs.vb" />
+    <Compile Include="ECCore\clsHierarchy.vb" />
+    <Compile Include="ECCore\clsInfoDocs.vb" />
+    <Compile Include="ECCore\clsMeasureScales.vb" />
+    <Compile Include="ECCore\clsNode.vb" />
+    <Compile Include="ECCore\clsProjectManager.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ECCore\clsStorageManager.vb" />
+    <Compile Include="ECCore\clsXMLDataProvider.vb" />
+    <Compile Include="ECCore\Controls.vb" />
+    <Compile Include="ECCore\CustomAttributes.vb" />
+    <Compile Include="ECCore\ECMiscFuncs.vb" />
+    <Compile Include="ECCore\Groups.vb" />
+    <Compile Include="ECCore\Permissions.vb" />
+    <Compile Include="ECCore\RiskDataContracts.vb" />
+    <Compile Include="ECCore\StorageReaders.vb" />
+    <Compile Include="ECCore\StreamDefinitions.vb" />
+    <Compile Include="ECCore\TeamTimeFuncs.vb" />
+    <Compile Include="Miscellaneous\clsResourceReader.vb" />
+    <Compile Include="ECCore\ECMathFuncs.vb" />
+    <Compile Include="ECCore\ECTypes.vb" />
+    <Compile Include="ECCore\Judgments.vb" />
+    <Compile Include="ECCore\MeasureTypes.vb" />
+    <Compile Include="..\SharedAssemblyInfo.vb">
+      <Link>SharedAssemblyInfo.vb</Link>
+    </Compile>
+    <Compile Include="Miscellaneous\Misc.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="ECCore\StorageWriterAHP.vb" />
+    <Compile Include="ECCore\StorageWriterStreams.vb" />
+    <Compile Include="Resource Aligner\RiskOptimizer.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CoreClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangesHistory.txt" />
+    <Content Include="ECCore\DataGridSample.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECDatabase\ECDatabase.vbproj">
+      <Project>{0D4958E7-227B-4638-8ECF-0A5B4140311B}</Project>
+      <Name>ECDatabase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECSecurity\ECSecurity.vbproj">
+      <Project>{6FB6EB41-DD58-4A6A-95C5-0963353429B4}</Project>
+      <Name>ECSecurity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenericDBAccess\GenericDBAccess.vbproj">
+      <Project>{7B3AF3BF-94E8-46AD-A012-57BE9220B74D}</Project>
+      <Name>GenericDBAccess</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

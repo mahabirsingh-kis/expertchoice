@@ -1,0 +1,1 @@
+The bars on the left represent the %%objective%% priorities as derived from your judgments.  The bars on the right represent the derived %%alternative%% priorities.  By dragging the bars on the left, you can see how the %%alternative%% priorities would change if your judgments about the importance of the %%objectives%% were to change.

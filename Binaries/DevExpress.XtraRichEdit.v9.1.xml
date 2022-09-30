@@ -1,0 +1,4203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.XtraRichEdit.v9.1</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.UnderlineType">
+
+            <summary>
+                <para>Specifies the underline mode for characters.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.DashDotDotted">
+            <summary>
+                <para>Specifies a dash-dot-dotted underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.DashDotted">
+            <summary>
+                <para>Specifies a dash-dotted underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.Dashed">
+            <summary>
+                <para>Specifies a dashed underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.Dotted">
+            <summary>
+                <para>Specifies a dotted underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.Double">
+            <summary>
+                <para>Specifies a double underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.DoubleWave">
+            <summary>
+                <para>Specifies a double wave underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.HeavyWave">
+            <summary>
+                <para>Specifies a heavy wave underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.LongDashed">
+            <summary>
+                <para>Specifies a long-dashed underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.None">
+            <summary>
+                <para>Indicates that the text is not underlined.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.Single">
+            <summary>
+                <para>Specifies a single underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.ThickDashDotDotted">
+            <summary>
+                <para>Specifies a thick dash-dot-dotted underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.ThickDashDotted">
+            <summary>
+                <para>Specifies a thick dash-dotted underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.ThickDashed">
+            <summary>
+                <para>Specifies a thick dashed underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.ThickDotted">
+            <summary>
+                <para>Specifies a thick dotted underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.ThickLongDashed">
+            <summary>
+                <para>Specifies a thick long-dashed underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.ThickSingle">
+            <summary>
+                <para>Specifies a thick single underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.UnderlineType.Wave">
+            <summary>
+                <para>Specifies a wave underline.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing">
+
+            <summary>
+                <para>Specifies the way to determine the spacing between lines in a paragraph
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing.AtLeast">
+            <summary>
+                <para>This option sets the minimum line spacing that is needed to fit the largest font or graphic on the line. The minimum value is specified by the <see cref="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LineSpacing"/> property.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing.Double">
+            <summary>
+                <para>This option is twice that of single line spacing. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing.Exactly">
+            <summary>
+                <para>This option sets fixed line spacing, specified by the <see cref="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LineSpacing"/> property.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing.Multiple">
+            <summary>
+                <para>This option sets line spacing that can be expressed in numbers greater than <b>1</b>. For example, setting line spacing to <b>1.15</b> will increase the space by <b>15</b> percent, and setting line spacing to <b>3</b> increases the space by <b>300</b> percent (triple spacing). The multiplication value is specified by the <see cref="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LineSpacingMultiplier"/> property.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing.Sesquialteral">
+            <summary>
+                <para>This option is one-and-one-half times that of single line spacing.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing.Single">
+            <summary>
+                <para>This option accommodates the largest font in that line, plus a small amount of extra space. The amount of extra space varies depending on the font that is used. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.StrikeoutType">
+
+            <summary>
+                <para>Specifies the strikeout mode for characters.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.StrikeoutType.Double">
+            <summary>
+                <para>Specifies the double strikeout.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.StrikeoutType.None">
+            <summary>
+                <para>Indicates that the text strikeout is disabled.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.StrikeoutType.Single">
+            <summary>
+                <para>Specifies the double strikeout.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.ParagraphFirstLineIndent">
+
+            <summary>
+                <para>Specifies the indent for the first line in a paragraph.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphFirstLineIndent.Hanging">
+            <summary>
+                <para>The first line of a paragraph is indented to the left, by the value specified by the <see cref="P:DevExpress.XtraRichEdit.API.Native.Paragraph.FirstLineIndent"/> property.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphFirstLineIndent.Indented">
+            <summary>
+                <para>The first line of a paragraph is indented to the right by the value specified by the <see cref="P:DevExpress.XtraRichEdit.API.Native.Paragraph.FirstLineIndent"/> property.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphFirstLineIndent.None">
+            <summary>
+                <para>The first line of a paragraph doesn't have any indent.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment">
+
+            <summary>
+                <para>Specifies text alignment within a paragraph.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment.Center">
+            <summary>
+                <para>Text is aligned to the center of the paragraph.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment.Justify">
+            <summary>
+                <para>Text is justified to the entire width of the paragraph.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment.Left">
+            <summary>
+                <para>Text is aligned to the left of the paragraph.
+
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment.Right">
+            <summary>
+                <para>Text is aligned to the right of the paragraph.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.DocumentUnit">
+
+            <summary>
+                <para>Specifies the unit of measure used within the document.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentUnit.Centimeter">
+            <summary>
+                <para>Specifies centimeters as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentUnit.Document">
+            <summary>
+                <para>Specifies documents (<b>1</b>@#8260;<b>300</b>  of an inch) as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentUnit.Inch">
+            <summary>
+                <para>Specifies inches as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentUnit.Millimeter">
+            <summary>
+                <para>Specifies millimeters as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentUnit.Point">
+            <summary>
+                <para>Specifies points as measurement units.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.Section">
+
+            <summary>
+                <para>Represents a single section within a document.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Section.Columns">
+            <summary>
+                <para>Provides access to the <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionColumns"/> interface used for operations with columns in the document.
+
+</para>
+            </summary>
+            <value>An object providing the <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionColumns"/> interface.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Section.Margins">
+            <summary>
+                <para>Provides access to an object used to specify or retrieve the section's margin settings.
+</para>
+            </summary>
+            <value>An object exposing the <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionMargins"/> interface used to control the section's margin settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Section.Page">
+            <summary>
+                <para>Provides access to an object used to specify or retrieve the section's page settings.
+
+</para>
+            </summary>
+            <value>An object exposing the <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionPage"/> interface used to control the section's page settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Section.Paragraphs">
+            <summary>
+                <para>Provides access to a collection of paragraphs within the section.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphCollection"/> object representing a list of paragraphs in the section.
+
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.Paragraph">
+
+            <summary>
+                <para>Represents a single paragraph in a document.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.Alignment">
+            <summary>
+                <para>Gets or sets text alignment within a paragraph.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment"/> enumeration value.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Paragraph.Equals(System.Object)">
+            <summary>
+                <para>Determines whether the specified object is equal to the current Paragraph instance.
+</para>
+            </summary>
+            <param name="obj">
+		An object to compare with the current object.
+
+
+            </param>
+            <returns><b>true</b> if the specified object is equal to the current Paragraph instance; otherwise <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.FirstLineIndent">
+            <summary>
+                <para>Gets or sets a value specifying the indent for the first line in a paragraph.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value specifying the indent for the first line.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.FirstLineIndentType">
+            <summary>
+                <para>Gets or sets a value specifying whether and how the first line in a paragraph is indented.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphFirstLineIndent"/> enumeration value, which specifies the first line’s indent.
+
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Paragraph.GetHashCode">
+            <summary>
+                <para>Gets the hash code (a number) that corresponds to the value of the current Paragraph object.
+
+</para>
+            </summary>
+            <returns>An integer value representing the hash code for the current object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LeftIndent">
+            <summary>
+                <para>Gets or sets the left indent for text within a paragraph.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the left indent.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LineSpacing">
+            <summary>
+                <para>Gets or sets a line spacing value.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing line spacing.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LineSpacingMultiplier">
+            <summary>
+                <para>Gets or sets the multiplier which is used to calculate the line spacing value.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the line spacing multiplier.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.LineSpacingType">
+            <summary>
+                <para>Gets or sets a value which determines the spacing between lines in a paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing"/> enumeration value representing the line spacing type.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.Range">
+            <summary>
+                <para>Gets the range for the current document.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.RightIndent">
+            <summary>
+                <para>Gets or sets the right indent of the text within a paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the right indent.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.SpacingAfter">
+            <summary>
+                <para>Gets or sets the spacing after the current paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the spacing after the paragraph.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.SpacingBefore">
+            <summary>
+                <para>Gets or sets the spacing before the current paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the spacing before the paragraph.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Paragraph.SuppressHyphenation">
+            <summary>
+                <para>Gets or sets a value indicating whether text in a paragraph can have hyphens.
+
+</para>
+            </summary>
+            <value><b>true</b> to suppress hyphenation; <b>false</b> to enable hyphenation.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.Document">
+
+            <summary>
+                <para>Represents a single RTF document.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.BeginUpdateCharacters(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Starts modifying properties of characters that fall within a specified document range. 
+
+
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object specifying the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> of the text.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.CharacterProperties"/> object representing the character formatting of the specified range.
+
+
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.BeginUpdateParagraphs(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Starts modifying properties of the paragraphs that fall within a specified document range.
+
+
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> specifying the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> of the text.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphProperties"/> object representing paragraph formatting.
+
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.CaretPosition">
+            <summary>
+                <para>Gets or sets the position of the caret within the document.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object, representing the current caret position.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Copy">
+            <summary>
+                <para>Copies the currently selected text to the clipboard.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Copy(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Copies the specified range of text to the clipboard.
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object specifying the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> positions of the text to copy.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.CreatePosition(System.Int32)">
+            <summary>
+                <para>Creates a new position in the current document.
+</para>
+            </summary>
+            <param name="start">
+		An integer value specifying the start position. 
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object representing the position in the current document.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.CreateRange(System.Int32,System.Int32)">
+            <summary>
+                <para>Creates a new document range using the specified start position and range length.
+</para>
+            </summary>
+            <param name="start">
+		An integer value specifying the start position.
+
+            </param>
+            <param name="length">
+		An integer value specifying the range length.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.CreateRange(DevExpress.XtraRichEdit.API.Native.DocumentPosition,System.Int32)">
+            <summary>
+                <para>Creates a new document range using the specified start position and range length.
+</para>
+            </summary>
+            <param name="start">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object specifying the start position.
+
+            </param>
+            <param name="length">
+		An integer value specifying the range length.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Cut">
+            <summary>
+                <para>Removes the currently selected text and copies it to the clipboard.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Cut(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Removes the specified range of text and copies it to the clipboard.
+
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object specifying the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> positions of the text to cut.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Delete(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Removes the specified range of text from the document.
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object specifying the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> positions of the text to delete.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.EndUpdateCharacters(DevExpress.XtraRichEdit.API.Native.CharacterProperties)">
+            <summary>
+                <para>Finalizes the modification of character formatting after calling the <see cref="M:DevExpress.XtraRichEdit.API.Native.Document.BeginUpdateCharacters"/> method.
+</para>
+            </summary>
+            <param name="properties">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.CharacterProperties"/> object containing character properties.
+
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.EndUpdateParagraphs(DevExpress.XtraRichEdit.API.Native.ParagraphProperties)">
+            <summary>
+                <para>Finalizes the modification of paragraph formatting after calling the <see cref="M:DevExpress.XtraRichEdit.API.Native.Document.BeginUpdateParagraphs"/> method. 
+
+</para>
+            </summary>
+            <param name="properties">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphProperties"/> object representing paragraph formatting.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.GetParagraph(DevExpress.XtraRichEdit.API.Native.DocumentPosition)">
+            <summary>
+                <para>Gets the paragraph encompassing the specified position.
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> instance representing the position in the document.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Paragraph"/> object representing the paragraph containing the position.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.GetRtfText(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Gets the formatted string of the text contained in the specified range.
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object representing a text range in the document.
+
+            </param>
+            <returns>A string of RTF text.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.GetSection(DevExpress.XtraRichEdit.API.Native.DocumentPosition)">
+            <summary>
+                <para>Gets the section encompassing the specified position.
+
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> instance representing the position in the document.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Section"/> object representing a section containing the position.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.GetText(DevExpress.XtraRichEdit.API.Native.DocumentRange)">
+            <summary>
+                <para>Returns the plain text of the specified document range.
+
+</para>
+            </summary>
+            <param name="range">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object representing the range in the document for which the plain text representation is obtained.
+
+            </param>
+            <returns>A string, containing the text of the specified range.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.InsertParagraph(DevExpress.XtraRichEdit.API.Native.DocumentPosition)">
+            <summary>
+                <para>Inserts a new paragraph into the document's <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Paragraphs"/> collection at a specified position.
+
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object that specifies a position to insert a new paragraph.
+
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Paragraph"/> object representing the newly inserted paragraph.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.InsertRtfText(DevExpress.XtraRichEdit.API.Native.DocumentPosition,System.String)">
+            <summary>
+                <para>Inserts formatted text into the document at the specified position. 
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> specifying the position to insert the text. 
+
+            </param>
+            <param name="rtfText">
+		A string of RTF text to insert.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object representing the inserted text in the document.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.InsertSection(DevExpress.XtraRichEdit.API.Native.DocumentPosition)">
+            <summary>
+                <para>Inserts a new section into the document's <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Sections"/> collection at a specified position.
+
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object that specifies a position to insert a new section.
+
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Section"/> object representing the newly inserted section.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.InsertText(DevExpress.XtraRichEdit.API.Native.DocumentPosition,System.String)">
+            <summary>
+                <para>Inserts the specified text into the specified position.
+
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object specifying the position at which the text should be inserted.
+
+            </param>
+            <param name="text">
+		A <see cref="T:System.String"/> value specifying the text to insert.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object representing the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> positions of the inserted text.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.LoadDocument(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Loads a document from a stream, specifying the document's format.
+</para>
+            </summary>
+            <param name="stream">
+		The stream from which to load a document.
+
+            </param>
+            <param name="format">
+		One of <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.LoadDocument(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Loads a document from a file, specifying the document's format.
+</para>
+            </summary>
+            <param name="fileName">
+		A string value specifying the path to a file from which to load a document.
+
+
+            </param>
+            <param name="format">
+		One of <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.Paragraphs">
+            <summary>
+                <para>Provides access to a collection of paragraphs.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphCollection"/> object representing a list of paragraphs.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Paste">
+            <summary>
+                <para>Insert a text from the clipboard into the current <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.CaretPosition"/>.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.Paste(DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Inserts the contents of the clipboard in the specified format at the caret position.
+</para>
+            </summary>
+            <param name="format">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration member, specifying the format of the inserted text.
+
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.Range">
+            <summary>
+                <para>Gets the range for the current document.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.RequiredExportCapabilities">
+            <summary>
+                <para>Obtains information on the formatting capabilities required to export the current document correctly.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.DocumentExportCapabilities"/> object, representing information on the formatting capabilities required to correctly format the current document.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.RtfText">
+            <summary>
+                <para>Gets or sets the formatted text content of the document.
+</para>
+            </summary>
+            <value>A string, containing the document's content in rich text format.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.SaveDocument(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Saves the document to a file, specifying the document's format.
+</para>
+            </summary>
+            <param name="fileName">
+		A string value specifying the path to a file into which to load the control's document.
+
+
+            </param>
+            <param name="format">
+		One of the <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.Document.SaveDocument(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Saves the document to a stream, specifying the document's format.
+</para>
+            </summary>
+            <param name="stream">
+		The stream into which to load the document.
+
+            </param>
+            <param name="format">
+		One of <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.Sections">
+            <summary>
+                <para>Provides access to a collection of sections.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionCollection"/> object representing a list of sections.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.Selection">
+            <summary>
+                <para>Gets the currently selected range in the document.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentRange"/> object, representing the <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start"/> and <see cref="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End"/> positions of the currently selected text.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.Text">
+            <summary>
+                <para>Gets or sets the document's text.
+</para>
+            </summary>
+            <value>A string value that specifies the text of the document.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.Document.Unit">
+            <summary>
+                <para>Gets or sets a unit of measure used within the document.
+
+</para>
+            </summary>
+            <value>One of the <see cref="T:DevExpress.XtraRichEdit.DocumentUnit"/> enumeration values.
+
+
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditControl">
+
+            <summary>
+                <para>Represents a RichEdit control which is a container for the rich-text document with all the necessary functionality for loading, editing and saving.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RichEditControl class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.About">
+            <summary>
+                <para>Invokes the <b>About</b> dialog box.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.ActiveView">
+            <summary>
+                <para>Gets the <b>View</b> currently used by the <b>RichEdit</b> control to show the document. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditView"/> class instance, which is one of the views listed in the <see cref="T:DevExpress.XtraRichEdit.RichEditViewType"/> enumeration.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.ActiveViewChanged">
+            <summary>
+                <para>Occurs when the value of the <see cref="P:DevExpress.XtraRichEdit.RichEditControl.ActiveView"/> property is changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.ActiveViewType">
+            <summary>
+                <para>Gets or sets the type of the <b>View</b> which is currently used by the RichEdit to show the document. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditViewType"/> enumeration value specifying the active <b>View</b> type.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback,System.Boolean)">
+            <summary>
+                <para>Adds the specified service to the service container. 
+</para>
+            </summary>
+            <param name="serviceType">
+		The type of service to add. 
+
+            </param>
+            <param name="callback">
+		A callback object that is used to create the service. This allows a service to be declared as available, but delays the creation of the object until the service is requested. 
+
+            </param>
+            <param name="promote">
+		<b>true</b> to promote this request to any parent service containers; otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback)">
+            <summary>
+                <para>Adds the specified service to the service container. 
+</para>
+            </summary>
+            <param name="serviceType">
+		The type of service to add. 
+
+            </param>
+            <param name="callback">
+		A callback object that is used to create the service. This allows a service to be declared as available, but delays the creation of the object until the service is requested. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.AddService(System.Type,System.Object,System.Boolean)">
+            <summary>
+                <para>Adds the specified service to the service container. 
+</para>
+            </summary>
+            <param name="serviceType">
+		The type of service to add. 
+
+            </param>
+            <param name="serviceInstance">
+		An instance of the service type to add. This object must implement or inherit from the type indicated by the serviceType parameter.
+
+            </param>
+            <param name="promote">
+		<b>true</b> to promote this request to any parent service containers; otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.AddService(System.Type,System.Object)">
+            <summary>
+                <para>Adds the specified service to the service container. 
+</para>
+            </summary>
+            <param name="serviceType">
+		The type of service to add. 
+
+            </param>
+            <param name="serviceInstance">
+		An instance of the service type to add. This object must implement or inherit from the type indicated by the serviceType parameter.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Appearance">
+            <summary>
+                <para>Provides access to the object containing appearance settings for the control.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditAppearance"/> object containig appearance settings specific to the RichEditControl.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.BackColor">
+            <summary>
+                <para>This property is not in effect for the RichEditControl class. 
+</para>
+            </summary>
+            <value> A <see cref="T:System.Drawing.Color"/> value representing the background color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.BackgroundImage">
+            <summary>
+                <para>This property is not in effect for the RichEditControl class.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.BackgroundImageLayout">
+            <summary>
+                <para>This property is not in effect for the RichEditControl class.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.BeforeDispose">
+            <summary>
+                <para>Occurs before the RichEdit control is released from memory
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.BeforeExport">
+            <summary>
+                <para>Occurs before the document is saved (exported to a certain format).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.BeforeImport">
+            <summary>
+                <para>Occurs before a document is loaded (imported from an external source).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.BeginUpdate">
+            <summary>
+                <para>Prevents the control from being updated until the <see cref="M:DevExpress.XtraRichEdit.RichEditControl.EndUpdate"/> method is called. 
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.BorderStyle">
+            <summary>
+                <para>Gets or sets the border style for the RichEdit control.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraEditors.Controls.BorderStyles"/> enumeration value which specifies the border style of the scheduler control.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.CancelUpdate">
+            <summary>
+                <para>Unlocks the RichEdit control after a call to the <see cref="M:DevExpress.XtraRichEdit.RichEditControl.BeginUpdate"/> method, and causes an immediate update without raising any notification events.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.ContentChanged">
+            <summary>
+                <para>Occurs when the document content was changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.CreateCommand(DevExpress.XtraRichEdit.Commands.RichEditCommandId)">
+            <summary>
+                <para>Create a <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommand"/> object by the command identifier.
+</para>
+            </summary>
+            <param name="commandId">
+		A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommandId"/> structure member, which specifies a command.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.Commands.RichEditCommand"/> instance, representing a Rich Text Control command.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.CreateNewDocument">
+            <summary>
+                <para>Creates a new empty RTF document, loads and displays it.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.DefaultViewType">
+            <summary>
+                <para>Gets the default view type used by the RichEdit control.
+</para>
+            </summary>
+            <value>A DevExpress.RichEdit.RichEditViewType enumeration member, which specifies the RichEdit view.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Document">
+            <summary>
+                <para>Provides access to a <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> object representing the control's document.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.Document"/> object that contains settings describing a document displayed within the control.
+
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.DocumentLoaded">
+            <summary>
+                <para>Occurs after a text document is loaded into the RichEdit control.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.DpiX">
+            <summary>
+                <para>Gets the current dpi value for the X-coordinate.
+
+</para>
+            </summary>
+            <value>A <b>Single</b> dpi value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.DpiY">
+            <summary>
+                <para>Gets the current dpi value for theY-coordinate.
+
+</para>
+            </summary>
+            <value>A <b>Single</b> dpi value.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.EmptyDocumentCreated">
+            <summary>
+                <para>Occurs when a new document is created in the RichEdit Control.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.EndUpdate">
+            <summary>
+                <para>Unlocks the control after a call to the <see cref="M:DevExpress.XtraRichEdit.RichEditControl.BeginUpdate"/> method, and causes an immediate update. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Font">
+            <summary>
+                <para>Gets or sets the font of the text that has no direct font formatting or style applied.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Font"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.ForeColor">
+            <summary>
+                <para>Gets or sets the color of the text that has no direct font formatting or style applied.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> object representing the color.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.GetBoundsFromPosition(DevExpress.XtraRichEdit.API.Native.DocumentPosition)">
+            <summary>
+                <para>Gets the rectangle representing the character at the specified position.
+
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> representing the position in the document.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> representing the character.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.GetPositionFromPoint(System.Drawing.Point)">
+            <summary>
+                <para>Gets the position in the document closest to the specified point.
+</para>
+            </summary>
+            <param name="clientPoint">
+		A <see cref="T:System.Windows.Point"/> object specifying the location for which the position is retrieved. The point coordinates are measured in <i>documents</i> units.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object representing a position in the document.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.GetService(System.Type)">
+            <summary>
+                <para>Gets the service object of the specified type. 
+</para>
+            </summary>
+            <param name="serviceType">
+		An object that specifies the type of service object to get. 
+
+            </param>
+            <returns>A service object of the specified type,or a null reference (Nothing in Visual Basic) if there is no service object of this type. 
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.IsPrintingAvailable">
+            <summary>
+                <para>Indicates whether the RichEditControl can be printed or exported.
+</para>
+            </summary>
+            <value><b>true</b> if the control can be printed and exported; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.IsUpdateLocked">
+            <summary>
+                <para>Gets whether the scheduler control has been locked for updating.
+</para>
+            </summary>
+            <value><b>true</b> if the scheduler control is locked; otherwise, <b>false</b>. 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.LoadDocument">
+            <summary>
+                <para>Invokes the "Open..." file dialog, creates a specific importer and loads the file.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.LoadDocument(System.Windows.Forms.IWin32Window)">
+            <summary>
+                <para>Loads a document into the control with a specified owner.
+</para>
+            </summary>
+            <param name="parent">
+		The <see cref="T:System.Windows.Forms.IWin32Window"/> that represents the parent window.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.LoadDocument(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Loads a document from a file, specifying the document's format.
+</para>
+            </summary>
+            <param name="fileName">
+		A string value specifying the path to the file from which to load a document.
+
+            </param>
+            <param name="documentFormat">
+		One of the <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.LoadDocument(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Loads a document from a stream, specifying the document's format.
+</para>
+            </summary>
+            <param name="stream">
+		The stream from which to load a document.
+
+            </param>
+            <param name="documentFormat">
+		One of <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.LookAndFeel">
+            <summary>
+                <para>Provides access to the settings that specify the RichEdit control's look and feel.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.LookAndFeel.UserLookAndFeel"/> object whose properties specify the control's look and feel.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.MenuManager">
+            <summary>
+                <para>Gets or sets the menu manager which controls the look and feel of context menus.
+
+</para>
+            </summary>
+            <value>An object that implements the <see cref="T:DevExpress.Utils.Menu.IDXMenuManager"/> interface.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Modified">
+            <summary>
+                <para>Gets or sets a value that indicates that the RichEdit control contents have been modified. 
+
+</para>
+            </summary>
+            <value><b>true</b> if the control's contents have been modified; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.ModifiedChanged">
+            <summary>
+                <para>Occurs when the value of the <see cref="P:DevExpress.XtraRichEdit.RichEditControl.Modified"/> property is changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Options">
+            <summary>
+                <para>Provides access to the control's options related to document saving and scroll bar visibility.
+</para>
+            </summary>
+            <value>A <b>RichEditControlOptions</b> object that contains the control's settings.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.PreparePopupMenu">
+            <summary>
+                <para>Occurs before a context (popup) menu is created for the control's document every time a context menu is being invoked.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.Print">
+            <summary>
+                <para>Prints the control's document.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.ReadOnly">
+            <summary>
+                <para>Gets or sets whether document modifications are prohibited.
+</para>
+            </summary>
+            <value><b>true</b> if the document is in a read-only state; otherwise, <b>false</b>.
+
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.ReadOnlyChanged">
+            <summary>
+                <para>Occurs when the read-only state of the RichEdit control is changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.RemoveService(System.Type)">
+            <summary>
+                <para>Removes the service of specified type from the service container. 
+</para>
+            </summary>
+            <param name="serviceType">
+		The type of service to remove. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.RemoveService(System.Type,System.Boolean)">
+            <summary>
+                <para>Removes the service of the specified type from the service container. 
+
+</para>
+            </summary>
+            <param name="serviceType">
+		The type of service to remove. 
+
+            </param>
+            <param name="promote">
+		<b>true</b> to promote this request to any parent service containers; <b>otherwise</b>, false. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.ResetText">
+            <summary>
+                <para>Clears the text within the control.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.RightToLeft">
+            <summary>
+                <para>This property is not in effect for the RichEditControl class.
+</para>
+            </summary>
+            <value> 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.RtfText">
+            <summary>
+                <para>Gets or sets the formatted text content of the control.
+</para>
+            </summary>
+            <value>A string, containing the document's content in rich text format.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.RtfTextChanged">
+            <summary>
+                <para>Occurs when the text in the control is changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.SaveDocument(System.Windows.Forms.IWin32Window)">
+            <summary>
+                <para>Saves a document.
+
+</para>
+            </summary>
+            <param name="parent">
+		The <see cref="T:System.Windows.Forms.IWin32Window"/> that represents the parent window.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.SaveDocument">
+            <summary>
+                <para>Saves a document.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.SaveDocument(System.String,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Saves the control's document to a file, specifying the document's format.
+</para>
+            </summary>
+            <param name="fileName">
+		A string value specifying the path to a file into which to load the control's document.
+
+
+            </param>
+            <param name="documentFormat">
+		One of <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.SaveDocument(System.IO.Stream,DevExpress.XtraRichEdit.DocumentFormat)">
+            <summary>
+                <para>Saves the control's document to a stream, specifying the document's format.
+</para>
+            </summary>
+            <param name="stream">
+		The stream into which to load the control's document.
+
+            </param>
+            <param name="documentFormat">
+		One of the <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> enumeration values.
+
+
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.SaveDocumentAs">
+            <summary>
+                <para>Invokes a <b>Save As</b> dialog and saves a document.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.SaveDocumentAs(System.Windows.Forms.IWin32Window)">
+            <summary>
+                <para>Invokes a <b>Save As</b> dialog and saves a document from the control with a specified owner.
+</para>
+            </summary>
+            <param name="parent">
+		The <see cref="T:System.Windows.Forms.IWin32Window"/> that represents the parent window.
+
+            </param>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.SearchFormShowing">
+            <summary>
+                <para>Occurs when a search form is invoked before it is displayed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.SelectionChanged">
+            <summary>
+                <para>Fires in response to changing a selection in the document.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.ShowPrintDialog">
+            <summary>
+                <para>Invokes the "Print" dialog.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.ShowPrintPreview">
+            <summary>
+                <para>Invokes the "Print Preview" window.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.ShowReplaceForm">
+            <summary>
+                <para>Invokes the SearchForm dialog switched to the <b>Replace</b> tab.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControl.ShowSearchForm">
+            <summary>
+                <para>Invokes the "Find and Replace" dialog.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.SpellChecker">
+            <summary>
+                <para>Gets or sets the component used for spelling check by the RichEdit control.
+</para>
+            </summary>
+            <value>A component which provides the <b>DevExpress.XtraSpellChecker.ISpellChecker</b> interface.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Text">
+            <summary>
+                <para>Gets or sets the plain text content of the control.
+</para>
+            </summary>
+            <value>A string, containing the document's unformatted text.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.UnhandledException">
+            <summary>
+                <para>This event is raised when an exception unhandled by the <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> occurs.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Unit">
+            <summary>
+                <para>Gets or sets a unit of measure used within the control.
+
+</para>
+            </summary>
+            <value>One of the <see cref="T:DevExpress.XtraRichEdit.DocumentUnit"/> enumeration values.
+
+
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.UpdateUI">
+            <summary>
+                <para>Raised when changes occur which may affect the control's UI.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControl.Views">
+            <summary>
+                <para>Contains settings of the Views that are used to display a document in the RichEdit Control. 
+</para>
+            </summary>
+            <value> A <see cref="T:DevExpress.XtraRichEdit.RichEditViewRepository"/> object which stores the settings of the document Views. 
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.RichEditControl.ZoomChanged">
+            <summary>
+                <para>Fires when the zoom factor used to display the document is changed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventHandler">
+
+            <summary>
+                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.UnhandledException"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventHandler.Invoke(System.Object,DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventArgs)">
+            <summary>
+                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.UnhandledException"/> event.
+</para>
+            </summary>
+            <param name="sender">
+		The event sender ( a <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/>).
+
+            </param>
+            <param name="e">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventArgs"/> object which contains event data.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.UnhandledException"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventArgs.#ctor(System.Exception)">
+            <summary>
+                <para>Initializes a new instance of the RichEditUnhandledExceptionEventArgs class with the specified exception.
+</para>
+            </summary>
+            <param name="e">
+		An <see cref="T:System.Exception"/> object representing the exception which caused an event.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventArgs.Exception">
+            <summary>
+                <para>Gets the exception which triggers the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.UnhandledException"/> event.
+</para>
+            </summary>
+            <value>An <see cref="T:System.Exception"/> object representing an exception which caused the event.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditUnhandledExceptionEventArgs.Handled">
+            <summary>
+                <para>Gets or sets whether the exception should be propagated upwards.
+</para>
+            </summary>
+            <value><b>true</b> to stop the exception from being propagated; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditAppearance">
+
+            <summary>
+                <para>Represents appearance settings specific to the RichEditControl.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditAppearance.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RichEditAppearance class with default settings. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditAppearance.Text">
+            <summary>
+                <para>Provides access to the appearance object containing appearance settings for the control's text.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.Utils.AppearanceObject"/> representing properties used to customize the look and feel of the control's text.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.SectionColumns">
+
+            <summary>
+                <para>Represents an interface for creating, applying and retrieving a column layout of a section in a document.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionColumns.Count">
+            <summary>
+                <para>Gets the number of columns in the section.
+</para>
+            </summary>
+            <value>An integer, representing the number of columns in the section.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.SectionColumns.CreateUniformColumns(DevExpress.XtraRichEdit.API.Native.SectionPage,System.Single,System.Int32)">
+            <summary>
+                <para>Creates a uniform column layout using the current page settings.
+
+</para>
+            </summary>
+            <param name="page">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionPage"/> object representing a current page.
+
+            </param>
+            <param name="columnSpacing">
+		A <b>Single</b> value specifying the width of an individual column, measured in <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Unit"/>.
+
+
+            </param>
+            <param name="columnCount">
+		A <b>Single</b> value specifying the number of columns on a page.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionColumnCollection"/> object representing a collection of columns.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.SectionColumns.CreateUniformColumns(System.Single,System.Single,System.Int32)">
+            <summary>
+                <para>Creates a uniform column layout using the specified settings.
+
+</para>
+            </summary>
+            <param name="columnWidth">
+		A <b>Single</b> value specifying the width of an individual column, measured in <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Unit"/>.
+
+
+            </param>
+            <param name="columnSpacing">
+		A <b>Single</b> value specifying the spacing between adjacent columns, measured in <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Unit"/>.
+
+            </param>
+            <param name="columnCount">
+		A <b>Single</b> value specifying the number of columns on a page.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionColumnCollection"/> object representing a collection of columns.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.SectionColumns.GetColumns">
+            <summary>
+                <para>Gets the column layout of the current section.
+</para>
+            </summary>
+            <returns>A <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionColumnCollection"/> object representing columns in the current section.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.SectionColumns.SetColumns(DevExpress.XtraRichEdit.API.Native.SectionColumnCollection)">
+            <summary>
+                <para>Applies the columns to the section.
+</para>
+            </summary>
+            <param name="columns">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.SectionColumnCollection"/> representing the layout to be applied.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.SectionColumnCollection">
+
+            <summary>
+                <para>Represents a collection of columns in the layout.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.SectionColumnCollection.#ctor">
+            <summary>
+                <para>Initializes a new instance of the SectionColumnCollection class.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.SectionColumn">
+
+            <summary>
+                <para>Represents an individual column in the layout.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.SectionColumn.#ctor(System.Single,System.Single)">
+            <summary>
+                <para>Initializes a new instance of the SectionColumn class with the specified width and spacing.
+</para>
+            </summary>
+            <param name="width">
+		A <b>Single</b> value representing the column width.
+
+            </param>
+            <param name="spacing">
+		A <b>Single</b> value representing the distance between columns.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionColumn.Spacing">
+            <summary>
+                <para>Gets or sets the amount of space between adjacent columns.
+</para>
+            </summary>
+            <value>A <b>Single</b> value measured in units specified via the <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Unit"/> property.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionColumn.Width">
+            <summary>
+                <para>Gets or sets the width of individual column.
+</para>
+            </summary>
+            <value>A <b>Single</b> value measured in units specified via the <see cref="P:DevExpress.XtraRichEdit.API.Native.Document.Unit"/> property.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Utils.Units">
+
+            <summary>
+                <para>Represents a helper class with static methods used for unit conversion.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.CentimetersToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from centimeters to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> centimeter value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToCentimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to centimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to centimeters.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToHundredthsOfInch(System.Drawing.Size)">
+            <summary>
+                <para>Converts rectangle measurements from documents to hundredths of an inch.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> values in documents to be converted to hundredths of an inch.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToHundredthsOfInch(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to hundredths of an inch. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to hundredths of an inch.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToHundredthsOfMillimeter(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from documents to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in documents to be converted to hundredths of a millimeter.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToHundredthsOfMillimeter(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to hundredths of a millimeter. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to hundredths of a millimeter.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToInchesF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to inches. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to inches.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToMillimetersF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to millimeters. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to millimeters.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPicasF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to picas. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> documents value to be converted to picas.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPixels(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from documents to pixels.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Point"/> with values in documents, to be converted to pixels.
+
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPixels(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from documents to pixels.
+
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Rectangle"/> with values in documents, to be converted to pixels.
+
+
+            </param>
+            <param name="dpiX">
+		 A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		 A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		 A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPixelsF(System.Double,System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to pixels. Returns the converted measurement as a <b>Double</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Double</b> documents value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>A <b>Double</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPoints(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to points. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to points.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPointsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to points. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> documents value to be converted to points.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToPointsFRound(System.Single)">
+            <summary>
+                <para>Converts a measurement from documents to points and rounds the result. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Single</b> documents value to be converted to points.
+
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToTwips(System.Int32)">
+            <summary>
+                <para>Converts a measurement from documents to twips. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> documents value to be converted to twips.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.DocumentsToTwips(System.Drawing.Size)">
+            <summary>
+                <para>Converts measurements from documents to twips. 
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in documents to be converted to twips.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.HundredthsOfInchToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of an inch to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of an inch value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.HundredthsOfInchToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts rectangle measurements from hundredths of an inch to documents.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of an inch to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.HundredthsOfMillimeterToDocuments(System.Drawing.Size)">
+            <summary>
+                <para>Converts rectangle measurements from hundredths of a millimeter to documents.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to documents.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.HundredthsOfMillimeterToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of millimeter value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.HundredthsOfMillimeterToPixels(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from hundredths of a millimeter to pixels. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> hundredths of a millimeter value to be converted to pixels.
+
+            </param>
+            <param name="dpi">
+		The dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.HundredthsOfMillimeterToPixels(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts a measurement from hundredths of an inch to document units. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> with values in hundredths of a millimeter to be converted to pixels.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.InchesToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from inches to documents. Returns the converted measurement as a<b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> inches value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.MillimetersToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from millimeters to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> millimeters value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.MillimetersToPoints(System.Int32)">
+            <summary>
+                <para>Converts a measurement from millimeters to points. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Integer</b>millimeters value to be converted to points.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PicasToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from picas to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> picas value to be converted to documents.
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToDocuments(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts rectangle measurements from pixels to documents.
+</para>
+            </summary>
+            <param name="size">
+		The <see cref="T:System.Drawing.Size"/> structure in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToDocuments(System.Double,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToDocuments(System.Drawing.Point,System.Single,System.Single)">
+            <summary>
+                <para>Converts point coordinates from pixels to documents.
+</para>
+            </summary>
+            <param name="point">
+		The <see cref="T:System.Drawing.Point"/> to be converted from pixels to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Point"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToDocuments(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to documents.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToDocuments(System.Drawing.Rectangle,System.Single,System.Single)">
+            <summary>
+                <para>Converts a rectangle from pixels to documents.
+
+</para>
+            </summary>
+            <param name="rect">
+		The <see cref="T:System.Drawing.Rectangle"/> with measurements in pixels to be converted to documents.
+
+            </param>
+            <param name="dpiX">
+		A dpi value used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Rectangle"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToHundredthsOfMillimeter(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to hundredths of a millimeter. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		An <b>Integer</b> pixels value to be converted to hundredths of a millimeter,
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToHundredthsOfMillimeter(System.Drawing.Size,System.Single,System.Single)">
+            <summary>
+                <para>Converts measurements from pixels to hundredths of a millimeter.
+</para>
+            </summary>
+            <param name="val">
+		The <see cref="T:System.Drawing.Size"/> in pixels to be converted to hundredths of a millimeter.
+
+            </param>
+            <param name="dpiX">
+		A dpi value to be used for conversion of the X-coordinate.
+
+
+            </param>
+            <param name="dpiY">
+		A dpi value to be used for conversion of the Y-coordinate.
+
+
+            </param>
+            <returns>A <see cref="T:System.Drawing.Size"/> structure.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToPoints(System.Int32,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to points.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PixelsToPoints(System.Double,System.Single)">
+            <summary>
+                <para>Converts a measurement from pixels to points.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer </b> pixels value to be converted to points.
+
+            </param>
+            <param name="dpi">
+		A dpi value used for conversion.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PointsToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from points to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> points value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.PointsToDocumentsF(System.Single)">
+            <summary>
+                <para>Converts a measurement from points to documents. Returns the converted measurement as a <b>Single</b>.
+</para>
+            </summary>
+            <param name="value">
+		The <b>Single</b> points value to be converted to documents.
+
+
+            </param>
+            <returns>A <b>Single</b> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Utils.Units.TwipsToDocuments(System.Int32)">
+            <summary>
+                <para>Converts a measurement from twips to documents. Returns the converted measurement as an <b>Integer</b>.
+</para>
+            </summary>
+            <param name="val">
+		The <b>Integer</b> twips value to be converted to documents.
+
+            </param>
+            <returns>An <b>Integer</b> value.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit">
+
+            <summary>
+                <para>Contains settings specific to an in-place editor that displays RTF data.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RepositoryItemRichTextEdit class with default settings. 
+
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.Assign(DevExpress.XtraEditors.Repository.RepositoryItem)">
+            <summary>
+                <para>Copies the settings of the specified repository item.
+</para>
+            </summary>
+            <param name="item">
+		A <see cref="T:DevExpress.XtraEditors.Repository.RepositoryItem"/> object or its descendant that represents the source of the operation.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.AutoHeight">
+            <summary>
+                <para>Gets whether the editor's height is calculated automatically to fit the editor's content. This member supports the .NET Framework infrastructure and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>Always <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.CustomHeight">
+            <summary>
+                <para>Gets or sets the editor's height.
+</para>
+            </summary>
+            <value>An integer value that specifies the editor's height, in pixels.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.EditorTypeName">
+            <summary>
+                <para>Gets the class name of an editor corresponding to the current repository item.
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value that identifies the class name of a corresponding editor.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.GetBrick(DevExpress.XtraEditors.PrintCellHelperInfo)">
+            <summary>
+                <para>Returns a brick object that contains information on how the current editor should be printed.
+</para>
+            </summary>
+            <param name="info">
+		A <see cref="T:DevExpress.XtraEditors.PrintCellHelperInfo"/> object that provides information on the editor's state and appearance settings that will be used when the editor is printed.
+
+            </param>
+            <returns>An <see cref="T:DevExpress.XtraPrinting.IVisualBrick"/> object that provides information on how the current editor should be printed.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.HorizontalIndent">
+            <summary>
+                <para>Gets or sets a horizontal margin between the border and text.
+</para>
+            </summary>
+            <value>An integer value that specifies a horizontal margin, in pixels, between the border and text.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.MaxHeight">
+            <summary>
+                <para>Gets or sets the editor's maximum height.
+</para>
+            </summary>
+            <value>An integer value that specifies the editor's maximum height, in pixels.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.Register">
+            <summary>
+                <para>Registers the current RepositoryItemRichTextEdit instance within the default Repository.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit.VerticalIndent">
+            <summary>
+                <para>Gets or sets a vertical margin between the border and text.
+</para>
+            </summary>
+            <value>An integer value that specifies a vertical margin, in pixels, between the border and text.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditViewRepository">
+
+            <summary>
+                <para>Represents a repository for the views of the Rich Edit control.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditViewRepository.#ctor(DevExpress.XtraRichEdit.RichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the RichEditViewRepository class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> value that specifies the <b>Rich Edit</b> control which owns the view. This value is assigned to the <see cref="P:DevExpress.XtraRichEdit.RichEditView.Control"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditViewRepository.Dispose">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditViewRepository.DraftView">
+            <summary>
+                <para>Provides access to the <b>Draft View</b> of the RichEditControl.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.DraftView"/> object representing a draft view of the control.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditViewRepository.PrintLayoutView">
+            <summary>
+                <para>Provides access to the <b>Print Layout View</b> of the RichEditControl.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.PrintLayoutView"/> object representing a print layout view of the control.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditViewRepository.SimpleView">
+            <summary>
+                <para>Provides access to the <b>Simple View</b> of the RichEditControl.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.SimpleView"/> object representing a simple view of the control.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditViewRepository.ToString">
+            <summary>
+                <para>Overrides the base class method to clear the text representation of an object.
+</para>
+            </summary>
+            <returns>An empty string.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.ReadingLayoutView">
+
+            <summary>
+                <para>Represents the view intended for on-screen reading. Reserved for future use.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.ReadingLayoutView.#ctor(DevExpress.XtraRichEdit.RichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the ReadingLayoutView class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> value that specifies the <b>Rich Edit</b> control which owns the view. This value is assigned to the <see cref="P:DevExpress.XtraRichEdit.RichEditView.Control"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.ReadingLayoutView.Type">
+            <summary>
+                <para>Gets the RichEditControl View's type.
+</para>
+            </summary>
+            <value>The <see cref="F:DevExpress.XtraRichEdit.RichEditViewType.PrintLayout"/> value.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.PrintLayoutView">
+
+            <summary>
+                <para>Represents a page layout view of the Rich Edit control.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.PrintLayoutView.#ctor(DevExpress.XtraRichEdit.RichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the PrintLayoutView class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> value that specifies the <b>Rich Edit</b> control which owns the view. This value is assigned to the <see cref="P:DevExpress.XtraRichEdit.RichEditView.Control"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.PrintLayoutView.Type">
+            <summary>
+                <para>Gets the RichEditControl View's type.
+</para>
+            </summary>
+            <value>The <see cref="F:DevExpress.XtraRichEdit.RichEditViewType.PrintLayout"/> value.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.DraftView">
+
+            <summary>
+                <para>Represents a draft view of the Rich Edit control.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DraftView.#ctor(DevExpress.XtraRichEdit.RichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the DraftView class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> value that specifies the <b>Rich Edit</b> control which owns the view. This value is assigned to the <see cref="P:DevExpress.XtraRichEdit.RichEditView.Control"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DraftView.Padding">
+            <summary>
+                <para>Gets or sets the distance from the text to the control's border in pixels. 
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Forms.Padding"/> object representing the control's padding.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DraftView.Type">
+            <summary>
+                <para>Gets the RichEditControl View's type.
+</para>
+            </summary>
+            <value>The <see cref="P:DevExpress.XtraRichEdit.RichEditViewRepository.DraftView"/> value.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.PageBasedRichEditView">
+
+            <summary>
+                <para>Represents a base class for Rich Edit control views providing pagination and page layout features.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.PageBasedRichEditView.CurrentPageIndex">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value>An integer, representing an index of a current page.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.PageBasedRichEditView.PageCount">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+            <value>An integer, indicating the number of pages.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraRichEdit.PageBasedRichEditView.PageCountChanged">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.SimpleView">
+
+            <summary>
+                <para>Represents a simple view of the Rich Edit control.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.SimpleView.#ctor(DevExpress.XtraRichEdit.RichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the SimpleView class with the specified owner.
+</para>
+            </summary>
+            <param name="control">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> value that specifies the <b>Rich Edit </b> control which owns the view. This value is assigned to the <see cref="P:DevExpress.XtraRichEdit.RichEditView.Control"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.SimpleView.Padding">
+            <summary>
+                <para>Gets or sets the distance from the text to the control's border in pixels. 
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Forms.Padding"/> object representing the control's padding.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.SimpleView.Type">
+            <summary>
+                <para>Gets the RichEditControl View's type.
+
+</para>
+            </summary>
+            <value>The <see cref="F:DevExpress.XtraRichEdit.RichEditViewType.Simple"/> value.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditView">
+
+            <summary>
+                <para>Represents a base class for the RichEditControl views.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditView.BackColor">
+            <summary>
+                <para>Gets or sets the background color of the View.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> object representing the background color of the View.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditView.Control">
+            <summary>
+                <para>Provides access to the Rich Edit control to which the current View belongs.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> representing the Rich Edit control to which the current View belongs. 
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditView.Dispose">
+            <summary>
+                <para>For internal use.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditView.ToString">
+            <summary>
+                <para>Overrides the base class method to clear the text representation of an object.
+</para>
+            </summary>
+            <returns>An empty string.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditView.Type">
+            <summary>
+                <para>Gets the RichEditControl View's type.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.RichEditViewType"/> enumeration member indicating the type of the View.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditView.ZoomFactor">
+            <summary>
+                <para>Gets or sets the current zoom level used to display the document.
+</para>
+            </summary>
+            <value>The factor by which the contents of the control is zoomed. 
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.Menu.RichEditPopupMenu">
+
+            <summary>
+                <para>Represents a popup (context) menu of the <b>RichEditControl</b>.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Menu.RichEditPopupMenu.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RichEditPopupMenu class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.Menu.RichEditPopupMenu.#ctor(System.EventHandler)">
+            <summary>
+                <para>Initializes a new instance of the RichEditPopupMenu class with the specified handler for the <see cref="E:DevExpress.Utils.Menu.DXSubMenuItem.BeforePopup"/> event.
+</para>
+            </summary>
+            <param name="beforePopup">
+		An event handler that will be invoked before the menu is displayed.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditNotificationOptions">
+
+            <summary>
+                <para>Represents a base class for the classes containing different options used in the RichEditControl.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditNotificationOptions.Reset">
+            <summary>
+                <para>Resets all notification options to their default values.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.DocumentExportCapabilities">
+
+            <summary>
+                <para>Represents the formatting capabilities required for correct export of the document.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentExportCapabilities.CharacterFormatting">
+            <summary>
+                <para>Gets or sets whether the document contains non-default character formatting.
+</para>
+            </summary>
+            <value><b>true</b> if the document contains non-default character formatting; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentExportCapabilities.Contains(DevExpress.XtraRichEdit.DocumentExportCapabilities)">
+            <summary>
+                <para>Determines whether the current  capabilities are a superset of the specified capabilities.
+</para>
+            </summary>
+            <param name="value">
+		A <see cref="T:DevExpress.XtraRichEdit.DocumentExportCapabilities"/> object to test.
+
+            </param>
+            <returns><b>true</b> if the current capabilities contain the specified capabilities; otherwise, <b>false</b>.
+
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentExportCapabilities.Equals(System.Object)">
+            <summary>
+                <para>Determines whether the specified object is equal to the current DocumentExportCapabilities instance.
+</para>
+            </summary>
+            <param name="obj">
+		The object to compare with the current object.
+
+
+            </param>
+            <returns><b>true</b> if the specified object is equal to the current DocumentExportCapabilities instance; otherwise <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentExportCapabilities.GetHashCode">
+            <summary>
+                <para>Gets the hash code (a number) that corresponds to the value of the current DocumentExportCapabilities object.
+</para>
+            </summary>
+            <returns>An integer value representing the hash code for the current object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentExportCapabilities.InlineObjects">
+            <summary>
+                <para>Gets or sets whether the document contains in-line objects.
+</para>
+            </summary>
+            <value><b>true</b> if the document contains in-line objects; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentExportCapabilities.InlinePictures">
+            <summary>
+                <para>Gets or sets whether the document contains in-line images.
+</para>
+            </summary>
+            <value><b>true</b> if the document contains in-line images; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentExportCapabilities.ParagraphFormatting">
+            <summary>
+                <para>Gets or sets whether the document contains non-default paragraph formatting.
+</para>
+            </summary>
+            <value><b>true</b> if the document contains non-default paragraph formatting; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentExportCapabilities.Sections">
+            <summary>
+                <para>Gets or sets whether the document formatting contains sections.
+</para>
+            </summary>
+            <value><b>true</b> if the formatting contains sections; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentExportCapabilities.Styles">
+            <summary>
+                <para>Gets or sets whether the document formatting contains styles.
+</para>
+            </summary>
+            <value><b>true</b> if the formatting contains styles; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentExportCapabilities.ToString">
+            <summary>
+                <para>Converts the numeric value of this instance to its equivalent string representation.
+</para>
+            </summary>
+            <returns>The string representation of the value of this instance.
+</returns>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditViewType">
+
+            <summary>
+                <para>Specifies the view used to show the document within the <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/>.
+
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.RichEditViewType.Draft">
+            <summary>
+                <para>Specifies that the control is in a draft mode.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.RichEditViewType.PrintLayout">
+            <summary>
+                <para>Specifies that the control is in a print layout mode. In this mode, the control displays pages with all formattings applied. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.RichEditViewType.Simple">
+            <summary>
+                <para>Specifies that the control is in a simple mode. In this mode, the width of displayed pages depends upon the control's width. Page formatting is not in effect. 
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.PreparePopupMenuEventHandler">
+
+            <summary>
+                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.PreparePopupMenu"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.PreparePopupMenuEventHandler.Invoke(System.Object,DevExpress.XtraRichEdit.PreparePopupMenuEventArgs)">
+            <summary>
+                <para>Represents a method that will handle the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.PreparePopupMenu"/> event.
+</para>
+            </summary>
+            <param name="sender">
+		The event sender (typically a <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/>).
+
+
+            </param>
+            <param name="e">
+		A <see cref="T:DevExpress.XtraRichEdit.PreparePopupMenuEventArgs"/> object that contains event data.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.PreparePopupMenuEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.XtraRichEdit.RichEditControl.PreparePopupMenu"/> event.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.PreparePopupMenuEventArgs.#ctor(DevExpress.XtraRichEdit.Menu.RichEditPopupMenu)">
+            <summary>
+                <para>Initializes a new instance of the PreparePopupMenuEventArgs class with the specified menu object.
+</para>
+            </summary>
+            <param name="menu">
+		A <see cref="T:DevExpress.XtraRichEdit.Menu.RichEditPopupMenu"/> object specifying the menu for the event. This object is assigned to the <see cref="P:DevExpress.XtraRichEdit.PreparePopupMenuEventArgs.Menu"/> property.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.PreparePopupMenuEventArgs.Menu">
+            <summary>
+                <para>Gets or sets the popup (context) menu for which this event was raised.
+
+</para>
+            </summary>
+            <value>A <b>RichEditPopupMenu</b> object, which represents the context menu for the event. 
+
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.DocumentFormat">
+
+            <summary>
+                <para>Represents a document format.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentFormat.#ctor(System.Int32)">
+            <summary>
+                <para>Initializes a new instance of the DocumentFormat class with the specified value.
+
+</para>
+            </summary>
+            <param name="value">
+		An integer value specifying the initial value for the document format.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentFormat.Equals(System.Object)">
+            <summary>
+                <para>Determines whether the specified object is equal to the current DocumentFormat instance.
+</para>
+            </summary>
+            <param name="obj">
+		The object to compare with the current object.
+
+            </param>
+            <returns><b>true</b> if the specified object is equal to the current DocumentFormat instance; otherwise <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentFormat.GetHashCode">
+            <summary>
+                <para>Gets the hash code (a number) that corresponds to the value of the current DocumentFormat object.
+
+</para>
+            </summary>
+            <returns>An integer value representing the hash code for the current object.
+</returns>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentFormat.PlainText">
+            <summary>
+                <para>The plain text format.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentFormat.Rtf">
+            <summary>
+                <para>The Rich Text Format (RTF).
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentFormat.ToString">
+            <summary>
+                <para>Returns a human-readable string that represents the DocumentFormat object.
+</para>
+            </summary>
+            <returns>A <see cref="T:System.String"/> value that represents the DocumentFormat object.
+</returns>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.DocumentFormat.Undefined">
+            <summary>
+                <para>The document's format is undefined.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.HorizontalScrollbarOptions">
+
+            <summary>
+                <para>Represents the class containing options for the horizontal scrollbar.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.HorizontalScrollbarOptions.#ctor">
+            <summary>
+                <para>Initializes a new instance of the HorizontalScrollbarOptions class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.VerticalScrollbarOptions">
+
+            <summary>
+                <para>Represents the class containing options for the vertical scrollbar.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.VerticalScrollbarOptions.#ctor">
+            <summary>
+                <para>Initializes a new instance of the VerticalScrollbarOptions class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditScrollbarVisibility">
+
+            <summary>
+                <para>Specifies the visibility of a scroll bar.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Auto">
+            <summary>
+                <para>A scroll bar is automatically displayed when required.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden">
+            <summary>
+                <para>A scroll bar is hidden.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Visible">
+            <summary>
+                <para>A scroll bar is visible.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.DocumentSaveOptions">
+
+            <summary>
+                <para>Represents the settings which define file name and file format that are used when saving and loading the document.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.DocumentSaveOptions.#ctor">
+            <summary>
+                <para>Initializes a new instance of the DocumentSaveOptions class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentSaveOptions.CurrentFileName">
+            <summary>
+                <para>Gets or sets the file name into which the document is saved or from which it is loaded.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> which represents the current file name (including the path and the file extension).
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentSaveOptions.CurrentFormat">
+            <summary>
+                <para>Gets or sets the file format into which the document is saved or from which it is loaded.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> value representing the current file format.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentSaveOptions.DefaultFileName">
+            <summary>
+                <para>Gets or sets the file name used by default, when saving or loading documents.
+
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> which represents the default file name (including the path and the file extension).
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.DocumentSaveOptions.DefaultFormat">
+            <summary>
+                <para>Gets or sets the file format used by default, when saving or loading documents.
+
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.DocumentFormat"/> value representing the default file format.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.ScrollbarOptions">
+
+            <summary>
+                <para>Represents the base class for scrollbar options.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.ScrollbarOptions.Visibility">
+            <summary>
+                <para>Gets or sets a value that specifies the visibility of a scroll bar.
+</para>
+            </summary>
+            <value><b>true</b> if a scroll bar is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.RichEditControlOptions">
+
+            <summary>
+                <para>Represents the storage of different settings of the <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/>.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.RichEditControlOptions.#ctor(DevExpress.XtraRichEdit.RichEditControl)">
+            <summary>
+                <para>Initializes a new instance of the RichEditControlOptions class with the specified owner.
+
+</para>
+            </summary>
+            <param name="control">
+		A <see cref="T:DevExpress.XtraRichEdit.RichEditControl"/> object specifying the owner of the created options.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControlOptions.DocumentSaveOptions">
+            <summary>
+                <para>Provides access to the control's document saving options.
+</para>
+            </summary>
+            <value>An <see cref="T:DevExpress.XtraRichEdit.DocumentSaveOptions"/> object that contains document saving related settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControlOptions.HorizontalScrollbar">
+            <summary>
+                <para>Provides access to horizontal scroll bar options.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.HorizontalScrollbarOptions"/> object that contains the horizontal scroll bar's settings.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.RichEditControlOptions.VerticalScrollbar">
+            <summary>
+                <para>Provides access to vertical scroll bar options.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.VerticalScrollbarOptions"/> object that contains the vertical scroll bar's settings.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.ParagraphProperties">
+
+            <summary>
+                <para>Represents paragraph properties.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.Alignment">
+            <summary>
+                <para>Gets or sets text alignment within a paragraph.
+
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphAlignment"/> enumeration value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.FirstLineIndent">
+            <summary>
+                <para>Gets or sets a value specifying the indent of the first line of a paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value specifying the indent of the first line.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.FirstLineIndentType">
+            <summary>
+                <para>Gets or sets a value specifying whether and how the first line of a paragraph is indented.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphFirstLineIndent"/> enumeration value, which specifies the first line indent.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.LeftIndent">
+            <summary>
+                <para>Gets or sets the left indent for text within a paragraph.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the left indent.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.LineSpacing">
+            <summary>
+                <para>Gets or sets a line spacing value.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing line spacing.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.LineSpacingMultiplier">
+            <summary>
+                <para>Gets or sets the multiplier which is used to calculate the line spacing value.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the line spacing multiplier.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.LineSpacingType">
+            <summary>
+                <para>Gets or sets a value which determines the spacing between lines in a paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.ParagraphLineSpacing"/> enumeration value representing the line spacing type.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.RightIndent">
+            <summary>
+                <para>Gets or sets the right indent of text within a paragraph.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the right indent.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.SpacingAfter">
+            <summary>
+                <para>Gets or sets the spacing after the current paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the spacing after the paragraph.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.SpacingBefore">
+            <summary>
+                <para>Gets or sets the spacing before the current paragraph.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value representing the spacing before the paragraph.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.ParagraphProperties.SuppressHyphenation">
+            <summary>
+                <para>Gets or sets a value indicating whether text in a paragraph can have hyphens.
+
+</para>
+            </summary>
+            <value><b>true</b> to suppress hyphenation; <b>false</b> to enable hyphenation.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.SectionPage">
+
+            <summary>
+                <para>Represents page settings of a section.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPage.Height">
+            <summary>
+                <para>Gets or sets the page's height.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value specifying the page's height.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPage.Landscape">
+            <summary>
+                <para>Gets or sets a value that specifies whether the page's orientation is landscape.
+
+</para>
+            </summary>
+            <value><b>true</b> if the page's orientation is landscape; <b>false</b>, if the page has the standard portrait orientation.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPage.PaperKind">
+            <summary>
+                <para>Gets or sets a value that specifies the page's paper size.
+</para>
+            </summary>
+            <value>One of <see cref="T:System.Drawing.Printing.PaperKind"/> enumeration values.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionPage.Width">
+            <summary>
+                <para>Gets or sets the page's width.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value that specifies the page's width.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.CharacterProperties">
+
+            <summary>
+                <para>Represents character properties.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.AllCaps">
+            <summary>
+                <para>Gets or sets a value indicating whether all characters are capitalized.
+</para>
+            </summary>
+            <value><b>true</b> if all characters are capitalized; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.BackColor">
+            <summary>
+                <para>Gets or sets the background color of characters.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value representing the background color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.Bold">
+            <summary>
+                <para>Gets or sets a value indicating whether characters are bold.
+</para>
+            </summary>
+            <value><b>true</b> if characters are bold; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.FontName">
+            <summary>
+                <para>Gets or sets the character font name.
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.String"/> value representing the font name.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.FontSize">
+            <summary>
+                <para>Gets or sets the character font size.
+
+
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.ForeColor">
+            <summary>
+                <para>Gets or sets the foreground color of characters.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value representing the foreground color.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.Italic">
+            <summary>
+                <para>Gets or sets a value indicating whether characters are italicized.
+</para>
+            </summary>
+            <value><b>true</b> if characters are italicized; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.Strikeout">
+            <summary>
+                <para>Gets or sets a value indicating whether characters are strikeout.
+</para>
+            </summary>
+            <value><b>true</b> if characters are strikeout; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.Subscript">
+            <summary>
+                <para>Gets or sets a value indicating whether characters represent a subscript.
+</para>
+            </summary>
+            <value><b>true</b> if characters represent a subscript; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.Superscript">
+            <summary>
+                <para>Gets or sets a value indicating whether characters represent a superscript.
+</para>
+            </summary>
+            <value><b>true</b> if characters represent a superscript; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.CharacterProperties.Underline">
+            <summary>
+                <para>Gets or sets a value indicating whether characters are underlined.
+</para>
+            </summary>
+            <value><b>true</b> if characters are underlined; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.SectionMargins">
+
+            <summary>
+                <para>Represents margins of a <see cref="T:DevExpress.XtraRichEdit.API.Native.Section"/>.
+</para>
+            </summary>
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionMargins.Bottom">
+            <summary>
+                <para>Gets or sets a value that specifies the bottom margin.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value that specifies the bottom margin.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionMargins.Left">
+            <summary>
+                <para>Gets or sets a value that specifies the left margin.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value that specifies the left margin.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionMargins.Right">
+            <summary>
+                <para>Gets or sets a value that specifies the right margin.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value that specifies the right margin.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.SectionMargins.Top">
+            <summary>
+                <para>Gets or sets a value that specifies the top margin.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Single"/> value that specifies the top margin.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.DocumentRange">
+
+            <summary>
+                <para>Represents a document range.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.DocumentRange.Contains(DevExpress.XtraRichEdit.API.Native.DocumentPosition)">
+            <summary>
+                <para>Gets whether the current document range contains a specified position. 
+</para>
+            </summary>
+            <param name="pos">
+		A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> representing a position to test for inclusion.
+
+            </param>
+            <returns><b>true</b> if the specified position is contained within the range; otherwise, <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.End">
+            <summary>
+                <para>Gets the end position of the DocumentRange.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object representing the end of the text range.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Length">
+            <summary>
+                <para>Gets the length of a document range in characters.
+</para>
+            </summary>
+            <value>An integer, representing the number of character positions in a range.
+
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraRichEdit.API.Native.DocumentRange.Start">
+            <summary>
+                <para>Gets the start position of the DocumentRange.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition"/> object representing the start of the text range.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.SectionCollection">
+
+            <summary>
+                <para>Represents a collection of <see cref="T:DevExpress.XtraRichEdit.API.Native.Section"/> objects.
+</para>
+            </summary>
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.ParagraphCollection">
+
+            <summary>
+                <para>Represents a collection of <see cref="T:DevExpress.XtraRichEdit.API.Native.Paragraph"/> objects.
+</para>
+            </summary>
+
+        </member>
+        <member name="T:DevExpress.XtraRichEdit.API.Native.DocumentPosition">
+
+            <summary>
+                <para>Represents a position within a document.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.DocumentPosition.Equals(System.Object)">
+            <summary>
+                <para>Determines whether the specified object is equal to the current DocumentPosition instance.
+</para>
+            </summary>
+            <param name="obj">
+		The object to compare with the current object.
+
+            </param>
+            <returns><b>true</b> if the specified object is equal to the current DocumentPosition instance; otherwise <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.DocumentPosition.GetHashCode">
+            <summary>
+                <para>Gets the hash code (a number) that corresponds to the value of the current DocumentPosition object.
+
+</para>
+            </summary>
+            <returns>An integer value representing the hash code for the current object.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.DocumentPosition.ToInt">
+            <summary>
+                <para>Returns an integer representation of the DocumentPosition object.
+</para>
+            </summary>
+            <returns>An integer value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.XtraRichEdit.API.Native.DocumentPosition.ToString">
+            <summary>
+                <para>Converts the numeric value of this instance to its equivalent string representation.
+</para>
+            </summary>
+            <returns>The string representation of the value of this instance.
+</returns>
+
+
+        </member>
+    </members>
+</doc>

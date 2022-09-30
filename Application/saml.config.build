@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<SAMLConfiguration xmlns="urn:componentspace:SAML:2.0:configuration">
+	<ServiceProvider Name="expertchoice.com" Description="Example Service Provider" AssertionConsumerServiceUrl="http://localhost:20180/SAML/Assertion.aspx?debug=1">
+		<LocalCertificates>
+			<Certificate FileName="Certificates\Expertchoice-SSO.pfx" Password="test01!" />
+		</LocalCertificates>
+	</ServiceProvider>
+	<PartnerIdentityProviders>
+		<PartnerIdentityProvider Name="https://sts.windows.net/2a2afccb-5352-470a-969c-0f06601e1f1b/" SingleLogoutServiceUrl="https://login.microsoftonline.com/2a2afccb-5352-470a-969c-0f06601e1f1b/saml2" SingleSignOnServiceUrl="https://login.microsoftonline.com/2a2afccb-5352-470a-969c-0f06601e1f1b/saml2">
+			<PartnerCertificates>
+				<Certificate Use="Signature" FileName="Certificates\ecAzure.cer" />
+			</PartnerCertificates>
+		</PartnerIdentityProvider>
+	</PartnerIdentityProviders>
+</SAMLConfiguration>

@@ -1,0 +1,479 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="AnytimeComparion.SiteMaster" %>
+
+<%@ Register Src="~/Pages/includes/Footer.ascx" TagPrefix="includes" TagName="Footer" %>
+<%@ Register Src="~/Pages/includes/QHicons.ascx" TagPrefix="includes" TagName="QHicons" %>
+<%@ Import Namespace="AnytimeComparion.Pages.external_classes" %>
+<%@ Import Namespace="ExpertChoice.Data" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.png">
+    <%--<link runat="server" rel="shortcut icon" href="favicon.ico" type="image/x-icon" />--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" id="bootstrapstyle" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.css" id="appstyle" rel="stylesheet" type="text/css" />
+
+    <%--<asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>--%>
+
+    <%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
+    <%--<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
+    <style type="text/css">
+        .linkcls {
+            cursor: pointer !important;
+        }
+    </style>
+</head>
+<body data-layout="horizontal">
+
+    <!-- Begin page -->
+    <div id="layout-wrapper" class="master_wrapper">
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="javascript:void(0);" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="/assets/images/logo.png" alt="" height="32">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="/assets/images/logo.png" alt="" height="60">
+                            </span>
+                        </a>
+                    </div>
+                    <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                </div>
+                <div class="d-flex">
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                            <i class="bx bx-fullscreen"></i>
+                        </button>
+                    </div>
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                            <i class="bx bxs-book"></i>
+                        </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="/assets/images/users/avatar-1.jpg"
+                                alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry" id="CurrentUser" runat="server"></span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-user font-size-16 align-middle me-1"></i><span key="t-profile">Profile</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger LogoutButtons" href="javascript:void(0);"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i><span key="t-logout">Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <% If Session("topHeader") IsNot Nothing And Session("topHeader") = True Then %>
+        <div class="topnav" id="topHeader" runat="server">
+            <div class="container-fluid">
+                <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+                    <div class="collapse navbar-collapse justify-content-between" id="topnav-menu-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);">Workgroup: <strong><%:Session("WorkgroupName")%></strong>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);">Project: <strong><%:Session("ProjectName")%></strong>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0);">View as Evaluator:
+                                    <label class="switch">
+                                        <input type="checkbox" id="chkViewAsEvaulator">
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <input type="hidden" id="hdnView" value="0" />
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="aHelp" href="javascript:void(0);">
+                                    <i class="bx bxs-help-circle font-size-18"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <% End If %>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+            <div class="page-content">
+                <%--<!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-center">
+                                <p class="mb-sm-0 font-size-18 prm-color">
+                                    When thinking about <strong>Vendor / Source Selection, <span class="hl-color">choose the relative importance</span></strong> for each pair of objectives below <a href="javascript:void(0);"><i class="bx bxs-edit-alt"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                        </div>
+                    </div>
+                    <!-- end page title -->
+                    <div class="row">
+                        <div class="col-xl-12">
+                        </div>
+                    </div>
+                    <!-- end row -->--%>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <!-- Current Cluster Modal -->
+            <%--<div class="modal fade transaction-detailModal1" tabindex="-1" role="dialog" aria-labelledby="transaction-detailModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="transaction-detailModalLabel">Order Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <%--<div class="accordion accordion-flush" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button fw-medium" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                                                Vendor/Source Selection (#2)
+                                            <ul id="parent_node">
+
+                                            </ul>
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body ">
+                                            <ul class="list_popup">
+                                                <li>
+                                                    <a href="javascript:void(0);">option (#1)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">option (#1)
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            Quantity (#4)
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body text-muted">
+                                            <ul class="list_popup">
+                                                <li>
+                                                    <a href="javascript:void(0);">option (#1)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">option (#1)
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingThree">
+                                        <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                            Trust (#6)
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body text-muted">
+                                            <ul class="list_popup">
+                                                <li>
+                                                    <a href="javascript:void(0);">option (#1)
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);">option (#1)
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>--%>
+            <%--<ul class="tree">
+                                <li class="treee_section">
+                                    <input type="checkbox" id="groupB" checked />
+                                    <label for="groupB">Vendor / Source Selection <span>(#02)</label>
+                                    <ul>
+                                        <li>Price    <span>(#08)</span> </li>
+                                        <!-- SUB-SECTION -->
+                                        <li class="treee_section">
+                                            <input type="checkbox" id="groupC" checked />
+                                            <label for="groupC">Quality <span>(#04)</span></label>
+                                            <ul>
+                                                <li>Quality of workmanship<span>(#13)</span></li>
+                                                <li>Quality of material <span>(#15)</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="treee_section">
+                                            <input type="checkbox" id="groupD" checked />
+                                            <label for="groupD">Trust <span>(#06)</span></label>
+                                            <ul>
+                                                <li>Capabilty <span>(#17)</span></li>
+                                                <li>Security <span>(#19)</span></li>
+                                                <li>Stability <span>(#21)</span></li>
+                                            </ul>
+                                        </li>
+                                        <li>Lead Time <span>(#23)</span></li>
+                                        <li>Minimum Order <span>(#28)</span></li>
+                                    </ul>
+                                </li>
+                            </ul>--%>
+        </div>
+    </div>
+    </div>
+            </div>
+
+            <%--<div class="modal fade transaction-detailModal2" tabindex="-1" role="dialog" aria-labelledby="transaction-detailModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="transaction-detailModalLabel">Steps</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list_popup">
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>#1</span> Welcome Page
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>#2</span> Welcome Page
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>#3</span> Welcome Page
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>#4</span> Welcome Page
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>#5</span> Welcome Page
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <span>#6</span> Welcome Page
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>--%>
+    <!-- end modal -->
+
+    <%--<includes:Footer ID="footerControl" runat="server" />--%>
+        </div>
+        <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+        <div data-simplebar class="h-100">
+            <div class="rightbar-title d-flex align-items-center px-3 py-4">
+
+                <h5 class="m-0 me-2 hl-color">Who can we help you?</h5>
+
+                <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                    <i class="mdi mdi-close noti-icon"></i>
+                </a>
+            </div>
+            <!-- Settings -->
+            <hr class="mt-0" />
+
+            <div class="p-4">
+                <form class="app-search mb-2 pt-0">
+                    <div class="position-relative">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="bx bx-search-alt"></span>
+                    </div>
+                </form>
+                <h4 class=" mb-3 prm-color">SUGGESTED FOR YOU</h4>
+                <a href="https://comparion.knowledgeowl.com/help/collect-input----insight-survey" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Collect Input -- Insight Survey</p>
+                </a>
+                <hr>
+                <h4 class=" mb-3 prm-color">OTHER RESOURCES</h4>
+                <a href="https://comparion.knowledgeowl.com/help/getting-started" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Getting Started</p>
+                </a>
+                <a href="https://comparion.knowledgeowl.com/help" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Full Knowledge Based</p>
+                </a>
+                <a href="https://comparion.knowledgeowl.com/help/release-notes" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Release Note & Webinar</p>
+                </a>
+                <a href="https://comparion.knowledgeowl.com/help/resource-center" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Sample Models & Templates</p>
+                </a>
+                <a href="https://professorforman.com/" class="linkcls" target="_blank">
+                    <p><i class="bx bx-checkbox-square text-primary me-2"></i>Professor Forman Blogn</p>
+                </a>
+            </div>
+
+        </div>
+        <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+    <input type="checkbox" id="check">
+    <%--<label class="chat-btn" for="check">
+        <i class="fa fa-commenting-o comment"></i>
+        <i class='bx bx-chat comment'></i>
+        <i class='bx bx-x close'></i>
+    </label>--%>
+    <%--<div class="wrapper">
+        <div class="header_chat">
+            <h6>Let's Chat - Online</h6>
+        </div>
+        <div class="text-center">
+            <img src="/assets/images/logo.png" class="img-fluid ">
+            <p class="p-4 mb-0">
+                For immediate assistance,<br>
+                Chat with us - we're here to help!
+                <br>
+                You may also click the'?' icon at the top right for our help topics.
+            </p>
+        </div>
+        <div class="chat-form">
+            <input type="text" class="form-control" placeholder="Name" id="txtName">
+            <input type="text" class="form-control" placeholder="Email" id="txtEmail">
+            <textarea class="form-control" placeholder="Your Text Message" id="txtMessage"></textarea>
+            <button class="btn btn-success btn-block" id="btnStartChat">Start Chat</button>
+        </div>
+    </div>--%>
+    <!-- JAVASCRIPT -->
+    <script src="/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+    <!-- apexcharts -->
+    <script src="/assets/js/app.js"></script>
+
+    <%--<script src="Scripts/app.js"></script>--%>
+
+    <script>
+
+        var baseUrl = '<%= ResolveUrl("~/") %>';
+        $(".LogoutButtons").click(function () {
+            var timeOut = 0;
+            //var anytimeScope = angular.element($("#anytime-page")).scope();
+            //if (angular.isDefined(anytimeScope)) {
+            //    timeOut = 300;
+            //    anytimeScope.isLogOutClicked = true;
+
+            //    var scope = angular.element($("#main-body")).scope();
+            //    anytimeScope.showLoadingMessage = false; //for hiding loading/saving message
+            //    anytimeScope.isAutoSaving = true;
+            //    scope.MoveStepat(null, anytimeScope.current_step, false, null, false);
+            //}
+
+            setTimeout(function () {
+                var beforeUnload = window.onbeforeunload;
+                window.onbeforeunload = null;
+
+                if (confirm('Are you sure you want to logout?')) {
+                    setTimeout(function () {
+                        //show_loading_modal();
+                        $.ajax({
+                            type: "POST",
+                            url: baseUrl + "Login.aspx/logout",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data) {
+                                    window.location.href = window.location.origin + '/login.aspx';
+                                }
+                                hide_loading_modal();
+                            },
+                            error: function (response) {
+                                window.location.href = baseUrl;
+                                hide_loading_modal();
+                            }
+                        });
+                    }, timeOut);
+                } else {
+                    window.onbeforeunload = beforeUnload;
+                    return false;
+                }
+            }, timeOut);
+
+        });
+
+        $('#chkViewAsEvaulator').click(function () {
+            if ($('#hdnView').val() == "0") {
+                $('#aHelp').css('display', 'none');
+                $('#hdnView').val('1');
+            }
+            else {
+                $('#aHelp').css('display', 'block');
+                $('#hdnView').val('0');
+            }
+        });
+        $(document).ready(function () {
+            setTimeout(function () {
+                var headElement = document.getElementsByTagName("head")[0];
+                var chatScript = document.createElement("script");
+                chatScript.type = "text/javascript";
+                chatScript.src = "//www.socialintents.com/api/socialintents.1.3.js#2c9fa7465c3c6e61015c3dd5e6d700f5";
+                chatScript.async = "async";
+                headElement.appendChild(chatScript);
+
+            }, 0);
+        });
+    </script>
+</body>
+</html>

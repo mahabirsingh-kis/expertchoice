@@ -1,0 +1,212 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <title>Expert Choice UI Style Guide| Tabs</title>
+  <link rel="stylesheet" href="assets/css/stylesheet.css">
+
+</head>
+<body>
+
+  <div class="off-canvas-wrapper"><div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+
+      <header class="ec-header">
+          <div class="topper-logo row expanded">
+              <div class="columns">
+                  <a  href="index.html">Expert Choice Style Guide</a>
+              </div>
+          </div>
+      </header>
+
+    <div id="styleguide-component">
+      <div class="row expanded">
+        <div class="medium-7 medium-push-2 columns">
+
+<h1 id="tabs">Tabs</h1>
+
+
+<h2 id="basics">Basics</h2>
+
+        <div class="tab">
+          <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
+          <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+          <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+        </div>
+
+        <div id="London" class="tabcontent">
+          <h3>London</h3>
+          <p>London is the capital city of England.</p>
+        </div>
+
+        <div id="Paris" class="tabcontent">
+          <h3>Paris</h3>
+          <p>Paris is the capital of France.</p> 
+        </div>
+
+        <div id="Tokyo" class="tabcontent">
+          <h3>Tokyo</h3>
+          <p>Tokyo is the capital of Japan.</p>
+        </div>
+
+        <hr>
+        <h2 id="vertical-tabs">Vertical Tabs</h2>
+        <div class="vertical-tabs">
+          <div class="tab">
+            <button class="tablinksAsia" onclick="openCityAsia(event, 'Manila')" id="defaultOpenAsia">Manila</button>
+            <button class="tablinksAsia" onclick="openCityAsia(event, 'HongKong')">HongKong</button>
+            <button class="tablinksAsia" onclick="openCityAsia(event, 'Taipei')">Taipei</button>
+          </div>
+
+          <div id="Manila" class="tabcontentAsia">
+            <h3>Manila</h3>
+            <p>London is the capital city of England.</p>
+          </div>
+
+          <div id="HongKong" class="tabcontentAsia">
+            <h3>HongKong</h3>
+            <p>Paris is the capital of France.</p> 
+          </div>
+
+          <div id="Taipei" class="tabcontentAsia">
+            <h3>Taipei</h3>
+            <p>Tokyo is the capital of Japan.</p>
+          </div>
+        </div>
+        <br/>
+
+
+        </div>
+       <div class="medium-2 medium-pull-7 columns">
+          <ul class="vertical menu" id="styleguide-menu">
+            <li class="nav-title">General</li>
+            
+            <li><a href="typography.html">Typography</a></li>
+  <li><a href="colors.html">Colors</a></li>
+<li><a href="icons.html">Icons</a></li>
+
+
+            <li><a href="forms.html">Forms</a></li>
+          
+            <li class="nav-title">Navigation</li>
+            <li><a href="navigation.html">Overview</a></li>
+            
+            
+          
+          
+            <li class="nav-title">Controls</li>
+            <li><a href="buttons.html">Buttons</a></li>
+            
+            <li><a href="pagination.html">Pagination</a></li>
+          
+            <li class="nav-title">Containers</li>
+            <li><a href="tables.html">Tables</a></li>
+            <li class="current"><a href="tabs.html">Tabs </a></li>
+            <li><a href="modal.html">Modal</a></li>
+<li><a href="alerts.html">Alerts</a></li>
+          </ul>
+          
+        </div>
+        
+        <div class="medium-3 columns">
+        <!-- TOC, except on Style Guide landing page -->
+          <div data-sticky-container>
+            <nav class="columns styleguide-toc-wrap" data-sticky data-anchor="styleguide-component" data-sticky-on="large">
+              <div class="styleguide-toc" id="styleguideTOC">
+                <p class="styleguide-nav-title">On this page:</p>
+          
+                <ul class="vertical menu" data-styleguide-toc>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="ec-footer">
+           <div class="footer-copyright row">
+             ©2018 Expert Choice, Inc.
+           </div>
+      
+      </footer>
+      
+    </div>
+    </div>
+  </div>
+
+    <script src="../Scripts/jquery.min.js"></script>
+  <script type="text/javascript">
+    !function () {
+
+      var $h2s = $('#styleguide-component h2');
+      var $toc = $('[data-styleguide-toc]');
+
+      $h2s.each(function () {
+        // Ignore <h2>s inside of a rendered code sample
+        if ($(this).parents('.styleguide-code-live').length) return;
+
+        // Ignore the breadcrumb label
+        if ($(this).is('#breadcrumbs-label')) return;
+
+        // Ignore the main menu label
+        if ($(this).is('#main-menu-heading')) return;
+
+        //Add Magellan Target
+        $(this).attr("data-magellan-target", this.id);
+
+        var text = $(this).text();
+        var anchor = this.id;
+
+        $toc.append('<li><a href="#' + anchor + '">' + text + '</a></li>');
+      });
+
+      // Initialize Magellan on the generated table of contents
+      if ($toc.length) {
+        if (typeof Foundation !== 'undefined') {
+          new Foundation.Magellan($toc, {});
+        }
+      }
+    }();
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpenAsia").click();
+    function openCityAsia(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontentAsia");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinksAsia");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+</script>
+     
+
+</body>
+</html>

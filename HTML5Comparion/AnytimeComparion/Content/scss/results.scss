@@ -1,0 +1,254 @@
+@import "settings";
+//Local (Intermediate) and Global (Overall) Results Style for Anytime and Teamtime
+
+
+/** START GlobalResults.ascx **/   
+.tt-r-ul {
+        list-style: none;
+    }
+
+    .tt-r-ul ul {
+      list-style: none;
+      margin-left: 20px !important;
+    }
+    .tt-r-ul ul li {
+        position: relative;
+    }
+/** END GlobalResults.ascx **/   
+
+/** START GlobalResults.aspx fixes **/
+.tt-r-ul {
+    list-style: none;
+
+    ul {
+      list-style: none;
+      margin-left: 20px !important;
+
+        li {
+            position: relative;
+        }
+    }
+}
+
+.sv-sorter {
+    padding: 3px !important;
+    height: auto !important;
+    width:100%;
+}
+/** END GlobalResults.aspx fixes **/
+
+/** START localresults.aspx fixes **/
+/*subscripts*/
+        .supsub {position: absolute;}
+        .subscript {display: block !important; position:absolute; left:-2px; top: 5px; width:100%;text-align:right;}
+        .superscript {display: block !important; position:absolute; left:-2px; top: -5px; width:100%;text-align:right;}
+
+        /*classes below for new wording of stask*/
+        .bolded {
+            font-weight: bold;
+        }
+        .less-font {
+            font-size: 10px;
+        }
+
+        @-webkit-keyframes hvr-ripple-out {
+          100% {
+            top: -12px;
+            right: -12px;
+            bottom: -12px;
+            left: -12px;
+            opacity: 0;
+          }
+        }
+        @keyframes hvr-ripple-out {
+          100% {
+            top: -12px;
+            right: -12px;
+            bottom: -12px;
+            left: -12px;
+            opacity: 0;
+          }
+        }
+        .hvr-ripple-out {
+          display: inline-block;
+          vertical-align: middle;
+          -webkit-transform: perspective(1px) translateZ(0);
+          transform: perspective(1px) translateZ(0);
+          box-shadow: 0 0 1px transparent;
+          position: relative;
+        }
+        .hvr-ripple-out:before {
+          content: '';
+          position: absolute;
+          border: #c2deea solid 3px;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+        }
+        .hvr-ripple-out:hover:before, .hvr-ripple-out:focus:before, .hvr-ripple-out:active:before {
+          -webkit-animation-name: hvr-ripple-out;
+          animation-name: hvr-ripple-out;
+        }
+               
+//        @-webkit-keyframes pulsate {
+//            0% {box-shadow: #0058a3 0 0 1px;}
+//            25% {box-shadow: #0058a3 0 0 3px;}
+//            50% {box-shadow: #0058a3 0 0 5px;}
+//            50% {box-shadow: #0058a3 0 0 8px;}
+//            100% {box-shadow: #0058a3 0 0 10px;}
+//        }
+        .text-glow-hover-with-delay:hover
+        {
+    
+
+        }
+
+        .cb-glow{
+            background: #FFF;
+            color: #000;
+            transition: box-shadow 0.6s;
+            -moz-transition: box-shadow 0.6s; /* Firefox 4 */
+            -webkit-transition: box-shadow 0.6s; /* Safari and Chrome */
+            -o-transition: box-shadow 0.6s; /* Opera */
+            animation-timing-function: ease-out;
+            animation-duration:3s;
+            animation: pulse 3s;
+            -webkit-animation: pulse 3s; /* for less modern browsers */
+        }
+
+        @-webkit-keyframes pulse {
+            12% {box-shadow: #0058a3 0 0 15px;}
+            25% {box-shadow: #0058a3 0 0 0px;}
+            37% {box-shadow: #0058a3 0 0 15px;}
+            50% {box-shadow: #0058a3 0 0 0px;}
+            62% {box-shadow: #0058a3 0 0 15px;}
+            75% {box-shadow: #0058a3 0 0 0px;}
+            87% {box-shadow: #0058a3 0 0 15px;}
+            100% {box-shadow: #0058a3 0 0 0px;}
+        }
+
+        .sticky-results-button{
+            position: fixed;
+            background: white;
+            height: 100%;
+        }
+
+        #results-title{
+            margin-left:15px;
+        }
+
+        .extend-space{
+            margin-right: 10px;
+        }
+
+        #toBeZoomedOut {
+           background-color: black;
+           border: 1px solid #AAAAAA;
+           color: white;
+           width: 300px;
+           height: 300px;
+           margin-left: auto;
+           margin-right: auto;
+            -webkit-transition: all 1s ease;
+           -moz-transition: 1s ease;
+           transition: 1s ease;
+        }
+
+        .tbcell * {
+           -webkit-transition: all 1s ease;
+           -moz-transition: 1s ease;
+           transition: 1s ease;
+        }
+
+        .tbcell img {
+           width: 80%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .tbcell:hover {
+           width: 100px;
+            height: 100px;
+        }
+
+        .results-inconsistency-tree{
+            margin-top:10px;
+        }
+
+        #IntermediateResults .hide{
+            display:none !important;
+        }
+
+        .sv-sorter {
+            padding: 3px !important;
+            height: auto !important;
+            width:100%;
+        }
+/** END localresults.aspx fixes **/
+
+// Global or Overall result
+.global-result {
+    & .tt-panel span.text{color:$tt-blue-normal;}
+}
+//Measurement Methods
+.tt-mobile-wrap .tt-j-content .tt-results-nav-wrap .tt-r-ul .tt-r-ul-li .parent-tree.selected {background-color: $smoke !important;}
+
+// Local or Immediate Results adjustments
+.pipe-wrap .results-main .tt-j-title h3 {margin:0px;}
+.pipe-wrap {
+    & .results-options {
+//        margin-bottom: 10px !important;
+        margin-top: 20px !important;}
+}
+
+// Results Screen bars recolor
+.tt-mobile-wrap.direct-comparison-wrap-mobile .dc-group-result-bar, .tt-mobile-wrap.direct-comparison-wrap-mobile .priorities-result-bar {
+    background-color: $tt-blue-normal !important;
+}
+.tt-mobile-wrap.direct-comparison-wrap-mobile .dc-group-result-bar.green, .tt-mobile-wrap.direct-comparison-wrap-mobile .priorities-result-bar.green {
+    background-color: $tt-green-normal !important;
+}
+
+// Line height inside results page top section
+#results-instruction {
+    & .tt-panel.tt-local-results-header {
+        & .tg-legend {
+            & div,
+            & div h2,
+            & div p {
+                line-height: 1.4em;
+            }
+        }
+    }
+}
+
+
+//MEDIA QUERIES
+
+//Small up
+@media only screen { 
+    //Judgment or Matrix Table Adjustment
+    #matrixtable {
+        & .priorities-name, & .priorities-percent {
+            position: relative !important;
+            height: auto;
+        }
+        & tr td {
+            height:40px;
+            width: 40px !important;
+            & div {
+                height: 100%;
+                & input {height: 100% !important;}
+                &.direc-comparison-wrap {
+                      height: 15px;
+                    width: 99%;
+                    border: 1px solid #ccc;
+                    padding: 1px;
+                }
+            }
+        }
+    }
+}

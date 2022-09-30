@@ -1,0 +1,474 @@
+<!--<div class="large-12 columns tt-left-col">-->
+
+<div class="large-12 columns tt-tabs-wrap-results">
+    <ul class="tabs" data-tabs>
+        <li class="tab-title"><a href="#scheduleMeeting" ng-click="changePage(collectInputPages.scheduleMeeting)">Shedule Meeting</a></li>
+        <li class="tab-title active"><a href="#displaySettings" ng-click="changePage(collectInputPages.displaySettings)">Display Settings</a></li>
+        <li class="tab-title"><a href="#selectQuestionnaire" ng-click="changePage(collectInputPages.selectQuestionnaire)">Select Questionnaire</a></li>
+
+    </ul>
+    <div class="tabs-content">
+        <div class="content active" id="head-to-head">
+            <div class="row collapse tt-tabs-header-menus">
+
+
+                <ul class="tabs inner" data-tab>
+                    <li class="tab-title active"><a href="#pds">Participant Display Settings</a></li>
+                    <li class="tab-title"><a href="#mos">Measurement Options Settings</a></li>
+                </ul>
+                <div class="tabs-content inner">
+                    <!-- participant options settings -->
+                    <div class="content active" id="pds">
+                        <div class="row">
+                            <div class="medium-6 columns">
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+
+                                        <div class="small-12 columns" title=" ">
+                                            <a id="1" href="#" class="left tt-toggler" data-toggler="tg"><span class="icon icon-tt-minus-square"></span> General Settings</a>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="sub tg-1 row">
+                                        <ul class="large-8 columns settings-wrap">
+                                            <li>
+                                                <input id="checkbox1" type="checkbox" checked>
+                                                <label for="checkbox1">Show "Welcome" page
+                                                    <a href="#" class="edit-link">
+                                                        <small>Edit</small>
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2">Show "Thank You" page
+                                                    <a href="#" class="edit-link">
+                                                        <small>Edit</small>
+                                                    </a>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox3" type="checkbox" checked>
+                                                <label for="checkbox3">Show inconsistency ratio</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox3" type="checkbox" checked>
+                                                <label for="checkbox3">Show information documents</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox3" type="checkbox" checked>
+                                                <label for="checkbox3">Show full Objective path</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox3" type="checkbox" checked>
+                                                <label for="checkbox3">Show / Allow comments entry</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox3" type="checkbox" checked>
+                                                <label for="checkbox3">Suppress warning when judgments are not made</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+
+                                        <div class="small-12 columns" title=" ">
+                                            <a id="2" href="#" class="left tt-toggler" data-toggler="tg"><span class="icon icon-tt-minus-square"></span> Evaluation Settings</a>
+                                            <span class="info">Display options for participants in TeamTime</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="sub tg-2 row">
+                                        <ul class="large-8 columns settings-wrap">
+                                            <li>
+                                                <input id="checkbox11" type="checkbox" checked>
+                                                <label for="checkbox11">Hide navigation box</label>
+                                                <ul class="large-8 columns settings-wrap">
+                                                    <li>
+                                                        <input id="checkboxsub1" type="checkbox" checked>
+                                                        <label for="checkboxsub1">Disable Navigation Buttons</label>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2">Show next unassessed</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2">Auto Advanced</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2">Don't allow going to next step unless input is provided</label>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox111" type="checkbox" checked>
+                                                <label for="checkbox111">Redirect after collecting input </label>
+                                                <ul class="large-8 columns settings-wrap">
+                                                    <li>
+                                                        <div class="row collapse">
+                                                            <div class="small-3 large-2 columns">
+                                                                <span class="prefix">http://</span>
+                                                            </div>
+                                                            <div class="small-9 large-10 columns">
+                                                                <input type="text" placeholder="Enter your URL...">
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <input id="checkbox2" type="checkbox" checked>
+                                                <label for="checkbox2">Logout after collecting input</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="medium-6 columns">
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+                                        <div class="small-12 columns" title=" ">
+                                            <a id="3" href="#" class="left tt-toggler" data-toggler="tg"><span class="icon icon-tt-minus-square"></span> Results Display Settings</a>
+                                            <span class="info"><a href="#">Advance Display settings</a></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="sub tg-3 row">
+                                        <div class="row">
+                                            <span class="info">Display options for participants in TeamTime</span>
+                                        </div>
+                                        <div class="row">
+                                            <ul class="large-8 columns  settings-wrap">
+                                                <h3>Sensitivit Analysis</h3>
+                                                <li>
+                                                    <input id="checkbox111" type="checkbox" checked>
+                                                    <label for="checkbox111">Display dynamic analysis</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox111" type="checkbox" checked>
+                                                    <label for="checkbox111">Display gradient analysis</label>
+                                                </li>
+                                                <li>
+                                                    <input id="checkbox111" type="checkbox" checked>
+                                                    <label for="checkbox111">Display performance analysis</label>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <div class="medium-6 columns">
+                                                <ul class="  settings-wrap">
+                                                    <h3>Intermediate Results</h3>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">Hide</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">Individual</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">Combined</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">both</label>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="medium-6 columns">
+                                                <ul class="  settings-wrap">
+                                                    <h3>Overall  Results</h3>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">Hide</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">Individual</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">Combined</label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="r1" name="radio1" type="radio">
+                                                        <label for="r1">both</label>
+                                                        <ul>
+                                                            <li>
+                                                                <input id="checkbox111" type="checkbox" checked>
+                                                                <label for="checkbox111">Use AIP</label>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <table class="full-width">
+                                                <thead>
+                                                    <tr>
+                                                        <th> </th>
+                                                        <th>Intermediate Results</th>
+                                                        <th>Overall Results</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>No Sorting</td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+<!--                                                        <td><input id="123" type="checkbox" checked></td>-->
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sort by name</td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+<!--                                                        <td><input id="123" type="checkbox" checked></td>-->
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sort by individual priority</td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+<!--                                                        <td><input id="123" type="checkbox" checked></td>-->
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sort by combined priority</td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+                                                        <td><input id="123" type="checkbox" checked></td>
+<!--                                                        <td><input id="123" type="checkbox" checked></td>-->
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //participant options settings -->
+                    
+                    <!-- measurement options settings -->
+                    <div class="content" id="mos">
+                        <div class="row">
+                            <div class="medium-6 columns">
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+                                        <div class="small-12 columns" title=" ">
+                                            <a id="4" href="#" class="left tt-toggler" data-toggler="tg"><span class="icon icon-tt-minus-square"></span> Objectives</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="sub tg-4 row">
+                                            <!--<div class="row">
+                                                <span class="info">Order for evaluating Objectives within hierarchy</span>
+                                            </div>-->
+                                            <div class="row">
+                                                <div class="row collapse">
+                                                    <ul class="large-8 columns  settings-wrap">
+                                                        <h3>Order for evaluating Objectives within hierarchy</h3>
+                                                        <li>
+                                                            <input id="c1" type="radio" checked>
+                                                            <label for="c1">Display dynamic analysis</label>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                                <div class="row collapse">
+                                                    <ul class="large-8 columns  settings-wrap">
+                                                        <h3>When prioritizing Objectives on each screen, evaluate:</h3>
+                                                        <li>
+                                                            <input id="c2" type="radio" checked>
+                                                            <label for="c2">Pairwise Comparison</label>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="large-12 columns">
+                                    <div class="row collapse">
+                                        <div class="small-12 columns" title=" ">
+                                            <a id="5" href="#" class="left tt-toggler" data-toggler="tg"><span class="icon icon-tt-minus-square"></span> Alternatives</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="sub tg-5 row">
+                                            <!--<div class="row">
+                                                <span class="info">Default Measurement Type:</span>
+                                            </div>-->
+                                            <div class="row">
+                                                <div class="row collapse">
+                                                    <ul class="large-8 columns  settings-wrap">
+                                                        <h3>Default Measurement Type:</h3>
+                                                        <li>
+                                                            <input id="c1" type="radio" checked>
+                                                            <label for="c1">Display dynamic analysis</label>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                                <div class="row collapse">
+                                                    <h3>When prioritizing Objectives on each screen, evaluate:</h3>
+                                                </div>
+                                                <div class="row collapse">
+                                                    <ul class="large-8 columns  settings-wrap">
+                                                        <h3> If Ratings or Direct</h3>
+                                                        <li>
+                                                            <div class="small-2 columns">
+                                                                <input id="c2" type="radio">
+                                                            </div>
+                                                            <div class="small-10 columns">
+                                                                <label for="c2">One Objective and all Alternatives (AnyTime Evaluation Only)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="small-2 columns">
+                                                                <input id="c3" type="radio">
+                                                            </div>
+                                                            <div class="small-10 columns">
+                                                                <label for="c3">One Alternative with respect to all covering Objectives (AnyTime Evaluation Only)</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="small-2 columns">
+                                                                <input id="c4" type="radio">
+                                                            </div>
+                                                            <div class="small-10 columns">
+                                                                <label for="c4">One Alternative with respect to all covering Objectives followed by the next Alternative with respect to that covering Objectives</label>
+                                                            </div>
+                                                        </li>
+                                                        
+
+
+                                                    </ul>
+                                                </div>
+                                                <div class="row collapse">
+                                                    <ul class="large-8 columns  settings-wrap">
+                                                        <h3> If Pairwise</h3>
+                                                        <li>
+                                                            <div class="small-2 columns">
+                                                                <input id="c3" type="radio">
+                                                            </div>
+                                                            <div class="small-10 columns">
+                                                                <label for="c3">One Alternative with respect to all covering Objectives</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="small-2 columns">
+                                                                <input id="c4" type="radio">
+                                                            </div>
+                                                            <div class="small-10 columns">
+                                                                <label for="c4">One Alternative with respect to all covering Objectives (AnyTime Evaluation Only)</label>
+                                                            </div>
+                                                        </li>
+                                                        </li>
+
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="medium-6 columns">
+                                <div class="large-12 columns">
+                                    <div class="row ">
+                                            <table class="full-width">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 60%;"> </th>
+                                                        <th style="width: 20%;">Intermediate Results</th>
+                                                        <th>Overall Results</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" class="large-text-left small-text-center"><h3>Trade-off between accuracy and # or comparisons:</h3></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">All pairs (maximum accuracy)</td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">Two diagonals</td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">One diagonal (least time)</td>
+                                                        <td style="width: 20%;"><input id="123" type="number" ></td>
+                                                        <td style="width: 20%;"><input id="123" type="number" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" class="indent">Force most comparison if fewer than elements in other clusters</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="3" class="">&nbsp;</td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td colspan="3" class="large-text-left small-text-center"><h3>Select the type for pairwise comparison:</h3></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">All pairs (maximum accuracy)</td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">Two diagonals</td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">One diagonal (least time)</td>
+                                                        <td style="width: 20%;"><input id="123" type="number" ></td>
+                                                        <td style="width: 20%;"><input id="123" type="number" ></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="indent" style="width: 60%;">Force most comparison if fewer than elements in other clusters</td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                        <td style="width: 20%;"><input id="123" type="radio" checked></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //measurement options settings -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+    $(document).foundation('reflow');
+</script>
+
+<!--</div> -->
+<!-- tt-left-col-->

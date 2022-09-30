@@ -1,0 +1,5 @@
+Generate 4096 key from https://csrgenerator.com/
+Paste into Godaddy
+Download and covert to PFX use https://www.sslshopper.com/ssl-converter.html
+Import into MMC CertMgr
+Export PFX

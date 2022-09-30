@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="expand-icon-btn" transform="translate(-310 -385)">
+    <g id="Group_943" data-name="Group 943" transform="translate(-841.887 -16)">
+      <g id="Group_614" data-name="Group 614" transform="translate(1124.887 398)">
+        <rect id="Rectangle_9_copy_7" data-name="Rectangle 9 copy 7" width="34" height="34" rx="5" transform="translate(27 3)" fill="#e7edf6" style="mix-blend-mode: multiply;isolation: isolate"/>
+      </g>
+    </g>
+    <path id="full-screen-svgrepo-com" d="M14.65,3.52,17.127,6V0h-6l2.477,2.477L8.564,7.52,3.52,2.477,6,0H0V6L2.477,3.52,7.52,8.564,2.477,13.607,0,11.13v6H6L3.52,14.65,8.564,9.607l5.043,5.043L11.13,17.127h6v-6L14.65,13.607,9.607,8.564Z" transform="translate(318 393)" fill="#354052"/>
+  </g>
+</svg>

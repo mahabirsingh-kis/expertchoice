@@ -1,0 +1,343 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CanvasBaseClasses
+</name>
+</assembly>
+<members>
+<member name="T:ExpertChoice.Data.clsDatabaseAdvanced">
+ <summary>
+ Class for work with Database server.
+ </summary>
+ <remarks>This is ODBC.Net version. Dependencies: System.Data.*</remarks>
+</member>
+<member name="F:ExpertChoice.Data.clsDatabaseAdvanced._Connection">
+ <summary>
+ Current connection
+ </summary>
+ <remarks>Should be defined and not be Nothing</remarks>
+</member>
+<member name="F:ExpertChoice.Data.clsDatabaseAdvanced.sError">
+ <summary>
+ String with last error details
+ </summary>
+ <remarks>Empty while all operations is O.K.</remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsDatabaseAdvanced.isConnected">
+ <summary>
+ Readonly property for getting status of current connection
+ </summary>
+ <value></value>
+ <returns>True, when current connection is active and SQL server is connected.</returns>
+ <remarks>Connection must be exists.</remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsDatabaseAdvanced.ConnectionString">
+ <summary>
+ Current connection string.
+ </summary>
+ <value>New connection string for existed connection.</value>
+ <returns>Full connection string for current connection</returns>
+ <remarks>Current (active) connection will be closed, if new connection string is providing.</remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsDatabaseAdvanced.Connection">
+ <summary>
+ Get reference to current connection
+ </summary>
+ <value></value>
+ <returns>Current connection</returns>
+ <remarks></remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsDatabaseAdvanced.LastError">
+ <summary>
+ Get error details.
+ </summary>
+ <value></value>
+ <returns>String with error descriptions.</returns>
+ <remarks>Is empty while don't have any errors. Storing details only for the latest error.</remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsDatabaseAdvanced.ServerName">
+ <summary>
+ Get current server name (DataSource of Current Connection)
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks>Connection must be exists.</remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsDatabaseAdvanced.DatabaseName">
+ <summary>
+ Get name for current Database
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks>Connection must be exists.</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.ResetError">
+ <summary>
+ Method for reset Error details.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.Connect">
+ <summary>
+ Perform SQL connection with specified params.
+ </summary>
+ <returns>True, if connection was successfully</returns>
+ <remarks>LastError have a message while ConnectionString not been provided.
+ When RTE occurred, LastError also have a details about connection error.
+ </remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.Close">
+ <summary>
+ Close current connection.
+ </summary>
+ <remarks>Connection must be exists.</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.SQL(System.String)">
+ <summary>
+ Create SQL Command for specified SQL-command(s).
+ </summary>
+ <param name="sSQL">String with SQL-command(s).</param>
+ <returns>Command object with type of current connection.</returns>
+ <remarks>Connection must be exists and shouldn't be connected. When calling, connection will try to open if not connected.</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.#ctor(System.String,GenericDBAccess.ECGenericDatabaseAccess.GenericDB.DBProviderType)">
+ <summary>
+ Create new database object with database connection.
+ </summary>
+ <remarks>ConnectionString is empty, connection is closed, LastError is also empty.</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.GetLastIdentity(ExpertChoice.Data.clsDatabaseAdvanced)">
+ <summary>
+ Get last inserted ID (for tables with auto incremented field)
+ </summary>
+ <param name="DB">Active dbConnection object, should be available and connected</param>
+ <returns>Integer value for last inserted ID. Returns -1 when not found</returns>
+ <remarks>Supported only for MSSQL 7+</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsDatabaseAdvanced.CheckDBConnection(System.String,GenericDBAccess.ECGenericDatabaseAccess.GenericDB.DBProviderType)">
+ <summary>
+ Check connection for specified ODBC connection string.
+ </summary>
+ <param name="sConnString">Connection string</param>
+ <returns>True, when connection is successful.</returns>
+ <remarks></remarks>
+</member>
+<member name="T:ExpertChoice.Data.ECTeamTimeStatus">
+ <summary>
+ Enum type for support controls with Synchronous
+ </summary>
+ <remarks>When Synchronous is active, it should be not equal ssNoSynchronous</remarks>
+</member>
+<member name="T:ExpertChoice.Data.clsProject">
+ <summary>
+ Class for processing Project (Decision)
+ </summary>
+ <remarks>Dependencies: clsEvaluation</remarks>
+</member>
+<member name="F:ExpertChoice.Data.clsProject._PipeParameters">
+ <summary>
+ Reference to the PipeParameters (could be loaded independent when Project manager isn't loaded yet)
+ </summary>
+ <remarks>Auto-linked to the loaded ProjectManager when it's available</remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsProject.ID">
+ <summary>
+ Project ID
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsProject.ProjectName">
+ <summary>
+ Project name (full)
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:ExpertChoice.Data.clsProject.Passcode(System.Boolean)">
+ <summary>
+ Project Passcode (short name)
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks>Best solution: each project must be have unique passcode.</remarks>
+</member>
+<member name="M:ExpertChoice.Data.clsProject.#ctor(System.Boolean,System.Boolean,System.String,System.Boolean,ExpertChoice.Data.clsProject.onProjectEvent,ExpertChoice.Data.clsProject.onProjectEvent,System.Boolean,ExpertChoice.Data.clsProject.onProjectDateTimeEvent)">
+ <summary>
+ Create object for new Project.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:ExpertChoice.Data.dbObjectType">
+ <summary>
+ Constants for ExtraInfo logging, could be used for grouping actions
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.Common._TRACE_INFO">
+ <summary>
+ Show "Info" tag in trace output (by default)
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.Common._TRACE_WARNING">
+ <summary>
+ Show "Warning" tag in trace output (like a notification)
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.Common._TRACE_RTE">
+ <summary>
+ Show "RTE" tag in trace output (As usual, this is critical situations)
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.Common._Trace_PageContext">
+ <summary>
+ HTTPContext for create and write trace info
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.Common.DebugInfo(System.String,System.String)">
+ <summary>
+ Show debug message to Trace context and debug output
+ </summary>
+ <param name="sMessage">Message for output, should be non-empty</param>
+ <param name="sCategory">Category as massage tag (use _TRACE_* consts, _TRACE_INFO used by default)</param>
+ <remarks>Written to Debug and Trace context when "TraceEnabled" option is turned on in web.config file</remarks>
+</member>
+<member name="M:ExpertChoice.Service.Common.SendMail(System.String,System.String,System.String,System.String,System.String@,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{System.Net.Mail.LinkedResource})">
+ <summary>
+ Send email
+ </summary>
+ <param name="sFrom">Sender Address</param>
+ <param name="sTo">Recipient(s) address(es)</param>
+ <param name="sSubject">Letter subject</param>
+ <param name="sBody">Letter content (as plain MIMEd-text)</param>
+ <param name="sError">Reference to feedback string when error occurred</param>
+ <returns>True when mail is sent</returns>
+ <remarks>All SMTP setting should be described in web.config file. See "mailSettings" section.</remarks>
+</member>
+<member name="M:ExpertChoice.Service.Common.GetNodeByID(System.Collections.Generic.List{ECCore.clsNode},System.Int32)">
+ <summary>
+ Get clsNode By NodeID from ArrayList with clsNodes;
+ </summary>
+ <param name="Nodes">List of nodes</param>
+ <param name="NodeID">NodeID for search</param>
+ <returns>Nothing, when Node not found</returns>
+ <remarks>Used for cases, when direct assess to GetNodeByID is not available (for example, for search in GetNodesBelow() list)</remarks>
+</member>
+<member name="M:ExpertChoice.Service.Common.GetParam(System.Collections.Specialized.NameValueCollection,System.String)">
+ <summary>
+ Get Parameter value by his name from NamevalueCollection (as usual, passed via request or form)
+ </summary>
+ <param name="ParamsList">List with named parameters</param>
+ <param name="sArgName">Parameter name for search, could be not exists in list</param>
+ <returns>Value of parameter or empty string when not found</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.Common.URLDecode(System.String)">
+ <summary>
+ Decode encoded URL (%) to Unicode string with all international chars
+ </summary>
+ <param name="sURL"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="F:ExpertChoice.Service.CryptService._DEF_CRYPT_PASSWORD">
+ <summary>
+ Common password for encrypt/decrypt strings, like a URI params
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.FileService.File_CreateTempName">
+ <summary>
+ Just alias for system GetTempFilename()
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.FileService.File_Erase(System.String)">
+ <summary>
+ Erase file without any RTEs
+ </summary>
+ <param name="sFileName">Full filename with path</param>
+ <remarks>All exceptions will be suppressed</remarks>
+</member>
+<member name="M:ExpertChoice.Service.FileService.File_GetContent(System.String,System.String)">
+ <summary>
+ Try to open and read all content for specified file
+ </summary>
+ <param name="sFName">Filename for reading</param>
+ <param name="sErrorMessage">Optional. You should to use string params {0} for filename and {1} for error details.</param>
+ <returns>String with file content or just a error message.</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.FileService.File_CreateFolder(System.String@)">
+ <summary>
+ Create folder with specified Name without RTEs
+ </summary>
+ <param name="sFolderName">Folder name with path (recommended). When name is empty, will be created folder with new TempFilename and assigned to var sFolderName</param>
+ <returns>True, when folder was created.</returns>
+ <remarks>When folder exists before creation, this will be erased with all files. All RTEs will be suppressed</remarks>
+</member>
+<member name="M:ExpertChoice.Service.FileService.File_DeleteFolder(System.String)">
+ <summary>
+ Delete recursively folder with specified name without RTEs
+ </summary>
+ <param name="sFolderName">Folder name with path</param>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.FileService.GetProjectFileName(System.String,System.String,System.String,System.String)">
+ <summary>
+ Get name for specified Project
+ </summary>
+ <param name="sName">Primary name (high priority, as usual -- .Filename)</param>
+ <param name="sAltName1">Alternative Name 1 (medium priority, as usual -- .Passcode)</param>
+ <param name="sAltName2">Alternative Name 2 (low priority, as usual -- fixed name)</param>
+ <param name="sExt">Extension for filename (with ot w/o ".")</param>
+ <returns>Selected by priority filename with specified extension (without path)</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringService.GetVersion(System.Version,ExpertChoice.Service.StringService.VersionFormat)">
+ <summary>
+ Get current version of this application.
+ </summary>
+ <returns>String in form "MajorVer.MinorVer.Build".</returns>
+ <remarks>Version retrieved from "AssemblyInfo.vb" file</remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringService.Levenshtein_Distance(System.String,System.String)">
+ <summary>
+ Get the distance (num of editable symbols) between the two strings
+ </summary>
+ <param name="value1"></param>
+ <param name="value2"></param>
+ <returns></returns>
+</member>
+<member name="M:ExpertChoice.Service.HTMLService.HTMLCreateGraphBar(System.Single,System.Single,System.Int32,System.Int32,System.String,System.String,System.String,System.Boolean,System.String)">
+ <summary>
+ Create HTML tags with GraphBar
+ </summary>
+ <param name="Value">Current value of bar</param>
+ <param name="MaxValue"></param>
+ <param name="BWidth">Bar width in pixels</param>
+ <param name="BHeight">Bar height in pixels</param>
+ <param name="sStyle">Used style for bar</param>
+ <param name="BlankImagePath">Link to image with "blank" gif</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.HTMLService.HTMLEmailLink(System.String,System.String,System.String)">
+ <summary>
+ Create Link with e-mail address.
+ </summary>
+ <param name="sText">Link text</param>
+ <param name="sEmail">Could be empty</param>
+ <returns>Link like mailto:address </returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

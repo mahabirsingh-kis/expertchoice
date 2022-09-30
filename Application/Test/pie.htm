@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /-->
+<title>Gauge</title>
+<!--meta name="robots" content="none" />
+<link rel="icon" href="../favicon.ico" type="image/ico" /-->
+<link href="../App_Themes/ec09/deco.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="../favicon.ico" type="image/ico" />
+<link href="../App_Themes/ec09/jqplot/jquery.jqplot.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/jquery-ui.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/main.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/Combobox/ComboBox.WebBlue.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/Slider/Slider.Outlook.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/Tooltip/ToolTip.Telerik.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/Skins/TreeView/TreeView.WebBlue.css" type="text/css" rel="stylesheet" />
+<link href="../App_Themes/ec09/sliderbars.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+<script type="text/javascript" src="../Scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../Scripts/jDialog.js"></script>
+<!--script type="text/javascript" src="../js/excanvas.min.js"></script-->
+<script type="text/javascript" src="../Scripts/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="../Scripts/jqplot.meterGaugeRenderer.min.js"></script>
+</head>
+<body>
+<form style='padding:1em'>
+
+<div id="chart" style="width:100px;height:100px;background-color:#ffffff;"></div>
+
+<script type='text/javascript'>
+
+$(document).ready(function(){
+         var judgment_value = 0.3; // -0.5 ... 0.5
+         var seriesOptions = {
+				 renderer: $.jqplot.MeterGaugeRenderer,
+				 rendererOptions: {
+					 min: 0.0,
+					 max: 0.5,
+					 intervalOuterRadius: 32, //radius of circle
+                     intervalInnerRadius: 0.001,
+                     hubRadius:0, //103 - to show border
+                     intervals:[(judgment_value < 0 ? 1.5: 0.5), judgment_value + 1],
+					 intervalColors:['#006699', '#ffffff'],
+					 ringColor: "#000000",
+                     background: "#ffffff",
+                     ringWidth:0.001,
+                     showTickLabels:false,
+                     showTicks:false,
+                     needleThickness:0.001,
+                     needlePad: 32
+				 }
+			 }
+	  
+		 plot4 = $.jqplot('chart',[[0]],{
+			 seriesDefaults: seriesOptions,
+             grid: { background: '#ffffff' }
+		 });
+	  });
+
+</script>
+
+</form>
+</body>
+</html>

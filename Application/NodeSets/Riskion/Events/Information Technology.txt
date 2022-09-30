@@ -1,0 +1,6 @@
+#EVENTS
+Website quality problems
+Confidential data or information is stolen and disclosed 
+Privacy data is stolen and disclosed
+Ransomware
+System failure

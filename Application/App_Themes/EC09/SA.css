@@ -1,0 +1,27 @@
+﻿body {
+}
+.wrapper {
+    top:10px;
+    left:10px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    margin:30px 0 2;
+    overflow: hidden;
+    background-color:green;
+}
+.vertical-scroll 
+{  
+    top: 0px;
+    border: 1px solid grey;
+    width: 10px;
+    height: 300px;
+}
+.vertical-scroll div.bar {
+    left:0px;
+    top:0px;
+    margin:1px;
+    width: 8px;
+    background-color: grey;
+    height: 20px;
+}

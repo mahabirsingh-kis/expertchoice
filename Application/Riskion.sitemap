@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="Workflow (Riskion)" resourceKey="" icon="fa fa-sitemap" roles="ignore,riskion,project,layout=default" >
+
+    <siteMapNode title="mnuManageProjects" icon="fa fa-folder-open" roles="tab,resname,projectslist,hidelookup,~CtrlL,js:onSelectProject();" />
+
+    <siteMapNode title="mnuIdentifyStructure" roles="tab" resourceKey="10201" >
+      <!--<siteMapNode title="mnuIdentifyStructure" roles="workflow" icon="fa fa-edit" >-->
+      <siteMapNode title="mnuDefineModel" resourceKey="20017" roles="workflow" icon="fas fa-bullseye" ko="define-model">
+        <siteMapNode title="mnuProjectDescription" icon="far fa-file" roles="html5,~CtrlAltD,resname" resourceKey="20010" ko="model-description" description="DA/AD"/>
+        <siteMapNode title="MyRiskReward" resourceKey="20130" roles="collapsemenu,html5,draft,myriskreward,~CtrlShiftW" icon="fas fa-magic" ko="myriskreward" description="DA"/>
+        <siteMapNode title="mnuStructuring" resourceKey="20450" roles="collapsemenu,html5,csdata,resname,~CtrlAltB" icon="fas fa-chalkboard-teacher" description="DA"/>
+      </siteMapNode>
+
+      <siteMapNode title="Identify" roles="workflow" icon="fa fa-dot-circle">
+        <siteMapNode title="Events" resourceKey="20102" roles="html5,~CtrlAltI" icon="icon icon-ec-font-alternatives" ko="events" description="DA"/>
+        <siteMapNode title="Sources" resourceKey="20103" roles="html5,~CtrlAltS" icon="icon icon-ec-font-objectives" ko="identify-sources" description="DA"/>
+        <siteMapNode title="Objectives" resourceKey="20104" roles="html5,~CtrlAltO" icon="icon icon-ec-font-objectives" ko="identify-objectives" description="DA"/>
+        <siteMapNode title="mnuSimulationGroups" resourceKey="70510" ko="simulation-groups" icon="far fa-list-alt" />
+        <!--<siteMapNode title="mnuEventsGroups" resourceKey="70502" icon="fa fa-edit" />-->
+        <siteMapNode title="Participants" resourceKey="20020" roles="html5,~CtrlAltU" icon="fa fa-users" ko="participants" description="DA/AD"/>
+        <!--<siteMapNode title="Participant Groups" resourceKey="20500" roles="html5" ko="project-participant-groups" icon="fas fa-users-cog" description="DA"/>-->
+        <siteMapNode title="Event Dependencies" resourceKey="70504" roles="html5" icon="fas fa-share-alt" ko ="event-dependencies" description="AC/DA"/>
+      </siteMapNode>
+
+      <siteMapNode title="mnuRiskSources" roles="workflow" icon="fa fa-sitemap">
+        <siteMapNode title="RiskSourcesHierarchy" resourceKey="20108" roles="html5" icon="icon icon-ec-font-objectives" ko="sources-hierarchy" description="DA"/>
+        <siteMapNode title="RiskSourcesContributions" resourceKey="20118" roles="html5,alts" icon="fa fa-code-branch" ko="sources-contributions" description="SL"/>
+      </siteMapNode>
+      <siteMapNode title="mnuRiskObjectives" roles="workflow" icon="fa fa-sitemap">
+        <siteMapNode title="RiskObjectivesHierarchy" resourceKey="20109" roles="html5" icon="icon icon-ec-font-objectives" ko="objectives-hierarchy" description="DA"/>
+        <siteMapNode title="RiskObjectivesContributions" resourceKey="20119" roles="html5,alts" icon="fa fa-code-branch" ko="objectives-contributions" description="SL"/>
+      </siteMapNode>
+      <!--</siteMapNode>-->
+    </siteMapNode>
+
+    <siteMapNode title="Likelihood of Events" roles="tab,likelihood">
+      <siteMapNode title="Structure" icon="fa fa-sitemap" roles="workflow">
+        <siteMapNode title="mnuEventSources" icon="fa fa-sitemap">
+          <siteMapNode title="Hierarchy View" resourceKey="20101" roles="html5" icon="icon icon-ec-font-objectives" ko="structure-sources" description="DA"/>
+          <siteMapNode title="Vulnerabilities Grid" resourceKey="20111" roles="html5,alts" icon="fa fa-code-branch" ko="sources-contributions" description="SL"/>
+          <siteMapNode title="Event Vulnerabilities To Objectives" resourceKey="20114" roles="html5,alts" icon="fa fa-code-branch" ko="events-to-sources"/>
+          <siteMapNode title="Threat Contribution To Alternatives" resourceKey="20115" roles="html5,alts" icon="fa fa-code-branch" ko="sources-to-events"/>
+        </siteMapNode>
+        <siteMapNode title="Structure" icon="fa fa-sitemap">
+          <siteMapNode title="Infodocs" resourceKey="20112" roles="html5" icon="fa fa-info-circle" ko="likelihood-infodocs" description="SL"/>
+          <!--<siteMapNode title="Participants" resourceKey="20020" roles="html5" icon="fa fa-users" description="DA/AD"/>-->
+          <siteMapNode title="mnuRoles" resourceKey="20142" icon="fa fa-unlock" roles="html5" ko="likelihood-roles" description="SL" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuVisualBrainstorming" roles="workflow" icon="fa fa-edit">
+        <siteMapNode title="Structuring" resourceKey="20451" roles="collapsemenu,html5,csdata" icon="fas fa-chalkboard-teacher" ko="likelihood-cs" description="DA"/>
+      </siteMapNode>
+
+      <siteMapNode title="mnuMeasure" icon="fa fa-keyboard" roles="workflow">
+        <siteMapNode title="Evaluation Progress" icon="fa fa-tasks" roles="html5,~CtrlAltE" resourceKey="20063" ko="likelihood-evaluation-progress" description="DA"/>
+        <siteMapNode title="mnuMeasurementMethods" icon="fa fa-list-ol" roles="html5" resourceKey="20123" ko="likelihood-measurement-methods" description="DA">
+          <!--<siteMapNode title="For Objectives" resourceKey="20122" roles="html5" description="DA" />
+          <siteMapNode title="For Alternatives" resourceKey="20121" roles="html5,alts" description="DA" />
+          <siteMapNode title="All" resourceKey="20123" roles="html5" description="DA" />-->
+        </siteMapNode>
+        <siteMapNode title="mnuBayesianUpd" icon="fas fa-bold" resourceKey="20129" ko="bayesian" description="DA" roles="draft" />
+        <siteMapNode title="mnuSetOptions" icon="fa fa-cogs">
+          <siteMapNode title="Evaluation What" resourceKey="20013" ko="evaluation-what" description="AD"/>
+          <siteMapNode title="Evalaution How" resourceKey="20014" ko="evaluation-how" description="AD"/>
+          <siteMapNode title="Display What" resourceKey="20015" ko="display-what" description="AD"/>
+          <siteMapNode title="Insight" resourceKey="20016" ko="insight" description="SL"/>
+          <!--<siteMapNode title="Default Scales" resourceKey="20151"  ko="default-scales" description="DA"/>-->
+        </siteMapNode>
+        <siteMapNode title="mnuIndividualEvaluation" icon="fas fa-clipboard-list">
+          <!--<siteMapNode title="Anytime Instructions"/>-->
+          <siteMapNode title="Send Invitations" resourceKey="30020" roles="html5,~CtrlAltN" ko="send-invitations" description="SL"/>
+          <siteMapNode title="Collect My Input" resourceKey="30010" roles="~CtrlM" ko="likelihood-collect-input" description="AD"/>
+          <siteMapNode title="Data Grid" resourceKey="50108" roles="~CtrlY" ko="datagrid" description="SL"/>
+        </siteMapNode>
+        <siteMapNode title="mnuTeamTimeEvaluation" icon="fa fa-users">
+          <!--<siteMapNode title="Instructions"/>-->
+          <siteMapNode title="Select Participants" resourceKey="30503" roles="html5" ko="tt-select-participants" description="SL"/>
+          <siteMapNode title="Invite Participants" resourceKey="30120" roles="html5" ko="tt-invite-participants" description="AD/SL"/>
+          <siteMapNode title="Start/Stop Meeting" resourceKey="30502" roles="html5,~CtrlAltT" ko="start-stop-tt" description="AD"/>
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuSeeResults" roles="workflow" icon="fa fa-chart-bar">
+        <siteMapNode title="mnuOverallResults" icon="icon icon-ec-font-all-reports">
+          <!--<siteMapNode title="Charts" icon="icon ec-chart-columns" roles="" ko="charts" resourceKey="60219"/>-->
+          <siteMapNode title="Alternatives Chart"  icon="icon ec-chart-columns" roles="html5,alts,~CtrlAltShiftL" ko="likelihood-events-chart" resourceKey="60221"/>
+          <siteMapNode title="Objectives Chart"  icon="icon ec-chart-sunburst" roles="html5,no_aip" ko="objectives-chart" resourceKey="60222"/>
+          <!--<siteMapNode title="Grids"  icon="icon ec-grid" roles="" ko="grids" resourceKey="60220"/>-->
+          <siteMapNode title="Alternatives Grid"  icon="icon ec-grid" roles="html5,alts" resourceKey="60210" ko="likelihood-events-grid"/>
+          <siteMapNode title="Objectives Grid"  icon="icon ec-grid" roles="html5,no_aip" resourceKey="60211" ko="likelihood-objectives-grid"/>
+        </siteMapNode>
+        <siteMapNode title="mnuSensitivityObj" icon="icon icon-ec-font-objectives">
+          <siteMapNode title="navDSA" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60202" ko="likelihood-dsa" description="SL"/>
+          <siteMapNode title="navPSA" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60203" ko="likelihood-psa" description="SL"/>
+          <siteMapNode title="navGSA" icon="icon icon-ec-font-line-chart" roles="no_aip" resourceKey="60204" ko="likelihood-gsa" description="SL"/>
+          <siteMapNode title="nav2D" icon="icon icon-ec-font-2d" roles="no_aip" resourceKey="60207" ko="likelihood2d" description="SL"/>
+          <siteMapNode title="navHeadToHead" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60215" ko="likelihood-h2h" description="SL"/>
+          <siteMapNode title="Mixed" icon="icon icon-ec-font-mixed" roles="no_aip" resourceKey="60216" ko="likelihood-mixed" description="DA"/>
+        </siteMapNode>
+        <siteMapNode title="mnuSensitivityAlt" icon="icon icon-ec-font-alternatives">
+          <siteMapNode title="One at a time" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60214" ko="likelihood-one-at-a-time" description="SL"/>
+          <siteMapNode title="Four at a time" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60217" ko="likelihood-four-at-a-time" description="SL"/>
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="Data Grid" icon="icon icon-ec-font-grid" resourceKey="50107" ko="datagrid" description="SL"/>
+          <siteMapNode title="Consensus View" icon="icon icon-ec-font-grid" roles="" resourceKey="60209" ko="likelihood-consensus-view" description="SL/DA" />
+          <siteMapNode title="Inconsistency" resourceKey="50115" icon="icon icon-ec-font-report" ko="likelihood-inconsistency-report" description="SL/AC"/>
+          <siteMapNode title="Survey Results" resourceKey="50116" icon="icon icon-ec-font-bar-chart" ko="likelihood-survey-results" description="SL"/>
+        </siteMapNode>
+      </siteMapNode>
+
+      <!--<siteMapNode title="mnuIterate" roles="workflow" icon="fa fa-redo">
+        <siteMapNode title="mnuIterateOverview" icon="fas fa-book-open" roles="help" url="Likelihood/Iterate/iterate.html" />
+        <siteMapNode title="mnuIterateMeasurement" icon="fa fa-list-ol" roles="js:navOpenPage(20101);" />
+        <siteMapNode title="mnuIterateStructuring" icon="fa fa-sitemap" roles="js:navOpenPage(20123);" />
+      </siteMapNode>-->
+
+      <!--<siteMapNode title="mnuDashboard" roles="workflow" icon="fa fa-columns">
+        <siteMapNode title="Dashboard" resourceKey="50111" roles="draft,html5" icon="fa fa-columns"/>
+      </siteMapNode>-->
+
+      <siteMapNode title="mnuViewReports" roles="workflow" icon="fa fa-print">
+        <siteMapNode title="Alternatives" icon="icon icon-ec-font-alternatives" resourceKey="50009" roles="html5" description="SL/AC"/>
+        <!--<siteMapNode title="Data Grid" icon="icon icon-ec-font-grid" resourceKey="50107" description="SL"/>-->
+        <siteMapNode title="Objectives" icon="icon icon-ec-font-objectives" resourceKey="50004" roles="html5" description="SL/AC"/>
+        <!--<siteMapNode title="Consensus View" icon="icon icon-ec-font-group" roles="html5" resourceKey="60209" description="SL/DA"/>-->
+        <!--<siteMapNode title="Survey Results" icon="icon icon-ec-font-bar-chart" resourceKey="50106" description="SL/AC"/>-->
+        <!--<siteMapNode title="Inconsistency Report" icon="icon icon-ec-font-report" resourceKey="50105" description="SL/AC"/>-->
+        <siteMapNode title="mnuProjectDocumentation" icon="icon icon-ec-font-project-documentation">
+          <siteMapNode title="Overall Results" resourceKey="50011" description="SL/AC"/>
+          <siteMapNode title="Objectives/Alternatives priorities" resourceKey="50008" description="SL/AC"/>
+          <siteMapNode title="Priority of Alternatives" resourceKey="50007" description="SL/AC"/>
+          <siteMapNode title="Priority of Objectives" resourceKey="50006" description="SL/AC"/>
+          <siteMapNode title="Judgments of Alternatives" resourceKey="50010" description="SL/AC"/>
+          <siteMapNode title="Judgments of Objectives" resourceKey="50003" description="SL/AC"/>
+          <siteMapNode title="Contribution" resourceKey="50005" description="SL/AC"/>
+          <siteMapNode title="Objectives And Alternatives" resourceKey="50002" description="SL/AC"/>
+        </siteMapNode>
+        <siteMapNode title="mnuReportCustom" icon="icon icon-ec-font-bar-chart">
+          <siteMapNode title="Judgments and data" resourceKey="50102" description="SL/AC"/>
+          <siteMapNode title="Objectives Priorities" resourceKey="50103" description="SL/AC"/>
+          <siteMapNode title="Alternatives Priorities" resourceKey="50101" description="SL/AC"/>
+          <siteMapNode title="Evaluation Progress" resourceKey="50104" description="SL/AC"/>
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="Download CSV file" resourceKey="50113" icon="fa fa-download" description="SL"/>
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="Impact of Events" roles="tab,impact">
+      <siteMapNode title="Structure" icon="fa fa-sitemap" roles="workflow">
+        <siteMapNode title="mnuEventObjectives" icon="fa fa-sitemap">
+          <siteMapNode title="Hierarchy View" resourceKey="20101" roles="html5" icon="icon icon-ec-font-objectives" ko="structure-objectives" description="DA"/>
+          <siteMapNode title="Consequences Grid" resourceKey="20111" roles="html5,alts" icon="fa fa-code-branch" ko="objectives-contributions" description="SL"/>
+          <siteMapNode title="Event Impacts to Objectives" resourceKey="20114" roles="html5,alts" ko="events-to-objectives" icon="fa fa-code-branch"/>
+          <siteMapNode title="Objective Contribution to Events" resourceKey="20115" roles="html5,alts" ko="objectives-to-events" icon="fa fa-code-branch"/>
+        </siteMapNode>
+        <siteMapNode title="Structure" icon="fa fa-sitemap">
+          <siteMapNode title="Infodocs" resourceKey="20112" roles="html5" icon="fa fa-info-circle" ko="impact-infodocs" description="SL"/>
+          <!--<siteMapNode title="Participants" resourceKey="20020" roles="html5" icon="fa fa-users" description="DA/AD"/>-->
+          <siteMapNode title="mnuRoles" resourceKey="20142" icon="fa fa-unlock" roles="html5" ko="impact-roles" description="SL" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuVisualBrainstorming" roles="workflow" icon="fa fa-edit">
+        <siteMapNode title="Structuring" resourceKey="20452" roles="collapsemenu,html5,csdata" icon="fas fa-chalkboard-teacher" ko="imapact-cs" description="DA"/>
+      </siteMapNode>
+
+      <siteMapNode title="mnuMeasure" icon="fa fa-keyboard" roles="workflow">
+        <siteMapNode title="Evaluation Progress" icon="fa fa-tasks" roles="html5,~CtrlAltE" resourceKey="20063" ko="impact-evaluation-progress" description="DA"/>
+        <siteMapNode title="mnuMeasurementMethods" icon="fa fa-list-ol" roles="html5" resourceKey="20123" ko="impact-measurement-methods" description="DA">
+          <!--<siteMapNode title="For Objectives" resourceKey="20122" roles="html5" description="DA" />
+          <siteMapNode title="For Alternatives" resourceKey="20121" roles="html5,alts" description="DA" />
+          <siteMapNode title="All" resourceKey="20123" roles="html5" description="DA" />-->
+        </siteMapNode>
+        <siteMapNode title="mnuSetOptions" icon="fa fa-cogs">
+          <siteMapNode title="Evaluation What" resourceKey="20013" ko="impact-evaluation-what" description="AD"/>
+          <siteMapNode title="Evalaution How" resourceKey="20014" ko="impact-evaluation-how" description="AD"/>
+          <siteMapNode title="Display What" resourceKey="20015" ko="impact-display-what" description="AD"/>
+          <siteMapNode title="Insight" resourceKey="20016" ko="impact-insight" description="SL"/>
+          <!--<siteMapNode title="Default Scales" resourceKey="20151" ko="impact-default-scales" description="DA"/>-->
+        </siteMapNode>
+        <siteMapNode title="mnuIndividualEvaluation" icon="fas fa-clipboard-list">
+          <!--<siteMapNode title="Anytime Instructions"/>-->
+          <siteMapNode title="Send Invitations" resourceKey="30020" roles="html5,~CtrlAltN" ko="impact-send-invitations" description="SL"/>
+          <siteMapNode title="Collect My Input" resourceKey="30010" roles="~CtrlM" ko="impact-collect-input" description="AD"/>
+          <siteMapNode title="Data Grid" resourceKey="50108" roles="~CtrlY" description="SL"/>
+        </siteMapNode>
+        <siteMapNode title="mnuTeamTimeEvaluation" icon="fa fa-users">
+          <!--<siteMapNode title="Instructions"/>-->
+          <siteMapNode title="Select Participants" resourceKey="30503" roles="html5" ko="impact-select-participants" description="SL"/>
+          <siteMapNode title="Invite Participants" resourceKey="30120" roles="html5" ko="impact-invite-participants" description="AD/SL"/>
+          <siteMapNode title="Start/Stop Meeting" resourceKey="30502" roles="html5,~CtrlAltT" ko="impact-start-stop-tt" description="AD"/>
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuSeeResults" roles="workflow" icon="fa fa-chart-bar">
+        <siteMapNode title="mnuOverallResults" icon="icon icon-ec-font-all-reports">
+          <!--<siteMapNode title="Charts" icon="icon ec-chart-columns" roles="" ko="charts" resourceKey="60219"/>-->
+          <siteMapNode title="Alternatives Chart"  icon="icon ec-chart-columns" roles="html5,alts,~CtrlAltShiftI" ko="impact-events-chart" resourceKey="60221"/>
+          <siteMapNode title="Objectives Chart"  icon="icon ec-chart-sunburst" roles="html5,no_aip" ko="impact-objectives-chart" resourceKey="60222"/>
+          <!--<siteMapNode title="Grids"  icon="icon ec-grid" roles="" ko="grids" resourceKey="60220"/>-->
+          <siteMapNode title="Alternatives Grid"  icon="icon ec-grid" roles="html5,alts" resourceKey="60210" ko="impact-events-grid"/>
+          <siteMapNode title="Objectives Grid"  icon="icon ec-grid" roles="html5,no_aip" resourceKey="60211" ko="impact-objectives-grid"/>
+        </siteMapNode>
+        <siteMapNode title="mnuSensitivityObj" icon="icon icon-ec-font-objectives">
+          <siteMapNode title="navDSA" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60202" ko="impact-dsa" description="SL"/>
+          <siteMapNode title="navPSA" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60203" ko="impact-psa" description="SL"/>
+          <siteMapNode title="navGSA" icon="icon icon-ec-font-line-chart" roles="no_aip" resourceKey="60204" ko="impact-gsa" description="SL"/>
+          <siteMapNode title="nav2D" icon="icon icon-ec-font-2d" roles="no_aip" resourceKey="60207" ko="impact-2d" description="SL"/>
+          <siteMapNode title="navHeadToHead" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60215" ko="impact-h2h" description="SL"/>
+          <siteMapNode title="Mixed" icon="icon icon-ec-font-mixed" roles="no_aip" resourceKey="60216" description="DA"/>
+        </siteMapNode>
+        <siteMapNode title="mnuSensitivityAlt" icon="icon icon-ec-font-alternatives">
+          <siteMapNode title="One at a time" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60214" ko="impact-one-at-a-time" description="SL"/>
+          <siteMapNode title="Four at a time" icon="icon icon-ec-font-bar-chart" roles="no_aip" resourceKey="60217" ko="impact-four-at-a-time" description="SL"/>
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="Data Grid" icon="icon icon-ec-font-grid" resourceKey="50107" ko="impact-datagrid" description="SL"/>
+          <siteMapNode title="Consensus View" icon="icon icon-ec-font-grid" roles="html5" resourceKey="60209" ko="impact-consensus-view" description="SL/DA" />
+          <siteMapNode title="Inconsistency" resourceKey="50115" icon="icon icon-ec-font-report" ko="impact-inconsistency-report" description="SL/AC"/>
+          <siteMapNode title="Survey Results" resourceKey="50116" icon="icon icon-ec-font-bar-chart" ko="impact-survey-results" description="SL"/>
+        </siteMapNode>
+      </siteMapNode>
+
+      <!--<siteMapNode title="mnuIterate" roles="workflow" icon="fa fa-redo">
+        <siteMapNode title="mnuIterateOverview" icon="fas fa-book-open" roles="help" url="Impact/Iterate/iterate.html" />
+        <siteMapNode title="mnuIterateMeasurement" icon="fa fa-list-ol" roles="js:navOpenPage(20123);" />
+        <siteMapNode title="mnuIterateStructuring" icon="fa fa-sitemap" roles="js:navOpenPage(20101);" />
+      </siteMapNode>-->
+
+
+      <siteMapNode title="mnuViewReports" roles="workflow" icon="fa fa-print">
+        <siteMapNode title="Alternatives" icon="icon icon-ec-font-alternatives" resourceKey="50009" roles="html5" description="SL/AC"/>
+        <!--<siteMapNode title="Data Grid" icon="icon icon-ec-font-grid" resourceKey="50107" description="SL"/>-->
+        <siteMapNode title="Objectives" icon="icon icon-ec-font-objectives" resourceKey="50004" roles="html5" description="SL/AC"/>
+        <!--<siteMapNode title="Consensus View" icon="icon icon-ec-font-group" roles="html5" resourceKey="60209" description="SL/DA"/>-->
+        <!--<siteMapNode title="Survey Results" icon="icon icon-ec-font-bar-chart" resourceKey="50106" description="SL/AC"/>-->
+        <!--<siteMapNode title="Inconsistency Report" icon="icon icon-ec-font-report" resourceKey="50105" description="SL/AC"/>-->
+        <siteMapNode title="mnuProjectDocumentation" icon="icon icon-ec-font-project-documentation">
+          <siteMapNode title="Overall Results" resourceKey="50011" description="SL/AC"/>
+          <siteMapNode title="Objectives/Alternatives priorities" resourceKey="50008" description="SL/AC"/>
+          <siteMapNode title="Priority of Alternatives" resourceKey="50007" description="SL/AC"/>
+          <siteMapNode title="Priority of Objectives" resourceKey="50006" description="SL/AC"/>
+          <siteMapNode title="Judgments of Alternatives" resourceKey="50010" description="SL/AC"/>
+          <siteMapNode title="Judgments of Objectives" resourceKey="50003" description="SL/AC"/>
+          <siteMapNode title="Contribution" resourceKey="50005" description="SL/AC"/>
+          <siteMapNode title="Objectives And Alternatives" resourceKey="50002" description="SL/AC"/>
+        </siteMapNode>
+        <siteMapNode title="mnuReportCustom" icon="icon icon-ec-font-bar-chart">
+          <siteMapNode title="Judgments and data" resourceKey="50102" description="SL/AC"/>
+          <siteMapNode title="Objectives Priorities" resourceKey="50103" description="SL/AC"/>
+          <siteMapNode title="Alternatives Priorities" resourceKey="50101" description="SL/AC"/>
+          <siteMapNode title="Evaluation Progress" resourceKey="50104" description="SL/AC"/>
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="Download CSV file" resourceKey="50113" icon="fa fa-download" description="SL"/>
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="mnuRiskTab" roles="tab">
+      <siteMapNode title="Risk" roles="workflow" titleOpportunity="navOpportunityPriority">
+        <siteMapNode title="mnuRiskGridAllEvents" titleOpportunity="navPriorityOfEvents">
+          <siteMapNode title="RiskGridOverall"  roles="~CtrlShiftR" resourceKey="70016" ko="risk-overall-grid" />
+          <siteMapNode title="RiskGridSpecCauses" resourceKey="70017" ko="risk-from-sources-grid" />
+          <siteMapNode title="RiskGridSpecObjs" resourceKey="70018" ko="risk-to-objectives-grid" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskGridLikelihoodOfEvents">
+          <siteMapNode title="RiskGridAllCauses" resourceKey="70019" ko="likelihood-of-events" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskGridImpactOfEvents">
+          <siteMapNode title="RiskGridAllObjs" resourceKey="70022" ko="impact-of-events"/>
+        </siteMapNode>
+        <siteMapNode title="mnuLEC">
+          <siteMapNode title="LEC" resourceKey="70640" icon="fas fa-chart-area" ko="lec-overall" />
+          <siteMapNode title="LEC From Sources"  resourceKey="70641" ko="lec-from-sources" />
+          <siteMapNode title="LEC To Objectives" resourceKey="70642" ko="lec-to-objectives" />
+        </siteMapNode>
+        <siteMapNode title="mnuBowTieDiagrams">
+          <siteMapNode title="BowTiePriorities" resourceKey="70008" ko="bowtie-overall"/>
+          <siteMapNode title="BowTiePrioritiesCauses" resourceKey="70009" ko="bowtie-from-sources" />
+          <siteMapNode title="BowTiePrioritiesObjs" resourceKey="70010"  ko="bowtie-to-objectives"/>
+        </siteMapNode>
+        <siteMapNode title="mnuPlotLikelihoodImpact">
+          <siteMapNode title="RiskPlotOverall" resourceKey="70005"  ko="risk-map-overall"/>
+          <siteMapNode title="RiskPlotCauses" resourceKey="70003" ko="risk-map-from-sources"/>
+          <siteMapNode title="RiskPlotObjectives" resourceKey="70004" ko="risk-map-to-objectives" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskSensitivity">
+          <siteMapNode title="RiskDSALikelihood" resourceKey="60262" ko="risk-delta-sources-dsa"/>
+          <siteMapNode title="RiskDSAImpact" resourceKey="60263"  ko="risk-delta-objectives-dsa"/>
+          <!--<siteMapNode title="RiskPSALikelihood" resourceKey="60264" />-->
+          <siteMapNode title="RiskPSAImpact" resourceKey="60265" ko="risk-delta-objectives-performance-dsa"/>
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="RiskDataGrid" resourceKey="70015" ko="risk-datagrid " />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuRiskRegistersDefault" roles="workflow">
+        <siteMapNode title="RiskRegisterEventsDefault" ko="risk-register-events" resourceKey="70911" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="mnuControls" roles="tab">
+      <siteMapNode title="Identify" roles="workflow">
+        <siteMapNode title="RiskTreatmentsDict" roles="html5,no_wrap,~CtrlAltK" resourceKey="70904" ko="identify-controls"/>
+        <siteMapNode title="mnuRiskControlsMapCauses" roles="html5,no_wrap" resourceKey="70055" ko="control-for-sources"/>
+        <siteMapNode title="mnuRiskControlsMapVulnerabilities" resourceKey="70050">          
+          <siteMapNode title="RiskByEvent" roles="html5,no_wrap" resourceKey="70056" ko="control-event-vulnerabilities" />
+          <siteMapNode title="RiskByControl" roles="html5,no_wrap" resourceKey="70058" ko="control-event-vul-by-control" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskControlsMapConsequences" resourceKey="70051">
+          <siteMapNode title="RiskByEvent" roles="html5,no_wrap" resourceKey="70057" ko="control-event-cons-by-event" />
+          <siteMapNode title="RiskByControl" roles="html5,no_wrap" resourceKey="70059" ko="control-event-cons-by-threat" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <!--<siteMapNode title="mnuControlsMeasure" roles="workflow">-->
+        <siteMapNode title="mnuControlsMeasurementMethods" roles="workflow">
+          <siteMapNode title="CausesControlsMeasure" resourceKey="70201" ko="control-for-sources-measurement-method" />
+          <siteMapNode title="mnuRiskControlsMeasureVulnerabilities">
+            <siteMapNode title="RiskByEvent" roles="html5,no_wrap" resourceKey="70202" ko="measure-event-vulnerabilities" />
+            <siteMapNode title="RiskByControl" roles="html5,no_wrap" resourceKey="70204" ko="measure-event-vul-by-control" />
+          </siteMapNode>
+          <siteMapNode title="mnuRiskControlsMeasureConsequences">
+            <siteMapNode title="RiskByEvent" roles="html5,no_wrap" resourceKey="70203" ko="measure-event-consequences" />
+            <siteMapNode title="RiskByControl" roles="html5,no_wrap" resourceKey="70205" ko="measure-event-consequences-by-control" />
+          </siteMapNode>
+        </siteMapNode>
+        <siteMapNode title="mnuControlsParticipantsMenu" roles="workflow">
+          <siteMapNode title="ControlsParticipantsGrid" resourceKey="70401" ko="control-participants"/>
+          <siteMapNode title="ControlsParticipantsRoles" resourceKey="70402" ko="control-participant-roles" />
+          <siteMapNode title="mnuEvaluateRiskControls" roles="workflow">
+            <siteMapNode title="navEvalProgressControlsHTML" resourceKey="20062" ko="control-evaluation-progress" />
+            <siteMapNode title="navEvaluateRiskWithControls" resourceKey="30016" roles="~CtrlAltM" ko="control-collect-input" />
+          </siteMapNode>
+        </siteMapNode>
+        <!--<siteMapNode title="mnuControlsMeasure">
+          <siteMapNode title="mnuControlsOptions" />
+        </siteMapNode>-->
+        <siteMapNode title="mnuEffectiveness" roles="workflow,no_wrap">
+          <siteMapNode title="CausesEffectiveness" roles="no_wrap" resourceKey="70105" ko="source-effectiveness" />
+        <!--</siteMapNode>
+        <siteMapNode title="mnuEffectivenessVulnerabilities" roles="no_wrap">-->
+          <siteMapNode title="mnuRiskControlsEffectVulnerabilities">
+            <siteMapNode title="RiskByEvent" roles="no_wrap" resourceKey="70106" ko="control-effectiveness-event-vulnerabilities" />
+            <siteMapNode title="RiskByControl" roles="no_wrap" resourceKey="70108" ko="control-effectiveness-event-vul-by-control" />
+          </siteMapNode>
+        <!--</siteMapNode>
+        <siteMapNode title="mnuEffectivenessConsecuences" roles="no_wrap">-->
+          <siteMapNode title="mnuRiskControlsEffectConsequences">
+            <siteMapNode title="RiskByEvent" roles="no_wrap" resourceKey="70107" ko="control-effectiveness-event-consequences" />
+            <siteMapNode title="RiskByControl" roles="no_wrap" resourceKey="70109" ko="control-effectiveness-event-cons-by-control" />
+          </siteMapNode>
+        </siteMapNode>
+      <!--</siteMapNode>-->
+
+      <!--<siteMapNode title="navMeasurementScalesForControlsMenu" roles="workflow" resourceKey="70700">
+ <siteMapNode title="navMeasurementScales" resourceKey="70701">
+ <siteMapNode title="navMeasurementScalesForControls" resourceKey="70702" />
+ </siteMapNode>
+ </siteMapNode>-->
+
+      <siteMapNode title="mnuControlsSelect" roles="workflow">
+        <siteMapNode title="RiskWithControlsSub2" resourceKey="70801" ko="manually-select-controls" />
+      </siteMapNode>
+
+      <siteMapNode title="mnuControlsOptimize" roles="workflow">
+        <siteMapNode title="mnuRiskControlsPortfolioView">
+          <siteMapNode title="RiskControlsOptimizeOverall" resourceKey="77202" ko="optimize-overall" roles="~CtrlAltO" />
+          <siteMapNode title="RiskControlsOptimizeFromSources" ko="optimize-from-sources" resourceKey="77203" />
+          <siteMapNode title="RiskControlsOptimizeToObjs" ko="optimize-to-objectives" resourceKey="77204" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskControlsOptimize">
+          <siteMapNode title="TimePeriodsView" resourceKey="77210" ko="ra-timeperiods" roles="~CtrlAlt1" />
+          <siteMapNode title="RODependencies" ko="ra-dependencies" resourceKey="77991" />
+          <siteMapNode title="ROGroups" ko="ra-groups" resourceKey="77993" />
+          <siteMapNode title="ROFundingPools" ko="ra-funding-pools" resourceKey="77992" />
+          <!--<siteMapNode title="ROCustomConstr" resourceKey="77994" />-->
+          <!--<siteMapNode title="ROPortfolioResources" resourceKey="77998" />-->
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="RiskControlsDataGrid" ko="controls-datagrid" resourceKey="70040" />
+          <siteMapNode title="SAReduction" resourceKey="70045" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuROIncreasingBudgets" roles="workflow">
+        <!--<siteMapNode title="mnuROIncreasingBudgets" roles="workflow,highlight">-->
+        <siteMapNode title="ROIncreasingBudgetsOverall" ko="efficient-frontier-overall" resourceKey="77996" />
+        <siteMapNode title="ROIncreasingBudgetsFromSources" ko="efficient-frontier-from-sources" resourceKey="77997" />
+        <siteMapNode title="ROIncreasingBudgetsToObjs" ko="efficient-frontier-to-objectives" resourceKey="77999" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode title="mnuMitigatedRisks" roles="tab">
+      <siteMapNode title="mnuRiskWithControlsSub" roles="workflow" titleOpportunity="navOpportunityPriorityWT">
+        <siteMapNode title="mnuRiskGridWithControlsAllEvents" titleOpportunity="navPriorityOfEventsWT">
+          <siteMapNode title="RiskGridWithContorlsOverall" ko="risk-grid-with-control-overall" resourceKey="70614" />
+          <siteMapNode title="RiskWithControlsGridLikelihood" ko="risk-grid-with-control-from-sources" resourceKey="70611" />
+          <siteMapNode title="RiskWithControlsGridImpact" ko="risk-grid-with-control-to-objectives" resourceKey="70612" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskWithControlsGridLikelihoodOfEvents">
+          <siteMapNode title="RiskWithControlsGridAllCauses" ko="likelihood-of-events-with-control" resourceKey="70619" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskWithControlsGridImpactOfEvents">
+          <siteMapNode title="RiskWithControlsGridAllObjs" ko="impact-of-events-with-control" resourceKey="70622" />
+        </siteMapNode>
+        <siteMapNode title="mnuLEC_WC">
+          <siteMapNode title="LEC With Controls" ko="lec-with-control-overall" resourceKey="70645" icon="fas fa-chart-area"/>
+          <siteMapNode title="LEC From Sources" ko="lec-with-control-from-sources" resourceKey="70646" />
+          <siteMapNode title="LEC To Objectives" ko="lec-with-control-to-objectives" resourceKey="70647" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskWithControlsBowTieDiagrams">
+          <siteMapNode title="RiskWithControlsBowTiePriorities" ko="bowtie-with-control-overall" resourceKey="70608" roles="~CtrlAltY"/>
+          <siteMapNode title="RiskWithControlsBowTiePrioritiesCauses" ko="bowtie-with-control-from-sources" resourceKey="70609" />
+          <siteMapNode title="RiskWithControlsBowTiePrioritiesObjs" ko="bowtie-with-control-to-objectives" resourceKey="70610" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskWithControlsPlotLikelihoodImpact">
+          <siteMapNode title="RiskPlotOverallWT" ko="riskmap-with-control-overall" resourceKey="70635" />
+          <siteMapNode title="RiskWithControlsPlotCauses" ko="riskmap-with-control-from-sources" resourceKey="70633" />
+          <siteMapNode title="RiskWithControlsPlotObjectives" ko="riskmap-with-control-to-objectives" resourceKey="70634" />
+        </siteMapNode>
+        <siteMapNode title="mnuRiskWCSensitivity">
+          <siteMapNode title="RiskWCDSALikelihood" ko="risk-delta-sources-dsa-with-control"  resourceKey="60272" />
+          <siteMapNode title="RiskWCDSAImpact" ko="risk-delta-objectives-dsa-with-control" resourceKey="60273" />
+          <!--<siteMapNode title="RiskWCPSALikelihood"  resourceKey="60274" />-->
+          <siteMapNode title="RiskWCPSAImpact" ko="risk-delta-objectives-performance-dsa-with-control" resourceKey="60275" />
+        </siteMapNode>
+        <siteMapNode title="Others" icon="icon icon-ec-font-all-reports">
+          <siteMapNode title="RiskWithControlsDataGrid" resourceKey="70615" />
+        </siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="mnuRiskRegisters" roles="workflow">
+        <siteMapNode title="RiskRegisterEvents" ko="risk-register-events-with-control" resourceKey="70901" />
+        <siteMapNode title="RiskRegisterTreatments" ko="risk-register-treatments" resourceKey="70902" />
+        <siteMapNode title="RiskRegisterAcceptance" ko="risk-register-acceptance" resourceKey="70903" />
+      </siteMapNode>
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

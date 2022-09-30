@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37" height="34" viewBox="0 0 37 34">
+  <g id="chatbox-icon-btn" transform="translate(-1000 -195)">
+    <g id="Dropdown" transform="translate(1000 195)">
+      <g id="input">
+        <rect id="Rounded_Rectangle_9_copy_9" data-name="Rounded Rectangle 9 copy 9" width="37" height="34" rx="5" fill="#e7edf6"/>
+      </g>
+    </g>
+    <g id="chat-svgrepo-com_1_" data-name="chat-svgrepo-com (1)" transform="translate(1008 202)">
+      <path id="Path_226" data-name="Path 226" d="M8.494,19.187a.355.355,0,1,0-.154-.693l-2.573.573,0,0-.061.016-.116.026c-.01,0-.017.009-.026.011L0,20.582l1.77-5.31a10.108,10.108,0,1,1,5.071,4.283Z" fill="none" stroke="#354052" stroke-width="1"/>
+      <path id="Path_227" data-name="Path 227" d="M20.323,20.71H15.355a.355.355,0,1,1,0-.71h4.968a.355.355,0,0,1,0,.71Z" transform="translate(-9.677 -12.903)" fill="none" stroke="#354052" stroke-width="1"/>
+      <path id="Path_228" data-name="Path 228" d="M24.936,28.71H15.355a.355.355,0,1,1,0-.71h9.581a.355.355,0,0,1,0,.71Z" transform="translate(-9.677 -18.064)" fill="none" stroke="#354052" stroke-width="1"/>
+      <path id="Path_229" data-name="Path 229" d="M24.936,36.71H15.355a.355.355,0,1,1,0-.71h9.581a.355.355,0,0,1,0,.71Z" transform="translate(-9.677 -23.225)" fill="none" stroke="#354052" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

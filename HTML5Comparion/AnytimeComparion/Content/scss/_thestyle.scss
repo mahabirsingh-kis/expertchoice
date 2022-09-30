@@ -1,0 +1,2092 @@
+/**
+ * Adjustments
+ * January 20,2017
+ * LeoP
+ * AOV
+**/
+
+// Anytime Welcome Screen Adjustments
+#anytime-page {
+    .ds-div-trigger.wrap-hyperlink.tt-center-height-wrap.thankyouText {
+        display: inherit;
+        & img {
+            height: auto !Important;
+        }
+       
+    }    
+}
+
+
+//Question Adjustments
+//Add margin below Title
+.tt-content-wrap .tt-body .anytime-pages .tg-legend .tt-question-title h3 {margin-bottom:30px;}
+.tt-content-wrap .tt-body .tt-question-title .instruction-color {color: $tt-green-dark;}
+
+
+// remove margin above and below the slider 
+.tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li .tt-drag-slider-item .tt-dsBar{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+//green slider bar adjustment
+.graph-green-div { height:100% !important;}
+.noUi-connect, .graph-green-div {box-shadow: none !Important;}
+
+// add padding to all elements in the row
+.tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li {
+    & .multi-ratings-row,
+    & .multi-direct-row {
+    padding:10px 10px 7px 10px;
+}
+} 
+.tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li .tt-drag-slider-item:hover{background-color:transparent;}
+
+.tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li {
+    & .multi-ratings-row:hover,
+    & .multi-direct-row:hover {
+    background-color:#f1f1f1;
+}
+} 
+
+//Multi Rating Adjustments
+ul.tt-drag-slider-wrap.multi-ratings-list {
+    list-style: none;
+    margin: 0px;
+    & li {
+         & input {
+            height: 25px; margin-left: 5px !important;
+        }
+        & .hidden-progress-bar {
+            top: 0px; margin-bottom: 2px;            
+        }
+    } 
+    & .hidden-item-wrap {
+        margin-left: 9%;
+        & li a span.right {margin-left: 5px;}
+    }
+}
+
+
+
+// Blue UI Slider adjustment
+.tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap {
+    &.direct-user .slider .ui-slider-handle {box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2) !important; background: #ccc;  border-radius: 3px; border: 1px solid #777;  height: 26px; top: -5px;}
+    & li .tt-drag-slider-item .tt-dsBar{border-radius: 4px; height: 18px; background-color: $ghost; border: 1px solid #d3d3d3; margin-top: 1px !important;}
+    & li .tt-drag-slider-item input {margin-top: 0px !important;}
+}
+
+
+//add space at the top of the comment & info icons
+ .tt-judgements-item {
+        & .tt-center-height-wrap span.icon-tt-info-circle,
+        & .tt-center-height-wrap span.icon-tt-comments,
+        & .tt-center-height-wrap span.icon-tt-w-font{position: relative;top: 3px;}
+    }  
+
+
+//YesNo Switch adjustments
+.onoffswitch-inner::before, .onoffswitch-inner::after {font-weight:normal; height:23px; line-height:23px;}
+.onoffswitch-label {line-height:normal;width:65%;}
+.onoffswitch-switch {width: 17px; height: 17px;right: 60px;top: 2px;}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {right: 25px;}
+//recolor switch
+.onoffswitch-inner::after {background-color: #929292;}
+.onoffswitch-inner::before {background-color: $tt-green-normal;}
+// mobile switch
+.switch label {background-color: #929192;}
+.switch input:checked + label {background-color: $tt-green-normal;}
+
+//Progress Bar in Projects List
+.progress.success .meter {background-color: $tt-green-normal;}
+
+
+//Projects list heading and buttons adjustments
+.tt-content-wrap .tt-body.tt-myprojects-wrap .tt-table-wrap {
+    & .proj-title-duplicate, & .proj-ol-duplicate, & .proj-status-duplicate {
+        padding: .25rem 1rem !important; line-height: 1rem;
+      & .tt-with-sorter { margin: 0px 0px !important;
+          & .text {margin:0px;}      
+        }  
+    } 
+    & .proj-title-duplicate {
+        & .sorter-icons {position: relative; left: 3%;}
+    }
+}
+.tt-content-wrap .tt-body.tt-myprojects-wrap {
+    & .tt-header-nav .full-nav-small select{padding: 3px; height: 23px; box-sizing: border-box; margin: 10px auto;}
+    & .button {line-height: 1em !important; padding: 5px !important;}  
+}
+.tt-content-wrap .tt-body.tt-myprojects-wrap {
+    & .tt-header-nav span.icon-tt-filter{position: relative;  top: 4px;  font-size: 1.1em; color: #539ddd;}
+    & .tt-header-nav span.icon-tt-filter:hover{color:#004988;}
+    & .tt-header-nav select {font-size:12px;}
+    & .proj-title-orig-wrap {height:46px;}
+}
+
+//adjust Add New project button
+.proj-title-duplicate{
+    & .button {position: absolute; top: -3px;}
+}
+//Pagination adjustments
+.tt-content-wrap .tt-body.tt-myprojects-wrap .user-pagination {
+    margin-top: 0px;
+    & span.pagination-wrap select {height: 23px;margin-top: 10px;box-sizing: border-box;padding: 3px;margin: 10px auto;}
+    & input.search-input {height: 23px; margin-top: 10px;}
+    & span.pagination-wrap a.tt-button-secondary{padding: 2px 5px 5px 5px !important; background: #539ddd;}
+    & span.pagination-wrap a.tt-button-secondary:hover {background-color:#004988;}
+
+}
+
+// Results screen adjustments
+//Transferred to results.scss
+
+//Normalization adjustments
+.direct-comparison-wrap-mobile .tg-accordion-2 {
+    width:95%; float:left !important;
+    & select {margin-bottom:10px;}
+}
+.direct-comparison-wrap-mobile .tg-accordion-1{
+    width:95%; float:left !important;     
+}
+
+// Collapsible elements toggler
+.the-toggler-row {padding-left: 0.9375rem; padding-right: 0.9375rem;}
+.the-toggler {max-width: 10px;width: 100%;margin: 0px;}
+
+.tt-content-wrap .tt-body .tt-accordion-head .icon, 
+.tt-toggler .icon.icon-tt-plus-square, 
+.tt-toggler .icon.icon-tt-minus-square,
+.tt-toggler-1 .icon.icon-tt-minus-square,
+.tt-toggler-1 .icon.icon-tt-plus-square,
+.edit-info-doc-btn .icon.icon-tt-zoom-in
+{color: $aluminum; font-size: 12px;}
+
+.tt-content-wrap .tt-body .tt-accordion-head {
+    &.green, &.blue{
+        .tt-toggler .icon, .icon.icon-tt-zoom-in {color: white;}  
+    } 
+}
+
+//pop-up adjustments
+#othersPrecentageModal {
+    & .tt-modal-content{
+        font-size: .875rem;
+        & .row .small-12.medium-5.columns {
+            font-weight: bold;            
+        }
+    }
+    & .progress.progress-wrap {
+        height: 1.2rem;
+        & .meter {
+            background-color: $tt-blue-lite;
+        }
+    }
+}
+
+#InviteParticipant {
+    & table tr td {
+        & .btn-largescreen {width:100%; border-radius: 3px;  margin-top: 3px;}       
+        & .btn-general {border-radius: 3px; padding: 2px 20px !important;}
+    }
+    
+    & .hidden-for-large-up {
+         & .btn-smallscreen {border-radius:3px; margin-bottom: 15px !important; min-width: 98px;}
+        & .btn-general-smallscreen {width: 100%; border-radius: 3px;}
+    }
+    
+}
+
+
+h2.tt-modal-header {font-size: 20px; padding:10px;}
+.reveal-modal .tt-modal-content {
+    margin-top:15px;
+
+    // For TinyMCE 4.x
+    & .mce-container {
+        box-sizing: border-box; margin: 0px;
+        /*& .mce-path {
+            & .mce-path-item, & .mce-divider {
+                visibility: hidden !important;
+            }
+        }*/
+        & .mce-branding {
+            display: none !important;
+        }
+    }
+
+    // For TinyMCE 5.x
+    & .tox-statusbar .tox-statusbar__branding {
+        display: none !important;
+    }
+
+    & .row div .mce-container {box-sizing: border-box; margin: 0px;}
+    & .close-reveal-modal.cn-btn-modal.alert, & .cn-btn-modal.alert {background-color: #929292;}
+    & .close-reveal-modal.cn-btn-modal.alert:hover {background-color: #777;}
+    & .button.success {background-color: #6aa84f; border-radius: 3px !important; 
+        box-sizing: border-box !important; padding: 10px !important;}
+    & .button.success:hover {background-color: #4b8930;}
+   
+    & .ie-cancel-btn-fix {
+        border-radius: 3px !important; box-sizing: border-box !important;
+        padding: 10px !important; line-height: normal; top: 0px; position: relative; right: auto;}
+    & .qh-btn-wrap {padding:0px;position: relative;}
+    
+    & .button.tt-s-btn{ border-radius: 3px !important; box-sizing: border-box !important; padding: 10px !important;margin: 0px 0px 10px 0px;}
+    & input::-webkit-input-placeholder, & textarea::-webkit-input-placeholder {font-style: italic;}
+    & input:-moz-placeholder, & textarea:-moz-placeholder {font-style: italic;}
+    & input::-moz-placeholder, & textarea::-moz-placeholder {font-style: italic;}
+    & input:-ms-input-placeholder, textarea:-ms-input-placeholder {font-style: italic;}
+    & .irequired {position: absolute; top: 25px; right: 23px; font-size: .7em; font-style: italic; color: #bbb;}
+    & .mce-edit-area iframe {width: 99.9% !important;}
+    & .alert-box {padding: 5px 10px; margin: 5px 0px 0px 0px;}
+    & .alert-box.success {background-color: $tt-green-normal;  border-color: $tt-green-normal;}
+    & .alert-check{background-color: $tt-blue-normal;}
+    & .alert-proceed{background-color: $tt-green-normal;}
+    /*& .tox-icon svg { width: auto; }*/
+}
+#tt-qh-modal, #tt-view-qh-modal {
+    & .tt-modal-content {
+        & .ie-cancel-btn-fix {min-width: 90px;}
+    }
+}
+
+// Quick Help Pop-up
+#tt-view-qh-modal{
+    min-height: 100px;
+    & .tt-modal-content {
+      min-height: 100%;
+        & .ie-cancel-btn-fix {position: relative;} 
+        & .small-8.qh-btn-wrap label {margin-top: 10px;}
+    }   
+}
+
+// For TinyMCE 4.x 
+#tt-qh-modal .mce-edit-area iframe { min-height:220px; }
+
+// For TinyMCE 5.x
+#tt-qh-modal .tox.tox-tinymce { min-height:388px; }
+.tox-dialog, .tox-menu.tox-collection {
+    & svg { width: auto; }
+}
+
+//adjust steps range pop-up
+.tt-modal-wrap .tt-modal-header.green-header{position:relative;}
+.tt-modal-wrap .close-reveal-modal {z-index:9;}
+.reveal-modal .steps-range-option {position:relative;padding: 3px;background: #f1f1f1;border-bottom: 3px solid #ccc;}
+.reveal-modal .steps_list_content {margin-top:0px !important;}
+.reveal-modal .steps-range-option .left {border-right: 3px dotted #ccc;}
+.reveal-modal .steps-range-option button {width:100%; max-width: 50px;}
+.reveal-modal .steps-range-option .goto-steps .small-10 {padding: 0 0.5rem;}
+
+// Copy Paste Modals
+#copyModal, #pasteModal, #copyModalMobile {
+    min-height: 100px;
+    & .tt-modal-content {min-height: 100%;}
+    & .tt-modal-header {font-size: 20px;}
+    & .tt-modal-content a.button {width:100%; max-width: 95px;position:relative; left:0px; margin-bottom: 10px;}
+    & .tt-modal-content textarea {min-height: 100px; height: auto;}
+}
+
+// Login modal adjustments
+#loginToMeeting {
+    & .tt-modal-content {min-height: 100%; max-height: 100%;}
+    & .clogin {border-radius: 3px;padding:0.625rem 1.25rem 0.6875rem 1.25rem !important;}
+}
+
+.tt-login-form-status {
+    & .alert-box { 
+    padding: 5px 10px; margin: 0px;
+    & h3 {margin: 0px; padding: 0px;}
+ }
+    & .alert-check{background-color: $tt-blue-normal;}
+    & .alert-proceed{background-color: $tt-green-normal;}
+
+}
+
+.home-login {font-size: .8em !important; font-weight: bold; padding-bottom: 0px !important;}
+
+// Info Doc popup
+#GlobalInfoDocModal {
+    // For TinyMCE 4.x
+    & .mce-edit-area iframe { min-height: 240px; }
+
+    // For TinyMCE 5.x
+    & .tox.tox-tinymce {
+        min-height: 418px;
+
+        &.full {
+            min-height: 490px;
+        }
+    }
+}
+
+// Info Doc Accordion
+.tt-content-wrap .tt-body .tt-panel p {
+    font-size:100% !important;
+    line-height: 1.25em;
+}
+.tt-content-wrap .tt-body {
+    //Anytime
+    & .left-node-info-div.tt-accordion-content, 
+    & .parent-node-info-div.tt-accordion-content,  
+    & .wrt-left-node-info-div.tt-accordion-content,
+    & .right-node-info-div.tt-accordion-content,
+    & .wrt-right-node-info-div.tt-accordion-content,
+    //Teamtime    
+    & .columns.tt-accordion-content.tg-accordion-0.tg-accordion-sub-0,
+    & .columns.tt-accordion-content.tg-accordion-sub-1,
+    & .columns.tt-accordion-head.green.lite.tg-gradients,
+    & .columns.tt-accordion-content.tg-accordion-sub-3,
+    & .columns.tt-accordion-content.tg-accordion-sub-4,
+    & .columns.tt-accordion-content.tg-accordion-sub-2
+    {        
+        & .tt-panel-temp.tt-panel,
+        & .tt-panel.tt-resizable-panel.ui-resizable,
+        & .tt-panel.tt-resizable-panel      
+        {padding:5px !important; background-color: #fcfcfc; border:1px solid $gainsboro;}
+    }
+    
+}
+//Teamtime WRT Adjustments
+.tt-content-wrap .tt-body .tt-accordion-sub.teamtime-wrt-right {margin-top: 0px;}
+
+
+//Dropdowns, comments & other pop-up adjustments
+.f-dropdown.open {  
+//    padding:5px 0px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.29);
+    & .row.collapse div.text-center{text-align:right !important;}
+    & .row.collapse .small-9.ng-binding {text-align:left !important; font-size:11px; font-weight:bold; padding:0px 10px 8px 10px;}
+    & .row.collapse .small-6 .force-close-drowdown {margin-right:10px;}
+    & .row.collapse .small-3.columns {max-width: 50px; float: right;}
+    & .row div div div {font-weight: bold; font-size: 11px; margin-bottom: 5px;}
+    & .infotext-wrap, & .row .large-12.columns {
+        padding: 5px 5px 0px 5px;
+        & p {margin-bottom:0px;}
+    }
+    & .button.cn-btn-modal{background-color: #929292; width:100%; max-width:80px;}
+    & .cn-btn-modal:hover {background-color: #777;}
+    & .button.success {background-color: #6aa84f;}
+    & .button.success:hover {background-color: #4b8930;}
+    //ie comment pop-up adjustment
+    & .ie-cancel-btn-fix {width:auto;}
+
+    
+}
+.f-dropdown.medium.open{
+    & .row.collapse div.ng-binding {font-size: 11px; font-weight: bold; text-align: left !important; padding-left: 10px; padding-top:4px;}
+    & .row.collapse .small-3.columns {max-width: 50px; float: right;}
+}
+
+.dropdown-layout-fix {
+    padding:5px 0px;
+    & .row.collapse {
+        & .small-9.ng-binding {
+            padding: 0px 10px 5px 10px !important;
+        }
+    }
+    & p {padding-top:0px !important; font-size: 11px !important;}
+    & a span {color: $tt-blue-lite;}
+}
+
+//Mobile Comment Popup adjustments
+#tt-c-modal, #mobile-multi-tt-c-modal {
+    min-height: 320px;
+    & .tt-modal-content {min-height:100%; max-height:100%;}
+}
+
+//Icons on PW Alternative Adjustments
+.tooltip-mode.tt-accordion-head.tg-gradients {
+    & span a {
+        & span.icon.not-disabled {
+            color:white;
+        }        
+    }
+}
+
+//Icons on Multi-Direct Adjustments
+//transferred to directcomparison.scss
+
+
+//Judgment Result Title adjustment
+.results-main .tt-j-content h3.title.show-for-large-up {font-weight:bold;}
+.results-main-header-mobile {
+    background: #0058a3; height: 30px;  color: white;  font-size: 14px; padding: 5px 22px; vertical-align: middle; line-height: 1.3em;
+    & a.left.text-center {color:white; padding-top:2px;position: absolute;left:15px;} 
+    & .matrix-options {font-weight: bold;}
+}
+//Judgment button adjustments
+.judgement-controls{
+    padding-top: 8px !important;
+    & .tt-center-height-wrap {width: 100%; padding: 0 .25rem; box-sizing: border-box;}
+    & .text-right .tt-button-primary:hover {color: white;}
+    & .text-right span.icon {font-size: 18px;position: absolute;top: 8px; left: 7px;}
+    & .text-right .button {padding-left: 30px !important;}
+}
+
+//Judgment Result matrix table
+.tt-matrix-table .matrix-cell{
+    &.box-glow{
+            background: #FFFFD2;
+            font-style: italic;
+            font-weight: bold;
+        }    
+
+}
+
+.tt-matrix-table {
+    & .superscript {width: auto; right: auto; left: 5px; top:-20px; color: $tt-orange-normal !important;}
+    & .subscript {left: auto; width: auto;  top: -20px; right: 5px; color: $tt-blue-normal !Important;}
+}
+.lr-btn-adjustments{font-size: 12px !important; border-radius:3px !important; box-sizing: border-box !important;padding: 10px !important;}
+
+// Judgment Table Mobile Menu
+.judgement-table-menu{
+    background-color:$tt-green-normal; padding:5px; color:$white; margin-top:2px;
+    & .small-3 {font-size: .9em; padding-top: 4px !important;}
+    & .button {background-color:$tt-green-normal;padding: 0px; font-size: 1.5em; margin: 0px 0px 0px 10px; position: relative; top: .1em; opacity: 1;}  
+}
+
+//Re-evaluate Mobile
+.mobile-re-evaluate {
+    & a {background-color:$tt-green-normal; margin: 5px 0px;}
+    & a:hover, & a:active {background-color:$tt-green-hover;}
+    & a span {font-size: 1.15em;vertical-align: middle;}
+}
+
+.tt-mobile-wrap.direct-comparison-wrap-mobile{
+    & .tt-j-content.multi-loop-wrap-local-results {padding-top:3px;}
+}
+.tt-mobile-wrap.direct-comparison-wrap-mobile .single-item div.results-row-selected {
+    background: #ffffe6; border: 1px solid #ffe167 !important; padding: 5px 0px;position: relative;
+    & .priorities-text {background: #ffffe6;}
+}
+.tt-mobile-wrap.direct-comparison-wrap-mobile .single-item div.results-row-selected:after {
+    content: "\f058"; font-family: 'icomoon' !important;
+    color: #6aa84f; font-size: 18px;position: absolute;right: 2px; top: 0px;
+}
+.matrix-redo-options{
+    position: absolute; right: 15px; 
+}
+  
+//Sensitivities Adjustments
+.sensitivities-data-options {
+    padding-left:0.9375rem;
+    & .hide-for-medium-down{
+        & span.sv-label {font-size: 12px; padding: 3px 5px 0px 0px;}
+        & select.sv-sorter {width:60%;}
+    }
+    & .sensitivity-caption {
+        & div div {padding: 0 0.5rem !important;}
+        & span {font-size: 12px;}
+        & select{padding: 3px; height: auto; width:100% !important; max-width: 240px; margin-right:30px;}
+    }
+    & .large-8.sensitivity-caption {width:66%; 
+        & .collapsesensitivity-label-wrap {padding: 0px !important; margin-top:3px;
+            & br{display: none;}
+            & label {position: absolute; top:0px;
+                & input {margin-right: 5px;}
+            }            
+            & label.columns {position: relative;}
+        }
+    }
+    & .btnRefresh {margin-top:3px;margin-right: 1.75rem !important; margin-bottom:20px;}
+}
+
+//Sensitivity Dropdown
+#tblSA .sensitivity-drop-row{margin-top: 3px;}
+.sensitivity-drop-row {        
+    & .tt-button-primary {font-size: 12px; border-radius:3px;margin-bottom: 4px; padding: 3px 0px !important; z-index: 888;
+        & span{padding: 20px 5px 0px 5px;}
+    }
+    & .f-dropdown {padding: 10px;       
+        & .columns select {width:100% !Important;font-size: 12px;height: auto;padding: 5px;}
+        & br {display: none;}
+        & .the-refresh-btn {margin-top:21px; width:100%;}
+    }
+    & .f-open-dropdown {margin-top: 7px;}
+    & .f-dropdown.drop-left.open {margin-left: -7px; margin-top: 0px; z-index: 999 !important;}
+    & .the-refresh-btn {margin-right:5px;padding: 3px 20px !important;}
+    & a.button[aria-expanded="true"] span.icon-tt-chevron-down:before {content: "\f077";}
+}
+.show-for-medium-down.sensitivity-drop-row {
+    line-height: 1em;
+    & a.tt-toggler {font-size: 20px;padding:0px 5px 0px 0px;}
+    & div.ng-binding {font-size:14px;}
+}
+
+
+//Evaluator View Desktop
+.the-evaluator{
+    min-width: 30%;
+//    overflow:hidden;
+    & .columns {padding:0px 2px !important;}
+    & .the-evaluator-switch {width:100%; // margin: 5px 5px 3px 5px;
+        & .onoffswitch-inner::before {background-color:#f4ab5e;}
+    }
+    & .mobile {
+       background-color: #f2f2f2; width:95%;        
+        & .the-text {margin: 10px 5px 0px 5px; color:#444;}
+    }
+}
+
+// Anytime Help
+li.tt-topnav-last a.c-help {
+   padding:0px; margin:0px !important;
+  & span.icon-question {
+      border: 2px solid #FFFFFF; border-radius: 50%; color: #fff; position: relative; top: 3px; font-size: 1em;
+      background-color: $tt-orange-normal; padding: 1px 6px 1px 5px;
+    }
+} 
+
+.mobile li.tt-topnav-last a.c-help span.icon-question {top:5px; border: 0px;}
+
+//Quick Help icons adjustments
+.tt-question-title h3 span.qhelp-icon {font-size:24px !important;}
+.qhelp-question-wrap, .qhelp-edit-wrap {height:23px;}
+.qhelp-edit-wrap .icon-tt-edit {margin-left:5px;font-size:16px;}
+.qhelp-question-wrap .qhelp-icon {position: relative; right: -3px;font-size:24px !important;}
+
+// Survey Page adjustments
+.icon-tt-check-circle.survey-check {color: #6aa84f; font-size: 18px;position: absolute; right: 5px; top: 5px;}
+.tt-content-wrap .tt-body .tt-survery-wrap ol li .survey-content {
+    padding: 5px 25px 5px 5px; border-bottom: 1px dotted #ccc; left:0px;
+    & span sup {font-weight: normal; color:#aaa;padding-left:5px; font-style: italic;}
+    & input.question-1, & textarea, & select {width: 100%;max-width: 400px !important; margin-bottom:0px;}
+}
+.the-squestion {font-weight:bold;}
+
+.anytime-quick-help-survey {
+    position: absolute; right: 15px;  top: -30px;
+}
+
+//Teamtime adjustments
+#TeamTimeDiv {
+    
+    & .teamtime-question {
+        & .tg-legend .tt-question-title {
+            & h3 br {display: none;}
+        }
+    }
+    & .teamtime-pagination-row {
+        margin-bottom: 10px;
+        & ul.pagination li:hover a, 
+        & ul.pagination li a:focus, 
+        & ul.pagination li:hover button,
+        & ul.pagination li button:focus {background: $silver;}
+        & ul.pagination {
+            margin: 0px !important; padding: 0px 5px;
+            & li a, & li .button {
+                padding: 3px 10px; font-size: 12px; color: $oil;
+            }
+        }
+        & select {
+                height: auto !important;
+                font-size: 12px;
+                padding: 6px 20px 5px 3px !important;
+                outline: none;
+                border: none;
+                margin-bottom: 0px;
+                background-color: $silver;
+                border-radius: 3px;
+                top: 0px !important;
+                width: auto !important;
+        }
+        & a {font-size: 12px;}
+        & .sort-label {padding: 2px 0px;}
+    }
+    
+// Direct Results Adjustments
+// Transferred to directcomparison.scss
+    
+    & .tt-judgements-item .tt-drag-slider-wrap li.group-result-wrap {
+        //margin-bottom: 35px;
+        margin-bottom: 0px;
+    }    
+
+    & .switch-name-email.row.collapse {
+        & select.toggle-name-email {
+            position: absolute; margin: 0px; line-height: 1em; height: 18px !important;
+        }
+    }
+    & .teamtime-graphical-main-slider-row {
+        margin-bottom: 20px;
+    }
+    & .tt-r-ul {
+        background-color: #f6f6f6;
+        & .progress-wrap {width: 100px;}
+        & .progress .meter {min-width: 0%;}
+    }  
+    
+    //Teamtime PW Graphical Adjustments for All Screen Sizes
+    //TRansferred to pairwise.scss
+    
+    & .graphical-nouislider {  
+        & .teamtime-pw-graphical-input-wrap-left {
+            margin-top: 30px;
+            padding: 0px 8px 0px 25px;
+        }
+        & .teamtime-pw-graphical-input-wrap-right {
+            margin-top: 30px;
+            padding: 0px 25px 0px 8px;
+        }
+        & .teamtime-pw-graphical-input-wrap-left,
+        & .teamtime-pw-graphical-input-wrap-right {
+            & input {height:28px; font-size:0.8rem;}
+        }
+        & .teamtime-pw-graphical-icon-wrap {
+            margin-top:30px;
+            padding: 0px;
+        } 
+    }
+    & .teamtime-group-result-row.teamtime-rating {
+        margin-top: 10px !important;
+        & .rating-scale-wrap {
+            background-color: white;
+            padding-top: 0px !important;
+            border: 1px solid $gainsboro;
+            & .dc-group-result-bar {background-color: $tt-green-normal;}
+        }
+        
+    }
+    
+    //Teamtime Step Function Results Adjustments for All Screen Sizes
+    //Transferred to stepfunction.scss
+    
+    //Teamtime Utility Curve Adjustments for all Screen Sizes
+   
+    & .teamtime-data-rows-wrap.participants-list.utility-curve {
+        list-style: none;
+        margin-left: 0px;
+        &  li .tt-drag-slider-item.teamtime-data-row {
+            border-bottom: 1px solid #F1F1F1;
+        }
+        & .active.user-div {
+            background-color: $silver;
+            & .teamtime-user-rating input.input-curve {
+                background-color: white;
+            }
+            & .direc-comparison-wrap {
+               background-color: white;
+           //     & .dc-group-result-bar.progress-sign {
+           //         border: 1px solid #ccc;
+            }
+        }
+        & .teamtime-user-judgment {
+            & .direc-comparison-wrap {
+               padding:0px;
+               background-color: #f1f1f1;
+                & .dc-group-result-bar.progress-sign {
+                    background-color: $tt-blue-lite;
+                    height: 23px;
+                }
+                
+            }
+        }
+        & .tg-ratings.teamtime-user-rating {
+            & input.input-curve {
+                height:25px;
+                margin-bottom: 0px !important;
+            }
+        }
+        
+    }    
+    & .teamtime-group-result-row.utility-curve {
+        margin-top: 10px !important;
+       & .rating-scale-wrap {
+            background-color: white;
+            border: 1px solid $gainsboro;
+        }  
+    }
+    
+    //Clear button recolor
+   // & .icon-tt-close.reset-btn.teamtime-page{color: $tt-orange-normal;}
+    
+    & .teamtime-direct-user {
+        & .tt-j-result {margin-top: 0px; padding-top: 0px;}
+    }
+    
+    //Teamtime Rating Scale Adjustments
+    & .tt-rating-scale-wrap.rating-scale {
+        & .teamtime-pagination-row.rating-scale-pagination {margin-bottom: 5px !important;}
+        & .tt-drag-slider-wrap.participants-list {
+            & .user-div.active {
+                background-color: $silver;
+                & div.progress,
+                & input {
+                    background-color: white;                    
+                }                
+            }
+            & .tg-ratings {
+                & input {
+                    max-height: 23px;
+                    position: relative;
+                    top: 6px;
+                }
+            }
+        }
+    }
+    
+    
+    & .tt-rating-scale-wrap {
+        & .tt-drag-slider-wrap.teamtime-ratings {
+            list-style: none;
+            margin-left: 0px;
+        
+        }
+        & .tt-drag-slider-item {
+            border-bottom: 1px solid #f1f1f1;
+        }
+    }
+    
+    //Teamtime Participants List Scrolling Adjustments
+    // & .participants-list {overflow-y: hidden !important;}
+    //Fix for Auto-Height Scroll
+    & .pw-verbal-auto-height-scroll-fixer {padding-left: 15px; overflow-y: scroll !important;}
+    
+    & .pw-verbal-auto-height-scroll-fixer::-webkit-scrollbar,
+    & .participants-list::-webkit-scrollbar{width: 15px; background-color: $ghost;}
+    
+    & .pw-verbal-auto-height-scroll-fixer::-webkit-scrollbar-thumb,
+    & .participants-list::-webkit-scrollbar-thumb {background-color: $gainsboro; border-radius: 5px; border: 1px solid #fff;}
+}
+
+//PW Verbal Bars Partial Shading Classes
+//TRansferred to pairwise.scss
+
+//Teamtime Top Verbal Bars Adjustment
+//Transferred to pairwise.scss
+
+#timeDetails, #startMeeting {
+    min-height: auto;
+    height: auto;
+    & .tt-modal-content {
+        min-height: auto;
+        padding: 5px;
+        margin-bottom: 0px;
+        & .icon-tt-users {color: $tt-blue-lite;}
+        & .tt-btn-footer {
+            bottom:0px;
+            margin-top: 10px;
+            & .button {background-color: $tt-blue-lite;}
+        }
+    }
+}
+
+.teamtime-title-accordion {
+    & .accordion-navigation a, & .accordion-navigation a:hover, 
+    & .accordion dd a:hover {
+        background: transparent !important; color: $aluminum !important;
+    }
+    & p {font-size: 13px;  line-height: 1rem;color: $tt-blue-normal;margin-bottom: 0px;}
+    & .accordion-navigation.active {
+        & a .icon-tt-plus-square:before {content: "\f146";}
+    }
+}
+
+.teamtime-normalization-dropdown {
+    margin-bottom: 10px;
+    &.open {
+        & .icon-tt-chevron-down:before {content: "\f077";} 
+    }
+}
+
+.teamtime-data-sorter-mobile-wrap {
+    & .f-dropdown {max-width: none; width: 95%; position: absolute;}
+}
+
+.teamtime-data-sorter {
+    padding:0px;
+    font-size: 14px;
+    & .large-3.columns {padding-left: 0px !important;}
+    & .sorter-view {margin-bottom: 0px !important; margin-top:0px !important; padding-left: 0px !important;}
+}
+
+.teamtime-graph-accordion {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #a5d490;
+    & .accordion-navigation.active a, & dd.active a, .accordion-navigation a:hover, & dd a:hover, & .accordion-navigation a, & dd a {
+      padding: 5px; font-size: 12px; background-color: $tt-green-lite; color: white; border-radius: 5px 5px 0px 0px;}
+    & .accordion-navigation .content.active, & .accordion dd .content.active {
+      background: $ghost;  
+    }
+    & #erasebtn {position: absolute; bottom: 0px; left: 0px;
+        & .button.tt-action-btn-clr-j {
+            background-color: $tt-orange-normal; border-radius: 3px;
+        }
+    }
+}
+
+.teamtime-user-rating {margin-top: 0px !important;
+    & input {padding: 2px !important;}
+}
+.teamtime-user-judgment {font-size: 12px;}
+.teamtime-data-rows-wrap {
+    & li .teamtime-data-row {padding-bottom: 10px !important;}
+}
+    
+
+//Teamtime Group Result for All Screen
+    .teamtime-group-result-row {
+        font-size: 12px; padding: 5px !important; background-color: #f2f2f2; border: 3px solid #ddd; border-radius: 5px; margin: 0px auto 5px auto !important;
+        & span.icon {font-weight: bold;}
+    
+        &.pw-verbal {
+            & .teamtime-pw-verbal-result ul li,
+            & .teamtime-results-verbal-bars ul li {
+                margin: 0px .9px !important;
+                &.zero {margin: 0px -3px !important;}
+                
+                &.lft:before, &.rgt:before, &.zero:before {
+                    font-size: 8px;
+                    color: #fff;
+                    bottom: 4px;
+                    position: relative;
+                }
+                &.nine.lft:before, &.nine.rgt:before {
+                    content: "EX";
+                }
+                &.seven.lft:before, &.seven.rgt:before {
+                    content: "VS";
+                }
+                &.five.lft:before, &.five.rgt:before {
+                    content: "S";
+                }
+                &.three.lft:before, &.three.rgt:before {
+                    content: "M";
+                }
+                &.zero:before {
+                    content: "EQ";
+                }
+            }
+        }
+
+    }
+  .group-result-figure{font-weight: bold;font-size: 12px; //margin-bottom: 30px;
+}
+
+
+//Steps Modal Adjustments
+#tt-s-modal {
+    & .tt-modal-content {
+        & ul {
+            & li:nth-child(odd) {
+            background-color: white;
+            }
+            & li:nth-child(even) {
+            background-color: #f9f9f9;
+            }
+            & li a:hover {background-color: #eee;}
+        }
+    }
+}
+.teamtime-steps-help-modal, .anytime-steps-help-modal {
+    min-height: 100px !important;
+    & .tt-modal-content {
+       min-height: 100%;
+       height: auto;
+    }
+}
+
+//Clear button Adjustments
+//Anytime
+#anytime-page {
+    //Step Function
+    & .large-12.tt-auto-resize-content {
+        & .large-8.columns.large-centered {
+            & .erase-and-comment-wrap {
+                & .button.tiny.tt-button-primary.tt-action-btn-clr-j {
+                color: #FF9292;
+                background: transparent;
+                & .icon-tt-close {font-size: 16px;}   
+                } 
+            }
+        }
+    }
+    //Utility Curve
+    & .tt-judgements-item.large-12.columns {        
+            & .erase-and-comment-wrap {
+                & .button.tiny.tt-button-primary.tt-action-btn-clr-j.erase-uc-btn {
+                color: #FF9292;
+                background: transparent;
+                & .icon-tt-close {font-size: 16px;}   
+                }
+            }        
+    }
+    & .tt-utility-curve-wrap {
+        margin-top: 10px;
+    }
+
+}
+//Teamtime
+#TeamTimeDiv {
+//Rating
+    & ul.tt-rating-scale {
+        & li a.button.tt-button-primary.tt-action-btn-clr-j.clrPairwise {
+            color: #FF9292 !important;
+            background: transparent;                    
+            & .icon-tt-close {font-size: 16px;}
+        }
+    }
+//Utility Curve
+    & .tt-judgements-item.utility-curve-screen {
+        & .tt-utility-curve-wrap {
+            & a.button.tt-button-primary.tt-action-btn-clr-j.clrPairwise {
+            color: #FF9292 !important;
+            background: transparent;                    
+            & .icon-tt-close {font-size: 16px;}  
+            } 
+        }
+    }
+}
+
+
+//Footer pagination adjustments - large screen
+.tt-judgements-footer-nav {
+    & .tt-jump-to-pipe-wrap.f-open-dropdown {padding:5px 10px 7px 10px;
+        & .button {border-radius: 3px !important; padding: 3px 5px !important;}
+    }    
+}
+.steps-help-icon-large-screen{font-size: 1.25em; margin: 0px 5px; position: relative; top: -5px;}
+
+//Footer pagination adjustments - small to medium screen
+#GoToStep {height: auto;min-height: 80px; padding:20px 10px;
+    & .row .small-8.small-centered.columns {margin-top: 0px !important; width: 100%;
+        & .medium-4.columns {margin-top:7px;}
+    }
+    & .button {border-radius: 3px;width: 100%; max-width: 50px; margin-top:10px;}
+    & .txttofocus2 {margin-bottom:0px;}
+}
+//Footer Adjustments small Screen
+//Footer Green reColor
+.tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile {
+    & .pagination-wrap {border-top: 1px solid $tt-green-normal;}   
+    & .hsc-wrap {background-color: $tt-green-normal;}
+    & .fnv-toggler.up {    
+        background-color: $tt-green-normal !important;
+        left: calc(50% - 23px) !important;
+        padding: 7px 20px;
+        & span.icon-tt-sort-down {top: -5px; position: relative;}
+    }
+    & .fnv-toggler.down {background-color: $tt-green-normal; left: calc(50% - 23px);}
+}
+
+
+.tt-copyright {display: none !important;}
+
+//Icon adjustments
+//Edit Pencil Icon
+.edit-pencil.edit-info-doc-btn {color:$gainsboro !important;text-decoration: none !important;}
+.tt-panel.tt-resizable-panel a.edit-info-doc-btn.edit-pencil {position: absolute; top:2px; right: 2px; display: initial !important;}
+// Intermediat Result Pencil Icon
+#IntermediateResults .tt-local-results-header .tt-question-title h3 a.edit-pencil span,
+.global-result .global-result-header .tt-question-title h3 a.edit-pencil span{color: $gainsboro !important;}
+
+//404 Page
+.the-error-page {
+    display:table; width:100%;height:100%;
+    & div {display: table-cell;text-align: center; vertical-align: middle;
+        & h1 {
+            font-size:3.5em; color:#6aa84f; font-weight:bold;        
+        }
+    }
+}
+
+
+// Utility Classes
+.the-clear-fix {clear:both !Important; height:0px !important;;}
+.no-more-padding{padding:0px !important;}
+.no-bottom-margin {margin-bottom: 0px !important;}
+.add-top-margin {margin-top:20px;}
+.add-bottom-margin {margin-bottom: 10px !important;}
+.add-bottom-margin-twenty {margin-bottom: 20px !important;}
+.add-top-margin-ten {margin-top:10px !important;}
+.add-padding-left-twenty {padding-left:20px !important;}
+
+.bold {font-weight: bold !important;}
+.center {text-align: center;}
+
+.normal-blue {color: $tt-blue-normal !important;}
+.normal-green {color:  $tt-green-normal !important;}
+.normal-red {color: $tt-red-normal !important;}
+.normal-orange {color: $tt-orange-normal !important;}
+.lite-orange {color: $tt-orange-lite !important;}
+.white-text-only {color: white !important;}
+.normal-bold {font-size: 1em !important; font-weight: bold !important;}
+.normal-green-bg {background-color: $tt-green-normal !important;}
+.normal-blue-bg {background-color: $tt-blue-normal !important;}
+.lite-blue-bg {background-color: $tt-blue-lite !important;}
+.lite-green-bg {background-color: $tt-green-lite !important;}
+.capitalize-text {text-transform: capitalize !important;}
+.fade-fifty {opacity: .5;}
+.fade-thirty {opacity: .3;}
+.fade-seventy {opacity: .7;}
+.five-px-height {height:5px !important;}
+.disabled-pagination-button {opacity: .5; cursor: default !important; pointer-events: none !important;}
+.slide-this-in {
+    position: relative;
+    -webkit-animation-name: slide-from-left; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: slide-from-left;
+    animation-duration: 3s;
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes slide-from-left {
+    0%   {left:-30px; opacity: 0;}
+    100% {left:0px; opacity: 1;}
+}
+
+/* Standard syntax */
+@keyframes slide-from-left {
+    0%   {left:-30px; opacity: 0;}
+    100% {left:0px;opacity: 1;}
+}
+
+.all-transitions {@include tt-trans-all($behavior: 3s);}
+
+
+@media #{$small-only} { 
+
+    // Anytime Welcome Screen Adjustments
+#anytime-page {
+    & .ds-div-trigger.wrap-hyperlink.tt-center-height-wrap.thankyouText {
+        & table{
+        width: 100% !important;
+            & td {float: left !important; width: 100% !important;}       
+        }    
+        & img {
+            margin: 0px !important;
+        }    
+    }
+}
+    
+        //Chat Feature Adjustments
+    #social-intents-tab-chat #si-wrapper .silc-btn {bottom: 10px !important;}
+    #siWidget-chat {
+    right: 0px !important;
+    width: 100% !important;
+    }
+    
+        //Logo adjustment
+    .tt-header .mobile-header {
+        & .tt-logo {
+            & .logo-img {max-height: 40px; width: auto;}            
+        }
+    }
+    
+    .tt-myprojects-wrap {
+        & ul.tt-main-nav-wrap-search {
+            & li.workgroup-drop-selector {
+                width:90%;
+            }
+            & li.workgroup-filter {
+                margin: 0px;
+                float: right;
+            }
+        }
+    }
+    
+        // Anytime Help
+    li.tt-topnav-last a.c-help {
+        & span.icon-tt-book {top: 5px; position: relative;}
+    }
+    .main-content {min-height: 100px !important;}
+    .tt-modal-wrap.fixed-modal {top:0px !important;}
+    .tt-footer-wrap, .tt-content-wrap .push {height:15px;} 
+    .tt-question-title, .tt-question-title h3 span, .tt-content-wrap .tt-body .tg-accordion-1 .tt-panel {font-size: 13px !important;} 
+    .tt-question-title h3 {line-height:15px;}    
+    aside.tg-obj-content .tt-r-ul li ul li div.parent-tree{padding-top:3px; padding-bottom:3px;}
+    .tt-content-wrap .tt-header .tt-mobile-nav .tt-mobile-nav-sub:not(.home) {z-index:9;}
+    #copyModal, #pasteModal, #copyModalMobile {
+        & .tt-modal-content {margin:5px 0px 10px 0px;
+            & .large-12.columns.text-center p {margin-bottom:5px;}
+            & textarea {margin-bottom: 0px; min-height: 188px;}
+            & textarea[rows] {height: auto;}
+            & a.button {margin-bottom: 20px;}
+        }
+    }
+    .results-options {margin-bottom: 40px !important;margin-top: 10px !Important;}
+    .results-options.anytime-local-results {margin-bottom: 0px !important}
+    .single-pw-graphical .graphical-nouislider .mobile-comment-btn {position: absolute; top: 5px; right: auto !important; left: 35px !important;}
+    .noUi-value-horizontal {font-size: 11px !important; top: 8px !important;}
+    .noUi-marker-horizontal.noUi-marker {background: #bbb;}
+    .parent-node-info-div .tt-resizable-panel {overflow: auto; max-height: 180px;}
+    // limit accordion content height on infodoc
+    .single-pw-verbal{
+      & .tt-accordion-sub .tt-accordion-content {
+         //overflow: auto; max-height: 180px; //border:1px solid #ccc;
+          & .tt-panel.tt-resizable-panel {border: none;}
+        } 
+        & .small-6 .tooltip-mode.tt-accordion-head {padding: 12px 0px !important; height: auto !important;}
+    }
+    .tt-question-choices.single-pw-verbal {margin-bottom:50px !important;}  
+    
+    //Survey Page Adjustments Small Screen
+    .row.tt-header-nav.blue-header {
+        clear: both;
+    }
+    .anytime-quick-help-survey {
+        position: relative;
+        top: -5px;
+        right: 10px;
+    }
+    
+    #TeamTimeDiv {   
+        & .tt-j-content.multi-loop-wrap-local-results.teamtime-only {margin-bottom: 20px;}
+        & .tt-auto-resize-content {margin-bottom: 10px;}
+        & .large-12.columns.disable-when-pause {
+            & .tt-j-result {
+                & .columns.tt-normal-head {
+                    margin-top: 10px;margin-bottom: 20px;}
+            }
+            & .tt-j-result.teamtime-data-result-row {
+                & .columns.tt-normal-head {
+                    margin-top: 0px;
+                }
+                & .teamtime-data-group-result-row {margin-bottom: 30px;}
+            }
+            & .tt-judgements-item {
+                & .tt-j-content {
+                    & .tt-j-result {
+                        & div.user-pagination {margin-bottom:-10px;}
+                    }
+                }
+                & .tt-drag-slider-wrap li.group-result-wrap {
+                    margin-bottom: 20px;
+                    }
+            }
+            
+            //Teamtime PW Graphical Adjustments Small Screen
+            //Transferred to pairwise.scss
+            
+            //Teamtime Group Results Adjustments for Small Screen
+            .teamtime-group-result-row {
+                & span.icon-tt-chart { display: block; margin: 2px 0px 7px 0px; font-size: 14px;}
+            }
+            
+            
+            // Teamtime Rating Scale Adjustment for Small screen
+            & .tt-rating-scale-wrap.rating-scale {
+                & .tt-j-others-result.tt-rating-scale-content {
+                    padding: 0px 5px;                    
+                }
+                margin-bottom: 55px !important;
+              & .tt-drag-slider-wrap {
+                  & .tg-en {padding-bottom: 0px !important;}
+                  & .progress {margin-bottom: .3rem !important;}
+                  & .reset-result-btn-wrap a .reset-btn {top:7px;}
+              }
+            }
+            & .tt-drag-slider-wrap.teamtime-ratings {
+                & li .tt-drag-slider-item {
+                    padding-right: 5px !important;
+                }
+            }
+            
+            & .utility-curve-screen {margin-bottom: 65px;}
+        }
+        
+         //Teamtime PW Verbal Adjustment for Small screen
+        //Transferred to pairwise.scss
+        
+        & .teamtime-data-group-result-row{
+            & .tt-j-result-title {
+                & .tt-equalizer-result-mobile{
+                    margin: 0px !important;
+                    padding: 0px !important;
+                    & li {
+                        margin: 1px .45% !important;
+                        width: 4.9%;
+                    }
+                }                
+            }
+        }
+       & .tt-drag-slider-wrap li .tt-drag-slider-item .tt-dsBar {margin-top: 5px;}
+        
+        //Teamtime Utility Curve Adjustments Small Screen size
+        .disable-when-pause.utility-curve-screen {
+            padding:0px 5px;
+        }
+        & .teamtime-group-result-row.utility-curve {
+            & span.icon-tt-chart{display: initial !important;}
+        }
+        
+        //Teamtime Direct Results Adjustments Small Screen        
+        //Transferred to directcomparison.scss
+        
+         //Teamtime Step Function Adjustment for Small Screen
+        //Transferred to stepfunction.scss
+        
+        //Teamtime Pagination Adjustments Small Screen
+        & .tt-paginate-users {
+            padding: 0px;
+            & .teamtime-pagination-row {
+                & .user-pagination {
+                    & ul {padding:0px;}
+                    & ul li a{
+                       padding: 3px 5px;
+                    }
+                }
+            }
+        }
+        
+        //Disable the Auto Height Scroll in Small Screen
+        .participants-list{max-height: 100% !important;}
+        
+        //Rating Scale Adjustments
+        & .tt-rating-scale-wrap.rating-scale {
+            & .teamtime-group-result-row.teamtime-rating {
+                & span.icon-tt-chart{display:initial;}
+            }
+        }
+    }    
+    
+    
+  //Overall Result Screen Adjustments
+    .tt-mobile-wrap.direct-comparison-wrap-mobile.overall-result-screen {
+        & .tt-j-content {
+            & aside.tg-obj-content {
+                & .tt-header-nav {
+                    & a.tt-show-objectives-btn {
+                        padding: 0px 0px 0px 15px;
+                    }
+                }
+            } 
+        }
+    }
+  
+    .the-evaluator {
+        & .the-text {margin: 10px 0px !important;}
+        & .the-evaluator-switch {margin: 5px 0px 3px 0px;}
+    }
+ 
+    // Multi PW Verbal Bars Adjustments
+    //Transferred to pairwise.scss
+    
+    //Footer for Small Screen
+    .tt-mobile-footer {
+        & .pagination-wrap {
+            & .mobile-icons {
+                padding: 0 .5em 0 .3em;
+                & .steps-help-icon-large-screen, & .steps-help-icon-small-screen {
+                     top: -3px;
+                }
+            }
+            
+            & .paginate-container ul li a.steps {
+                padding: .1em .5em !important;
+            }
+        }
+    }
+    
+    //Footer pagination & Buttons Font Size Adjustments
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .hsc-wrap a span.icon-text {
+        font-size: 11px;
+    }
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .pagination-wrap .paginate-container ul li a {
+        font-size: 11px;
+    }
+    
+    //Add margin below the Welcome page
+    #anytime-page {
+        & .tt-homepage {
+            & .tt-homepage-main-wrap {
+             max-height: 100% !important;
+             padding-bottom: 60px !important;
+            }
+        }
+    } 
+    
+    //404 Page
+.the-error-page {    
+    & div {padding: 30px;
+        & h1 {
+            font-size: 1.75em;        
+        }
+        & p {max-width: 300px; margin: auto;}
+    }
+}
+
+}
+
+@media #{$small-only} and (orientation: landscape) {
+    .erase-and-comment-wrap {margin-bottom: 10px;} 
+    
+}
+
+
+
+@media #{$small-up} {         
+    //Login & Join Meeting page
+    .tabs.home-screen-tabs {
+        & .tab-title.active a {opacity: .5; pointer-events: none !important;}
+        & .tab-title a {
+            font-size: .9rem;
+            padding: .5rem;
+        }
+    }
+    .ec-login-join-main-title,
+    .home-forms {
+        & hr.separator {
+            width: 50%;
+            margin: 20px auto;
+        }
+    }
+    .home-forms {        
+        position: relative;
+        & .jm-error {
+            & .alert-box.alert.radius.tt-alert.msg-stat {
+            padding: .375rem .5625rem .5625rem;
+            font-style: italic;
+            }
+        }
+    }
+
+    //Chat Feature Adjustments
+    #silc-btn {  
+     right: 5px !important;
+    position: fixed !important;
+    height: auto !important;
+    width: auto !important;
+   //right: 95px !important;
+    z-index: 9 !important;
+        & .silc-btn-button.silc-btn-button-color {
+            background-size: 50%;
+            height: 40px;
+            width: 40px;
+            top: 24px;
+            box-shadow: 0px 0px;
+            right: -5px;
+            position: initial;
+        }
+    }
+    
+    // Parent Node Adjustments for all screens and judgments
+   #pipeContent .parent-node-info-div {
+         & .tt-resizable-panel {           
+            min-height: 40px !important;
+            max-height: 270px !important;
+            overflow: auto;
+
+            &.mobile-resizable{
+                max-height: 200px !important;
+            }
+        } 
+    }
+    
+    // Anytime Left and Right Nodes Adjustments
+    #anytime-page {
+        & .anytime-wrap {
+            & .left-node-info-div,
+            & .right-node-info-div,
+            & .wrt-left-node-info-div,
+            & .wrt-right-node-info-div {
+                & .tt-resizable-panel {               
+                    min-height: 40px !important;
+                    max-height: 270px !important;
+                    overflow: auto;
+
+                    &.mobile-resizable{
+                        max-height: 200px !important;
+                    }
+                }                
+            }
+        }
+    }
+    
+    //Sticky Element on Question
+    .tt-content-wrap .tt-body .tt-sticky-element.fixed {position: fixed !important;}
+    
+    .tt-auto-resize-content.many-alternatives {margin-bottom: 10px; z-index: 888;}
+    .pipe-wrap.many-alternatives { z-index: 8;}
+    .logo-img { max-width: 239px !important;padding: 0px !important; margin: 0px auto;}
+    .tt-modal-content .logo-img {float: none;}
+    .reveal-modal .steps-range-option .goto-steps {padding:5px;}
+    .reveal-modal .steps-range-option .left {border-right: 0px;}
+    .tt-content-wrap .tt-body .tt-header-nav ul.tt-main-nav-wrap-search {
+        margin: auto; width: 100%; max-width: 550px;
+        & li:last-child {width: 100%; display: block;margin: 0px auto; padding: 0px; max-width: 100% !important; float: none; clear: both;}
+        & li a span.icon, & li a span.text{font-size: 13px !important;}
+        & li a span.text {margin-right:3px;}
+    }
+    
+
+   .tt-content-wrap .tt-body .tt-header-nav.blue-header .tt-survey-title{font-size: 14px;padding-top: 5px; padding-bottom:5px; margin:0px!important;}    
+   .tt-content-wrap .tt-body .tt-header-nav {margin-bottom: 10px;}
+   .tt-content-wrap .tt-body .tt-header-nav.blue-header{margin-bottom: 3px;}
+   .tt-content-wrap .tt-body #tblSA .small-12.sensitivity-refresh{
+      & span.ng-scope {
+        font-size:14px;
+            & select {font-size: 12px;padding: 5px;height: auto;margin-bottom: 3px;}
+        }
+        & a.tiny.tt-h-btn {margin-bottom:10px;}
+    }
+    
+    #IntermediateResults, .global-result {
+        & .tt-local-results-header, & .global-result-header {
+            border: none !important;
+            & .tt-question-title {
+                margin-top: 0px;
+                & h3 {
+                    margin-top:0px;
+                    & span {color: $tt-blue-normal !important;}
+                }
+            }
+        }
+    }
+    
+    //Overall Result Screen
+    .overall-result-screen {
+        & .pipe-wrap.many-alternatives {
+            overflow: initial !important;
+        }
+    }
+    
+    .the-evaluator .mobile .small-4{max-width:100px;} 
+    #results-instruction {margin-bottom:3px;}
+    
+        //Anytime Ratings
+    .anytime-ratings {
+        & .tg-ratings.small-text-center {
+            font-size: 12px;
+        }
+    }
+    
+    //Single Rating Scale Adjustments
+    .tt-judgements-item.tt-rating-scale-wrap.single-rating-scale {
+        & ul.tt-drag-slider-wrap {
+            list-style: none;
+            margin-left: 0px;
+            & li .tg-ratings {
+                & input {
+                    max-height: 23px;
+                    position: relative;
+                    top: 6px;
+                    padding: .2rem .5rem;
+                }
+            }
+            & li {
+                & .tt-hidden-select-wrap {
+                   & .hidden-item-wrap {
+                        margin-left: 9%;
+                        & li a span.right {margin-left: 5px;}
+                    }
+                }
+            }
+        }
+    }
+    
+    // Sensitivities Adjustments
+    .anytime-sensitivities {
+        & .tt-header-nav.blue-header {
+            & h1.tt-survey-title {font-size: .9em !important;}
+        }
+        
+        & .qhelp-question-wrap .qhelp-icon {top: -2px;}
+    }
+    
+//Teamtime Utility Curve
+    #TeamTimeDiv {
+         & .teamtime-data-rows-wrap.participants-list.utility-curve {
+            &  li .tt-drag-slider-item.teamtime-data-row {
+                padding-bottom: 10px !important;
+            }
+        }
+    }
+    #TeamTimeDiv .teamtime-data-rows-wrap.participants-list.utility-curve .teamtime-user-judgment .direc-comparison-wrap .dc-group-result-bar.progress-sign.disabled {
+        background: #aaaaaa !important;
+    }
+    #TeamTimeDiv .teamtime-data-rows-wrap.participants-list.utility-curve .teamtime-user-judgment .direc-comparison-wrap .dc-group-result-bar.progress-sign.no-judgment {
+        background: #fff !important;
+        border: 1px solid #d3d3d3 !Important;
+    }
+    
+//Footer Adjustments - Mobile
+.tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile.down {margin-bottom: -70px;}
+.tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile {
+     & .pagination-wrap {padding: 8px 8px 0px 8px !important;}
+     & .hsc-wrap {
+         padding: 3px 55px 2px 6px;
+         &.hsc-wrap.footer-bottom-btns{
+             & a {position: relative;left: -5px;}
+             & a.steps_modal_btn {position: relative; left: -10px;}
+         }
+        }
+     }
+    .tt-content-wrap .tt-body .tg-accordion-1 .tt-panel {padding-bottom: 0px;}
+    .hide-normalization {display:none !important;}
+    .tt-modal-content .q-help{text-align:center;}
+   // .tt-modal-content .modal-bottom-info-wrap{
+        //& .cluster {width: 100%; max-width: 230px; margin: auto;}
+   // }
+// Teamtime Footer pagination small up
+    .paginate-container ul.teamtime-pagination li {
+        display: inline-block !important;
+        float: none !important;
+    }
+    
+//.tt-j-others-result .tt-multi-pairwise-wrap {margin-bottom: 0px;}
+.multi-rows.tt-verbal-bars-wrap.tt-j-content.multi-loop.selected {
+    & .multi-div-fix.small-6 {width: 100%;}
+}
+    aside.tg-obj-content {z-index: 999;}
+    
+    //Teamtime PW Graphical Adjustments for Medium-Up Screen Sizes
+    //Transferred to pairwise.scss
+    
+    // Teamtime adjustments
+    .tt-mobile-wrap.disable-when-pause {
+        & .tt-judgements-item {
+            margin-bottom:30px;
+        }
+    }
+    .multi-loop-wrap-local-results.teamtime-only {margin-top:0px !important;}
+    .teamtime-pw-result-small-medium {max-height: 100% !important;}
+    .rating-scale-pagination {padding-left: .5rem;}
+    
+    //Teamtime Adjustments Verbal Small Screen Up
+    //Group Results
+    .teamtime-group-result-row.pw-verbal {
+        & .tt-j-result {padding-top: 0px !important;}        
+        //& .tt-equalizer-result-mobile {
+        //    margin: 0px !important;            
+        //} 
+    }
+    
+    //Footer for Small Screen and Up
+    .tt-mobile-footer {
+        & .pagination-wrap {
+            & .overall.tt-c100 {
+               height: 30px !important;
+                width: 30px !important;
+                position: relative;
+                left: 50%;
+                margin-bottom: 0px !important;
+                margin-left: -15px !important;
+                margin-top: -6px !important;
+            }
+            & .mobile-paginator {
+                & .paginate-container {
+                    & .pagination.small-8.medium-10.end {
+                        font-size: inherit;
+                        line-height: inherit;
+                    }
+                }
+            }
+            & .mobile-icons {
+                /*margin-left: -6.5%;*/
+            }
+        }
+    }
+    
+    .footer-nav-mobile {
+        & .pagination-wrap {
+            & .mobile-icons {
+                & ul.inline-list {
+                    margin: 0px; overflow: visible;
+                    & li {
+                        width: 30px; margin: 0 .2rem;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media #{$small-up} and (orientation: landscape) {
+    
+    //Overall results or Global Results Adjustments
+    .tt-mobile-wrap.overall-result-screen {
+        & aside.tg-obj-content.overflow-fix {
+            max-height: 100% !important;
+        }
+    }
+    
+}
+
+@media screen and (max-width:320px) {
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .hsc-wrap a span.icon-text {
+        font-size: 10px;
+    }
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .pagination-wrap .paginate-container ul li a {
+        font-size: 10px;
+    }
+    
+    // Navigation font size Adjustment
+    .tt-content-wrap .tt-header .tt-mobile-nav .tt-mobile-nav-sub ul li {font-size: 10px !important;}    
+
+}
+
+@media screen and (max-width:390px) {
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile {
+     & .hsc-wrap {
+         &.hsc-wrap.footer-bottom-btns{
+             & a.next-unassessed-btn {
+                 & span.icon-tt-chevron-right {
+                     position:absolute; top:5px; left:-5px; font-size:12px;
+                 }
+             }
+         }
+        }
+     }
+}
+
+
+@media screen and (max-width:436px) {
+    .judgement-table-menu{
+        & .small-3 {display:none;}
+        & .small-9 {width:100%;}
+    }
+}
+
+@media screen and (max-width:439px) {
+    //Footer Icons adjustments
+    .footer-nav-mobile .pagination-wrap .mobile-icons ul.inline-list li {
+        width:20px;
+        &.the-ellipsis {
+            width: 15px;   
+        }
+        & .steps-help-icon-small-screen {
+            margin:0px; 
+        }
+    }
+}
+
+@media screen and (max-width:530px) {
+        
+    //Footer for Small Screen and Up
+    .tt-mobile-footer {
+        & .pagination-wrap {
+            & .mobile-paginator {
+                & .paginate-container {
+                    & .pagination.small-8.medium-10.end {
+                        width: 57%;
+                        margin-left: .3125rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:568px) {
+    //Footer on Smaller Screen
+     .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile {
+     & .pagination-wrap.columns {
+        // padding: 8px 3px 0px 0px !important;
+         padding: 8px 0px 0px 0px !important;
+         }
+     }
+}
+
+
+@media #{$medium-only} { 
+    
+    // Chat Feature
+      #social-intents-tab-chat  #si-wrapper .silc-btn {bottom: 10px !important;}
+    
+        //Logo adjustment
+    .tt-header .mobile-header {
+        & .tt-logo {
+            & .logo-img {max-height: 40px; width: auto;}            
+        }
+    }
+    
+    // Anytime Help
+    li.tt-topnav-last a.c-help {
+        & span.icon-tt-book {top: 5px; position: relative;}
+       // & span.icon-question {      
+       //     color: $tt-orange-normal;
+       //     background-color: white;
+       //     font-size: 22px;
+       // }
+
+    }
+    
+    .main-content {min-height: 200px !important;}
+    .tt-modal-wrap.fixed-modal {top:5% !important;}
+    .tt-footer-wrap, .tt-content-wrap .push {height:auto;}
+    .tt-footer-wrap .footer-content {bottom:-40px;}
+    aside.tg-obj-content .tt-r-ul li ul li div.parent-tree{padding-top:3px; padding-bottom:3px;}
+    .results-options {margin-bottom: 70px !important; margin-top: 10px !important;}
+    .single-pw-graphical .graphical-nouislider .mobile-comment-btn {position: absolute; top: 5px; right: auto !important; left: 35px;}
+    .noUi-value-horizontal {font-size: 11px !important; top: 8px !Important;}
+        // limit accordion content height on infodoc
+    .single-pw-verbal{        
+      & .tt-accordion-sub .tt-accordion-content {
+          overflow: auto; max-height: 180px; //border:1px solid #ccc;
+          & .tt-panel.tt-resizable-panel {border: none;}
+        }
+       & .small-6 .tooltip-mode.tt-accordion-head {padding: 12px 0px !important; height: auto !important;}
+    }
+   .tt-question-choices.single-pw-verbal {margin-bottom:70px !important;}
+      #TeamTimeDiv {       
+        & .large-12.columns.disable-when-pause {
+            & .tt-j-result {
+                & .columns.tt-normal-head {
+                    margin-bottom: 40px;}
+            }
+        }
+    } 
+    // Multi PW Verbal Bars Adjustments
+    //Transferred to pairwise.scss
+    
+    //Teamtime adjustments for Medium screen
+    #TeamTimeDiv {
+        //Disable the Auto Height Scroll in Small Screen
+        .participants-list{max-height: 100% !important;}
+        //Teamtime Content Wrap bottom Margin Adjustment
+        & .tt-auto-resize-content {margin-bottom: 90px;}
+        
+        //Teamtime PW Graphical Results Adjustments Medium Screen
+        //Transferred to pairwise.scss
+
+        
+        //Teamtime PW Verbal Adjustment for Medium screen
+        //Transferred to pairwise.scss
+        
+        // Teamtime Rating Adjustment for Medium screen
+        & .tt-rating-scale-wrap {
+          //margin-bottom: 20px !important;
+          & .tt-drag-slider-wrap {
+            & .tt-drag-slider-item {padding-bottom: 10px !important;}
+            & .tg-en {padding-bottom: 0px !important;}
+        //    & .tg-ratings {
+        //      & input {margin:0px !important;}
+         //  }
+            & .reset-result-btn-wrap a .reset-btn {top:0px; margin-top: 6px !important;}
+            & .progress {margin-bottom: .3rem !important;}
+          }
+        }
+        //Teamtime Step Function Adjustment for Medium Screen
+        //Transferred to stepfunction.scss
+        
+        //Teamtime Direct Results Adjustments Medium Screen
+        //Transferred to directcomparison.scss
+
+    }    
+    
+    .teamtime-data-result-row {
+        margin-bottom: 10px !important;
+    }
+    
+      .tt-mobile-footer {
+        & .pagination-wrap {
+            & .paginate-container ul li a.steps {
+                padding: 2px 6px !important;
+            }
+        }
+    }
+    
+    //Teamtime footer font-size
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile .pagination-wrap .paginate-container ul li a {font-size: 11px !important;}
+    
+    //Add margin below the Welcome page
+    #anytime-page {
+        & .tt-homepage {
+            & .tt-homepage-main-wrap {
+             max-height: 100% !important;
+             padding-bottom: 90px !important;
+            }
+        }
+    }
+    
+        //Footer for Small Screen and Up
+    .tt-mobile-footer {
+        & .pagination-wrap {
+            & .mobile-paginator {
+                & .paginate-container {
+                    & .pagination.small-8.medium-10.end {
+                        width:auto;
+                    }
+                }
+            }
+        }
+        & .hsc-wrap.footer-bottom-btns {
+            & a {left:0px;}
+            & a.next-unassessed-btn span.icon-tt-chevron-right {
+                position: relative !important;
+                top: 0px !important;
+                left: 0px !important;
+            }
+        }
+    }
+    
+}
+
+@media #{$medium-only} and (orientation: landscape) {
+    .erase-and-comment-wrap {margin-bottom: 50px;}
+    
+        //Teamtime PW Verbal Adjustment for Medium screen Landscape
+        //Transferred to pairwise.scss
+}
+
+@media #{$medium-up} { 
+    //Login & Join Meeting page
+    .tabs-content.home-forms {
+        & .content.columns {
+            display: inline-block;
+            width:50%;
+            float: left;
+        }
+    }
+   .ec-login-join-main-title {
+        & h1.tt-header span {
+            font-size: 2em;
+        }
+    }
+    .home-forms {
+        & .ec-join-form, & .ec-login-form {
+            padding: 0 3rem !important;
+        }
+        
+        & .vertical-form-separator {
+            position: absolute;
+            left: 50%;
+            width:1px;
+            height:20vh;
+            top: 15%;
+            background-color: #ccc;
+        }
+    }
+    
+    .reveal-modal .steps-range-option .goto-steps {padding:0px;}
+    .reveal-modal .tt-modal-content {width: 100%;position: relative;margin-right: 0px;}  
+    .tt-content-wrap .tt-body .tt-header-nav ul.tt-main-nav-wrap-search {
+         & li a span.icon, & li a span.text{font-size: 0.6875rem !important;}
+        & li:last-child {max-width: 320px !important;}
+    }
+    .tt-content-wrap .tt-body .tt-header-nav.blue-header .tt-survey-title{font-size: 20px;padding-top: 3px;font-weight: normal; padding-bottom:3px;}
+    .tt-content-wrap .tt-body .tt-header-nav {margin-bottom: 10px;}
+    
+    .the-evaluator {
+            & .mobile {
+                padding: 0px; background-color: transparent; width: 100%;
+                & .small-4{max-width:190px;}
+                & .the-text {margin-top:0px; color:#6aa84f;}
+            }
+        }
+    //Footer Adjustments - Mobile
+    .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile.down {margin-bottom: -100px}
+       .tt-mobile-wrap .tt-judgements-footer-nav.mobile .footer-nav-mobile {
+    //    & .pagination-wrap {padding: 10px !important;}
+    //    & .hsc-wrap {padding: 10px !important;}
+         }
+    // Quick Help in Questions
+        .qhelp-questions {float:right;}
+
+    // Team Time Adjustments
+    .teamtime-title-accordion {
+        & p {font-size: 14px;  line-height: normal;}
+
+    }
+    //Teamtime Direct User Adjustments Medium Up
+    //Transferred to directcomparison.scss
+    
+    .tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li .tt-drag-slider-item input {margin: 3px 0px 0px 0px;}
+    .tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li .tt-drag-slider-item .tt-dsBar {margin-top: 8px;}
+    .teamtime-data-result-row {margin-bottom: 10px !important;      
+        & .tt-j-result-title {margin-top: 2px;}
+    }
+    .reset-btn.teamtime-page {margin-top: 8px !important; right: 10px !important;}
+    
+    //WRT Font Size Adjustments also Accordion Header 
+    .tt-content-wrap .tt-body .questionsWrap .tt-accordion-head a.tt-toggler {
+        font-size: 12px;    
+    }
+    
+    //Team time Utility Curve
+    #TeamTimeDiv{
+        & .teamtime-data-rows-wrap.participants-list.utility-curve {
+            & .tt-drag-slider-item.teamtime-data-row.user-div {
+                margin-bottom:0px;
+                & input, 
+                & .teamtime-user-judgment {margin-top: 7px !important;}
+            }
+        } 
+    }
+       
+}
+
+@media screen and (min-width:641px) and (max-width:670px) {
+    //Footer Pagination Adjustment
+    .tt-mobile-footer .pagination-wrap .paginate-container ul li a.steps {
+        padding: 2px 7px !important;
+    }
+    //Footer Icons Adjustment
+    .footer-nav-mobile .pagination-wrap .mobile-icons ul.inline-list li
+    {
+        width: 25px;
+    }
+}
+
+@media screen and (min-width:715px) and (max-width:763px) {
+    //Footer Pagination
+    .tt-mobile-footer .pagination-wrap .paginate-container ul li a.steps {
+        padding: 2px 6px !important;
+    }
+}
+
+@media screen and (min-width:810px) and (max-width:999px) {
+    //Footer Pagination margin Medium Screen
+    .tt-footer-wrap .footer-pagination-wrap ul.pagination li {
+        margin-left: 0.1rem;
+    }
+}
+
+@media screen and (min-width:896px) and (max-width:911px) {
+    .tt-mobile-footer .pagination-wrap .paginate-container ul li a.steps {
+        padding: 2px 7px !important;
+    }
+}
+
+@media #{$large-up} {
+    //Login & Join Meeting page
+    .ec-login-join-main-title {
+        margin-bottom: 50px;
+    }
+    .home-forms .ec-join-form, .home-forms .ec-login-form {
+        padding: 0 5rem !important;
+    }
+    
+    // User Dropdown Feature
+    #tt-a-dd {z-index:999 !important;}
+       //Chat Feature Adjustments
+    #silc-btn {
+    position: fixed !important;
+    top: auto !important;
+    height: 52px !important;
+    width: 52px !important;
+    right: 10px !important;
+   // bottom: 85px !important;
+    z-index: 99999000 !important;
+        & .silc-btn-button.silc-btn-button-color {
+            background-size: 50%;
+            height: 52px;
+            width: 52px;
+            top: 0px;
+            box-shadow: 0px 0px;
+        }
+    }
+    
+    .tt-content-wrap .tt-body .tt-header-nav ul.tt-main-nav-wrap-search {
+        max-width: 100%;
+        & li:last-child {width: auto; display: inline-block; margin: 0px auto; padding: 0px; max-width: 100% !important;float: right; clear: none;}       
+    }
+    .the-toggler {display: none;}
+    .hide-normalization {display:block !important;}
+
+    .tt-content-wrap .tt-body .tg-accordion-1 .tt-panel {padding-bottom: 5px;}
+    .tt-modal-content .q-help{text-align:left;}
+    .tt-modal-content .modal-bottom-info-wrap{
+        //& .cluster {float:right;}
+    } 
+     #results-instruction {margin-bottom:0px;}
+    
+    #copyModal, #pasteModal {        
+        & .tt-modal-content {overflow-y: hidden;}
+    }
+    
+    .multi-rows.tt-verbal-bars-wrap.tt-j-content.multi-loop.selected {
+    & .multi-div-fix.small-6 {width: 50%;}
+    }
+    .multi-loop-wrap-local-results.teamtime-only {margin-top:10px !important;}
+    
+    // update to QH Icons from case: 12886
+    .tt-mobile-wrap .tt-question-title {margin: 0px !important;}
+    .tt-content-wrap .tt-body .tg-accordion-1 .tt-panel {padding: 0px !Important;}
+    .the-evaluator {margin-bottom: 0px !Important;}
+    
+   .row.qhelp-questions.special-locations {
+    float: none;
+    position: absolute !important;
+    right: 14px !important;
+    z-index: 333;
+    width: 100%;
+    max-width: 50px !important;
+    top: 70px;
+    }
+        
+    .row.qhelp-questions.common-location  {
+        position: absolute;right: 4px; top: -29px; float: none;
+    }
+ 
+    #TeamTimeDiv{
+    // Teamtime Hide/Show Participant list
+        & .teamtime-hide-show-participant-list {float:right; margin-top:4px; margin-left: 3px;}
+        
+      & .teamtime-direct-results {
+          margin-top: 0px !important;          
+        }  
+      & .teamtime-pagination-row {
+//          width: 83.33% !important;  //please use Foundation grid default in using columns http://foundation.zurb.com/sites/docs/v/5.5.3/components/grid.html
+          margin: auto !important;
+        }
+      & .rating-scale-pagination {width: 100% !important;}
+      
+      //Teamtime Rating Adjustment large Screen
+      & .tt-rating-scale-wrap {
+          //margin-bottom: 20px !important;
+          margin-bottom: 0px !important;
+          & .tt-drag-slider-wrap {
+            & .tg-ratings {
+              & input {margin:0px !important;}
+            }              
+          }
+        }
+      //Teamtime Step Function Adjustment for Large Screen
+      //Transferred to stepfunction.scss
+        
+      & .teamtime-data-pagination {margin-bottom: 20px!important;width: 100% !important;}
+        
+     //Teamtime PW Verbal & Graphical Adjustment for Large screen        
+    //Transferred to pairwise.scss
+        
+    //Teamtime Utility Curve Adjustment
+        & .tt-j-result.utility-curve {margin-top: 0px; padding-top: 0px;} 
+         & .teamtime-data-rows-wrap.participants-list.utility-curve {
+            &  li .tt-drag-slider-item.teamtime-data-row {
+                padding-bottom: 5px !important;
+            }
+        }
+   
+    
+    //Teamtime Direct Adjustments
+    //transferred to directcomparison.scss
+    }
+    
+    .teamtime-graph-accordion {
+        margin-bottom: 0px;
+        border-bottom: none;
+        & .accordion-navigation .content.active, & .accordion dd .content.active {
+          background: $ghost; border-radius: 5px; border: 2px solid $silver; 
+        }
+    }
+    .teamtime-data-rows-wrap {
+        & li .teamtime-data-row {padding-bottom: 0px !important; margin-bottom: 10px;}
+        & .teamtime-user-column div, & .teamtime-user-rating, & .teamtime-user-judgment {padding:5px 0px}
+    }    
+
+    .tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li .tt-drag-slider-item input {margin: 6px 0px 0px 0px;}
+    .tt-content-wrap .tt-body .tt-judgements-item .tt-drag-slider-wrap li .tt-drag-slider-item .tt-dsBar {margin-top: 10px;}    
+    .push {display: none;}
+    
+    //Time Details Button
+    .tt-footer-wrap .footer-pagination-wrap ul.pagination li .unassessed {padding: 1px !important;}
+}
+
+// More Large Screen Media Queries
+@media screen and (min-width:1025px) and (max-width:1190px){
+    #TeamTimeDiv {
+        & .large-10.tt-paginate-users {width: 100%;}
+        & .pw-verbal-auto-height-scroll-fixer {padding-left: 0px;}
+        & .row.teamtime-pw-result-large.participants-list {
+            & .large-10.teamtime-pw-verbal-result {width: 100%;}
+        }
+        & .teamtime-group-result-row.pw-verbal.large-10 {
+            width: 100%;
+        }
+    }   
+}

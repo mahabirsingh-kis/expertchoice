@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="27" viewBox="0 0 29 27">
+  <g id="Group_971" data-name="Group 971" transform="translate(-1442 -736.082)">
+    <g id="Group_970" data-name="Group 970">
+      <rect id="Rounded_Rectangle_852_copy" data-name="Rounded Rectangle 852 copy" width="28" height="26" rx="6" transform="translate(1442.5 736.582)" fill="#fff" stroke="#efefef" stroke-width="1"/>
+    </g>
+    <g id="User_settings" data-name="User settings" transform="translate(1449 741.082)">
+      <path id="Path_16" data-name="Path 16" d="M10.7,11.884v1.674a5.023,5.023,0,0,0-5.023,5.023H4A6.7,6.7,0,0,1,10.7,11.884Zm0-.837a5.023,5.023,0,1,1,5.023-5.023A5.022,5.022,0,0,1,10.7,11.047Zm0-1.674A3.349,3.349,0,1,0,7.349,6.023,3.348,3.348,0,0,0,10.7,9.372Zm2.173,6.54a2.934,2.934,0,0,1,0-1.359l-.831-.48.837-1.45.831.48a2.927,2.927,0,0,1,1.176-.68v-.959h1.674v.959a2.924,2.924,0,0,1,1.176.68l.831-.48.837,1.45-.831.48a2.93,2.93,0,0,1,0,1.358l.831.48-.837,1.45-.831-.48a2.927,2.927,0,0,1-1.176.68V19H14.884v-.959a2.927,2.927,0,0,1-1.176-.68l-.831.48-.837-1.45Zm2.851.576a1.256,1.256,0,1,0-1.256-1.256A1.256,1.256,0,0,0,15.721,16.488Z" transform="translate(-4 -1)" fill="#5e980a"/>
+    </g>
+  </g>
+</svg>

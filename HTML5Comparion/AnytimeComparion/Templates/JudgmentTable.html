@@ -1,0 +1,87 @@
+<%
+
+%>
+<style>
+    .tt-matrix-table th, .tt-matrix-table .priorities-name, .tt-matrix-table .matrix-cell {
+        font-size: 13px;
+    }
+</style>
+
+<table id="matrixtable" class="<%=legend ? 'large-10' : 'large-12' %> columns large-left responsive tt-matrix-table" style="table-layout: fixed">
+    <thead>
+        <tr style="min-height:30px; height: 30px;">
+            <th style="border-bottom: 1px solid lightgray; width: 50px;">&nbsp;</th>
+            <% _.each(headers,function(item,key,list){ %>
+            <th style="border-bottom: 1px solid lightgray;width: 50px;  overflow-wrap: break-word; white-space:nowrap; overflow:hidden" title="<%=item[2]%>">
+                <span><%= item[2].length > 17 ? item[2].substring(0, 17) + " ..." : item[2]%></span>
+            </th>
+            <%})%>
+        </tr>
+    </thead>
+    <tbody>
+
+        <% _.each(objectives,function(objective,index,list){ %>
+        <tr style="min-height:30px;height:30px">
+            <td style="overflow:hidden; width:50px;overflow-wrap: break-word; white-space:nowrap; overflow:hidden; text-shadow: 1px 1px 1px #fff; padding: 0px !important; color: #000 !important;" data-tooltip="<%=index%>" data-options="disable_for_touch:true; show_on:large" class="priorities-title has-tip tip-top" title="<%=objective[2] + ' - '%><%=(objective[1] * 100).toFixed(2)%>%"
+                data-options="show_on:medium">
+                <div class="priorities-name" style="position: absolute;"><%= objective[2].length > 22 ? objective[2].substring(0, 22) + " ..." : objective[2]%></div>
+                <div class="priorities-percent" style="position: absolute;display:none"><%=(objective[1] * 100).toFixed(2)%>%</div>
+                <div class="direc-comparison-wrap">
+                    <%var barlength = ((objective[1] / highestResult) * 100); %>
+                    <div class="dc-group-result-bar progress-sign" style="width:<%=barlength%>%"></div>
+                </div>
+            </td>
+            <% _.each(results,function(result,key,list){ %>
+            <td style="background: <%= index >= key ? 'gray' : ''%>; margin:0px; padding:0px;" class="tt-j-table">
+                
+                    <%if(index < key && objective[0] != result[0]){%>
+                    <%if(inconsistency && ((stepPairs.indexOf(result[0]) == -1) && stepPairs.indexOf(objective[0]) == -1)){%>
+                    <div style="cursor: pointer">
+                        <div class="pwnl-click" data-pair-left="<%=result[0]%>" data-pair-right="<%=objective[0]%>">&nbsp;</div>
+                    </div>
+                    <%}%>
+                    <% _.each(stepPairs,function(pair,key2,list2){ %>
+                    <%if((pair[2] == objective[0] && pair[3] == result[0]) || (pair[3] == objective[0] && pair[2] == result[0])){%>
+                    <% if(inconsistency) {%>
+                <div class="large-centered columns">
+                    <div class="pwnl-click point" data-pair-left="<%=pair[2]%>" data-pair-right="<%=pair[3]%>">
+                        <div class="text-center" style="font-size: 13px;color: <%= pair[2] == objective[0] ? pair[4] == -1  ? 'red' : 'black' : pair[2] == result[0] && pair[4] <= 0  ? 'black' : 'red'%>"><%=pair[1]!=0?(pair[1]):'&nbsp;'%></div>
+                        <span>
+                            <sup class="superscript rank <%=rank ? '' : 'hide' %> " style="color:blue"><%=(pair[7])%></sup>
+                            <sub class="subscript bestfit <%=bestfit ? '' : 'hide' %>" style="color:<%= pair[2] == objective[0] ? pair[6] >= 0  ? 'black' : 'red' : pair[2] == result[0] && pair[6] <= 0 ? 'black' : 'red'%>"><%=(pair[5]).toFixed(2)%></sub>
+                        </span>
+                    </div>
+                    </div>
+                    <%} else {%>
+                    <div>
+                        <input type="text" class="matrix-cell text-right" data-value="<%=(pair[1]!=0)?(pair[1]):''%>" data-advantage="<%=pair[4]%>" id="cell<%=pair[2] + '' + pair[3]%>" data-index="<%=key2%>" data-operation="1" data-pairs="<%=pair%>" style="width:100%;height:30px; margin:0 0 0 0; color: <%= (pair[2] == objective[0]) ? ((pair[4] == -1)  ? 'red' : 'black') : ((pair[2] == result[0] && pair[4] <= 0)  ? 'black' : 'red')%>"
+                               value="<%=(pair[1] != 0) ? pair[1]:''%>" />
+                    </div>
+                    <%}%>
+                    <%}%>
+                    <%})%>
+                    <%}%>
+                    <!--</div>-->
+</td>
+            <%})%>
+        </tr>
+        <%})%>
+    </tbody>
+
+</table>
+
+
+<%if(legendLength < 1){%>
+<div class="columns large-2 tt-matrix-table-legend <%=legend ? '' : 'hide'%>">
+    <div class="legend-wrap columns">
+        <div id="legend" style="font-size:12px">
+            <h1>Legend:</h1>
+            <div class="large-12 columns text-left"><span class="number">1</span> <span class="judgment">Equal</span> <span class="between columns"><span class="number">2</span> Between</span></div>
+            <div class="large-12 columns text-left"><span class="number">3</span> <span class="judgment">Moderate</span> <span class="between columns"><span class="number">4</span> Between</span></div>
+            <div class="large-12 columns text-left"><span class="number">5</span> <span class="judgment">Strong</span> <span class="between columns"><span class="number">6</span> Between</span></div>
+            <div class="large-12 columns text-left"><span class="number">7</span> <span class="judgment">Very Strong</span> <span class="between columns"><span class="number">8</span> Between</span></div>
+            <div class="large-12 columns text-left"><span class="number">9</span> <span class="judgment ">Extreme</span></div>
+        </div>
+    </div>
+</div>
+<%}%>

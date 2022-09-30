@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34">
+  <g id="delete-icon-btn" transform="translate(-1273 -385)">
+    <g id="Group_885" data-name="Group 885" transform="translate(151.113 -13)">
+      <g id="Group_878" data-name="Group 878">
+        <g id="Group_614" data-name="Group 614" transform="translate(1121.887 398)">
+          <rect id="Rectangle_9_copy_7" data-name="Rectangle 9 copy 7" width="34" height="34" rx="5" fill="#e7edf6" style="mix-blend-mode: multiply;isolation: isolate"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_876" data-name="Group 876" transform="translate(1283 392)">
+      <path id="Path_25" data-name="Path 25" d="M17.688,0H13.313a.625.625,0,0,0-.625.625V2.5H8.625a.625.625,0,0,0,0,1.25H9.25V19.375A.625.625,0,0,0,9.875,20h11.25a.625.625,0,0,0,.625-.625V3.75h.625a.625.625,0,0,0,0-1.25H18.313V.625A.625.625,0,0,0,17.688,0ZM20.5,3.75v15h-10v-15ZM13.938,2.5V1.25h3.125V2.5Z" transform="translate(-8)" fill="#f0142f"/>
+      <path id="Path_26" data-name="Path 26" d="M24.625,29.875a.625.625,0,0,0,.625-.625V18.625a.625.625,0,0,0-1.25,0V29.25A.625.625,0,0,0,24.625,29.875Z" transform="translate(-19 -12.375)" fill="#f0142f"/>
+      <path id="Path_27" data-name="Path 27" d="M36.625,29.875a.625.625,0,0,0,.625-.625V18.625a.625.625,0,0,0-1.25,0V29.25A.625.625,0,0,0,36.625,29.875Z" transform="translate(-27.25 -12.375)" fill="#f0142f"/>
+    </g>
+  </g>
+</svg>

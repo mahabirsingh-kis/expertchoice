@@ -1,0 +1,223 @@
+﻿<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 2px;
+        padding: 0px;
+        vertical-align: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"
+        onmousemove="mouseMoveHandler(event)"
+        ontouchmove="touchMoveHandler(event)"
+        onmousedown="mouseDownHandler(event)"
+        onmouseup="mouseUpHandler(event)"
+        ontouchstart="touchStartHandler(event)"
+        ontouchend="touchEndHandler(event)"
+        style="background:lightgrey"></canvas>
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        var isMouseDown = false;
+
+        //Constants
+        var DSABarHeight = 64;
+        var DSAInitBarColor = 'rgb(220, 220, 220)';
+        var DSAObjBarColor = 'rgba(100, 140, 250, 0.7)';
+        var DSAAltBarColor = 'rgba(100, 250, 100, 0.7)';
+        var DSATitleFont = '24px Arial';
+        var DSAFontSize = 24;
+        var DSAFontFace = 'Arial';
+        var valDigits = 2;
+
+        //InitValues
+        var ObjNames = ['Objective name very long to fit in one line use multiline or change font','Objective 2','Objective 3'];
+        var AltNames = ['Alternative 1','Alternative 2','Alternative 3','Alternative 4'];
+        var ObjInitValues = [0.3,0.5,0.2];
+        var ObjValues = [1,0.5,0.2];
+        var AltInitValues = [0.4,0.2,0.1,0.3];
+        var AltValues = [0.4,0.2,0.1,0.3];
+        var GradientMaxValues = [[0.8,0.3,0.3,0.4],[0.9,0.5,0.4,0.4],[0.75,0.3,0.9,0.7]];
+        var GradientMinValues = [[0.1,0,0,0.2],[0.2,0.7,0.3,0.6],[0.6,0,0.7,0.1]];
+
+        var SelectedObjectiveIndex = -1;
+
+        init();
+
+        function getMousePos(canvas, event) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: event.clientX - rect.left,
+                y: event.clientY - rect.top,
+                btn: event.button
+            };
+        }
+
+        function getFont(context, text, maxFontSize, maxWidth, fontFace){
+            var fontsize = maxFontSize;
+            do {
+                fontsize --;
+                context.font = fontsize + 'px '+ fontFace;
+            }while (context.measureText(text).width>maxWidth)
+            return fontsize + 'px '+ fontFace;
+        }
+
+        function drawDSABar(index, barX, barWidth, barName, barValue, barInitValue, barColor, isSelected){
+            var barY = index*(DSABarHeight+5)+DSABarHeight/2 + 10;
+            var titleY = barY - DSABarHeight/2;
+            context.beginPath();
+            context.rect(barX, barY, barWidth, DSABarHeight/2);
+            context.fillStyle = 'white';
+            context.fill();
+            if (isSelected){context.lineWidth = 4;}else{context.lineWidth = 0.5;};
+            context.strokeStyle = 'black';
+            context.stroke();
+            context.beginPath();
+            context.rect(barX+1, barY+1, (barWidth-1)*barInitValue, DSABarHeight/2-2);
+            context.fillStyle = DSAInitBarColor;
+            context.fill();
+            context.beginPath();
+            context.rect(barX+1, barY+1, (barWidth-1)*barValue, DSABarHeight/2-2);
+            context.fillStyle = barColor;
+            context.fill();
+            context.beginPath();
+            context.font = DSATitleFont;
+            var valueMaxWidth = context.measureText((100).toFixed(valDigits)+' %').width + 15;
+            context.font = getFont(context, barName, DSAFontSize, barWidth-valueMaxWidth, DSAFontFace);
+            context.fillStyle = 'black';
+            context.textAlign = 'left';
+            context.textBaseline = 'top';
+            context.fillText(barName, barX+4, titleY+2);
+            context.textAlign = 'right';
+            context.font = DSATitleFont;
+            context.fillText((barValue*100).toFixed(valDigits) + ' %', barX+barWidth-4, titleY+2);
+        }
+
+        function drawDSAMinMaxMarks(index, barX, barWidth, minValue, maxValue){
+            var barY = index*(DSABarHeight+5)+DSABarHeight/2 + 10;
+            context.beginPath();
+            context.rect(barX+(barWidth-1)*minValue, barY+1, 1, DSABarHeight/2-2);
+            context.fillStyle = 'rgb(0,0,255)';
+            context.fill();
+            context.beginPath();
+            context.rect(barX+(barWidth-1)*maxValue, barY+1, 1, DSABarHeight/2-2);
+            context.fillStyle = 'rgb(255,0,0)';
+            context.fill();
+        }
+
+        function drawObjectives() {
+            for (var i = 0; i < ObjNames.length; i++) {
+                drawDSABar(i, 10, canvas.width/2-20, ObjNames[i], ObjValues[i], ObjInitValues[i], DSAObjBarColor, SelectedObjectiveIndex == i);
+            };
+        }
+
+        function drawAlternatives() {
+            for (var i = 0; i < AltNames.length; i++) {
+                drawDSABar(i, canvas.width/2+10, canvas.width/2-20, AltNames[i], AltValues[i], AltInitValues[i], DSAAltBarColor, false);
+                if ((SelectedObjectiveIndex < ObjNames.length)&&(SelectedObjectiveIndex >= 0)){
+                    drawDSAMinMaxMarks(i, canvas.width/2+10, canvas.width/2-20, GradientMinValues[SelectedObjectiveIndex][i], GradientMaxValues[SelectedObjectiveIndex][i])
+                }
+            };
+        }
+
+        function init()
+        {
+             //canvas.addEventListener("touchstart", touchHandler, false);
+             //canvas.addEventListener("touchmove", touchMoveHandler, false);
+
+             // resize the canvas to fill browser window dynamically
+            window.addEventListener('resize', resizeCanvas, false);
+            resizeCanvas();
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth - 8;
+            canvas.height = window.innerHeight - 8;
+            drawObjectives();
+            drawAlternatives();
+        }
+
+        function GetMouseOverObjectiveIndex(x, y){
+            if (x<canvas.width/2-5){
+                return Math.round((y+20)/(DSABarHeight+5))-1
+                };
+            return -1;
+        }
+
+        function setObjLocalPriority(ObjIndex, ObjValue){
+            if (ObjValue<0) {ObjValue = 0};
+            if (ObjValue>1) {ObjValue = 1};
+            ObjValues[ObjIndex] = ObjValue;
+            total = 0;
+            coef = 1;
+            for (var i = 0; i < ObjValues.length; i++) {
+                if (i != ObjIndex){
+                    total += ObjValues[i];
+                };
+            };
+            if (total <= 0){
+                coef = 0;
+            } else {
+                coef = (1 - ObjValue) / total;
+            };
+            for (var i = 0; i < ObjValues.length; i++) {
+                if (i != ObjIndex){
+                    ObjValues[i] *= coef;
+                    if (ObjValues[i] <= 0.000001) {
+                        ObjValues[i] = 0.00001 * ObjInitValues[i];
+                    };
+                };
+            };
+        }
+
+        function updateAltPriorities(ObjIndex){
+            for (var i = 0; i < AltValues.length; i++){
+                AltValues[i] = GradientMinValues[ObjIndex][i] + (GradientMaxValues[ObjIndex][i]-GradientMinValues[ObjIndex][i]) * ObjValues[ObjIndex];
+            };
+        }
+
+        function updateContent(x,y){
+            SelectedObjectiveIndex = GetMouseOverObjectiveIndex(x, y);
+            if (isMouseDown) {
+                if ((SelectedObjectiveIndex < ObjNames.length)&&(SelectedObjectiveIndex >= 0)){
+                    NewObjValue = ((x-10)/(canvas.width/2-20));
+                    setObjLocalPriority(SelectedObjectiveIndex, NewObjValue);
+                    updateAltPriorities(SelectedObjectiveIndex);
+                }
+            };
+            resizeCanvas();
+        }
+
+        function touchMoveHandler(event){
+            updateContent(event.touches[0].pageX, event.touches[0].pageY)
+            return false;
+        }
+
+        function mouseMoveHandler(event){
+            var mousePos = getMousePos(canvas, event);
+            updateContent(mousePos.x, mousePos.y);
+            return false;
+        }
+
+        function touchStartHandler(event){
+            isMouseDown = true;
+        }
+
+        function touchEndHandler(event){
+            isMouseDown = false;
+        }
+
+        function mouseDownHandler(event){
+            isMouseDown = true;
+        }
+
+        function mouseUpHandler(event){
+            isMouseDown = false;
+        }
+
+    </script>
+  </body>
+</html>

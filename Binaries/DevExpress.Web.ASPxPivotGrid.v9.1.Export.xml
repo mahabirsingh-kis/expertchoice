@@ -1,0 +1,753 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Web.ASPxPivotGrid.v9.1.Export</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter">
+
+            <summary>
+                <para>Represents an ASPxPivotGridExporter control used to export the ASPxPivotGrid control's data.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ASPxPivotGridExporter class.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ASPxPivotGridID">
+            <summary>
+                <para>Gets or sets the programmatic identifier of the associated ASPxPivotGrid control. 
+
+</para>
+            </summary>
+            <value>The programmatic identifier assigned to the ASPxPivotGrid control.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.CustomExportCell">
+            <summary>
+                <para>Enables you to render a different content for individual cells.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.CustomExportFieldValue">
+            <summary>
+                <para>Enables you to render a different content for individual field values.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.CustomExportHeader">
+            <summary>
+                <para>Enables you to render a different content for individual field headers.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.Dispose">
+            <summary>
+                <para>Releases all resources used by the current object. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.EnableViewState">
+            <summary>
+                <para>This property isn't used.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportFinished">
+            <summary>
+                <para>Occurs after the ASPxPivotGrid's export has been completed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportStarted">
+            <summary>
+                <para>Occurs after the ASPxPivotGrid's export has been started.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.IO.Stream)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified stream in HTML format.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the grid's data is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.String,System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified file in HTML format using the specified character encoding.
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> that specifies the path to the file, to which the grid's data is exported.
+
+            </param>
+            <param name="htmlCharSet">
+		A <see cref="T:System.String"/> representing the name of the character encoding (e.g. "UTF-8").
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.String,DevExpress.XtraPrinting.HtmlExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified file in HTML format using the specified options.
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported.
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.HtmlExportOptions"/> object which specifies the export options to be applied when the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified file in HTML format.
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> that specifies the path to the file, to which the grid's data is exported.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified HTML file with the specified title, using the specified character encoding. The output file can be compressed (secondary characters e.g. spaces are removed) if required.
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> containing the full path (including the file name and extension) specifying where the HTML file will be created.
+
+            </param>
+            <param name="htmlCharSet">
+		A <see cref="T:System.String"/> representing the encoding name set in the HTML file (e.g. "UTF-8"). 
+
+            </param>
+            <param name="title">
+		A <see cref="T:System.String"/> containing the name shown as the title of the created HTML document.
+
+            </param>
+            <param name="compressed">
+		<b>true</b> if the HTML code is compressed (secondary characters e.g. spaces are removed); otherwise, <b>false</b>.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.IO.Stream,DevExpress.XtraPrinting.HtmlExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified stream in HTML format using the specified options.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.HtmlExportOptions"/> object which specifies the export options to be applied when the control is exported.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToHtml(System.IO.Stream,System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified stream in HTML format with the specified title, using the specified character encoding. The output file can be compressed (secondary characters e.g. spaces are removed) if required. 
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
+            </param>
+            <param name="htmlCharSet">
+		A <see cref="T:System.String"/> representing the name of the character encoding (e.g. "UTF-8"). 
+
+            </param>
+            <param name="title">
+		A <see cref="T:System.String"/> containing the name shown as the title of the created HTML document.
+
+            </param>
+            <param name="compressed">
+		<b>true</b> if the HTML code is compressed (secondary characters e.g. spaces are removed); otherwise, <b>false</b>.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToMht(System.String,DevExpress.XtraPrinting.MhtExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified file in MHT format using the specified options.
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported.
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.MhtExportOptions"/> object which specifies the export options to be applied when the control is exported.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToMht(System.IO.Stream,System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a stream in MHT format using the specified character encoding, with the specified title. The output file can be compressed (secondary characters e.g. spaces are removed) if required. 
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the data is exported. 
+
+            </param>
+            <param name="htmlCharSet">
+		A <see cref="T:System.String"/> representing the encoding name set in the MHT file (e.g. "UTF-8"). 
+
+            </param>
+            <param name="title">
+		A <see cref="T:System.String"/> containing the name shown as the title of the created MHT document. 
+
+            </param>
+            <param name="compressed">
+		<b>true</b> if the MHT code is compressed (secondary characters e.g. spaces are removed); otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToMht(System.IO.Stream,DevExpress.XtraPrinting.MhtExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified stream in MHT format using the specified options.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.MhtExportOptions"/> object which specifies the export options to be applied when the control is exported.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToMht(System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified file in MHT format. 
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file the grid's data will be exported to.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToMht(System.String,System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified file in MHT format using the specified character encoding.
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file the grid's data will be exported to. 
+
+            </param>
+            <param name="htmlCharSet">
+		A <see cref="T:System.String"/> representing the encoding name set in the MHT file (e.g. "UTF-8"). 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToMht(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified file in MHT format using the specified character encoding, with the specified title. The output file can be compressed (secondary characters e.g. spaces are removed) if required. 
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file the grid's data will be exported to. 
+
+            </param>
+            <param name="htmlCharSet">
+		A <see cref="T:System.String"/> representing the encoding name set in the MHT file (e.g. "UTF-8"). 
+
+            </param>
+            <param name="title">
+		A <see cref="T:System.String"/> containing the name shown as the title of the created MHT document.
+
+            </param>
+            <param name="compressed">
+		<b>true</b> if the MHT code is compressed (secondary characters e.g. spaces are removed); otherwise, <b>false</b>.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToPdf(System.String,DevExpress.XtraPrinting.PdfExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified file in PDF format using the specified options.
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported.
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.PdfExportOptions"/> object which specifies the export options to be applied when the control is exported.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToPdf(System.IO.Stream,DevExpress.XtraPrinting.PdfExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified stream in PDF format using the specified options. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported. 
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.PdfExportOptions"/> object which specifies the export options to be applied when the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToPdf(System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to the specified file in PDF format. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file the grid's data will be exported to. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToPdf(System.IO.Stream)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a stream in PDF format. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, which the data is exported to. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToRtf(System.IO.Stream)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a stream in RTF format. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the data is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToRtf(System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in RTF format. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file the grid's data will be exported to. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.IO.Stream,System.String,System.Text.Encoding)">
+            <summary>
+                <para>Exports the default ASPxPivotGrid's data to a stream in TXT format using the specified separator string and encoding settings. 
+
+
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to which the created text file should be sent. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+            <param name="encoding">
+		A <see cref="T:System.Text.Encoding"/> descendant which encodes the created text document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.IO.Stream,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a stream in TXT format using the specified separator string, quotation and text encoding settings.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to which the created text file should be sent. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+            <param name="quoteStringsWithSeparators">
+		<b>true</b> to quote (place quotation marks around) separator string text elements; otherwise, <b>false</b>. 
+
+            </param>
+            <param name="encoding">
+		A <see cref="T:System.Text.Encoding"/> descendant which encodes the created text document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.IO.Stream)">
+            <summary>
+                <para>Exports the default ASPxPivotGrid's data to a stream in TXT format. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to which the created text file should be sent. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.String,DevExpress.XtraPrinting.TextExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified file in Text format using the specified options. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported. 
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.TextExportOptions"/> object which specifies the export options to be applied when the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.IO.Stream,System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a stream in TXT format using the specified separator string. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to which the created text file should be sent. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.IO.Stream,DevExpress.XtraPrinting.TextExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified stream in Text format using the specified options. 
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to which the created text file should be sent. 
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.TextExportOptions"/> object which specifies the export options to be applied when the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+                <para>Exports the default ASPxPivotGrid's data to a stream in TXT format using the specified separator string and quotation settings.
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object to which the created text file should be sent. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+            <param name="quoteStringsWithSeparators">
+		<b>true</b> to quote (place quotation marks around) separator string text elements; otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in TXT format using the specified separator string and quotation settings. 
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file to which the grid's data will be exported. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+            <param name="quoteStringsWithSeparators">
+		<b>true</b> to quote (place quotation marks around) separator string text elements; otherwise, <b>false</b>. 
+
+            </param>
+            <param name="encoding">
+		A <see cref="T:System.Text.Encoding"/> descendant which encodes the created text document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.String,System.String,System.Boolean)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in TXT format using the specified separator string and quotation settings.
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file to which the grid's data will be exported. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+            <param name="quoteStringsWithSeparators">
+		<b>true</b> to quote (place quotation marks around) separator string text elements; otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.String,System.String,System.Text.Encoding)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in TXT format using the specified separator string and encoding settings.
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file to which the grid's data will be exported. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+            <param name="encoding">
+		A <see cref="T:System.Text.Encoding"/> descendant which encodes the created text document.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.String,System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in TXT format using the specified separator string. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file to which the grid's data will be exported. 
+
+            </param>
+            <param name="separator">
+		A <see cref="T:System.String"/> containing symbols which will be used to separate the document's text elements in the created text file.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToText(System.String)">
+            <summary>
+                <para>Exports the default ASPxPivotGrid's data to the specified file in TXT format. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A string that specifies the full path to the file to which the grid's data will be exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToXls(System.String,DevExpress.XtraPrinting.XlsExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified file in XLS format using the specified options. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported. 
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.XlsExportOptions"/> object which specifies the XLS export options to be applied when the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToXls(System.IO.Stream,System.Boolean)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in XLS format with the specified formatting settings. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
+            </param>
+            <param name="useNativeFormat">
+		<b>true</b> to use the data format of the exported data fields for the cells in the XLS document; otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToXls(System.String)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a file in XLS format. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToXls(System.String,System.Boolean)">
+            <summary>
+                <para>Exports the default ASpxPivotGrid's data to a file in XLS format with the specified formatting settings. 
+
+</para>
+            </summary>
+            <param name="filePath">
+		A <see cref="T:System.String"/> which specifies the name (including the full path) of the file to which the control is exported. 
+
+            </param>
+            <param name="useNativeFormat">
+		<b>true</b> to use the data format of the exported data fields for the cells in the XLS document; otherwise, <b>false</b>. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToXls(System.IO.Stream,DevExpress.XtraPrinting.XlsExportOptions)">
+            <summary>
+                <para>Exports the control's data to the specified stream in XLS format using the specified options. 
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
+            </param>
+            <param name="options">
+		A <see cref="T:DevExpress.XtraPrinting.XlsExportOptions"/> object which specifies the XLS export options to be applied when the control is exported. 
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.ExportToXls(System.IO.Stream)">
+            <summary>
+                <para>Exports the ASPxPivotGrid's data to a stream in XLS format. 
+
+</para>
+            </summary>
+            <param name="stream">
+		A <see cref="T:System.IO.Stream"/> object, to which the created document is exported.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.HasControls">
+            <summary>
+                <para> Returns a value that indicates whether a control has child controls.
+</para>
+            </summary>
+            <returns> Always <b>false</b>.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.OptionsPrint">
+            <summary>
+                <para>Provides access to the print options. 
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.XtraPivotGrid.Web.WebPivotGridOptionsPrint"/> object that contains the pivot grid's print options. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.XtraPivotGrid.Web.ASPxPivotGridExporter.Visible">
+            <summary>
+                <para>This property isn't used. 
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+    </members>
+</doc>

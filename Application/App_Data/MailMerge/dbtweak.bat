@@ -1,0 +1,2 @@
+del ComparionInvitations.mdb
+copy tmpComparionInvitations.mdb ComparionInvitations.mdb

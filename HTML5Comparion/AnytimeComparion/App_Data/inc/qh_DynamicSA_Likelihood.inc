@@ -1,0 +1,1 @@
+The bars on the left represent the %%objective%% %%likelihoods%% as derived from your judgments.  The bars on the right represent the derived %%alternative%% %%likelihoods%%.  By dragging the bars on the left, you can see how the %%alternative%% %%likelihoods%% would change if your judgments about the %%likelihood%% of the %%objectives%% were to change.

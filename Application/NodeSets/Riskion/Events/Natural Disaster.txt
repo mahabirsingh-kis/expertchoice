@@ -1,0 +1,13 @@
+#EVENTS
+Flood
+Hurricane
+Earthquake
+Volcanic eruption
+Landslide
+Fire
+Tsunami
+Drought
+Avalanche
+Pandemic
+Heat wave
+Blizzard

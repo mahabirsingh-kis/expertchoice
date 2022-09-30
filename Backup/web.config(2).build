@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings configSource="appSettings.config" xdt:Transform="Remove" />
+  <connectionStrings configSource="connections.config" xdt:Transform="Remove" />
+
+  <system.serviceModel>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="KeypadBehavior">
+          <serviceCredentials>
+            <serviceCertificate 
+				storeLocation="LocalMachine"
+				storeName="My"  
+				findValue="%WCERT_THUMBPRINT%" 
+				x509FindType="FindByThumbprint" 
+				xdt:Locator="Match(x509FindType)" 
+				xdt:Transform="Replace"/>
+          </serviceCredentials>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+  </system.serviceModel>
+
+  <system.net>
+    <mailSettings>
+      <smtp from="&quot;%SMTP_Name%&quot; &lt;%SMTP_FullEmail%&gt;" xdt:Transform="SetAttributes(from)" >
+        <network host="%SMTP_Server%"
+             port="%SMTP_Port%"
+             userName="%SMTP_User%"
+             password="%SMTP_Password%"
+          xdt:Transform="SetAttributes(host,port,userName,password)" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+
+</configuration>
+
+

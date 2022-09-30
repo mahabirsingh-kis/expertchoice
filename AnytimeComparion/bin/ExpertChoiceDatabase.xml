@@ -1,0 +1,95 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ExpertChoiceDatabase
+</name>
+</assembly>
+<members>
+<member name="M:ExpertChoice.Service.StringFuncs.ShortString(System.String,System.Int32,System.Boolean,System.Int32)">
+ <summary>
+ Truncate short string for max specified chars length (Enhanced version)
+ </summary>
+ <param name="sStr">String for truncate, Should be not NULL.</param>
+ <param name="MaxLen">The maximum characters in resulted string</param>
+ <param name="asPlainText">Use "…" char insted html-styled "&#133;" after truncated string</param>
+ <returns>Truncated string with hellip when string is over specified max chars length</returns>
+ <remarks>This version will try to truncate nearest word space with trunc punctuation and spaces after 85% of specified length</remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.Date2ULong(System.DateTime)">
+ <summary>
+ Convert date value to ULong
+ </summary>
+ <param name="DateValue"></param>
+ <returns></returns>
+ <remarks>Internal function .ToBinary() getting wrong value, as usual.</remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.Date2String(System.Nullable{System.DateTime},System.String)">
+ <summary>
+ Simple function for get string for Nullable date value
+ </summary>
+ <param name="DT"></param>
+ <param name="sEmptyValue"></param>
+ <returns></returns>
+ <remarks>Return sEmptyValue when data is not defined</remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.GetRandomString(System.Int32,System.Boolean,System.Boolean)">
+ <summary>
+ Get string with random symbols
+ </summary>
+ <param name="mLength"></param>
+ <param name="fOnlyAlphaNumeric"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.ParseStringTemplates(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+ <summary>
+ Parse string with template(s) "%%...%%"
+ </summary>
+ <param name="sString">String with templates %%</param>
+ <param name="sParams">List of templates (Key, Value)</param>
+ <returns>Parsed strings. All params, enclosed in "%%...%%", which not found in sParams were leave as is. </returns>
+ <remarks>Use code like this: Dim tParams As New Generic.Dictionary(Of String, String) and tParams.Add(sKey, sValue) for create list of params. </remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.isValidEmail(System.String)">
+ <summary>
+ Function for check e-mail on validity.
+ </summary>
+ <param name="sEmail">String with email address.</param>
+ <returns>True, when string is correct e-mail address.</returns>
+ <remarks>Used simple RegExp "^([^@]+)@([^@]+)\.([^@]+)$". Empty string is invalid address.</remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.SafeFormString(System.String)">
+ <summary>
+ Replace common html-chars to html-encoded strings
+ </summary>
+ <param name="sText">String, used as field value in web-form</param>
+ <returns>String with replaced chars</returns>
+<remarks>Replaced: &amp;, tags &amp;lt; &amp;gt; ', ".  </remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.JS_SafeHTML(System.Object)">
+ <summary>
+ Replace common html-chars to html-encoded strings
+ </summary>
+ <param name="sText">Object, should be available for convert to string</param>
+ <returns>String with replaced chars</returns>
+ <remarks>Replaced: &amp;, tags &amp;lt; &amp;gt;. </remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.JS_SafeString(System.Object,System.Boolean)">
+ <summary>
+ Replace common html-chars to javascript-safe strings
+ </summary>
+ <param name="sText">Object, should be available for convert to string</param>
+ <returns>String with replaced chars</returns>
+ <remarks>Replaced: \, \n, \r, ', ". </remarks>
+</member>
+<member name="M:ExpertChoice.Service.StringFuncs.JS_SafeNumber(System.Object,System.Int32)">
+ <summary>
+ Function for preparing db-source numbers (integer and float) for transfer JScript code. This function replace "," in float definition to "." symbol. 
+ </summary>
+ <param name="iNumber">Parameter should be available for convert to string</param>
+ <returns>String with javascript-safe number</returns>
+ <remarks>Parse Null or empty strings as "0". Float numbers with exponent will be showed as regular rounded number without E.</remarks>
+</member>
+</members>
+</doc>

@@ -1,0 +1,603 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Core
+</name>
+</assembly>
+<members>
+<member name="P:ECCore.RiskSimulations.StepsInfo">
+ <summary>
+ Information about simulation step. Key = step number. Value = simulation information.
+ </summary>
+ <returns></returns>
+</member>
+<member name="F:ECCore.RiskSimulations.computedLikelihoods">
+ <summary>
+ Priorities of sources in Likelihood hierarchy by NodeID.
+ </summary>
+</member>
+<member name="F:ECCore.RiskSimulations.computedVulnerabilities">
+ <summary>
+ Computed vulnerabilities. Key = covering source ID. Value = dictionary, where key = event ID, value = priority of event wrt covering source.
+ </summary>
+</member>
+<member name="F:ECCore.RiskSimulations.computedPriorities">
+ <summary>
+ Priorities of objectives in Impact hierarchy by NodeID.
+ </summary>
+</member>
+<member name="F:ECCore.RiskSimulations.computedConsequences">
+ <summary>
+ Computed consequences. Key = covering objective ID. Value = dictionary where key = event ID, value = priority of event wrt covering objective.
+ </summary>
+</member>
+<member name="M:ECCore.RiskSimulations.CalculateVulnerabilitiesReductionsCoefficients">
+ <summary>
+ Calculate coefficients vulnerabilities when we use controls. This is needed when we check if vulnerability is fired.
+ </summary>
+</member>
+<member name="M:ECCore.RiskSimulations.CreateComputedValues">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="P:ECCore.SimulationStepInfo.SourcesInfo">
+ <summary>
+ Information about sources on each step. Key = source ID. Value = Tuple, where 1st item is whether source was fired, 2nd item is computed source likelihood and 3rd item is random value that was generated.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ECCore.SimulationStepInfo.FiredEventsInfo">
+ <summary>
+ Information about fired events on each step. Key = event ID. Value = Tuple, where 1st item is source ID even fired from, 2nd item is computed vulnerability, 3rd item is random number that was generated, 4th is impact of event, 5th is risk value = vulnerability * impact, 6th is risk = vulnerability * priority of source * impact
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ECCore.SimulationStepInfo.Impact">
+ <summary>
+ Impact value for current step
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ECCore.MathFuncs.clsEigenCalcs">
+ <summary>
+ This class was designed to separate matrix' eigen vector calculations.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.SetMatrix(System.Double[0:,0:],System.Int32)">
+ <summary>
+ Sets matrix and it's size.
+ </summary>
+ <param name="Matrix">Matrix for eigen vector calculations</param>
+ <param name="MatrixSize">Matrix size</param>
+ <remarks></remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.Matrix">
+ <summary>
+ Matrix for eigen vector calculations
+ </summary>
+ <value></value>
+ <returns>Matrix for eigen vector calculations</returns>
+ <remarks>Setting the matrix is available via SetMatrix function.</remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.MatrixSize">
+ <summary>
+ Size of the matrix
+ </summary>
+ <value></value>
+ <returns>Size of the matrix</returns>
+ <remarks>Setting the matrix and it's size is available via SetMatrix function.</remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.InconIndex">
+ <summary>
+ Inconsistency index of pairwise matrix
+ </summary>
+ <value></value>
+ <returns>Inconsistency index of pairwise matrix</returns>
+ <remarks></remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.InconRatio">
+ <summary>
+ Inconsistency ratio of pairwise matrix
+ </summary>
+ <value></value>
+ <returns>Inconsistency ratio of pairwise matrix</returns>
+ <remarks></remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.LambdaMax">
+ <summary>
+ LamdbaMax of pairwise matrix
+ </summary>
+ <value></value>
+ <returns>LamdbaMax of pairwise matrix</returns>
+ <remarks></remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.Accuracy">
+ <summary>
+ Accuracy used in calculations
+ </summary>
+ <value></value>
+ <returns>Accuracy used in calculations</returns>
+ <remarks>Default value is 0.00001</remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.MissingJudgmentsCount">
+ <summary>
+ Returns the number of missing judgments in pairwise matrix
+ </summary>
+ <value></value>
+ <returns>Returns the number of missing judgments in pairwise matrix</returns>
+ <remarks>Missing judgments count is obtained by calculating the number of zeros in the pairwise matrix above TopLeft-BottomRight diagonal of a matrix.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.InitEMatrix">
+ <summary>
+ Initializes identity matrix used in calculations
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.InitEigenVector">
+ <summary>
+ Initializes result eigen vector with zeros
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.EigenVector">
+ <summary>
+ Returns resulting eigen vector of a matrix
+ </summary>
+ <value></value>
+ <returns>Eigen vector of a matrix</returns>
+ <remarks></remarks>
+</member>
+<member name="P:ECCore.MathFuncs.clsEigenCalcs.MainDiagonalEvaluated">
+ <summary>
+ Specifies whether main diagonal of the pairwise matrix has been evaluated.
+ </summary>
+ <value></value>
+ <returns>Returns True if main diagonal has been evaluated, otherwise returns False</returns>
+ <remarks>Main diagonal is a diagonal right above TopLeft-BottomRight diagonal of the matrix.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.GetMissingJudgmentsCount">
+ <summary>
+ Returns missing judgments count
+ </summary>
+ <returns>Returns missing judgments count</returns>
+ <remarks>See MissingJudgmentsCount property.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.MainEvaluated">
+ <summary>
+ Returns True is main diagonal is evaluated in pairwise matrix, otherwise returns False
+ </summary>
+ <returns>Returns True is main diagonal is evaluated in pairwise matrix, otherwise returns False</returns>
+ <remarks>See MainDiagonalEvaluated property.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.FillMissingJudgments">
+ <summary>
+ Modifies pairwise matrix with missing judgments using Harker's algorithm.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.CalculateEigenVector1">
+ <summary>
+ Calculates eigen vector of a matrix using formula with limit
+ </summary>
+ <remarks>Not used right now as a primary calculation algorithm.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.CalculateEigenVector2">
+ <summary>
+ Calculates eigen vector of a matrix using EC11 algorithm
+ </summary>
+ <remarks>This is a current calculation algorithm. In derived classes you can override this function is changes in calculations are needed.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.CalculateICIndex(System.Double[0:,0:],System.Int32)">
+ <summary>
+ Calculates inconsistency index of given matrix
+ </summary>
+ <param name="M">Matrix</param>
+ <param name="MatrixSize">Matrix size</param>
+ <returns>Inconsistency index of matrix M (MatrixSize x MatrixSize)</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.GetICRatio">
+ <summary>
+ Calculates inconsistency ratio of a matrix
+ </summary>
+ <returns>Inconsistency ratio of a matrix</returns>
+ <remarks>Matrix should be set using SetMatrix function</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.GetRInc(System.Int32)">
+ <summary>
+ Returns RInc value used in inconsistency index calculations with missing judgments
+ </summary>
+ <param name="index"></param>
+ <returns>Returns RInc value used in inconsistency index calculations with missing judgments</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.GetRandomICIndex(System.Int32)">
+ <summary>
+ Returns random inconsistency index for matrix with specified size
+ </summary>
+ <param name="MatrixSize">Size of the matrix</param>
+ <returns>Returns random inconsistency index for matrix with specified size</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.clsEigenCalcs.Calculate">
+ <summary>
+ Performs calculation of eigen vector and inconsistency index
+ </summary>
+ <remarks>Can be overridden. But it is more preferable to override only CalculateEigenVector2 function</remarks>
+</member>
+<member name="T:ECCore.MathFuncs.ECMathFuncs">
+ <summary>
+ This module contains math functions for working with vectors, matrices, etc.
+ There are general functions for matrices and optimized functions for square matrices (see names of the functions)
+ </summary>
+ <remarks>
+ </remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.MultSquareMatrix(System.Double[0:,0:],System.Double[0:,0:],System.Double[0:,0:]@,System.Int32)">
+ <summary>
+ Multiplies square matrix A by square matrix B and puts result in ResultMatrix. Both matrices are (MatrixSize x MatrixSize).
+ </summary>
+ <param name="A">First square matrix</param>
+ <param name="B">Second square matrix</param>
+ <param name="ResultMatrix">Result matrix</param>
+ <param name="MatrixSize">Size of matrices</param>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.MultMatrix(System.Double[0:,0:],System.Double[0:,0:],System.Double[0:,0:]@,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Multiplies matrix A by matrix B and puts result in ResultMatrix.
+ </summary>
+ <param name="A">First matrix</param>
+ <param name="B">Second matrix</param>
+ <param name="ResultMatrix">Result matrix</param>
+ <param name="RowCountA">Row count in first matrix</param>
+ <param name="ColCountA">Column count in first matrix</param>
+ <param name="ColCountB">Column count in second matrix</param>
+ <remarks>Matrix A should be (RowCountA x ColCountA).
+ Matrix B should be (ColCountA x ColCountB).
+ ResultMatrix will be (RowCountA x ColCountB).</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.MultMatrixByVector(System.Double[0:,0:],System.Double[],System.Double[]@,System.Int32,System.Int32)">
+ <summary>
+ Multiplies matrix A (RowCount x ColCount) by a vector V (ColCount x 1) and puts retuls in ResultVector (MatrixSize x 1)
+ </summary>
+ <param name="A">Matrix</param>
+ <param name="V">Vector</param>
+ <param name="ResultVector">Result vector</param>
+ <param name="RowCount">Row count in the matrix</param>
+ <param name="ColCount">Column count in the matrix. This is also a number of elements in a vector</param>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.MultSquareMatrixByVector(System.Double[0:,0:],System.Double[],System.Double[]@,System.Int32)">
+ <summary>
+ Multiplies square matrix A (MatrixSize x MatrixSize) by a vector V (MatrixSize x 1) and puts retuls in ResultVector (MatrixSize x 1)
+ </summary>
+ <param name="A">Matrix</param>
+ <param name="V">Vector</param>
+ <param name="ResultVector">Result vector</param>
+ <param name="MatrixSize">Matrix size</param>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.MultVectorByScalar(System.Double[],System.Double,System.Double[]@,System.Int32)">
+ <summary>
+ Multiplies vector V by a scalar N and puts result in ResultVector
+ </summary>
+ <param name="V">Vector</param>
+ <param name="N">Scalar</param>
+ <param name="ResultVector">Result vector</param>
+ <param name="VectorSize">Vector size (number of elements in the vector)</param>
+ <remarks>This function multiplies each element of the vector by a scalar N</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.VectorScalarMult(System.Double[],System.Double[],System.Int32)">
+ <summary>
+ Returns scalar multiplication of two vectors
+ </summary>
+ <param name="V1">First vector</param>
+ <param name="V2">Second vector</param>
+ <param name="VectorSize">Size of the vector (number of elements)</param>
+ <returns>Returns Double value which is a scalar multiplication of two vectors</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.RowSumInSquareMatrix(System.Double[0:,0:],System.Int32,System.Double[]@)">
+ <summary>
+ Calculates sums of elements in each row of a square Matrix and puts it in ResultVector
+ </summary>
+ <param name="Matrix">Matrix</param>
+ <param name="MatrixSize">Matrix size</param>
+ <param name="ResultVector">Result vector</param>
+ <remarks>In ResultVector each element holds the sum of elements of corresponding row of a Matrix</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.RowSumInMatrix(System.Double[0:,0:],System.Int32,System.Int32,System.Double[]@)">
+ <summary>
+ Calculates sums of elements in each row of a Matrix and puts it in ResultVector
+ </summary>
+ <param name="Matrix">Matrix</param>
+ <param name="RowCount">Row count in the matrix</param>
+ <param name="ColCount">Column count in the matrix</param>
+ <param name="ResultVector">Result vector</param>
+ <remarks>In ResultVector each element holds the sum of elements of corresponding row of a Matrix</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.ColSumInSquareMatrix(System.Double[0:,0:],System.Int32,System.Double[]@)">
+ <summary>
+ Calculates sums of elements in each column of a square Matrix and puts it in ResultVector
+ </summary>
+ <param name="Matrix">Matrix</param>
+ <param name="MatrixSize">Matrix size</param>
+ <param name="ResultVector">Result vector</param>
+ <remarks>In ResultVector each element holds the sum of elements of corresponding row of a Matrix</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.ColSumInMatrix(System.Double[0:,0:],System.Int32,System.Int32,System.Double[]@)">
+ <summary>
+ Calculates sums of elements in each column of a Matrix and puts it in ResultVector
+ </summary>
+ <param name="Matrix">Matrix</param>
+ <param name="RowCount">Row count in the matrix</param>
+ <param name="ColCount">Column count in the matrix</param>
+ <param name="ResultVector">Result vector</param>
+ <remarks>In ResultVector each element holds the sum of elements of corresponding row of a Matrix</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.VectorSum(System.Double[],System.Int32)">
+ <summary>
+ Returns the sum of all elements of the vector V
+ </summary>
+ <param name="V">Vector</param>
+ <param name="VectorSize">Vector size</param>
+ <returns>Returns the sum of all elements of the vector V</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.NormalizeVector(System.Double[]@,System.Int32)">
+ <summary>
+ Normalizes vector V
+ </summary>
+ <param name="V">Vector</param>
+ <param name="VectorSize">Vector size</param>
+ <remarks>This routine calculates the sum of all elements of the vector and after that divides each element by that sum. 
+ So, after normalization the sum of all elements will be equals 1.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.VectorSubAbs(System.Double[],System.Double[],System.Double[]@,System.Int32)">
+ <summary>
+ Calculates a vector each element of which is an absolute value of subtraction of corresponding elements of 2 input vectors
+ </summary>
+ <param name="V1">First vector</param>
+ <param name="V2">Second vector</param>
+ <param name="ResultVector">Result vector</param>
+ <param name="VectorSize">Vector size</param>
+ <remarks>Because the result vector holds the absolute values of subtraction the order of parameters V1 and V2 doesn't matter.</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.CopySquareMatrix(System.Double[0:,0:],System.Double[0:,0:]@,System.Int32)">
+ <summary>
+ Creates a copy of a square matrix
+ </summary>
+ <param name="SourceMatrix">Source matrix to copy</param>
+ <param name="DestMatrix">Destination matrix</param>
+ <param name="MatrixSize">Matrix size</param>
+ <remarks>It is not necessary to initialize destination matrix before passing it to this function</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.CopyMatrix(System.Double[0:,0:],System.Double[0:,0:]@,System.Int32,System.Int32)">
+ <summary>
+ Creates a copy of a matrix
+ </summary>
+ <param name="SourceMatrix">Source matrix to copy</param>
+ <param name="DestMatrix">Destination matrix</param>
+ <param name="RowCount">Row count in the matrix</param>
+ <param name="ColCount">Column count in the matrix</param>
+ <remarks>It is not necessary to initialize destination matrix before passing it to this function</remarks>
+</member>
+<member name="M:ECCore.MathFuncs.ECMathFuncs.CopyVector(System.Double[],System.Double[]@,System.Int32)">
+ <summary>
+ Creates a copy of a vector
+ </summary>
+ <param name="SourceVector">Source vector to copy</param>
+ <param name="DestVector">Destination vector</param>
+ <param name="VectorSize">Vector size</param>
+ <remarks>It is not necessary to initialize destination vector before passing it to this function</remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.GetOrderedExpandedHierarchyFromCompleteHierarchy">
+ <summary>
+ List of all nodes and create duplicate nodes if there are more than 1 parent (ParentNodesGuids.Count>1)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ECCore.clsHierarchy.GetExpandedOrderedChildren(ECCore.clsHierarchy,ECCore.clsNode,ECCore.clsNode@,System.Collections.Generic.List{ECCore.clsNode}@)">
+ <summary>
+ Get the list of nodes with only single Parent node and no other properties
+ </summary>
+ <param name="node"></param>
+ <param name="parentNode"></param>
+ <param name="retVal"></param>
+</member>
+<member name="M:ECCore.clsHierarchy.IsChildOf(ECCore.clsNode,ECCore.clsNode)">
+ <summary>
+ Checks if one node is a descendant of another node in the hierarchy
+ </summary>
+ <param name="ChildNode">Node</param>
+ <param name="ParentNode">Parent node</param>
+ <returns>Returns True is Node is a descendant of a ParentNode, otherwise returns False</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.GetLevelNodes(System.Int32)">
+ <summary>
+ Return a list of nodes at specified level
+ </summary>
+ <param name="Level">Node level</param>
+ <returns>Return a list of nodes at specified level</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.GetMaxLevel">
+ <summary>
+ Returns maximum level in the hierarchy
+ </summary>
+ <returns>Returns maximum level in the hierarchy</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.GetRespectiveTerminalNodes(ECCore.clsNode)">
+ <summary>
+ Returns terminal nodes of part of the hierarchy that starts from specified node
+ </summary>
+ <param name="Node">Node that is a root for a subtree</param>
+ <returns>Returns terminal nodes of part of the hierarchy that starts from specified node</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.GetNodeByID(System.Int32)">
+ <summary>
+ Returns node by ID
+ </summary>
+ <param name="ID">ID of a node</param>
+ <returns>Returns node by ID. If node with such ID does not exist returns Nothing.</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.GetNextNodeID">
+ <summary>
+ Returns next free node ID in the hierarchy
+ </summary>
+ <returns>Returns next free node ID in the hierarchy</returns>
+ <remarks></remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.AddNode(System.Int32,System.Boolean,System.Nullable{System.Guid})">
+ <summary>
+ Adds new node to the hierarchy to specific parent node
+ </summary>
+ <param name="ParentNodeID">ID of parent node. New node will be inserted as a child of this node.</param>
+ <returns>Newly created node</returns>
+ <remarks>If ParentNodeID = -1 then new node will be added as a root node</remarks>
+</member>
+<member name="M:ECCore.clsHierarchy.AddNode(ECCore.clsNode,System.Int32,System.Boolean)">
+ <summary>
+ Add existing node to specific parent node
+ </summary>
+ <param name="node">Existing node to add to the hierarchy</param>
+ <param name="ParentNodeID">ID of parent node. New node will be inserted as a child of this node.</param>
+ <returns>Returns index of added node in Nodes collection</returns>
+ <remarks>If ParentNodeID = -1 then new node will be added as a root node</remarks>
+</member>
+<member name="F:ECCore.clsControl.TmpMust">
+ <summary>
+ TmpMust is used for temporarily storing the Must value for Efficient Frontier
+ </summary>
+</member>
+<member name="F:ECCore.clsControl.TmpMustNot">
+ <summary>
+ TmpMustNot is used for temporarily storing the MustNot value for Efficient Frontier
+ </summary>
+</member>
+<member name="P:ECCore.clsControl.Effectiveness">
+ <summary>
+ OBSOLETE
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ECCore.MiscFuncs.ECMiscFuncs.FixStringWithSingleValue(System.String)">
+ <summary>
+ WARNING: Unsafe function - depends on server Globalization settings, Not working for Russian Local settings
+ </summary>
+ <param name="str"></param>
+ <returns></returns>
+</member>
+<member name="T:ECCore.clsPairwiseMeasureData">
+ <summary>
+ This class was designed to represent the pairwise comparison's data.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Canvas.CanvasTypes.ProjectType">
+ <summary>
+ Has to be a bit mask
+ </summary>
+</member>
+<member name="M:Canvas.PipeParameters.clsPipeMessages.GetEvaluationQuickHelpOldText(Canvas.PipeParameters.ecEvaluationStepType,System.Int32,System.Int32,System.Int32@,System.Boolean@)">
+ <summary>
+ Get quick help infodoc for the specified evaluation pip step
+ </summary>
+ <param name="tEvalStep">Kind of step</param>
+ <param name="tNodeID">Must be NodeID, positive for objective, negative for alternative</param>
+ <param name="HierarchyID">Active HierarchyID</param>
+ <param name="tStepID">Use 0 for "cluster" content or step number for the specified step. Please note: ByRef, so value could be changed for zero after the call routine!</param>
+ <returns>MHT infodoc (see comment)</returns>
+ <remarks>Please note: when you call for some step, like 3, it will take a look for QH for step #3 and if this is missing, it returns "cluster" infodoc for tStepID=0 (check this parameter after call)</remarks>
+</member>
+<member name="M:Canvas.RASolver.RandomizeControls">
+ <summary>
+ Randomly assign controls applications and generate controls effectivenesses
+ </summary>
+</member>
+<member name="F:Canvas.RAAlternative.TmpMust">
+ <summary>
+ TmpMust is used for temporarily storing the Must value for Efficient Frontier
+ </summary>
+</member>
+<member name="P:Canvas.RAAlternative.DisplayFunded">
+ <summary>
+ Rounded value of the Funded property, used to display the Funded/Not Funded in the UI
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Canvas.RAAlternative.SBPriority">
+ <summary>
+ Strategic Buckets page only property, don't use in other places
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Canvas.RAAlternative.SBTotal">
+ <summary>
+ Strategic Buckets page only property, don't use in other places
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Canvas.RASettings.UseIgnoreOptions">
+ <summary>
+ Only for Scenario Comparison and Increasing Budgets settings (for all scenarios settings - .ScenarioComparisonSettings) 
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:Canvas.ResourceAligner.Save">
+ <summary>
+ Saves Resource Aligner data to streams database for current model
+ </summary>
+ <returns>Returns True is succeeded, False otherwise</returns>
+ <remarks></remarks>
+</member>
+<member name="M:clsTeamTimePipe.GetJSON(System.Collections.Generic.List{ECCore.ECTypes.clsUser},System.Collections.Generic.List{ECCore.ECTypes.clsUser})">
+ <summary>
+ Get JSON string for current step in the pipe
+ </summary>
+ <param name="tSessionUsers">List of clsUser, who is participate in that meeting. All items are _clone_ from original items from ProjectManager, but with real names from WebCore and .Active property mean isOnline</param>
+ <returns>String with JSON</returns>
+ <remarks></remarks>
+</member>
+<member name="P:RAScenario.IsCheckedIB">
+ <summary>
+ Is scenario checked in Increasing Budgets screen
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:RAScenario.IsCheckedCS">
+ <summary>
+ Is scenario checked in Scenario Comparison screen
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:clsStorageManager.ReadDBVersion">
+ <summary>
+ Reads storage version from current location and puts it in CanvasDBVersion property.
+ Also creates appropriate reader and writer for this version.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:clsStorageManager.CreateReaderAndWriter">
+ <summary>
+ Creates reader and writer for current storage version
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:RiskOptimizer.RandomizeControls">
+ <summary>
+ Randomly assign controls applications and generate controls effectivenesses
+ </summary>
+</member>
+</members>
+</doc>

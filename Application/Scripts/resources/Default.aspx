@@ -1,0 +1,2 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Default.aspx.vb" MasterPageFile="~/mpEmpty.master" Strict="true" Inherits="JSResourcesPage" %>
+<%--<%@ OutputCache Duration="60" Location="Client" VaryByParam="r" %>--%>

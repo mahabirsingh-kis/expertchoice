@@ -1,0 +1,37 @@
+openapi: 3.0.2
+info:
+  title: '%%appname_plain%% WebAPI'
+  description: 'This is a draft webAPI used for %%appname_plain%% by ExpertChoice Inc. There you can find a list of public methods, available as REST/CRUD calls. The simple test requests can be performed directly from that screen under the each method via "Try out" function. For calling the most data-sensitive methods you must be authorized.'
+  contact:
+    name: 'API Support'
+    url: 'https://www.expertchoice.com/support/'
+    email: 'support@expertchoice.com'
+  version: 0.5.%%version%%
+servers:
+  - url: '%%root%%api/'
+    description: 'The local development server'
+  - url: 'https://{server}.expertchoice.com/api/'
+    description: 'The public servers with webAPI'
+    variables:
+      server:
+        enum:
+          - comparion
+          - cngamma
+          - cr
+          - beta
+          - risk
+          - alpha
+        default: beta
+tags: %%tags%%
+components:
+  schemas: %%schemas%%
+  securitySchemes:
+    SID:
+      name: ASP.NET_SessionId
+      type: apiKey
+      description: Use the major way to authorize in the system
+      in: cookie
+paths: %%paths%%
+externalDocs:
+  description: Find out more about our software
+  url: 'https://www.expertchoice.com/'

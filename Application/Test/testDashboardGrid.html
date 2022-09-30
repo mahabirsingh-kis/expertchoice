@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Test Dashboard Grid Preview Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../Scripts/drawMisc.js"></script>
+    <script type="text/javascript" src="../Scripts/svg.js"></script>
+	<script type="text/javascript" src="../Scripts/ec.dashboard.grid.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        .toolbar td {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body id="mainContent" style="height: 100%;">
+    <script language="javascript" type="text/javascript">
+    var toolbarHeight = 40;
+    $(document).ready(function () {
+        $("#grid").ecDashboardGrid({
+			mode: "edit",
+			items: [[2,2],[2,1],[4,3],[5,5]],
+			minSelectedCols: 2,
+			minSelectedRows: 2,
+			width: 150,
+			height: 150,
+        });
+    });
+    </script>
+    <div id="toolbar">
+        <table class="toolbar">
+            <tr>
+                <td>
+                    <select id="selChartType">
+                        <option value="sunburst" selected>sunburst</option>
+                        <option value="columns">columns</option>
+                        <option value="pie">pie</option>
+                    </select>
+                </td>
+                <td><label><input type="checkbox" onclick="setOption(event,'showAlternatives');">Alternatives</label></td>
+                <td> | </td>
+                <td><label><input type="checkbox" onclick="setOption(event,'multiSelect');" checked>MultiSelect</label></td>
+                <td><label><input type="checkbox" onclick="setOption(event,'labels');" checked>Labels</label></td>
+                <td>
+                    <label><input type="checkbox" onclick="setOption(event,'legend');" checked>Legend</label>
+                    <select id="selLegend">
+                        <option value="auto" selected>auto</option>
+                        <option value="right">right</option>
+                        <option value="bottom">bottom</option>
+                    </select>
+                </td>
+                <td><label><input type="checkbox" onclick="setOption(event,'rotate');">Rotate</label></td>
+                <td id="tdAreaMode"><label><input type="checkbox" onclick="setOption(event,'area');" checked>AreaMode</label></td>
+                <td id="tdComponents" style="display: none;"><label><input type="checkbox" onclick="setOption(event,'components');">Components</label></td>
+                <td id="tdDoughnut" style="display: none;"><label><input type="checkbox" onclick="setOption(event,'doughnut');" checked>Dougnut</label></td>
+                <td> | </td>
+                <td>
+                    sort: <select id="selSort">
+                        <option value="none" selected>none</option>
+                        <option value="name">name</option>
+                        <option value="value">priority</option>
+                    </select>
+                </td>
+                <td>
+                    decimals: <select id="selDecimals">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+                <td> | </td>
+                <td><input type="button" onclick="adjustFont(-1);" value="a" /></td>
+                <td><input type="button" onclick="adjustFont(1);" value="A" /></td>
+                <td><input type="button" onclick="adjustFont(0);" value="reset" /></td>
+                <td> | </td>
+                <td><input type="button" onclick="exportChart('PNG');" value="PNG" /></td>
+                <td><input type="button" onclick="exportChart('SVG');" value="SVG" /></td>
+                <td><input type="button" onclick="exportChart('PDF');" value="PDF" /></td>
+
+                <td><div id="coords"></div></td>
+            </tr>
+        </table>
+    </div>
+    <div id="grid"></div>
+</body>
+
+</html>

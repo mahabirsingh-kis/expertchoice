@@ -1,0 +1,50 @@
+﻿[
+  {
+    "outputFile": "App_Themes/EC2018/main.css",
+    "inputFile": "App_Themes/EC2018/sass/main.scss",
+    "minify": {
+      "enabled": false
+    },
+    "options": {
+      "relativeUrls": false,
+      "lineFeed": "crlf"
+    }
+  },
+  {
+    "outputFile": "App_Themes/EC2018/sidebarmenu.css",
+    "inputFile": "App_Themes/EC2018/sass/sidebarmenu.scss",
+    "minify": {
+      "enabled": false
+    },
+    "options": {
+      "relativeUrls": false,
+      "lineFeed": "crlf"
+    }
+  },
+  {
+    "outputFile": "App_Themes/EC2018/x-dx.light-compact.fixes.css",
+    "inputFile": "App_Themes/EC2018/sass/x-dx.light-compact.fixes.scss",
+    "minify": {
+      "enabled": false
+    },
+    "options": {
+      "relativeUrls": false,
+      "lineFeed": "crlf"
+    }
+  },
+  {
+    "outputFile": "App_Themes/EC2018/deco.css",
+    "inputFile": "App_Themes/EC2018/sass/deco.scss",
+    "minify": {
+      "enabled": false
+    },
+    "options": {
+      "relativeUrls": false,
+      "lineFeed": "crlf"
+    }
+  },
+  {
+    "outputFile": "App_Themes/EC2018/sass/_variables.css",
+    "inputFile": "App_Themes/EC2018/sass/_variables.scss"
+  }
+]

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.551" height="16.418" viewBox="0 0 21.551 16.418">
+  <g id="Group_1221" data-name="Group 1221" transform="translate(-1175.449 -238.582)">
+    <path id="Union" d="M15.385,16H.616A.616.616,0,0,1,0,15.385v-2.8a1.187,1.187,0,0,1,.661-1.073,17.009,17.009,0,0,1,14.678,0A1.187,1.187,0,0,1,16,12.585v2.8A.615.615,0,0,1,15.385,16ZM8,11.077A15.666,15.666,0,0,0,1.231,12.6v2.166H14.769V12.6A15.667,15.667,0,0,0,8,11.077ZM8,8.616a4.308,4.308,0,1,1,4.308-4.308A4.313,4.313,0,0,1,8,8.616ZM8,1.231a3.077,3.077,0,1,0,3.077,3.077A3.081,3.081,0,0,0,8,1.231Z" transform="translate(1175.449 238.582)" fill="#131523"/>
+    <g id="Check" transform="translate(1188 246)">
+      <rect id="check-circle-filled_Background_" data-name="check-circle-filled (Background)" width="9" height="9" fill="none"/>
+      <path id="check-circle-filled" d="M4,8A4,4,0,1,1,8,4,4,4,0,0,1,4,8ZM2.4,3.714h0l-.4.4L3.429,5.547,6,2.976l-.4-.4L3.429,4.738,2.4,3.714Z" transform="translate(1 1)" fill="rgba(0,0,0,0.9)"/>
+    </g>
+  </g>
+</svg>

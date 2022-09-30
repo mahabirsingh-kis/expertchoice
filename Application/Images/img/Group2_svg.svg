@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="37" height="34" viewBox="0 0 37 34">
+  <g id="Group_1131" data-name="Group 1131" transform="translate(-1094 -205)">
+    <g id="Dropdown" transform="translate(1094 205)">
+      <g id="input">
+        <rect id="Rounded_Rectangle_9_copy_9" data-name="Rounded Rectangle 9 copy 9" width="37" height="34" rx="5" fill="#dfe7f3"/>
+      </g>
+    </g>
+    <g id="rotate-svgrepo-com_1_" data-name="rotate-svgrepo-com (1)" transform="translate(1103 212.605)">
+      <g id="Group_739" data-name="Group 739">
+        <g id="Group_738" data-name="Group 738">
+          <path id="Path_202" data-name="Path 202" d="M18.619,9.668H9.309V.358A.358.358,0,0,0,8.951,0H.358A.358.358,0,0,0,0,.358V12.532a.358.358,0,0,0,.358.358H6.087v5.729a.358.358,0,0,0,.358.358H18.619a.358.358,0,0,0,.358-.358V10.026A.358.358,0,0,0,18.619,9.668Zm-12.174,0a.358.358,0,0,0-.358.358v2.148H.716V.716H8.593V9.668ZM6.8,18.261V10.384H18.261v7.877Z" fill="#010101"/>
+          <path id="Path_203" data-name="Path 203" d="M136.379,27.634a.358.358,0,0,0,.358.358,3.226,3.226,0,0,1,3.223,3.223.358.358,0,1,0,.716,0,3.943,3.943,0,0,0-3.939-3.939A.358.358,0,0,0,136.379,27.634Z" transform="translate(-123.847 -24.77)" fill="#010101"/>
+          <path id="Path_204" data-name="Path 204" d="M121.473,14.393a.358.358,0,1,0,.506-.506l-1.266-1.266,1.266-1.266a.358.358,0,0,0-.506-.506l-1.519,1.519a.358.358,0,0,0,0,.506Z" transform="translate(-108.836 -9.756)" fill="#010101"/>
+          <path id="Path_205" data-name="Path 205" d="M159.426,66.348a.358.358,0,0,0-.506.506l1.519,1.519a.358.358,0,0,0,.506,0l1.519-1.519a.358.358,0,0,0-.506-.506l-1.266,1.266Z" transform="translate(-144.221 -60.156)" fill="#010101"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

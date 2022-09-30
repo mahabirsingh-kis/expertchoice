@@ -1,0 +1,1 @@
+gXMLBuffer="<?xml version=\"1.0\" encoding=\"utf-8\"?><cki><ck fm=\"!\" to=\"comment\"/><ck fm=\"common\" to=\"in\"/><ck fm=\"includ\" to=\"shown\"/><ck fm=\"sid\" to=\"your\"/></cki>";

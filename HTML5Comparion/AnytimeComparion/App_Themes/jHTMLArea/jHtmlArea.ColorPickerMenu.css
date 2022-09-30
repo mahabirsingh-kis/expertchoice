@@ -1,0 +1,6 @@
+﻿div.jHtmlAreaColorPickerMenu { border: solid 1px #bbb; background-color: #ddd; width: 147px; z-index:255; }
+div.jHtmlAreaColorPickerMenu div {float: left; margin: 1px; width: 14px; height: 14px; font-size:8pt; font-weight:normal; cursor:hand; }
+div.jHtmlAreaColorPickerMenu div:hover {margin: 0px; border: dotted 2px black;}
+
+div.jHtmlAreaColorPickerMenu div.automatic { width: 104px; height: auto; padding: 1px; font-weight:10pt; }
+div.jHtmlAreaColorPickerMenu div.automatic div { margin: 1px; width: 14px; height: 14px;  border: dotted 1px black;}

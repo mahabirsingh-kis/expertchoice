@@ -1,0 +1,185 @@
+@import "settings";
+//Step Function Style for Anytime and Teamtime
+.tt-step-function-wrap {
+                .steps-function {
+                    max-width: 100%;
+                    height: 100% !important;
+                }
+                .tt-steps-slider {
+                    width: 95%;
+                    margin-left: 27px;
+                    margin-right: 30px;
+                    border: 1px solid #eaeaea;
+                    background: #eaeaea;
+                    border-radius: 0px;
+                    
+                    .ui-slider-handle {
+                        height: 291px;
+                        top: -274px;
+                        width: 6px !Important;
+                        position: absolute;
+                        margin-left: -6px;
+                        vertical-align: baseline !important;
+                        outline: none;
+                        border-bottom-right-radius: 0px;
+                        border-bottom-left-radius: 0px;
+                        background: #539DDD;
+                        display: none;
+                        cursor: e-resize;
+                        
+                    }
+                    &.disabled{
+                        
+                        .ui-slider-handle {
+                            background: #ccc !important;
+                            border: 1px solid #ccc !important;
+//                            cursor: not-allowed;
+                        }
+                    }
+                    &.active-qh{
+                        color: #cece60 !important;
+                    }
+                }
+                input{
+                    &.steps-slider-dragger {
+                        margin: 0px;
+                        position: absolute;
+                        padding: 1px 5px !important;
+                        height: 20px !important;
+                        bottom: 0px;
+                        right: calc(50% - 46%);
+                        z-index: 1;
+                        width: 20%;
+                        text-align: center;
+                        font-size: 11px;
+                        
+//                        height: 15px;
+//                        padding: 2px;
+//                        opacity: 0.5;
+//                        @include tt-trans-all($behavior: 2s);
+                        
+                        &:hover{
+                            opacity: 1;
+                        }
+                    }
+                }
+                .steps-value-wrap, .curves-value-wrap{
+                    display: none;
+                    input.stepsValue,
+                    input.curvesValue{
+                        width: 150px;
+                        margin-bottom: 0px;
+                    }
+                }
+                .help-icon{
+                    margin-left: 10px;
+                    top: -1px;
+                    color: $tt-green-lite;
+                    @include tt-trans-all($behavior: 3s);
+                    &:hover{
+                        color: $tt-green-hover;
+                    }
+                }
+                
+            }
+#anytime-page {
+.tt-step-function-wrap {
+    margin-top: 10px;
+    }
+}
+
+#TeamTimeDiv {
+        & .teamtime-data-rows-wrap.tt-step-function-wrap {
+        list-style: none;
+        margin-left: 0px;
+        & .active.user-div {
+            background-color: $silver;
+            & input.input-curve {background-color: white;}
+            & .direc-comparison-wrap {border: 1px solid #ddd; background-color: white !important;}
+        }
+        & li .tt-drag-slider-item.teamtime-data-row {
+                border-bottom: 1px solid #F1F1F1;
+                & .teamtime-user-column {text-align:left;}
+                & .tg-ratings.teamtime-user-rating {
+                    & input.input-curve {
+                        height:25px;
+                        margin-bottom: 0px;
+                    }
+                }
+            & .direc-comparison-wrap {
+                padding:0px;
+               background-color: #f1f1f1;
+                & .dc-group-result-bar.progress-sign {
+                    background-color: $tt-blue-lite;
+                    height: 23px;
+                }
+            }
+        }
+    }
+    & .teamtime-group-result-row.step-function {
+        margin-top: 10px !important;
+        & .rating-scale-wrap {
+            background-color: white;
+            border: 1px solid $gainsboro;
+            //& .dc-group-result-bar {background-color: $tt-blue-normal;}
+        }        
+    }
+    
+    & .teamtime-data-rows-wrap.tt-step-function-wrap {
+        & .active.user-div {
+            background-color: $silver;
+        }
+    }
+    
+}
+
+//MEDIA QUERIES
+
+//Small Only
+@media only screen and (max-width: 40em) {
+    //Teamtime adjustments
+    #TeamTimeDiv {
+        & .disable-when-pause.step-function {
+                padding:0px 5px;
+               & .tt-step-function-wrap {
+                & .reset-btn.teamtime-page {top: 0px !important;}
+                }
+                & .tt-rating-scale-wrap.step-function {
+                margin-bottom: 55px !important;
+                }
+            }
+        & .teamtime-group-result-row.step-function {
+            & span.icon-tt-chart {display: initial !important;}
+        }
+    }
+}
+
+//Medium Only
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    #TeamTimeDiv {
+        & .tt-step-function-wrap {
+            & .reset-result-btn-wrap{
+                & span.reset-btn.teamtime-page {top: 0px !important; margin-top: 0px !important;}
+            }            
+        }
+    }
+}
+
+//Large-up
+@media only screen and (min-width: 64.063em) {    
+    #TeamTimeDiv {
+        & .tt-step-function-wrap {
+            & .tt-drag-slider-item {padding: 7px 0px 5px 10px !important; margin-bottom: 0px;}
+            & .reset-btn.teamtime-page {top: 0px !important; margin-top: 0px !important;}
+            & .tg-en {padding: 0px !important;}
+        }
+       // & .teamtime-group-result-row.step-function {
+       //     & .rating-scale-wrap {
+       //     width: 38%;
+       //     position: relative;
+       //     left: -14.5%; 
+       //     }
+       // }
+        
+    }
+}

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<ss:Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <ss:Styles>
+    <ss:Style ss:ID="Default" ss:Name="Normal">
+      <ss:Alignment ss:Vertical="Bottom" />
+      <ss:Borders />
+      <ss:Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+      <ss:Interior />
+      <ss:NumberFormat ss:Format="0.###" />
+      <ss:Protection />
+    </ss:Style>
+    <ss:Style ss:ID="styleBiDirectional">
+      <ss:Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <ss:Interior ss:Color="#92D050" ss:Pattern="Solid" />
+    </ss:Style>
+    <ss:Style ss:ID="styleColumnDescription">
+      <ss:Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <ss:Interior ss:Color="#C5D9F1" ss:Pattern="Solid" />
+    </ss:Style>
+    <ss:Style ss:ID="styleReadOnly">
+      <ss:Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <ss:Interior ss:Color="#E6B8B7" ss:Pattern="Solid" />
+    </ss:Style>
+    <ss:Style ss:ID="styleBottomHeaderRow">
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+      </Borders>
+      <ss:Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <ss:Interior ss:Color="#FFFF00" ss:Pattern="Solid" />
+    </ss:Style>
+    <ss:Style ss:ID="styleHeader">
+      <ss:Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+      <ss:Interior ss:Color="#FFFF00" ss:Pattern="Solid" />
+    </ss:Style>
+    <ss:Style ss:ID="styleBottomMarkerRow">
+      <Borders>
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
+      </Borders>
+      <ss:Alignment ss:Horizontal="Right" ss:Vertical="Bottom" />
+    </ss:Style>
+  </ss:Styles>
+  <ss:Worksheet ss:Name="Datagrid">
+    <ss:Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="6" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">
+      <ss:Column ss:Width="80"/>
+      <ss:Column ss:Width="80"/>
+      <ss:Column ss:Width="80"/>
+      <ss:Column ss:Width="80"/>
+      <ss:Column ss:Width="80"/>
+      <ss:Column ss:Width="80" ecProperty="lastCol"/>
+      <ss:Row ss:Index="1" ss:AutoFitHeight="0">
+        <ss:Cell ecProperty="model_name" ss:StyleID="styleReadOnly">
+          <ss:Data ss:Type="String">Model Name</ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="AltMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="PercentMinMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="PercentMaxMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="NormalizedMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="TotalMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="lastColMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+      </ss:Row>
+      <ss:Row ss:AutoFitHeight="0" ss:Index="2">
+        <ss:Cell ecProperty="email_address" ss:StyleID="styleReadOnly">
+          <ss:Data ss:Type="String">email address</ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="AltMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="PercentMinMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="PercentMaxMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell  ecProperty="NormalizedMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="TotalMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="lastColMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+      </ss:Row>
+      <ss:Row ss:AutoFitHeight="0" ss:Index="3">
+        <ss:Cell ecProperty="synthesis_mode" ss:StyleID="styleReadOnly">
+          <ss:Data ss:Type="String">Synthesis mode</ss:Data>
+        </ss:Cell>
+        <Cell ss:StyleID="styleColumnDescription" ss:Index="6">
+          <Data ss:Type="String">Local -></Data>
+        </Cell>
+        <ss:Cell ecProperty="lastColMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+      </ss:Row>
+      <ss:Row ss:AutoFitHeight="0" ss:Index="4">
+        <Cell ss:StyleID="styleColumnDescription" ss:Index="6">
+          <Data ss:Type="String">Global -></Data>
+        </Cell>
+        <ss:Cell ecProperty="lastColMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+      </ss:Row>
+      <ss:Row ss:AutoFitHeight="0" ss:Index="5" ss:LastHeaderRow="true">
+        <ss:Cell ss:StyleID="styleBottomHeaderRow">
+          <ss:Data ss:Type="String">#</ss:Data>
+        </ss:Cell>
+        <ss:Cell ss:StyleID="styleBottomHeaderRow" ecProperty="AltMarker">
+          <ss:Data ss:Type="String" ColumnHeaderTitle="AltName">Alt Name</ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="PercentMinMarker" ss:StyleID="styleBottomHeaderRow">
+          <ss:Data ss:Type="String" ColumnHeaderTitle="% Minimum">% Minimum</ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="PercentMaxMarker" ss:StyleID="styleBottomHeaderRow">
+          <ss:Data ss:Type="String" ColumnHeaderTitle="% Maximum">% Maximum</ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="NormalizedMarker" ss:StyleID="styleBottomHeaderRow">
+          <ss:Data ss:Type="String" ColumnHeaderTitle="NormalizedMarker">Normalized</ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="TotalMarker" ss:StyleID="styleBottomHeaderRow">
+          <ss:Data ss:Type="String" ColumnHeaderTitle="Total" TotalHeader="">Total</ss:Data>
+        </ss:Cell>
+        <ss:Cell ecProperty="lastColMarker">
+          <ss:Data ss:Type="String"></ss:Data>
+        </ss:Cell>
+      </ss:Row>
+    </ss:Table>
+  </ss:Worksheet>
+</ss:Workbook>

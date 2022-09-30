@@ -1,0 +1,185 @@
+﻿<%@ Master Language="VB" CodeBehind="mpEmpty.Master.vb" Inherits="clsEmptyMasterPage" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><% =_Page.GetPageTitle() %></title>
+    <meta name="robots" content="none" /> 
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="Description" content="Collaborating on decisions is easy when your team uses Comparion's or Riskion's structured decision making process"/>
+    <!--<meta name="application-name" content="Comparion"/>
+    <meta name="apple-mobile-web-app-title" content="Comparion"/>-->
+    <meta name="theme-color" content="#84bd3e"/>
+    <meta name="msapplication-navbutton-color" content="#84bd3e"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="msapplication-starturl" content="/"/>
+    <meta name="msapplication-TileColor" content="#fafafa"/>
+    <meta name="msapplication-TileImage" content="/Images/favicon/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#fafafa"/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/Images/favicon/apple-icon-57x57.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="/Images/favicon/apple-icon-60x60.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="/Images/favicon/apple-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="/Images/favicon/apple-icon-76x76.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="/Images/favicon/apple-icon-114x114.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="/Images/favicon/apple-icon-120x120.png"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="/Images/favicon/apple-icon-144x144.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="/Images/favicon/apple-icon-152x152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon/apple-icon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="192x192"  href="/Images/favicon/android-icon-192x192.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/favicon/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="/Images/favicon/favicon-96x96.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/favicon/favicon-16x16.png"/>
+    <link rel="shortcut icon" href="/Images/favicon/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/Images/favicon/favicon.ico" type="image/x-icon"/>
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/Scripts/misc.js"></script>
+    <script type="text/javascript" src="/Scripts/masterpage.js"></script>
+    <script type="text/javascript" src="/Scripts/sidebarmenu.js"></script>
+    <script type="text/javascript" src="/Scripts/ec.reports.js"></script>
+    <asp:ContentPlaceHolder ID="head_JSFiles" runat="server"/>
+    <script type="text/javascript" src="/Scripts/dx.all.js"></script>
+    <link href="/AnytimeComparion/CustomCSS/color.css" type="text/css" rel="stylesheet" />
+
+</head>
+<body <% =If(App.isCommercialUseEnabled, "", "class='nc'") %>><form id="theForm" runat="server" style="height:100%;">
+<div class="page-mainwrapper"><div class="loadpanel"></div><div id="popupContainer"></div><div id="context-menu"></div>
+<script>
+    is_popup = true;
+    pgID  = <% =_Page.CurrentPageID %>;
+    curSID = "<% = JS_SafeString(App.Options.SessionID) %>";
+    is_mobile = <% = Bool2JS(_Page.App.isMobileBrowser) %>;
+    isRiskion = <% =Bool2JS(App.isRiskEnabled) %>;
+    curPrjID = <% =_Page.App.ProjectID  %>;
+    curPrjHID = <% = CInt(If(App.HasActiveProject AndAlso App.ActiveProject.isImpact, ECHierarchyID.hidImpact, ECHierarchyID.hidLikelihood)) %>;
+    isAdvancedMode = <% =Bool2JS(_Page.isAdvancedMode) %>;
+    show_draft = <% =Bool2JS(ShowDraftPages) %>;
+    sess_useridx = "<% =If(App.isAuthorized, App.ActiveUser.UserID, -1) %>";
+    sess_username = "<% =JS_SafeString(SafeFormString(_Page.GetSessionUserName())) %>";
+    sess_useremail = "<% =JS_SafeString(If(App.isAuthorized, SafeFormString(App.ActiveUser.UserEmail), If(App.Antigua_UserEmail <> "", App.Antigua_UserEmail, ""))) %>";
+    sess_user_anon = <% = Bool2JS(Not App.isAuthorized) %>;
+    <% =GetParsedTemplates() %>
+    initLoadingPanel();
+</script>
+<div class="content whole" id="MainContent" style="<% =If(_Page.AlignHorizontalCenter, "text-align: center;", "") %>">
+    <% If _Page.AlignVerticalCenter Then %><div class="table"><div class="tr"><div class="td tdCentered"><% If _Page.AlignHorizontalCenter Then %><div style="display:inline-block"><% End if %><% End if %>
+    <!-- main content -->
+
+<% If App.isAuthorized AndAlso ShowHelpIcon Then %><div class="icon-links" style="float:right; display:inline-block; position:fixed; right:10px; top:10px; z-index:9999"><a href="<%= If(_OPT_HELP_ROBOHELP, _URL_ROOT + ResString(If(App.isRiskEnabled, "help_BaseRisk", "help_Base")) + ResString(If(App.isRiskEnabled, "help_StartRisk", "help_Start")), "") %>" target="_blank" onclick="onShowHelp(help_uri); return false;"><i class="far fa-question-circle" id="help_icon" title="<% =SafeFormString(ResString("titleOnlineHelp")) %>"></i><%--<span class="icon_hint"><% =SafeFormString(ResString("titleOnlineHelp")) %></span>--%></a></div><% End if %>
+<asp:ContentPlaceHolder ID="PageContent" runat="server" />
+
+    <!-- /main content -->
+    <% If _Page.AlignVerticalCenter Then %><% If _Page.AlignHorizontalCenter Then %></div><% End if %></div></div></div><% End if %>
+</div>
+</div><input type="hidden" name="csrf_token" value="<% =SafeFormString(_Page._antiXsrfToken) %>" />
+    <script type="text/javascript">
+
+        curPrjData = <% = If(App.HasActiveProject, WebAPI.jProject.GetProjectByID(App).ToJSON(), "{}") %>;
+        wkg_id = <% =If(App.ActiveWorkgroup IsNot Nothing, App.ActiveWorkgroup.ID, -1) %>;
+        <% If App.HasActiveProject AndAlso App.ActiveProject.IsProjectLoaded Then %>
+        use_aip = <% =Bool2JS(App.HasActiveProject AndAlso App.ActiveProject.PipeParameters.CombinedMode = CombinedCalculationsMode.cmAIPTotals) %>;
+        has_alts = <% = Bool2JS(App.HasActiveProject AndAlso App.ActiveProject.HierarchyAlternatives.Nodes.Count > 0) %>;
+        has_csdata = <% =Bool2JS(HasCSData) %>;<% Else %>
+        use_aip = false;
+        has_alts = false;
+        has_csdata = false;<% End if %>
+        _url_infopage = "<% =JS_SafeString(_Page.PageURL(_PGID_INFO_PAGE)) %>";
+        _url_landingpage = "<% =JS_SafeString(_Page.PageURL(_PGID_LANDING_COMMON)) %>";
+        ping_hash = "<% = JS_SafeString(GetMD5(WebAPI.jSessionStatus.CreateFromBaseObject(App, Session).ToJSON())) %>";
+        ko_widget2 = true;  //<% =Bool2JS(App.isRiskEnabled) %>;
+        ko_prjid = "<% =JS_SafeString(If(App.isRiskEnabled, HelpAuthWebAPI._KO_PrjID_Riskion, HelpAuthWebAPI._KO_PrjID)) %>";
+        ko_base_url = "<% =JS_SafeString(HelpAuthWebAPI.GetHelpPath(App.isRiskEnabled)) %>";
+
+        function onPageResize() {
+            if (typeof resize_custom == "function") resize_custom();
+        }
+        
+        function getHelpURL(uri, use_base) {
+            var base = "<% = JS_SafeString(_URL_ROOT + ResString(If(App.isRiskEnabled, "help_BaseRisk", "help_Base"))) %>";
+            var def = "<% = ResStringJS(If(App.isRiskEnabled, "help_StartRisk", "help_Start")) %>";
+            if (uri=="" || typeof uri=="undefined") uri = "<% =JS_SafeString(GetHelpPage) %>";
+            if (uri[0]=="/") uri = uri.substring(1);
+            return base + (use_base ? def : "") + uri;
+        }
+
+        var helpwin = null;
+        var load_help_attempts = 3;
+        function onShowHelp(uri) {
+            <% If _OPT_HELP_ROBOHELP Then %>if (forLoggedOnly()) {
+                var url = getHelpURL(uri, true);
+                var first = (helpwin==null);
+                helpwin = CreatePopup(((first) ? url : "<% = JS_SafeString(_URL_ROOT) %>dummy.htm"), 'helpwin', 'menubar=no,maximize=no,titlebar=no,status=yes,location=yes,toolbar=yes,channelmode=no,scrollbars=yes,resizable=yes,width=950,height=600,left=50,top=30', true);
+                if (!(first) && (helpwin)) setTimeout("helpwin.document.location.href = '" + url + "'; helpwin.focus();", 350);
+            }<% Else %>
+            if ((!ko_widget2 && typeof __ko16 != "undefined") || (ko_widget2 && typeof _ko19 != "undefined" && (ko_script_loaded))) {
+                showBackgroundMessage("Help context: '" + help_uri + "'", "fas fa-question-circle", false);
+                setTimeout( function () { hideBackgroundMessage(); }, 1000);
+                updateHelpPage(uri);
+                if (ko_widget2) {
+                    //_ko19.open();
+                    _ko19.loadKnowledge();
+                } else {
+                    __ko16._toggleOpen();
+                    setTimeout(function () { storeHelpPanelState(); }, 350)
+                }
+            } else {
+                if (load_help_attempts > 0) {
+                    ko_loaded_callback = setTimeout(function () {
+                        hideLoadingPanel();
+                        onShowHelp(uri);
+                    }, 2000);
+                    showLoadingPanel();
+                    loadKOScript();
+                    load_help_attempts--;
+                }
+            }<% End If %>
+        }
+
+        function forLoggedOnly() {
+            <% If App.isAuthorized Then %>
+            return true;
+            <% Else %>
+            DevExpress.ui.dialog.alert("<% =JS_SafeString(ResString("msgAuthorizedOnly")) %>", "<% =JS_SafeString(ResString("titleInformation")) %>");
+            return false;
+            <% End If %>
+        }
+
+        //var resizeTimer;
+        function onWindowResize(e) {
+            //window.clearTimeout(resizeTimer);
+            //resizeTimer = setTimeout('onPageResize();', 50);
+            onPageResize();
+        }
+
+        $(document).keyup(function(e) {
+            if (typeof keyup_custom == "function") keyup_custom(e);
+        });
+
+        $(document).ready(function () {
+            $(window).bind("resize", onWindowResize);
+            $(window).bind("orientationchange", onWindowResize);
+            var _url_tt_status = "<% =JS_SafeString(_Page.PageURL(_PGID_TEAMTIME_STATUS)) %>";
+            var _url_tt_pipe = "<% =JS_SafeString(_Page.PageURL(_PGID_TEAMTIME)) %>";
+            var _url_structuring = "<% =JS_SafeString(_Page.PageURL(_PGID_ANTIGUA_MEETING)) %>";
+            rich_editor_url = "<% =JS_SafeString(_Page.PageURL(_PGID_RICHEDITOR)) %>"
+            infodoc_view_url = "<% =JS_SafeString(_Page.PageURL(_PGID_EVALUATE_INFODOC)) %>";
+            <% If Not _OPT_HELP_ROBOHELP AndAlso App.isAuthorized Then %><%If Not _Page.LoadOnlineHelpOnDemand Then %>loadKOScript();<% End if %><% End if %>
+            theForm.focus();
+            
+            initTooltips();
+            onPageResize();
+        });
+        window.focus();
+
+    </script>
+<div id="alert_div" title="" style="display:none;">
+    <span class="ui-icon" style="float:left; margin:10px 7px 50px 0;" id="alert_icon"></span><div id="alert_content" class="text" style="padding-top:10px"></div>
+</div>
+</form>
+</body>
+</html><!-- Comparion Core Suite (C) AD # Expert Choice Inc., 2007-22 -->

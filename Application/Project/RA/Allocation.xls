@@ -1,0 +1,138 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+    <meta name="ProgId" content="Excel.Sheet"/>
+    <meta name="Generator" content="ExpertChoice Resource Aligner"/>
+    <style type="text/css">
+		body {
+			font-size: 12px;
+			font-family: Tahoma, Arial, Helvetica, Verdana, sans-serif;
+			color: #333333;
+			border: 0;
+		}
+
+		.text, td {
+			font-size: 12px;
+			font-family: Arial, Helvetica, Verdana, sans-serif;
+			color: #333333;
+		}
+
+		h4 {
+			padding: 1ex;
+			color: #006699;
+			font-size: 16px;
+		}
+
+		.small {
+			font-size: 8pt;
+			font-family: Tahoma, Verdana, Arial, Sans;
+		}
+
+		.td_block {
+			background: #f0f0f0;
+		}
+
+		.block_name {
+			padding: 2px 1ex;
+			color: #003366;
+		}
+
+		.block_value {
+			color: #000000;
+			margin-top: 0px;
+			padding: 2px 1em;
+			background: #f5f5f5;
+			border-right: 1px solid #eaeaea;
+			border-bottom: 1px solid #eaeaea;
+			border-top: 1px solid #c0c0c0;
+			border-left: 1px solid #c0c0c0;
+		}
+
+		a.actions, a.actions:link, a.actions:visited, .actions a:link, .actions a:visited {
+			text-decoration: none;
+			color: #0066cc;
+		}
+
+			a.actions:hover, a.actions:active, .actions a:hover, .actions a:active {
+				text-decoration: underline;
+				color: #0066cc;
+			}
+
+		tr.grid_row td {
+			background: #ffffff;
+			padding: 1px 0.5ex;
+		}
+
+		tr.grid_row_alt td {
+			background: #f5f5f5;
+			padding: 1px 0.5ex;
+		}
+
+		tr.grid_row_funded td {
+			background: #ffff99;
+			padding: 1px 0.5ex;
+		}
+
+		tr.grid_row_sel td {
+			border-top: 1px solid #e0e0e0;
+			border-bottom: 1px solid #e0e0e0;
+			background: #fffaf0;
+			padding: 1px 0.5ex;
+		}
+
+		tr.grid_header th, tr.grid_header td, th {
+			font-size: 13px;
+			font-weight: bold;
+			text-align: center;
+			padding: 1px 0.5ex;
+			background: #f0f0f0;
+			border-top: 3px double #e0e0e0;
+			border-bottom: 3px double #e0e0e0;
+		}
+
+		.as_number {
+			text-align: right;
+		}
+
+		.text-overflow {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: inline;
+		}
+
+		div.text-overflow {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+		}
+
+		.ra_tp_main, td.ra_tp_main, tr.grid_clear td.ra_tp_main {
+			border-left: 1px solid #d0d0d0;
+			font-weight: normal;
+			padding: 2px;
+		}
+    </style>
+    <!--[if gte mso 9]>
+    <xml>
+       <x:ExcelWorkbook>
+          <x:ExcelWorksheets>
+                <x:ExcelWorksheet>
+                    <x:Name>Allocation</x:Name>
+                    <x:WorksheetOptions>
+                        <x:Panes> </x:Panes>
+                    </x:WorksheetOptions> 
+                </x:ExcelWorksheet>
+          </x:ExcelWorksheets>
+       </x:ExcelWorkbook> 
+    </xml>
+    <title>%%title%%</title>
+</head>
+<body>
+
+<h4>%%title%%</h4>
+
+%%content%%
+
+</body>
+</html>

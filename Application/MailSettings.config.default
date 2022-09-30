@@ -1,0 +1,3 @@
+<smtp from="&quot;Expert Choice %%appname%%&quot; &lt;noreply@expertchoice.com&gt;">
+  <network host="127.0.0.1" password="" port="25" userName="" />
+</smtp>

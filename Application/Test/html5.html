@@ -1,0 +1,23 @@
+<!doctype html> 
+<html>
+  <head>
+    <title>HTML5 tester</title>
+  </head>
+  <body>
+    <div>Test HTML 5</div>
+    <canvas id='example' width='400' height='250'>Sorry, but it requires HTML5</canvas>
+    <script>
+
+        var example = document.getElementById("example"),
+        ctx       = example.getContext('2d'),
+        pic       = new Image();
+
+      	pic.src    = 'html5.png';
+	
+	pic.onload = function() {
+        	ctx.drawImage(pic, 0, 0);
+        }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <title>Expert Choice UI Style Guide| Expert Choice UI Style Guide</title>
+  <link rel="stylesheet" href="assets/css/stylesheet.css">
+
+</head>
+<body>
+
+  <div class="off-canvas-wrapper"><div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+
+      <header class="ec-header">
+        <div class="topper-logo row expanded">
+            <div class="columns">
+                <a  href="index.html">Expert Choice Style Guide</a>
+            </div>
+        </div>
+      </header>
+
+    <div id="styleguide-component">
+      <div class="row expanded">
+        <div class="medium-7 medium-push-2 columns">
+
+          <h1>About the Expert Choice UI Style Guide</h1>
+
+          <p class="lead">The Expert Choice UI Style Guidewas made to help developers build interfaces that match Expert Choice's visual identity.
+
+          <p><hr></p>
+          <h2>Help &amp; Support</h2>
+
+        </div>
+        <div class="medium-2 medium-pull-7 columns">
+          <ul class="vertical menu" id="styleguide-menu">
+            <li class="nav-title">General</li>
+            <li><a href="typography.html">Typography</a></li>
+  <li><a href="colors.html">Colors</a></li>
+<li><a href="icons.html">Icons</a></li>
+
+
+            <li><a href="forms.html">Forms</a></li>
+          
+            <li class="nav-title">Navigation</li>
+            <li><a href="navigation.html">Overview</a></li>
+            
+            
+          
+          
+            <li class="nav-title">Controls</li>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="pagination.html">Pagination</a></li>
+          
+            <li class="nav-title">Containers</li>
+            <li><a href="tables.html">Tables</a></li>
+            <li><a href="tabs.html">Tabs </a></li>
+<li><a href="modal.html">Modal</a></li>
+<li><a href="alerts.html">Alerts</a></li>
+          </ul>
+          
+        </div>
+          <footer class="ec-footer">
+               <div class="footer-copyright row">
+                 ©2018 Expert Choice, Inc.
+          </footer>
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="../Scripts/jquery.min.js"></script>
+  <script type="text/javascript">
+    !function () {
+
+      var $h2s = $('#styleguide-component h2');
+      var $toc = $('[data-styleguide-toc]');
+
+      $h2s.each(function () {
+        // Ignore <h2>s inside of a rendered code sample
+        if ($(this).parents('.styleguide-code-live').length) return;
+
+        // Ignore the breadcrumb label
+        if ($(this).is('#breadcrumbs-label')) return;
+
+        // Ignore the main menu label
+        if ($(this).is('#main-menu-heading')) return;
+
+        //Add Magellan Target
+        $(this).attr("data-magellan-target", this.id);
+
+        var text = $(this).text();
+        var anchor = this.id;
+
+        $toc.append('<li><a href="#' + anchor + '">' + text + '</a></li>');
+      });
+
+      // Initialize Magellan on the generated table of contents
+      if ($toc.length) {
+        if (typeof Foundation !== 'undefined') {
+          new Foundation.Magellan($toc, {});
+        }
+      }
+    }();
+  </script>
+
+</body>
+</html>

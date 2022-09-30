@@ -1,0 +1,1 @@
+﻿<%@ Page Language="VB" Inherits="StructuringServicePage" MasterPageFile="" Codebehind="StructuringService.aspx.vb" EnableSessionState="False" EnableViewState="False" ViewStateMode="Disabled" EnableTheming = "False" StylesheetTheme="" Theme=""%>

@@ -1,0 +1,29 @@
+﻿<appSettings xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <add key="SQLMasterDB" value="%DB_COMPARION%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="FIPSMode" value="0"/>
+  <add key="ForceSSL" value="%OPTIONS_ForceSSL%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="SMTP_UseSSL" value="%SMTP_UseSSL%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="DisableAutoCompleteForLogin" value="%OPTIONS_DisableAutoCompleteForLogin%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="LockTimeout" value="%OPTIONS_LOCKTIMEOUT%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="HookErrors" value="1" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="FogBugz_Feedback" value="https://expertchoice.fogbugz.com/default.asp?pg=pgPublicEdit"/>
+  <add key="FogBugz_URL" value="https://expertchoice.fogbugz.com/scoutSubmit.asp"/>
+  <add key="FogBugz_UserName" value="Runtime Error User"/>
+  <add key="FogBugz_Project" value="Comparion"/>
+  <add key="FogBugz_Area" value="Runtime Errors"/>
+  <add key="FogBugz_Inbox" value="feedback@expertchoice.com"/>
+  <add key="FogBugz_AutoSubmit" value="0"/>
+  <add key="FogBugz_NoReply" value="do-not-reply@expertchoice.com"/>
+  <add key="SupportEmail" value="it@expertchoice.com" />
+  <add key="changeset" value="%OPTIONS_Changeset%" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="EvalSite" value="http://%DNS_EVALSITE%/" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="LicensePswHash" value="7ed29eef654266656f42902885a4146e" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="OptionsOverride" value="1" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="AllowBlankPassword" value="0" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="ShowDraftPages" value="1" xdt:Transform="Replace" xdt:Locator="Match(key)" />
+  <add key="ShowEvalSiteOnly" value="1" />
+  <add key="aspnet:MaxHttpCollectionKeys" value="15000"/>
+  <add key="PartnerIdP" value="" />
+  <add key="UseSSO" value="0" />
+  <add key="SSO_Only" value="0" />  
+</appSettings>

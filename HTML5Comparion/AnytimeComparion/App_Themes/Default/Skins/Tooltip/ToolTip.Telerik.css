@@ -1,0 +1,325 @@
+.RadToolTip_Telerik.rtLoading
+{	
+	background: url('Loading.gif') no-repeat center;
+	width: 100%; 
+	height: 100%;
+}
+
+div.RadToolTip_Telerik
+{
+	position: absolute;
+	cursor: default;
+}
+
+div.RadToolTip_Telerik div.rtCallout
+{
+	display: none;
+}
+
+div.RadToolTip_Telerik.rtVisibleCallout div.rtCallout
+{
+	display: block;
+}
+
+
+div.RadToolTip_Telerik table.rtWrapper
+{
+	padding: 0; 
+	margin: 0;
+	border-collapse: collapse;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopLeft,
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopRight,
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomLeft,
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomRight
+{
+	width: 3px; 
+	height: 3px; 
+	line-height: 1px; 
+	font-size: 1px;
+	background-image: url('ToolTipSprites.gif');
+	background-color: transparent;
+	background-repeat: no-repeat;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopLeft
+{
+	background-position: 0 -12px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopRight
+{
+	background-position: right -12px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomLeft
+{
+	background-position: 0 -63px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomRight
+{
+	background-position: right -63px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopCenter,
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomCenter
+{
+	height: 3px; 
+	line-height: 0px; 
+	font-size: 1px;
+	background: url('ToolTipSprites.gif') ;
+	background-repeat: repeat-x;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopCenter
+{
+	background-position: 0 -66px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomCenter
+{
+	background-position: 0 -120px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperLeftMiddle,
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperRightMiddle
+{
+	background-image:  url('ToolTipVerticalSprites.gif');
+	background-repeat: repeat-y;
+	font-size: 1px;
+	width: 3px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperLeftMiddle
+{
+	background-position: 0 0;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperRightMiddle
+{
+	background-position: -3px 0;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperContent
+{
+	font: normal 12px Arial, Sans-serif;
+	/*font: normal 12px "Segoe UI", Arial, Sans-serif;*/
+	height: 100%;
+	background-color: #fff;	
+	padding: 8px;
+	color: #000000;
+}
+
+div.RadToolTip_Telerik div.rtTitlebar
+{	
+	color: #000000;
+	font: normal 18px Arial, Sans-serif;
+	/*font: normal 18px "Segoe UI", Arial, Sans-serif;*/
+	float: left;
+	line-height: 22px;
+}
+
+div.RadToolTip_Telerik a.rtCloseButton
+{
+	display: block; 
+	float: right;
+	position: absolute;
+	right: 2px;
+	width: 12px; 
+	height: 11px;
+	font-size: 1px; 
+	line-height: 1px;
+	margin-top: 4px;
+	margin-right: 3px;
+	background-image: url('ToolTipSprites.gif');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	text-indent: -9999px;
+	outline: none;
+}
+
+/* RTL support begin */
+div.RadToolTip_Telerik_rtl a.rtCloseButton,
+div.RadToolTip_Telerik_rtl a.rtCloseButton:hover
+{
+	float: left ;
+	text-decoration: none ;
+    outline: none;
+    left: 2px;
+    margin-left: 1px;
+    right: auto;
+    margin-right: auto;
+}
+
+div.RadToolTip_Telerik_rtl div.rtTitlebar,
+div.RadToolTip_Telerik_rtl table.rtWrapper td.rtWrapperTopCenter div.rtTitlebar div
+{
+	float: right ;
+}
+
+/* position="rtCalloutCenter" */
+div.RadToolTip_Telerik_rtl .rtCalloutCenter
+{
+	right: 0;
+	left: auto;
+}
+
+/* position="rtCalloutBottomRight" */
+.RadToolTip_Telerik_rtl .rtCalloutTopLeft
+{
+	margin-right: -8px;
+	left: 0;
+}
+
+/* position="rtCalloutBottomCenter" */
+.RadToolTip_Telerik_rtl .rtCalloutTopCenter
+{
+	margin-right: 10px;
+}
+
+/* position="rtCalloutBottomLeft" */
+.RadToolTip_Telerik_rtl .rtCalloutTopRight
+{
+	margin-right: 20px;
+}
+
+/* position="rtCalloutTopCenter" */
+.RadToolTip_Telerik_rtl .rtCalloutBottomCenter
+{
+	margin-right: 10px ;
+}
+
+/* position="rtCalloutTopLeft" */
+.RadToolTip_Telerik_rtl .rtCalloutBottomRight
+{
+	margin-right: 40px ;
+}
+
+/* position="rtCalloutTopRight" */
+.RadToolTip_Telerik_rtl .rtCalloutBottomLeft
+{
+	margin-right: -20px;
+	left: 0;
+}
+
+/* position="rtCalloutMiddleRight" */
+.RadToolTip_Telerik_rtl .rtCalloutMiddleLeft
+{
+	margin-right: 10px;
+	left: 0;
+}
+
+/* position="rtCalloutMiddleLeft" */
+.RadToolTip_Telerik_rtl .rtCalloutMiddleRight
+{
+	margin-right: 1px;
+}
+/* RTL support end */
+
+div.RadToolTip_Telerik div.rtCallout
+{
+	position: absolute; 
+	height: 11px; 
+	width: 11px;
+	line-height: 0px; 
+	font-size: 1px;
+	background-image: url('Callouts.gif');
+	background-repeat: no-repeat;
+}
+
+/* position="rtCalloutCenter" */
+div.RadToolTip_Telerik .rtCalloutCenter
+{
+	visibility: hidden;
+}
+
+/* position="rtCalloutBottomRight" */
+.RadToolTip_Telerik .rtCalloutTopLeft
+{
+	margin-top: -10px; 
+	margin-left: 20px;
+	background-position: 0 -22px;
+}
+
+/* position="rtCalloutBottomCenter" */
+.RadToolTip_Telerik .rtCalloutTopCenter
+{
+	left: 50% ;
+	margin-top: -9px; 
+	margin-left: -10px;
+	background-position: 0 0 ;
+}
+
+/* position="rtCalloutBottomLeft" */
+.RadToolTip_Telerik .rtCalloutTopRight
+{
+	left: 100% ;
+	margin-top: -10px; 
+	margin-left: -20px;
+	background-position: 0 -11px ;
+}
+
+/* position="rtCalloutTopCenter" */
+.RadToolTip_Telerik .rtCalloutBottomCenter
+{
+	top: 100% ; 
+	left: 50% ;
+	margin-left: -10px ; 
+	margin-top: -1px ;
+	background-position: 0 -55px ;
+}
+
+/* position="rtCalloutTopLeft" */
+.RadToolTip_Telerik .rtCalloutBottomRight
+{
+	top: 100% ; 
+	left: 100% ;
+	margin-left: -40px ; 
+	margin-top: -1px ;
+	background-position: 0 -66px ;
+}
+
+/* position="rtCalloutTopRight" */
+.RadToolTip_Telerik .rtCalloutBottomLeft
+{
+	top: 100% ;
+	margin-left: 20px ; 
+	margin-top: -1px ;
+	background-position: 0 -77px ;
+}
+
+/* position="rtCalloutMiddleRight" */
+.RadToolTip_Telerik .rtCalloutMiddleLeft
+{
+	top: 50% ;
+	margin-left: -10px; 
+	margin-top: -7px;
+	background-position: 0 -44px ;
+}
+
+/* position="rtCalloutMiddleLeft" */
+.RadToolTip_Telerik .rtCalloutMiddleRight
+{
+	left: 100% ; 
+	top: 50% ;
+	margin-left: -1px;
+	margin-top: -10px;
+	background-position: 0 -33px;
+}
+
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopLeft,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopCenter,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperTopRight,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperLeftMiddle,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperContent,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperRightMiddle,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomLeft,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomCenter,   
+div.RadToolTip_Telerik table.rtWrapper td.rtWrapperBottomRight   
+{
+    padding: 1ex;
+    border: 0;
+    border-collapse: collapse;
+}

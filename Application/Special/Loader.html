@@ -1,0 +1,22 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Comparion Suite</title>
+    <meta name="robots" content="none" /> 
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <link rel="icon" href="favicon.ico" type="image/ico"/> 
+    <link rel="shortcut icon" href="favicon.ico" type="image/ico"/>
+</head>
+<body onload="Load();"><table width='100%' border='0' style='width:100%; height:100%'><tr><td align='center' valign='middle'><div style='text-align:center; font-family:Arial, Arial Cyr, Tahoma; font-weight:bold; font-size:13pt; color: #666666'><img src="../App_Themes/EC09/images/devex_loading.gif" title='' border='0' width='16' height='16'/> Please wait…</div></td></tr></table></body>
+<script language="javascript" type="text/javascript"><!--
+    function Load() {        
+        var url = document.location.href;
+        var offset = 1;
+        var idx = url.indexOf("#");
+        if (idx <= 0) { idx = url.indexOf("?url="); offset = 5; }
+        url = (idx > 0 ? url.substr(idx + offset) : "../dummy.htm");
+        document.location.href = url;
+        return false;
+    }
+//--></script>
+</html>

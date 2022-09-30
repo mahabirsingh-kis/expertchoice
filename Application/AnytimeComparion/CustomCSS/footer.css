@@ -1,0 +1,685 @@
+.footer {
+    padding: 10px 0;
+    position: fixed;
+    right: 0;
+    color: #74788d;
+    left: 0;
+    height: auto;
+    background-color: #EFEFEF;
+    bottom: 0;
+    z-index: 9;
+}
+/**************************** footer btn  ************************************/
+.foot_btn {
+    background: #dc6201;
+    border: none;
+    color:  var(--White);
+    padding: 4px 8px;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 4px;
+}
+/**************************** footer btn  ************************************/
+/**************************** footer progress  ************************************/
+
+.footer_progress {
+    width: fit-content;
+}
+    .footer_progress .progress {
+        height: 8px;
+        border-radius: 50px;
+        border: 1px solid #bbb;
+        background: var(--White);
+        margin-bottom: 2px;
+        color: #0058A3;
+        padding: 0px;
+    }
+
+    .footer_progress .progress .progress-bar {
+        background: var(--Primary-Blue);
+        border-radius: 50px !important;
+    }
+/**************************** footer progress  ************************************/
+
+/**************************** pagination  ************************************/
+.pagination-data {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pagination-data li {
+    list-style: none;
+  }
+  
+  .table-filter-info {
+    padding: 15px;
+  }
+  
+  .thead-primary tr th {
+    background-color: #5a8dee;
+    border-color: #5a8dee;
+    color:  var(--White);
+  }
+  
+  .rc-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .rc-pagination-item,
+  .rc-pagination-prev,
+  .rc-pagination-jump-prev,
+  .rc-pagination-jump-next,
+  .rc-pagination-next {
+    margin-right: 4px;
+  }
+  
+  .rc-pagination-total-text {
+    margin-right: 12px;
+    cursor: initial;
+  }
+  
+  .rc-pagination-jump-next,
+  .rc-pagination-jump-prev,
+  .rc-pagination-next,
+  .rc-pagination-prev {
+    display: inline-block;
+    min-width: 28px;
+    height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .rc-pagination-jump-next button,
+  .rc-pagination-jump-prev button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .rc-pagination-jump-next button:after,
+  .rc-pagination-jump-prev button:after {
+    display: block;
+    content: "•••";
+  }
+  
+  .rc-pagination-item,
+  .rc-pagination-prev,
+  .rc-pagination-next,
+  .rc-pagination-total-text {
+    min-width: initial;
+    height: auto;
+    line-height: initial;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .rc-pagination-item a, .rc-pagination-item button, .rc-pagination-prev a, .rc-pagination-prev button, .rc-pagination-next a, .rc-pagination-next button, .rc-pagination-total-text a, .rc-pagination-total-text button {
+    padding: 6px 8px;
+    height: auto;
+    min-width: 29px;
+    min-height: 29px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color:  var(--Black);
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+    .rc-pagination-item button, .rc-pagination-prev a, .rc-pagination-prev button, .rc-pagination-next a, .rc-pagination-next button, .rc-pagination-total-text button {
+        border: 1px solid var(--Light-Gray);
+        background-color: var(--Light-Gray);
+    }
+li.page-item.li_btn a.page-link.btn-green {
+    padding: 6px 8px;
+    height: auto;
+    min-width: 29px;
+    min-height: 29px;
+    border-radius: 4px;
+    border: 1px solid var(--Light-Gray);
+    background-color: var(--Light-Gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--Black);
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    line-height: 10px;
+}
+  .rc-pagination-item.rc-pagination-item-active a,
+  .rc-pagination-item.rc-pagination-item-active a:hover,
+  .rc-pagination-prev.rc-pagination-item-active a,
+  .rc-pagination-prev.rc-pagination-item-active a:hover,
+  .rc-pagination-next.rc-pagination-item-active a,
+  .rc-pagination-next.rc-pagination-item-active a:hover,
+  .rc-pagination-total-text.rc-pagination-item-active a,
+  .rc-pagination-total-text.rc-pagination-item-active a:hover {
+    background-color: #dc6201;
+    border-color: #dc6201;
+    color:  var(--White) !important;
+  }
+  
+  .rc-pagination-item a:hover,
+  .rc-pagination-item button:hover,
+  .rc-pagination-prev a:hover,
+  .rc-pagination-prev button:hover,
+  .rc-pagination-next a:hover,
+  .rc-pagination-next button:hover,
+  .rc-pagination-total-text a:hover,
+  .rc-pagination-total-text button:hover {
+    background-color: #eceff5;
+    border-color: #eceff5;
+  }
+.unassesed_btn {
+    border: 2px solid #0058a3 !important;
+    border-radius: 4px;
+    color: #0058a3;
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.unassesed_btn {
+    border: 1px solid;
+    border-radius: 4px;
+    margin: 0 3px !important;
+}
+.footer_progress_mob {
+    display: none;
+}
+.steps_list ul {
+    list-style: none;
+    padding: 0;
+}
+    .steps_list ul li a {
+        padding: 8px 10px 8px 38px;
+        display: block;
+        border-bottom: 1px solid var(--Light-Gray);
+        position: relative;
+        line-height: 1.5;
+    }
+.steps_body {
+    display: flex;
+    flex-wrap: wrap;
+}
+.steps_list {
+    width: calc(75% - 20px);
+    margin-right: 20px;
+  
+}
+    .steps_list ul {
+        max-height: calc(100vh - 260px);
+        overflow: auto;
+        margin-bottom: 0;
+    }
+        .steps_list ul li.active a {
+            background: var(--Rust-Orange);
+            color: var(--White);
+            padding: 0 0px 0 30px;
+            margin: 8px 0;
+            border-radius: 5px;
+        }
+        .steps_list ul li.active:hover a {
+            color: var(--White);
+        }
+        .steps_list ul li.active {
+            border-bottom: 1px solid var(--Light-Gray);
+        }
+.step_legent {
+    width: 25%;
+    background: var(--Light-Blue);
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+    .step_legent h3 {
+        text-transform: uppercase;
+        color: var(--Primary-Blue);
+        text-align: left;
+    }
+.step_legent ul {
+    list-style: none;
+    padding: 0;
+}
+    .step_legent ul li {
+        margin-bottom: 10px;
+        padding-left: 30px;
+        position: relative;
+        line-height: 24px;
+        border-radius: 6px;
+    }
+.step_legent ul li:before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    left: 0;
+}
+.current_step {
+    background: var(--Rust-Orange);
+    color: var(--White)
+}
+.current_step::before {
+    background: var(--Rust-Orange);
+}
+.current_step_no{
+    background: var(--Rust-Orange) !important;
+    color: var(--White);
+}
+.notjudge {
+    color: var(--Highlighter);
+}
+.notjudge::before {
+    background: var(--Highlighter);
+}
+.notjudge_no{
+    background: var(--Highlighter) !important;
+    color: var(--White);
+}
+.result_step {
+    color: var(--Link-Blue);
+}
+.result_step::before {
+    background: var(--Link-Blue);
+}
+.result_step_no{
+    background: var(--Link-Blue) !important;
+    color: var(--White);
+}
+.judge_step {
+    color: var(--Black);
+}
+.judge_step::before {
+    background: var(--Black);
+}
+.judge_step_no{
+    background: var(--Black) !important;
+    color: var(--White);
+}
+.abstained_step {
+    color: var(--dark-gray);
+}
+    .abstained_step::before {
+        background: var(--dark-gray);
+    }
+li.rc-pagination-next ul.dropdown-menu li a {
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+li.rc-pagination-next ul.dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+.pagination_tooltip:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-left: 5px solid var(--mid-gray);
+    position: absolute;
+    border-bottom: 5px solid var(--mid-gray);
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    transform: rotate(-45deg);
+    bottom: -5px;
+    left: calc(50% - 15px);
+}
+
+.disabledli {
+    pointer-events: none; /*This makes it not clickable*/
+    opacity: 0.5; /*This grays it out to look disabled*/
+}
+
+
+/**************************** pagination  ************************************/
+
+/**********************************Evaluated Tag******************************************/
+#spnEvaluatedStep {
+    font-size: 17px;
+}
+/**********************************Evaluated Tag End******************************************/
+
+/*****/
+
+/** footer changes **/
+.footer .pagination .rc-pagination-item a {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.footer .pagination .rc-pagination-item {
+    margin-right: 2px;
+}
+
+.footer .footer_progress .color_blue {
+    font-size: 16px !important;
+}
+
+.footer .paginationSpace {
+    width: 19px;
+    /*align-items: flex-end;*/
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 6px;
+}
+.footer .pagination_tooltip + span {
+    font-size: 28px;
+    margin-top: -10px;
+    color: var(--bs-gray);
+}
+
+.footer .pagination_tooltip {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    bottom: 40px;
+    right: 0px;
+    transform: translateX(50%);
+    padding: 10px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 6px;
+}
+
+    .footer .pagination_tooltip .jumptooltip_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+        .footer .pagination_tooltip .jumptooltip_wrapper span {
+            white-space: nowrap;
+            margin-right: 10px;
+            font-size: 14px;
+            color: var(--Black);
+        }
+
+        .footer .pagination_tooltip .jumptooltip_wrapper input {
+            width: 70px;
+        }
+
+        .footer .pagination_tooltip .jumptooltip_wrapper .jumptooltip_btn {
+            margin-bottom: 0;
+            background: #dc6201;
+            margin-left: 10px;
+            border: none;
+            padding: 4px 10px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 18px;
+        }
+/***/
+
+
+@media (max-width: 992px) {
+    li.rc-pagination-unassessed {
+        display: none;
+    }
+
+    li.rc-pagination-next button, li.rc-pagination-prev button {
+        font-size: 0;
+        border-radius: 4px !important;
+    }
+
+    .footer_progress_mob {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-right: 2px solid var(--Spanish-Gray);
+        display: block;
+       /* height: 100%;*/
+    }
+
+        .footer_progress_mob .progress {
+            height: auto;
+            border: none;
+            background: transparent;
+            color: var(--Primary-Blue);
+        }
+
+    footer .progress {
+        width: 40px;
+        height: 40px;
+        border-radius: 50% !important;
+        font-size: 13px;
+        color: var(--Black);
+        overflow: hidden;
+        position: relative;
+        background: transparent;
+        text-align: center;
+        line-height: 40px;
+        font-weight: 700;
+        margin: 0 10px;
+    }
+
+        footer .progress::after {
+            /*content: "%";*/
+            right: 5px;
+            position: absolute;
+            z-index: 9;
+            font-size: 13px;
+            color: var(--Black);
+            font-weight: 700;
+        }
+
+        footer .progress .title {
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            color: var(--Black);
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer .progress .overlay {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: transparent
+        }
+
+        footer .progress .left, footer .progress .right {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 3px solid var(--Secondary-Blue);
+            border-radius: 100px 0px 0px 100px;
+            border-right: 0;
+            transform-origin: right;
+        }
+
+        footer .progress .left {
+            animation: load1 1s linear forwards;
+        }
+
+        footer .progress:nth-of-type(2) .right, footer .progress:nth-of-type(3) .right {
+            animation: load2 .5s linear forwards 1s;
+        }
+
+        footer .progress:last-of-type .right, footer .progress:first-of-type .right {
+            animation: load3 .8s linear forwards 1s;
+        }
+
+    @keyframes load1 {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(190deg);
+        }
+    }
+
+    @keyframes load2 {
+        0% {
+            z-index: 100;
+            transform: rotate(180deg);
+        }
+
+        100% {
+            z-index: 100;
+            transform: rotate(270deg);
+        }
+    }
+
+    @keyframes load3 {
+        0% {
+            z-index: 100;
+            transform: rotate(180deg);
+        }
+
+        100% {
+            z-index: 100;
+            transform: rotate(315deg);
+        }
+    }
+
+    .rc-pagination-item, .rc-pagination-prev, .rc-pagination-jump-prev, .rc-pagination-jump-next, .rc-pagination-next {
+        margin-right: 3px;
+    }
+
+        .rc-pagination-item a, .rc-pagination-item button, .rc-pagination-prev a, .rc-pagination-prev button, .rc-pagination-next a, .rc-pagination-next button, .rc-pagination-total-text a, .rc-pagination-total-text button {
+            padding: 4px 4px;
+            min-width: 24px;
+            min-height: 24px;
+        }
+
+    .steps_list {
+        width: 100%;
+        margin-right: 0;
+        order: 2;
+    }
+
+    .step_legent {
+        width: 100%;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding: 15px 10px 7px;
+        margin-bottom: 15px;
+    }
+
+    .footer .pagination_tooltip .jumptooltip_wrapper {
+        flex-direction: column;
+    }
+
+        .footer .pagination_tooltip .jumptooltip_wrapper span {
+            margin-right: 0;
+        }
+
+        .footer .pagination_tooltip .jumptooltip_wrapper input {
+            width: 100%;
+        }
+
+        .footer .pagination_tooltip .jumptooltip_wrapper .jumptooltip_btn {
+            margin-left: 0;
+            margin-top: 5px;
+        }
+
+    .footer .paginationSpace {
+        margin: 0 2px 0 2px;
+    }
+
+    li.footer_btns_mob {
+        padding: 5px;
+        border-bottom: 1px solid var(--Light-Gray);
+    }
+
+        li.footer_btns_mob button, li.footer_btns_mob button:hover {
+            font-size: 13px;
+            width: 100%;
+            background: var(--Rust-Orange);
+            color: var(--White) !important;
+        }
+
+        li.footer_btns_mob .unassesed_btn {
+            color: var(--Primary-Blue) !important;
+        }
+
+    .step_legent.hide_lagents p, .step_legent.hide_lagents hr, .step_legent.hide_lagents ul {
+        display: none;
+    }
+
+    .step_legent.hide_lagents h3:after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+.step_legent h3:after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        transform: rotate(225deg);
+        right: 4px;
+        top: 6px;
+        transition: all .7s;
+    }
+
+    .step_legent h3 {
+        position: relative;
+        padding-right: 30px;
+    }
+    .step_legent.hide_lagents h3 {
+        margin-bottom: 0;
+    }
+    
+    .progressdiv {
+        position: relative;
+        width: 55px;
+    }
+    .progressdiv .progress {
+        display: block;
+        margin: 0 auto;
+        overflow: hidden;
+        transform: rotate(-90deg) rotateX(180deg);
+    }
+
+        .progressdiv .progress .bar {
+            stroke: var(--Spanish-Gray);
+        }
+
+    .progressdiv .progress circle {
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 1s ease;
+        stroke: var(--Secondary-Blue);
+        stroke-width: 9px;
+    }
+   
+    .progressdiv:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 11px;
+        transform: translate(-50%, -50%);
+        content: attr(data-percent) "%";
+        color: var(--Black);
+        width: calc(100% - 10px);
+        text-align: center;
+        font-weight: 500;
+    }
+}
